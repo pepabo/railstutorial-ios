@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,27 +21,18 @@
                                 <rect key="frame" x="233" y="165" width="134" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="16" y="165" width="368" height="30"/>
-                                </variation>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZM-hJ-G0b">
                                 <rect key="frame" x="256.5" y="130" width="87.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="156" y="130" width="87.5" height="20.5"/>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ief-Lc-C8w">
                                 <rect key="frame" x="225" y="205" width="150" height="30"/>
                                 <state key="normal" title="Set Default Label Text">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="125" y="205" width="150" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="go3-wk-IdU"/>
                                 </connections>
@@ -48,21 +40,46 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="CTO-a9-tQa" firstAttribute="centerX" secondItem="ief-Lc-C8w" secondAttribute="centerX" id="3bo-rR-3XI"/>
                             <constraint firstAttribute="centerX" secondItem="CTO-a9-tQa" secondAttribute="centerX" id="8ya-hT-c1o"/>
+                            <constraint firstItem="CTO-a9-tQa" firstAttribute="centerX" secondItem="KZM-hJ-G0b" secondAttribute="centerX" id="KPh-XP-7Sy"/>
                             <constraint firstAttribute="centerY" secondItem="ief-Lc-C8w" secondAttribute="centerY" constant="80" id="PS1-Bm-Awp"/>
                             <constraint firstAttribute="centerY" secondItem="KZM-hJ-G0b" secondAttribute="centerY" constant="160" id="QzS-ju-KDF"/>
                             <constraint firstAttribute="centerX" secondItem="ief-Lc-C8w" secondAttribute="centerX" id="Yre-wB-EEW"/>
                             <constraint firstAttribute="centerX" secondItem="KZM-hJ-G0b" secondAttribute="centerX" id="eBk-Tg-4Ig"/>
+                            <constraint firstItem="CTO-a9-tQa" firstAttribute="top" secondItem="KZM-hJ-G0b" secondAttribute="bottom" constant="14" id="eum-29-SVp"/>
+                            <constraint firstItem="CTO-a9-tQa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="exD-2G-5j3"/>
+                            <constraint firstItem="CTO-a9-tQa" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="hkl-T3-eu9"/>
+                            <constraint firstItem="ief-Lc-C8w" firstAttribute="top" secondItem="CTO-a9-tQa" secondAttribute="bottom" constant="10" id="siS-m3-9hd"/>
+                            <constraint firstItem="CTO-a9-tQa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="165" id="vpq-hr-KaH"/>
                             <constraint firstAttribute="centerY" secondItem="CTO-a9-tQa" secondAttribute="centerY" constant="120" id="wDi-HL-I4P"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3bo-rR-3XI"/>
+                                <exclude reference="KPh-XP-7Sy"/>
+                                <exclude reference="eum-29-SVp"/>
+                                <exclude reference="exD-2G-5j3"/>
+                                <exclude reference="hkl-T3-eu9"/>
+                                <exclude reference="vpq-hr-KaH"/>
+                                <exclude reference="siS-m3-9hd"/>
+                            </mask>
+                        </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
+                                <include reference="3bo-rR-3XI"/>
+                                <exclude reference="8ya-hT-c1o"/>
+                                <include reference="KPh-XP-7Sy"/>
+                                <include reference="eum-29-SVp"/>
+                                <include reference="exD-2G-5j3"/>
+                                <include reference="hkl-T3-eu9"/>
+                                <include reference="vpq-hr-KaH"/>
+                                <exclude reference="wDi-HL-I4P"/>
                                 <exclude reference="QzS-ju-KDF"/>
                                 <exclude reference="eBk-Tg-4Ig"/>
-                                <exclude reference="8ya-hT-c1o"/>
-                                <exclude reference="wDi-HL-I4P"/>
                                 <exclude reference="PS1-Bm-Awp"/>
                                 <exclude reference="Yre-wB-EEW"/>
+                                <include reference="siS-m3-9hd"/>
                             </mask>
                         </variation>
                     </view>
