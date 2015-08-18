@@ -37,6 +37,16 @@
                                     <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="go3-wk-IdU"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="iFx-V5-qcZ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="269" width="240" height="240"/>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="35F-js-VD3" appends="YES" id="jW9-rH-8wc"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -55,6 +65,9 @@
                             <constraint firstAttribute="centerY" secondItem="CTO-a9-tQa" secondAttribute="centerY" constant="120" id="wDi-HL-I4P"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="iFx-V5-qcZ"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="3bo-rR-3XI"/>
                                 <exclude reference="KPh-XP-7Sy"/>
@@ -66,6 +79,9 @@
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="iFx-V5-qcZ"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="3bo-rR-3XI"/>
                                 <exclude reference="8ya-hT-c1o"/>
@@ -86,10 +102,19 @@
                     <connections>
                         <outlet property="mealNameLabel" destination="KZM-hJ-G0b" id="QoY-60-gJe"/>
                         <outlet property="nameTextField" destination="CTO-a9-tQa" id="qcM-j9-izt"/>
+                        <outlet property="photoImageView" destination="iFx-V5-qcZ" id="mcA-Jx-FEm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="35F-js-VD3">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="NXq-Qr-QpS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="320" height="320"/>
+    </resources>
 </document>
