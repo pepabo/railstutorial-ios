@@ -9,4 +9,5 @@ test:
 						 -sdk iphonesimulator\
 						 -configuration Debug\
 						 -destination platform='iOS Simulator',OS=$(OS),name='$(DEVICE)'\
-						 clean test
+						 clean test\
+						 | bundle exec xcpretty -c && exit ${PIPESTATUS[0]}
