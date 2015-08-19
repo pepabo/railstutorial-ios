@@ -47,6 +47,18 @@
                                     <outletCollection property="gestureRecognizers" destination="35F-js-VD3" appends="YES" id="jW9-rH-8wc"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2er-ME-KKc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="180" y="532" width="40" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="openPhotoLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VI7-RN-q8g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -67,6 +79,7 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="iFx-V5-qcZ"/>
+                                <exclude reference="2er-ME-KKc"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="3bo-rR-3XI"/>
@@ -81,6 +94,7 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="iFx-V5-qcZ"/>
+                                <include reference="2er-ME-KKc"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="3bo-rR-3XI"/>
