@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Lvb-ZI-qJv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meal Table View Controller-->
+        <scene sceneID="wRN-C5-hIj">
+            <objects>
+                <tableViewController id="Lvb-ZI-qJv" customClass="MealTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bub-0Z-Svk">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="90" id="pit-fs-UEW" customClass="MealTableViewCell" customModule="FoodTracker" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pit-fs-UEW" id="Ywk-YM-BeB">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="yzR-f9-U4L">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="0.0" y="0.0" width="87" height="89.5"/>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGM-8S-zvL">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="95" y="8" width="105" height="21"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="yzR-f9-U4L"/>
+                                            <exclude reference="mGM-8S-zvL"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="yzR-f9-U4L"/>
+                                            <include reference="mGM-8S-zvL"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="mGM-8S-zvL" id="GA0-oK-cE5"/>
+                                    <outlet property="photoImageView" destination="yzR-f9-U4L" id="xlv-ZS-Rg4"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Lvb-ZI-qJv" id="4Tu-o5-OFd"/>
+                            <outlet property="delegate" destination="Lvb-ZI-qJv" id="CZr-qG-oMR"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obp-Ke-p0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-490.5" y="388"/>
+        </scene>
+        <!--Meal View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,12 +80,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZM-hJ-G0b">
-                                <rect key="frame" x="256.5" y="130" width="87.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ief-Lc-C8w">
                                 <rect key="frame" x="225" y="205" width="150" height="30"/>
                                 <state key="normal" title="Set Default Label Text">
@@ -64,12 +116,8 @@
                         <constraints>
                             <constraint firstItem="CTO-a9-tQa" firstAttribute="centerX" secondItem="ief-Lc-C8w" secondAttribute="centerX" id="3bo-rR-3XI"/>
                             <constraint firstAttribute="centerX" secondItem="CTO-a9-tQa" secondAttribute="centerX" id="8ya-hT-c1o"/>
-                            <constraint firstItem="CTO-a9-tQa" firstAttribute="centerX" secondItem="KZM-hJ-G0b" secondAttribute="centerX" id="KPh-XP-7Sy"/>
                             <constraint firstAttribute="centerY" secondItem="ief-Lc-C8w" secondAttribute="centerY" constant="80" id="PS1-Bm-Awp"/>
-                            <constraint firstAttribute="centerY" secondItem="KZM-hJ-G0b" secondAttribute="centerY" constant="160" id="QzS-ju-KDF"/>
                             <constraint firstAttribute="centerX" secondItem="ief-Lc-C8w" secondAttribute="centerX" id="Yre-wB-EEW"/>
-                            <constraint firstAttribute="centerX" secondItem="KZM-hJ-G0b" secondAttribute="centerX" id="eBk-Tg-4Ig"/>
-                            <constraint firstItem="CTO-a9-tQa" firstAttribute="top" secondItem="KZM-hJ-G0b" secondAttribute="bottom" constant="14" id="eum-29-SVp"/>
                             <constraint firstItem="CTO-a9-tQa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="exD-2G-5j3"/>
                             <constraint firstItem="CTO-a9-tQa" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="hkl-T3-eu9"/>
                             <constraint firstItem="ief-Lc-C8w" firstAttribute="top" secondItem="CTO-a9-tQa" secondAttribute="bottom" constant="10" id="siS-m3-9hd"/>
@@ -83,8 +131,6 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="3bo-rR-3XI"/>
-                                <exclude reference="KPh-XP-7Sy"/>
-                                <exclude reference="eum-29-SVp"/>
                                 <exclude reference="exD-2G-5j3"/>
                                 <exclude reference="hkl-T3-eu9"/>
                                 <exclude reference="vpq-hr-KaH"/>
@@ -99,14 +145,10 @@
                             <mask key="constraints">
                                 <include reference="3bo-rR-3XI"/>
                                 <exclude reference="8ya-hT-c1o"/>
-                                <include reference="KPh-XP-7Sy"/>
-                                <include reference="eum-29-SVp"/>
                                 <include reference="exD-2G-5j3"/>
                                 <include reference="hkl-T3-eu9"/>
                                 <include reference="vpq-hr-KaH"/>
                                 <exclude reference="wDi-HL-I4P"/>
-                                <exclude reference="QzS-ju-KDF"/>
-                                <exclude reference="eBk-Tg-4Ig"/>
                                 <exclude reference="PS1-Bm-Awp"/>
                                 <exclude reference="Yre-wB-EEW"/>
                                 <include reference="siS-m3-9hd"/>
@@ -114,7 +156,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="mealNameLabel" destination="KZM-hJ-G0b" id="QoY-60-gJe"/>
                         <outlet property="nameTextField" destination="CTO-a9-tQa" id="qcM-j9-izt"/>
                         <outlet property="photoImageView" destination="iFx-V5-qcZ" id="mcA-Jx-FEm"/>
                     </connections>
