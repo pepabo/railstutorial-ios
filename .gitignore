@@ -1,4 +1,6 @@
 .DS_store
+.bundle/
+vendor/
 
 # Xcode
 #
