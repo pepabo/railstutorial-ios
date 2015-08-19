@@ -86,8 +86,8 @@
 			children = (
 				ABF1C7301B84557D00032F37 /* MealTableViewCell.swift */,
 				AB55C0391B8304830077C16C /* AppDelegate.swift */,
-				AB55C03B1B8304830077C16C /* MealViewController.swift */,
 				AB55C03D1B8304830077C16C /* Main.storyboard */,
+				AB55C03B1B8304830077C16C /* MealViewController.swift */,
 				89878BB11B844E8C004CCD77 /* MealTableViewController.swift */,
 				89878BAA1B842B41004CCD77 /* Meal.swift */,
 				AB55C0401B8304830077C16C /* Images.xcassets */,
