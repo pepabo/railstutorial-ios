@@ -6,7 +6,7 @@ DEVICE = iPhone Retina (4-inch)
 test:
 	xcodebuild -project $(PROJECT)\
 	           -scheme $(TEST_TARGET)\
-						 -sdk iphonesimulator$(OS)\
+						 -sdk iphonesimulator\
 						 -configuration Debug\
 						 -destination platform='iOS Simulator',OS=$(OS),name='$(DEVICE)'\
 						 clean test
