@@ -8,7 +8,7 @@
 
 ## テスト
 ターミナルからしたい人用に用意してあります。
-`bundle install` しておいてください(整形用に[xcpretty](https://github.com/supermarin/xcpretty)を使っているため)。
+`bundle install` しておいてください(整形用に[xcpretty](https://github.com/supermarin/xcpretty)を使っているため)。
 
 実行方法は以下の通り。
 ```
