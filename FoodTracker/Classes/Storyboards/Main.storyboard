@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Your Meals-->
+        <!--Feed-->
         <scene sceneID="wRN-C5-hIj">
             <objects>
                 <tableViewController id="Lvb-ZI-qJv" customClass="MealTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,13 +25,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="87" height="89.5"/>
                                             </variation>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGM-8S-zvL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGM-8S-zvL">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="95" y="8" width="105" height="21"/>
+                                                <rect key="frame" x="95" y="8" width="297" height="73.5"/>
                                             </variation>
                                         </label>
                                     </subviews>
@@ -59,7 +59,7 @@
                             <outlet property="delegate" destination="Lvb-ZI-qJv" id="CZr-qG-oMR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Meals" id="Jbw-O7-ucR">
+                    <navigationItem key="navigationItem" title="Feed" id="Jbw-O7-ucR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kGS-i7-iCP">
                             <connections>
                                 <segue destination="oh9-xM-0V8" kind="presentation" identifier="AddItem" id="zQt-ZP-6ik"/>
@@ -69,9 +69,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obp-Ke-p0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121" y="388"/>
+            <point key="canvasLocation" x="120" y="388"/>
         </scene>
-        <!--New Meal-->
+        <!--New Post-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,25 +83,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CTO-a9-tQa">
-                                <rect key="frame" x="233" y="165" width="134" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ief-Lc-C8w">
-                                <rect key="frame" x="225" y="205" width="150" height="30"/>
-                                <state key="normal" title="Set Default Label Text">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="go3-wk-IdU"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="iFx-V5-qcZ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <gestureRecognizers/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="80" y="269" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="S1S-KZ-vSQ"/>
+                                    <constraint firstAttribute="height" constant="240" id="lth-vm-gDa"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S1S-KZ-vSQ"/>
+                                        <exclude reference="lth-vm-gDa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="S1S-KZ-vSQ"/>
+                                        <include reference="lth-vm-gDa"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="35F-js-VD3" appends="YES" id="jW9-rH-8wc"/>
@@ -112,58 +111,81 @@
                                 <state key="normal" title="photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="180" y="532" width="40" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="openPhotoLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VI7-RN-q8g"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYj-qb-mGM">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.93201546717171713" green="0.93201546717171713" blue="0.93201546717171713" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="147" id="Sx5-js-sHG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Sx5-js-sHG"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Sx5-js-sHG"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="H6q-0W-Q2P"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="CTO-a9-tQa" firstAttribute="centerX" secondItem="ief-Lc-C8w" secondAttribute="centerX" id="3bo-rR-3XI"/>
-                            <constraint firstAttribute="centerX" secondItem="CTO-a9-tQa" secondAttribute="centerX" id="8ya-hT-c1o"/>
-                            <constraint firstAttribute="centerY" secondItem="ief-Lc-C8w" secondAttribute="centerY" constant="80" id="PS1-Bm-Awp"/>
-                            <constraint firstAttribute="centerX" secondItem="ief-Lc-C8w" secondAttribute="centerX" id="Yre-wB-EEW"/>
-                            <constraint firstItem="CTO-a9-tQa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="exD-2G-5j3"/>
-                            <constraint firstItem="CTO-a9-tQa" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="hkl-T3-eu9"/>
-                            <constraint firstItem="ief-Lc-C8w" firstAttribute="top" secondItem="CTO-a9-tQa" secondAttribute="bottom" constant="10" id="siS-m3-9hd"/>
-                            <constraint firstItem="CTO-a9-tQa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="165" id="vpq-hr-KaH"/>
-                            <constraint firstAttribute="centerY" secondItem="CTO-a9-tQa" secondAttribute="centerY" constant="120" id="wDi-HL-I4P"/>
+                            <constraint firstAttribute="centerX" secondItem="iFx-V5-qcZ" secondAttribute="centerX" id="70D-49-g7q"/>
+                            <constraint firstItem="GYj-qb-mGM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ac2-Sl-uCz"/>
+                            <constraint firstItem="GYj-qb-mGM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="100" id="FnD-1l-d11"/>
+                            <constraint firstAttribute="centerX" secondItem="2er-ME-KKc" secondAttribute="centerX" id="YsX-j4-lcg"/>
+                            <constraint firstItem="iFx-V5-qcZ" firstAttribute="top" secondItem="GYj-qb-mGM" secondAttribute="bottom" constant="22" id="gCF-ql-0LX"/>
+                            <constraint firstItem="2er-ME-KKc" firstAttribute="top" secondItem="iFx-V5-qcZ" secondAttribute="bottom" constant="23" id="p4t-4G-j1w"/>
+                            <constraint firstItem="GYj-qb-mGM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="vWU-ng-uqM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="iFx-V5-qcZ"/>
                                 <exclude reference="2er-ME-KKc"/>
+                                <exclude reference="GYj-qb-mGM"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="3bo-rR-3XI"/>
-                                <exclude reference="exD-2G-5j3"/>
-                                <exclude reference="hkl-T3-eu9"/>
-                                <exclude reference="vpq-hr-KaH"/>
-                                <exclude reference="siS-m3-9hd"/>
+                                <exclude reference="Ac2-Sl-uCz"/>
+                                <exclude reference="FnD-1l-d11"/>
+                                <exclude reference="vWU-ng-uqM"/>
+                                <exclude reference="70D-49-g7q"/>
+                                <exclude reference="gCF-ql-0LX"/>
+                                <exclude reference="YsX-j4-lcg"/>
+                                <exclude reference="p4t-4G-j1w"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="iFx-V5-qcZ"/>
                                 <include reference="2er-ME-KKc"/>
+                                <include reference="GYj-qb-mGM"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="3bo-rR-3XI"/>
-                                <exclude reference="8ya-hT-c1o"/>
-                                <include reference="exD-2G-5j3"/>
-                                <include reference="hkl-T3-eu9"/>
-                                <include reference="vpq-hr-KaH"/>
-                                <exclude reference="wDi-HL-I4P"/>
-                                <exclude reference="PS1-Bm-Awp"/>
-                                <exclude reference="Yre-wB-EEW"/>
-                                <include reference="siS-m3-9hd"/>
+                                <include reference="Ac2-Sl-uCz"/>
+                                <include reference="FnD-1l-d11"/>
+                                <include reference="vWU-ng-uqM"/>
+                                <include reference="70D-49-g7q"/>
+                                <include reference="gCF-ql-0LX"/>
+                                <include reference="YsX-j4-lcg"/>
+                                <include reference="p4t-4G-j1w"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bpb-RU-RM5" appends="YES" id="hK7-pc-R6b"/>
+                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="New Meal" id="OTm-vE-Lx5">
+                    <navigationItem key="navigationItem" title="New Post" id="OTm-vE-Lx5">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KyJ-4N-AoF">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="eO9-t0-Nfe"/>
@@ -176,8 +198,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="nameTextField" destination="CTO-a9-tQa" id="qcM-j9-izt"/>
                         <outlet property="photoImageView" destination="iFx-V5-qcZ" id="mcA-Jx-FEm"/>
+                        <outlet property="postField" destination="GYj-qb-mGM" id="5gF-Jj-alm"/>
                         <outlet property="saveButton" destination="hfu-xh-Mrc" id="GuK-HO-aeW"/>
                     </connections>
                 </viewController>
@@ -186,6 +208,11 @@
                 <tapGestureRecognizer id="35F-js-VD3">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="NXq-Qr-QpS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bpb-RU-RM5">
+                    <connections>
+                        <action selector="unFocusTextField:" destination="BYZ-38-t0r" id="JLn-vk-AzE"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
