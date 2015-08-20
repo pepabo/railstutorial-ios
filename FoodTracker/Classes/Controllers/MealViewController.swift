@@ -8,22 +8,22 @@
 
 import UIKit
 
-class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MealViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     
-    @IBOutlet weak var nameTextField: UITextField!
+//    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var postField: UITextView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+
     var meal = Meal?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameTextField.delegate = self
-        
         // Do any additional setup after loading the view, typically from a nib.
-        nameTextField.delegate = self
+        postField.delegate = self
         
         // Enable the Save button only if the text field has a valid Meal name.
         checkValidMealName()
@@ -34,7 +34,11 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: Action
+    // MARK: Actions
+    
+    @IBAction func unFocusTextField(sender: AnyObject) {
+        postField.resignFirstResponder()
+    }
     
     /* @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
     // Hide the keyboard.
@@ -51,7 +55,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     @IBAction func openPhotoLibrary(sender: UIButton) {
         // Hide the keyboard.
-        nameTextField.resignFirstResponder()
+        postField.resignFirstResponder()
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
         // Only allow photos to be picked, not taken.
@@ -71,7 +75,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
-            let name = nameTextField.text ?? ""
+            let name = postField.text ?? ""
             let photo = photoImageView.image
             
             // Set the meal to be passed to MealTableViewController after the unwind segue.
@@ -82,25 +86,25 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     // MARK: UITextFieldDelegate
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         // Hide the keyboard.
-        textField.resignFirstResponder()
+        textView.resignFirstResponder()
         return true
     }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
+
+    func textViewDidBeginEditing(textView: UITextView) {
         // Disable the Save button while editing.
         saveButton.enabled = false
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textViewDidChange(textView: UITextView) {
         checkValidMealName()
-        navigationItem.title = textField.text
+        navigationItem.title = textView.text
     }
     
     func checkValidMealName() {
         // Disable the Save button if the text field is empty.
-        let text = nameTextField.text ?? ""
+        let text = postField.text ?? ""
         saveButton.enabled = !text.isEmpty
     }
     
