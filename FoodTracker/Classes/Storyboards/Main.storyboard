@@ -343,19 +343,106 @@
             </objects>
             <point key="canvasLocation" x="943.5" y="738"/>
         </scene>
-        <!--Table View Controller-->
+        <!--User View Controller-->
         <scene sceneID="2sO-SB-qkS">
             <objects>
-                <tableViewController id="NIT-Rz-oJj" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7uq-mq-iFI">
+                <tableViewController id="NIT-Rz-oJj" customClass="UserViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="190" sectionHeaderHeight="22" sectionFooterHeight="22" id="7uq-mq-iFI">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UIw-MM-6Wr">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserTableViewCell" rowHeight="66" id="UIw-MM-6Wr" customClass="UserTableViewCell" customModule="FoodTracker" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UIw-MM-6Wr" id="emO-jp-z0j">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal1" translatesAutoresizingMaskIntoConstraints="NO" id="Ck4-Ft-eVJ" userLabel="user icon">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="gfW-tC-F1z"/>
+                                                <constraint firstAttribute="width" constant="50" id="gh3-zf-n9c"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="gfW-tC-F1z"/>
+                                                    <exclude reference="gh3-zf-n9c"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="gfW-tC-F1z"/>
+                                                    <include reference="gh3-zf-n9c"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2h-WL-bd7">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yre-4t-S5p">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="follow:" destination="UIw-MM-6Wr" eventType="touchUpInside" id="4pS-Qg-geG"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="yre-4t-S5p" secondAttribute="centerY" id="6Fk-D7-GO5"/>
+                                        <constraint firstAttribute="centerY" secondItem="Ck4-Ft-eVJ" secondAttribute="centerY" id="K5b-UD-wNo"/>
+                                        <constraint firstAttribute="centerY" secondItem="p2h-WL-bd7" secondAttribute="centerY" id="M5Q-jc-fUA"/>
+                                        <constraint firstAttribute="centerY" secondItem="Ck4-Ft-eVJ" secondAttribute="centerY" id="VAi-ac-1UB"/>
+                                        <constraint firstItem="Ck4-Ft-eVJ" firstAttribute="top" secondItem="emO-jp-z0j" secondAttribute="topMargin" id="W5m-m4-9YN"/>
+                                        <constraint firstItem="Ck4-Ft-eVJ" firstAttribute="leading" secondItem="emO-jp-z0j" secondAttribute="leadingMargin" id="ayq-WJ-o93"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ck4-Ft-eVJ" secondAttribute="bottom" constant="-0.5" id="eev-nF-oGI"/>
+                                        <constraint firstItem="p2h-WL-bd7" firstAttribute="leading" secondItem="Ck4-Ft-eVJ" secondAttribute="trailing" constant="8" id="iEZ-dN-ABL"/>
+                                        <constraint firstItem="yre-4t-S5p" firstAttribute="trailing" secondItem="emO-jp-z0j" secondAttribute="trailingMargin" id="oKU-gT-uRZ"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="Ck4-Ft-eVJ"/>
+                                            <exclude reference="p2h-WL-bd7"/>
+                                            <exclude reference="yre-4t-S5p"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="K5b-UD-wNo"/>
+                                            <exclude reference="VAi-ac-1UB"/>
+                                            <exclude reference="W5m-m4-9YN"/>
+                                            <exclude reference="ayq-WJ-o93"/>
+                                            <exclude reference="eev-nF-oGI"/>
+                                            <exclude reference="M5Q-jc-fUA"/>
+                                            <exclude reference="iEZ-dN-ABL"/>
+                                            <exclude reference="6Fk-D7-GO5"/>
+                                            <exclude reference="oKU-gT-uRZ"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="Ck4-Ft-eVJ"/>
+                                            <include reference="p2h-WL-bd7"/>
+                                            <include reference="yre-4t-S5p"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="K5b-UD-wNo"/>
+                                            <include reference="VAi-ac-1UB"/>
+                                            <include reference="W5m-m4-9YN"/>
+                                            <include reference="ayq-WJ-o93"/>
+                                            <include reference="eev-nF-oGI"/>
+                                            <include reference="M5Q-jc-fUA"/>
+                                            <include reference="iEZ-dN-ABL"/>
+                                            <include reference="6Fk-D7-GO5"/>
+                                            <include reference="oKU-gT-uRZ"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="userIcon" destination="Ck4-Ft-eVJ" id="xiy-xp-PH5"/>
+                                    <outlet property="userName" destination="p2h-WL-bd7" id="OBW-bX-A64"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -389,5 +476,6 @@
     </scenes>
     <resources>
         <image name="Image" width="320" height="320"/>
+        <image name="meal1" width="400" height="264"/>
     </resources>
 </document>
