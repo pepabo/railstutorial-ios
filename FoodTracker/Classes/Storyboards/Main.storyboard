@@ -396,9 +396,7 @@
                                         <constraint firstAttribute="centerY" secondItem="Ck4-Ft-eVJ" secondAttribute="centerY" id="K5b-UD-wNo"/>
                                         <constraint firstAttribute="centerY" secondItem="p2h-WL-bd7" secondAttribute="centerY" id="M5Q-jc-fUA"/>
                                         <constraint firstAttribute="centerY" secondItem="Ck4-Ft-eVJ" secondAttribute="centerY" id="VAi-ac-1UB"/>
-                                        <constraint firstItem="Ck4-Ft-eVJ" firstAttribute="top" secondItem="emO-jp-z0j" secondAttribute="topMargin" id="W5m-m4-9YN"/>
                                         <constraint firstItem="Ck4-Ft-eVJ" firstAttribute="leading" secondItem="emO-jp-z0j" secondAttribute="leadingMargin" id="ayq-WJ-o93"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Ck4-Ft-eVJ" secondAttribute="bottom" constant="-0.5" id="eev-nF-oGI"/>
                                         <constraint firstItem="p2h-WL-bd7" firstAttribute="leading" secondItem="Ck4-Ft-eVJ" secondAttribute="trailing" constant="8" id="iEZ-dN-ABL"/>
                                         <constraint firstItem="yre-4t-S5p" firstAttribute="trailing" secondItem="emO-jp-z0j" secondAttribute="trailingMargin" id="oKU-gT-uRZ"/>
                                     </constraints>
@@ -411,9 +409,7 @@
                                         <mask key="constraints">
                                             <exclude reference="K5b-UD-wNo"/>
                                             <exclude reference="VAi-ac-1UB"/>
-                                            <exclude reference="W5m-m4-9YN"/>
                                             <exclude reference="ayq-WJ-o93"/>
-                                            <exclude reference="eev-nF-oGI"/>
                                             <exclude reference="M5Q-jc-fUA"/>
                                             <exclude reference="iEZ-dN-ABL"/>
                                             <exclude reference="6Fk-D7-GO5"/>
@@ -429,9 +425,7 @@
                                         <mask key="constraints">
                                             <include reference="K5b-UD-wNo"/>
                                             <include reference="VAi-ac-1UB"/>
-                                            <include reference="W5m-m4-9YN"/>
                                             <include reference="ayq-WJ-o93"/>
-                                            <include reference="eev-nF-oGI"/>
                                             <include reference="M5Q-jc-fUA"/>
                                             <include reference="iEZ-dN-ABL"/>
                                             <include reference="6Fk-D7-GO5"/>
