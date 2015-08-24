@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NxN-W1-faf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NxN-W1-faf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -60,9 +61,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Feed" id="Jbw-O7-ucR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kGS-i7-iCP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="NiB-a5-3f0">
                             <connections>
-                                <segue destination="oh9-xM-0V8" kind="presentation" identifier="AddItem" id="zQt-ZP-6ik"/>
+                                <segue destination="oh9-xM-0V8" kind="presentation" identifier="AddItem" id="5o1-dl-6Ww"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -156,13 +157,13 @@
                                 <exclude reference="GYj-qb-mGM"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="YsX-j4-lcg"/>
+                                <exclude reference="p4t-4G-j1w"/>
                                 <exclude reference="Ac2-Sl-uCz"/>
                                 <exclude reference="FnD-1l-d11"/>
                                 <exclude reference="vWU-ng-uqM"/>
                                 <exclude reference="70D-49-g7q"/>
                                 <exclude reference="gCF-ql-0LX"/>
-                                <exclude reference="YsX-j4-lcg"/>
-                                <exclude reference="p4t-4G-j1w"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -172,13 +173,13 @@
                                 <include reference="GYj-qb-mGM"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="YsX-j4-lcg"/>
+                                <include reference="p4t-4G-j1w"/>
                                 <include reference="Ac2-Sl-uCz"/>
                                 <include reference="FnD-1l-d11"/>
                                 <include reference="vWU-ng-uqM"/>
                                 <include reference="70D-49-g7q"/>
                                 <include reference="gCF-ql-0LX"/>
-                                <include reference="YsX-j4-lcg"/>
-                                <include reference="p4t-4G-j1w"/>
                             </mask>
                         </variation>
                         <connections>
@@ -234,7 +235,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JUC-VQ-5Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-491" y="388"/>
+            <point key="canvasLocation" x="-603" y="388"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ieg-zT-qNZ">
