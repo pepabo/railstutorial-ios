@@ -4,7 +4,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     
     // MARK: - Properties
     @IBOutlet weak var postField: UITextView!
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
 
@@ -40,7 +40,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
             let content = postField.text ?? ""
-            let picture = photoImageView.image
+            let picture = pictureImageView.image
             
             micropost = Micropost(content: content, picture: picture)
         }
@@ -74,7 +74,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        photoImageView.image = selectedImage
+        pictureImageView.image = selectedImage
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

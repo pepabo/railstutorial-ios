@@ -51,7 +51,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="mGM-8S-zvL" id="GA0-oK-cE5"/>
-                                    <outlet property="photoImageView" destination="yzR-f9-U4L" id="xlv-ZS-Rg4"/>
+                                    <outlet property="pictureImageView" destination="yzR-f9-U4L" id="u4N-13-KwS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -204,7 +204,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="photoImageView" destination="iFx-V5-qcZ" id="mcA-Jx-FEm"/>
+                        <outlet property="pictureImageView" destination="iFx-V5-qcZ" id="Li7-e1-6of"/>
                         <outlet property="postField" destination="GYj-qb-mGM" id="5gF-Jj-alm"/>
                         <outlet property="saveButton" destination="hfu-xh-Mrc" id="GuK-HO-aeW"/>
                     </connections>

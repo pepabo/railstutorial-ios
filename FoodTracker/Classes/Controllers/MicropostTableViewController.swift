@@ -39,7 +39,7 @@ class MicropostTableViewController: UITableViewController {
         let micropost = microposts[indexPath.row]
         
         cell.nameLabel.text = micropost.content
-        cell.photoImageView.image = micropost.picture
+        cell.pictureImageView.image = micropost.picture
         
         return cell
     }
