@@ -6,7 +6,6 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var userIcon: UIButton!
     
     // MARK: - Actions
-    
     @IBAction func follow(sender: UIButton) {
     }
 }

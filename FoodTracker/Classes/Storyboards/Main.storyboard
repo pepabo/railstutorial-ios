@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NxN-W1-faf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NxN-W1-faf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -9,13 +9,13 @@
         <!--Feed-->
         <scene sceneID="wRN-C5-hIj">
             <objects>
-                <tableViewController id="Lvb-ZI-qJv" customClass="MealTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Lvb-ZI-qJv" customClass="FeedViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bub-0Z-Svk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="90" id="pit-fs-UEW" customClass="MealTableViewCell" customModule="FoodTracker" customModuleProvider="target">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MicropostTableViewCell" rowHeight="90" id="pit-fs-UEW" customClass="MicropostTableViewCell" customModule="FoodTracker" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pit-fs-UEW" id="Ywk-YM-BeB">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -50,8 +50,8 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="mGM-8S-zvL" id="GA0-oK-cE5"/>
-                                    <outlet property="photoImageView" destination="yzR-f9-U4L" id="xlv-ZS-Rg4"/>
+                                    <outlet property="contentLabel" destination="mGM-8S-zvL" id="LDy-FE-0wU"/>
+                                    <outlet property="pictureImageView" destination="yzR-f9-U4L" id="u4N-13-KwS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -80,7 +80,7 @@
         <!--New Post-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MicropostViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -199,13 +199,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="hfu-xh-Mrc">
                             <connections>
-                                <segue destination="AiK-Mo-ZxH" kind="unwind" unwindAction="unwindToMealList:" id="fsB-Sw-KQk"/>
+                                <segue destination="AiK-Mo-ZxH" kind="unwind" unwindAction="unwindToMicropostList:" id="fsB-Sw-KQk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="photoImageView" destination="iFx-V5-qcZ" id="mcA-Jx-FEm"/>
-                        <outlet property="postField" destination="GYj-qb-mGM" id="5gF-Jj-alm"/>
+                        <outlet property="contentField" destination="GYj-qb-mGM" id="lMr-4R-87x"/>
+                        <outlet property="pictureImageView" destination="iFx-V5-qcZ" id="Li7-e1-6of"/>
                         <outlet property="saveButton" destination="hfu-xh-Mrc" id="GuK-HO-aeW"/>
                     </connections>
                 </viewController>
@@ -421,6 +421,9 @@
                                             <exclude reference="dwB-Q6-c6S"/>
                                             <exclude reference="6Fk-D7-GO5"/>
                                             <exclude reference="oKU-gT-uRZ"/>
+                                            <exclude reference="K5b-UD-wNo"/>
+                                            <exclude reference="VAi-ac-1UB"/>
+                                            <exclude reference="ayq-WJ-o93"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -436,6 +439,9 @@
                                             <include reference="dwB-Q6-c6S"/>
                                             <include reference="6Fk-D7-GO5"/>
                                             <include reference="oKU-gT-uRZ"/>
+                                            <include reference="K5b-UD-wNo"/>
+                                            <include reference="VAi-ac-1UB"/>
+                                            <include reference="ayq-WJ-o93"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -851,6 +857,6 @@
     </scenes>
     <resources>
         <image name="Image" width="320" height="320"/>
-        <image name="meal1" width="400" height="264"/>
+        <image name="micropost1" width="400" height="264"/>
     </resources>
 </document>
