@@ -59,7 +59,6 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     
     func textViewDidChange(textView: UITextView) {
         checkValidMicropostContent()
-        navigationItem.title = textView.text
     }
     
     func checkValidMicropostContent() {
