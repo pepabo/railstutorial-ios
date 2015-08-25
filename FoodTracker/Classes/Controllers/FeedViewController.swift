@@ -1,6 +1,6 @@
 import UIKit
 
-class MicropostTableViewController: UITableViewController {
+class FeedViewController: UITableViewController {
     // MARK: - Properties
     var microposts = [Micropost]()
     
