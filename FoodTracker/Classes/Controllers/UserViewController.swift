@@ -24,7 +24,7 @@ class UserViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UserTableViewCell
         let user = users[indexPath.row]
         cell.userName.text = user.name
-        cell.userIcon.image = UIImage(data: NSData(contentsOfURL: user.icon)!)
+        cell.userIcon.imageView?.image = UIImage(data: NSData(contentsOfURL: user.icon)!)
         
         return cell
     }
