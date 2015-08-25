@@ -22,10 +22,6 @@ class MicropostTableViewController: UITableViewController {
         microposts += [micropost1, micropost2, micropost3]
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

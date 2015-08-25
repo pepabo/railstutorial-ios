@@ -10,14 +10,11 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
 
     var micropost = Micropost?()
     
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         postField.delegate = self
         checkValidMicropostName()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     // MARK: - Actions
