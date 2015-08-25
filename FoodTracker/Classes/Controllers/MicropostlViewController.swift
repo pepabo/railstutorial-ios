@@ -3,7 +3,7 @@ import UIKit
 class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
-    @IBOutlet weak var postField: UITextView!
+    @IBOutlet weak var contentField: UITextView!
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -13,17 +13,17 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        postField.delegate = self
+        contentField.delegate = self
         checkValidMicropostContent()
     }
     
     // MARK: - Actions
     @IBAction func unFocusTextField(sender: AnyObject) {
-        postField.resignFirstResponder()
+        contentField.resignFirstResponder()
     }
     
     @IBAction func openPhotoLibrary(sender: UIButton) {
-        postField.resignFirstResponder()
+        contentField.resignFirstResponder()
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .PhotoLibrary
@@ -39,7 +39,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
-            let content = postField.text ?? ""
+            let content = contentField.text ?? ""
             let picture = pictureImageView.image
             
             micropost = Micropost(content: content, picture: picture)
@@ -63,7 +63,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     }
     
     func checkValidMicropostContent() {
-        let text = postField.text ?? ""
+        let text = contentField.text ?? ""
         saveButton.enabled = !text.isEmpty
     }
     

@@ -50,7 +50,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="mGM-8S-zvL" id="GA0-oK-cE5"/>
+                                    <outlet property="contentLabel" destination="mGM-8S-zvL" id="LDy-FE-0wU"/>
                                     <outlet property="pictureImageView" destination="yzR-f9-U4L" id="u4N-13-KwS"/>
                                 </connections>
                             </tableViewCell>
@@ -204,8 +204,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="contentField" destination="GYj-qb-mGM" id="lMr-4R-87x"/>
                         <outlet property="pictureImageView" destination="iFx-V5-qcZ" id="Li7-e1-6of"/>
-                        <outlet property="postField" destination="GYj-qb-mGM" id="5gF-Jj-alm"/>
                         <outlet property="saveButton" destination="hfu-xh-Mrc" id="GuK-HO-aeW"/>
                     </connections>
                 </viewController>
