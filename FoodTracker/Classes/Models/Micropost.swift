@@ -2,15 +2,15 @@ import UIKit
 
 class Micropost {
     // MARK: - Properties
-    var name: String
-    var photo: UIImage?
+    var content: String
+    var picture: UIImage?
     
     // MARK: - Initialization
-    init?(name: String, photo: UIImage?) {
-        self.name = name
-        self.photo = photo
+    init?(content: String, picture: UIImage?) {
+        self.content = content
+        self.picture = picture
 
-        if name.isEmpty {
+        if content.isEmpty {
             return nil
         }
     }

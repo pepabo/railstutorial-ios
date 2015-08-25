@@ -14,7 +14,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     override func viewDidLoad() {
         super.viewDidLoad()
         postField.delegate = self
-        checkValidMicropostName()
+        checkValidMicropostContent()
     }
     
     // MARK: - Actions
@@ -39,10 +39,10 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
-            let name = postField.text ?? ""
-            let photo = photoImageView.image
+            let content = postField.text ?? ""
+            let picture = photoImageView.image
             
-            micropost = Micropost(name: name, photo: photo)
+            micropost = Micropost(content: content, picture: picture)
         }
     }
     
@@ -58,11 +58,11 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     }
     
     func textViewDidChange(textView: UITextView) {
-        checkValidMicropostName()
+        checkValidMicropostContent()
         navigationItem.title = textView.text
     }
     
-    func checkValidMicropostName() {
+    func checkValidMicropostContent() {
         let text = postField.text ?? ""
         saveButton.enabled = !text.isEmpty
     }

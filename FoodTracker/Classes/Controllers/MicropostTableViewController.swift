@@ -11,13 +11,13 @@ class MicropostTableViewController: UITableViewController {
     
     func loadSampleMicroposts() {
         let photo1 = UIImage(named: "micropost1.jpg")!
-        let micropost1 = Micropost(name: "ねこはかわいい", photo: photo1)!
+        let micropost1 = Micropost(content: "ねこはかわいい", picture: photo1)!
         
         let photo2 = UIImage(named: "micropost2.jpg")!
-        let micropost2 = Micropost(name: "かわいいは正義", photo: photo2)!
+        let micropost2 = Micropost(content: "かわいいは正義", picture: photo2)!
         
         let photo3 = UIImage(named: "micropost3.jpg")!
-        let micropost3 = Micropost(name: "つまりねこは正義", photo: photo3)!
+        let micropost3 = Micropost(content: "つまりねこは正義", picture: photo3)!
         
         microposts += [micropost1, micropost2, micropost3]
     }
@@ -38,8 +38,8 @@ class MicropostTableViewController: UITableViewController {
         
         let micropost = microposts[indexPath.row]
         
-        cell.nameLabel.text = micropost.name
-        cell.photoImageView.image = micropost.photo
+        cell.nameLabel.text = micropost.content
+        cell.photoImageView.image = micropost.picture
         
         return cell
     }

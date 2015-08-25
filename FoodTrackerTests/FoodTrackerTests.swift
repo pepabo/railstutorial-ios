@@ -4,12 +4,12 @@ import XCTest
 class FoodTrackerTests: XCTestCase {
     func testMicropostInitialization() {
         // Success case.
-        let potentialItem = Micropost(name: "Newest micropost", photo: nil)
+        let potentialItem = Micropost(content: "Newest micropost", picture: nil)
         XCTAssertNotNil(potentialItem)
         
         // Failure case.
-        let noName = Micropost(name: "", photo: nil)
-        XCTAssertNil(noName, "Empty name is invalid")
+        let noContent = Micropost(content: "", picture: nil)
+        XCTAssertNil(noContent, "Empty content is invalid")
     }
 }
 // MARK: FoodTracker Tests
