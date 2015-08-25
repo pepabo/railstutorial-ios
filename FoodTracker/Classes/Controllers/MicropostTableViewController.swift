@@ -1,5 +1,5 @@
 //
-//  MealTableViewController.swift
+//  MicropostTableViewController.swift
 //  FoodTracker
 //
 //  Created by usr0600341 on 2015/08/19.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MealTableViewController: UITableViewController {
+class MicropostTableViewController: UITableViewController {
     // MARK: Properties
-    var meals = [Meal]()
+    var microposts = [Micropost]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +22,20 @@ class MealTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         // Load the sample data.
-        loadSampleMeals()
+        loadSampleMicroposts()
     }
     
-    func loadSampleMeals() {
-        let photo1 = UIImage(named: "meal1.jpg")!
-        let meal1 = Meal(name: "ねこはかわいい", photo: photo1)!
+    func loadSampleMicroposts() {
+        let photo1 = UIImage(named: "micropost1.jpg")!
+        let micropost1 = Micropost(name: "ねこはかわいい", photo: photo1)!
         
-        let photo2 = UIImage(named: "meal2.jpg")!
-        let meal2 = Meal(name: "かわいいは正義", photo: photo2)!
+        let photo2 = UIImage(named: "micropost2.jpg")!
+        let micropost2 = Micropost(name: "かわいいは正義", photo: photo2)!
         
-        let photo3 = UIImage(named: "meal3.jpg")!
-        let meal3 = Meal(name: "つまりねこは正義", photo: photo3)!
+        let photo3 = UIImage(named: "micropost3.jpg")!
+        let micropost3 = Micropost(name: "つまりねこは正義", photo: photo3)!
         
-        meals += [meal1, meal2, meal3]
+        microposts += [micropost1, micropost2, micropost3]
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,20 +50,20 @@ class MealTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+        return microposts.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "MealTableViewCell"
+        let cellIdentifier = "MicropostTableViewCell"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MealTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostTableViewCell
         
         // Fetches the appropriate meal for the data source layout.
-        let meal = meals[indexPath.row]
+        let micropost = microposts[indexPath.row]
         
-        cell.nameLabel.text = meal.name
-        cell.photoImageView.image = meal.photo
+        cell.nameLabel.text = micropost.name
+        cell.photoImageView.image = micropost.photo
         
         return cell
     }
@@ -113,11 +113,11 @@ class MealTableViewController: UITableViewController {
     }
     */
     
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? MealViewController, meal = sourceViewController.meal {
+    @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? MicropostViewController, micropost = sourceViewController.micropost {
             // Add a new meal.
-            let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
-            meals.append(meal)
+            let newIndexPath = NSIndexPath(forRow: microposts.count, inSection: 0)
+            microposts.append(micropost)
             tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         }
     }

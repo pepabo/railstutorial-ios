@@ -1,5 +1,5 @@
 //
-//  MealTableViewCell.swift
+//  MicropostTableViewCell.swift
 //  FoodTracker
 //
 //  Created by usr0600341 on 2015/08/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealTableViewCell: UITableViewCell {
+class MicropostTableViewCell: UITableViewCell {
     
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!

@@ -1,5 +1,5 @@
 //
-//  MealViewController.swift
+//  MicropostViewController.swift
 //  FoodTracker
 //
 //  Created by usr0600370 on 2015/08/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     
@@ -18,7 +18,7 @@ class MealViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
 
-    var meal = Meal?()
+    var micropost = Micropost?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class MealViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
         postField.delegate = self
         
         // Enable the Save button only if the text field has a valid Meal name.
-        checkValidMealName()
+        checkValidMicropostName()
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,7 +79,7 @@ class MealViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
             let photo = photoImageView.image
             
             // Set the meal to be passed to MealTableViewController after the unwind segue.
-            meal = Meal(name: name, photo: photo)
+            micropost = Micropost(name: name, photo: photo)
         }
     }
     
@@ -98,11 +98,11 @@ class MealViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     }
     
     func textViewDidChange(textView: UITextView) {
-        checkValidMealName()
+        checkValidMicropostName()
         navigationItem.title = textView.text
     }
     
-    func checkValidMealName() {
+    func checkValidMicropostName() {
         // Disable the Save button if the text field is empty.
         let text = postField.text ?? ""
         saveButton.enabled = !text.isEmpty

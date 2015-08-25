@@ -1,5 +1,5 @@
 //
-//  Meal.swift
+//  Micropost.swift
 //  FoodTracker
 //
 //  Created by usr0600341 on 2015/08/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Meal {
+class Micropost {
     // MARK: Properties
     
     var name: String

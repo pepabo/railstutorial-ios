@@ -12,13 +12,13 @@ import XCTest
 class FoodTrackerTests: XCTestCase {
     // Tests to confirm that the Meal initializer returns when no name or a negative rating is provided.
 
-    func testMealInitialization() {
+    func testMicropostInitialization() {
         // Success case.
-        let potentialItem = Meal(name: "Newest meal", photo: nil)
+        let potentialItem = Micropost(name: "Newest micropost", photo: nil)
         XCTAssertNotNil(potentialItem)
         
         // Failure case.
-        let noName = Meal(name: "", photo: nil)
+        let noName = Micropost(name: "", photo: nil)
         XCTAssertNil(noName, "Empty name is invalid")
     }
 }

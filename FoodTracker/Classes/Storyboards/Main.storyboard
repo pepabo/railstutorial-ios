@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NxN-W1-faf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NxN-W1-faf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -9,13 +9,13 @@
         <!--Feed-->
         <scene sceneID="wRN-C5-hIj">
             <objects>
-                <tableViewController id="Lvb-ZI-qJv" customClass="MealTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Lvb-ZI-qJv" customClass="MicropostTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bub-0Z-Svk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="90" id="pit-fs-UEW" customClass="MealTableViewCell" customModule="FoodTracker" customModuleProvider="target">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MicropostTableViewCell" rowHeight="90" id="pit-fs-UEW" customClass="MicropostTableViewCell" customModule="FoodTracker" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pit-fs-UEW" id="Ywk-YM-BeB">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -80,7 +80,7 @@
         <!--New Post-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MicropostViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -199,7 +199,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="hfu-xh-Mrc">
                             <connections>
-                                <segue destination="AiK-Mo-ZxH" kind="unwind" unwindAction="unwindToMealList:" id="fsB-Sw-KQk"/>
+                                <segue destination="AiK-Mo-ZxH" kind="unwind" unwindAction="unwindToMicropostList:" id="fsB-Sw-KQk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -247,6 +247,7 @@
             <objects>
                 <tableViewController id="Ao4-24-NL4" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Cg0-FZ-A2R">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -348,6 +349,7 @@
             <objects>
                 <tableViewController id="NIT-Rz-oJj" customClass="UserViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="7uq-mq-iFI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -356,7 +358,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UIw-MM-6Wr" id="emO-jp-z0j">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal1" translatesAutoresizingMaskIntoConstraints="NO" id="Ck4-Ft-eVJ" userLabel="user icon">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="micropost1" translatesAutoresizingMaskIntoConstraints="NO" id="Ck4-Ft-eVJ" userLabel="user icon">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="gfW-tC-F1z"/>
@@ -407,13 +409,13 @@
                                             <exclude reference="yre-4t-S5p"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="K5b-UD-wNo"/>
-                                            <exclude reference="VAi-ac-1UB"/>
-                                            <exclude reference="ayq-WJ-o93"/>
                                             <exclude reference="M5Q-jc-fUA"/>
                                             <exclude reference="iEZ-dN-ABL"/>
                                             <exclude reference="6Fk-D7-GO5"/>
                                             <exclude reference="oKU-gT-uRZ"/>
+                                            <exclude reference="K5b-UD-wNo"/>
+                                            <exclude reference="VAi-ac-1UB"/>
+                                            <exclude reference="ayq-WJ-o93"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -423,13 +425,13 @@
                                             <include reference="yre-4t-S5p"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="K5b-UD-wNo"/>
-                                            <include reference="VAi-ac-1UB"/>
-                                            <include reference="ayq-WJ-o93"/>
                                             <include reference="M5Q-jc-fUA"/>
                                             <include reference="iEZ-dN-ABL"/>
                                             <include reference="6Fk-D7-GO5"/>
                                             <include reference="oKU-gT-uRZ"/>
+                                            <include reference="K5b-UD-wNo"/>
+                                            <include reference="VAi-ac-1UB"/>
+                                            <include reference="ayq-WJ-o93"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -470,6 +472,6 @@
     </scenes>
     <resources>
         <image name="Image" width="320" height="320"/>
-        <image name="meal1" width="400" height="264"/>
+        <image name="micropost1" width="400" height="264"/>
     </resources>
 </document>
