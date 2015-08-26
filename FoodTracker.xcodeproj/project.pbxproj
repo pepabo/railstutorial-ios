@@ -15,6 +15,7 @@
 		89878BAB1B842B41004CCD77 /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89878BAA1B842B41004CCD77 /* Micropost.swift */; };
 		89878BAC1B842B41004CCD77 /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89878BAA1B842B41004CCD77 /* Micropost.swift */; };
 		89878BB21B844E8C004CCD77 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89878BB11B844E8C004CCD77 /* FeedViewController.swift */; };
+		89A0FFF21B8D7BB000652A4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */; };
 		AB55C03A1B8304830077C16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C0391B8304830077C16C /* AppDelegate.swift */; };
 		AB55C0411B8304830077C16C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB55C0401B8304830077C16C /* Images.xcassets */; };
 		AB55C0501B8304830077C16C /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C04F1B8304830077C16C /* FoodTrackerTests.swift */; };
@@ -41,6 +42,7 @@
 		6B82560B1B8AE79D005E2397 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTests.swift; path = FoodTrackerTests/UserTests.swift; sourceTree = SOURCE_ROOT; };
 		89878BAA1B842B41004CCD77 /* Micropost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Micropost.swift; path = Classes/Models/Micropost.swift; sourceTree = "<group>"; };
 		89878BB11B844E8C004CCD77 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Classes/Controllers/FeedViewController.swift; sourceTree = "<group>"; };
+		89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Classes/Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		AB55C0341B8304830077C16C /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C0381B8304830077C16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB55C0391B8304830077C16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				89878BB11B844E8C004CCD77 /* FeedViewController.swift */,
 				AB785DDD1B846EED002DA142 /* MicropostlViewController.swift */,
 				6B8256001B8ACB8D005E2397 /* UserViewController.swift */,
+				89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89A0FFF21B8D7BB000652A4B /* LoginViewController.swift in Sources */,
 				ABF1C7311B84557D00032F37 /* MicropostTableViewCell.swift in Sources */,
 				6B8256011B8ACB8D005E2397 /* UserViewController.swift in Sources */,
 				89878BB21B844E8C004CCD77 /* FeedViewController.swift in Sources */,
