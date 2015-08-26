@@ -15,16 +15,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Micropost" rowHeight="106" id="pit-fs-UEW" customClass="MicropostCell" customModule="FoodTracker" customModuleProvider="target">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Micropost" rowHeight="216" id="pit-fs-UEW" customClass="MicropostCell" customModule="FoodTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pit-fs-UEW" id="Ywk-YM-BeB">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGM-8S-zvL" userLabel="Content">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGM-8S-zvL" userLabel="Content">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -97,16 +96,16 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yzR-f9-U4L" userLabel="Picture">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="326" id="Nh7-8A-jYc"/>
+                                                <constraint firstAttribute="height" constant="150" id="WbE-U5-aBX"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="Nh7-8A-jYc"/>
+                                                    <exclude reference="WbE-U5-aBX"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="constraints">
-                                                    <exclude reference="Nh7-8A-jYc"/>
+                                                    <include reference="WbE-U5-aBX"/>
                                                 </mask>
                                             </variation>
                                         </imageView>
@@ -115,7 +114,7 @@
                                         <constraint firstItem="mGM-8S-zvL" firstAttribute="trailing" secondItem="Ywk-YM-BeB" secondAttribute="trailingMargin" id="6xc-5C-2N6"/>
                                         <constraint firstItem="mGM-8S-zvL" firstAttribute="leading" secondItem="PVv-Iw-R6b" secondAttribute="trailing" constant="8" id="9Wb-NL-pFd"/>
                                         <constraint firstItem="NwP-ri-1gG" firstAttribute="leading" secondItem="PVv-Iw-R6b" secondAttribute="trailing" constant="8" id="AK8-Ic-U0T"/>
-                                        <constraint firstItem="yzR-f9-U4L" firstAttribute="top" secondItem="mGM-8S-zvL" secondAttribute="bottom" id="D8A-wa-XaP"/>
+                                        <constraint firstItem="yzR-f9-U4L" firstAttribute="top" secondItem="mGM-8S-zvL" secondAttribute="bottom" constant="8" id="D8A-wa-XaP"/>
                                         <constraint firstItem="NwP-ri-1gG" firstAttribute="top" secondItem="f2B-Ob-xQm" secondAttribute="top" id="DUS-b8-6Bl"/>
                                         <constraint firstItem="PVv-Iw-R6b" firstAttribute="leading" secondItem="Ywk-YM-BeB" secondAttribute="leadingMargin" id="PJI-gu-PdF"/>
                                         <constraint firstItem="NwP-ri-1gG" firstAttribute="top" secondItem="PVv-Iw-R6b" secondAttribute="top" id="RrS-Rf-cUQ"/>
