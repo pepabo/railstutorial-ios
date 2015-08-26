@@ -33,6 +33,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func checkValidLoginForm() {
         let email = emailField.text ?? ""
         let password = passwordField.text ?? ""
-        loginButton.enabled = !email.isEmpty && !password.isEmpty
+        loginButton.enabled = checkPresenceField(email, password: password) && checkValidEmail(email)
+    }
+    
+    func checkValidEmail(email: String) -> Bool{
+        let regex = "^[\\w+\\-.]+@[a-z\\d\\-]+(\\.[a-z\\d\\-]+)*\\.[a-z]+$"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluateWithObject(email)
+    }
+    
+    func checkPresenceField(email: String, password: String) -> Bool{
+        return !email.isEmpty && !password.isEmpty
     }
 }
