@@ -9,6 +9,11 @@ class FeedViewController: UITableViewController {
         loadSampleMicroposts()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     func loadSampleMicroposts() {
         let photo1 = UIImage(named: "micropost1.jpg")!
         let micropost1 = Micropost(content: "ねこはかわいい", picture: photo1)!
@@ -17,9 +22,11 @@ class FeedViewController: UITableViewController {
         let micropost2 = Micropost(content: "かわいいは正義", picture: photo2)!
         
         let photo3 = UIImage(named: "micropost3.jpg")!
-        let micropost3 = Micropost(content: "つまりねこは正義", picture: photo3)!
+        let micropost3 = Micropost(content: "つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義", picture: photo3)!
         
-        microposts += [micropost1, micropost2, micropost3]
+        let micropost4 = Micropost(content: "かわいいは正義", picture: nil)!
+        
+        microposts += [micropost1, micropost2, micropost3, micropost4]
     }
     
     // MARK: - Table view data source
@@ -32,9 +39,9 @@ class FeedViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "MicropostTableViewCell"
+        let cellIdentifier = "Micropost"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
         
         let micropost = microposts[indexPath.row]
         
@@ -42,6 +49,14 @@ class FeedViewController: UITableViewController {
         cell.pictureImageView.image = micropost.picture
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 216
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
     // MARK: - Navigation
