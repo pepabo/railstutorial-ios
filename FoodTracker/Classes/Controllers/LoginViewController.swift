@@ -6,6 +6,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
 
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         
