@@ -13,8 +13,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        signUpButton.enabled = checkValidSignupForm()
     }
     
     // MARK: - Actions
@@ -25,6 +24,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - UITextFieldDelegate
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        signUpButton.enabled = checkValidSignupForm()
+        return true
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField.tag == 4 {
             textField.resignFirstResponder()
@@ -32,5 +36,22 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             textFields[textField.tag].becomeFirstResponder()
         }
         return false
+    }
+    
+    func checkValidSignupForm() -> Bool {
+        return checkPresenceField() && checkValidEmail()
+    }
+    
+    func checkValidEmail() -> Bool{
+        let regex = "^[\\w+\\-.]+@[a-z\\d\\-]+(\\.[a-z\\d\\-]+)*\\.[a-z]+$"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluateWithObject(emailTextField.text)
+    }
+    
+    func checkPresenceField() -> Bool{
+        var result = true
+        for textField : UITextField in textFields {
+            result = result && textField.hasText()
+        }
+        return result
     }
 }
