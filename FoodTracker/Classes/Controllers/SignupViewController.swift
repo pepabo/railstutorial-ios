@@ -2,13 +2,9 @@ import UIKit
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
-    @IBOutlet weak var nameTexeField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmationTextField: UITextField!
-    @IBOutlet weak var signUpButton: UIButton!
-    
     @IBOutlet var textFields: [UITextField]!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
     
     // MARK: - View Events
     override func viewDidLoad() {

@@ -650,23 +650,23 @@ App</string>
                                 <exclude reference="EYW-1L-Mhc"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="7xG-5P-6F9"/>
-                                <exclude reference="BBR-6U-3vV"/>
+                                <exclude reference="7NV-HU-pOb"/>
+                                <exclude reference="M6d-4W-qXs"/>
+                                <exclude reference="QMU-ee-h9v"/>
+                                <exclude reference="aUL-Xf-8ZC"/>
+                                <exclude reference="boN-jD-35c"/>
+                                <exclude reference="eUS-UU-JRC"/>
+                                <exclude reference="jYh-Qx-kQ3"/>
                                 <exclude reference="7hV-ze-wqi"/>
                                 <exclude reference="DHO-RB-fGT"/>
                                 <exclude reference="2SF-Q0-o4H"/>
                                 <exclude reference="Ele-Ee-QcF"/>
                                 <exclude reference="Lb2-kd-pEe"/>
                                 <exclude reference="SkB-2i-Woe"/>
-                                <exclude reference="QMU-ee-h9v"/>
-                                <exclude reference="aUL-Xf-8ZC"/>
-                                <exclude reference="boN-jD-35c"/>
-                                <exclude reference="eUS-UU-JRC"/>
-                                <exclude reference="jYh-Qx-kQ3"/>
                                 <exclude reference="Xhz-wC-orK"/>
                                 <exclude reference="mL7-qd-JUb"/>
-                                <exclude reference="7NV-HU-pOb"/>
-                                <exclude reference="M6d-4W-qXs"/>
+                                <exclude reference="7xG-5P-6F9"/>
+                                <exclude reference="BBR-6U-3vV"/>
                                 <exclude reference="AxC-QZ-fR5"/>
                                 <exclude reference="nGD-eC-e5q"/>
                             </mask>
@@ -682,23 +682,23 @@ App</string>
                                 <include reference="EYW-1L-Mhc"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="7xG-5P-6F9"/>
-                                <include reference="BBR-6U-3vV"/>
+                                <include reference="7NV-HU-pOb"/>
+                                <include reference="M6d-4W-qXs"/>
+                                <include reference="QMU-ee-h9v"/>
+                                <include reference="aUL-Xf-8ZC"/>
+                                <include reference="boN-jD-35c"/>
+                                <include reference="eUS-UU-JRC"/>
+                                <include reference="jYh-Qx-kQ3"/>
                                 <include reference="7hV-ze-wqi"/>
                                 <include reference="DHO-RB-fGT"/>
                                 <include reference="2SF-Q0-o4H"/>
                                 <include reference="Ele-Ee-QcF"/>
                                 <include reference="Lb2-kd-pEe"/>
                                 <include reference="SkB-2i-Woe"/>
-                                <include reference="QMU-ee-h9v"/>
-                                <include reference="aUL-Xf-8ZC"/>
-                                <include reference="boN-jD-35c"/>
-                                <include reference="eUS-UU-JRC"/>
-                                <include reference="jYh-Qx-kQ3"/>
                                 <include reference="Xhz-wC-orK"/>
                                 <include reference="mL7-qd-JUb"/>
-                                <include reference="7NV-HU-pOb"/>
-                                <include reference="M6d-4W-qXs"/>
+                                <include reference="7xG-5P-6F9"/>
+                                <include reference="BBR-6U-3vV"/>
                                 <include reference="AxC-QZ-fR5"/>
                                 <include reference="nGD-eC-e5q"/>
                             </mask>
@@ -710,10 +710,7 @@ App</string>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="confirmationTextField" destination="NR7-c2-5Sd" id="pDA-bX-OTh"/>
                         <outlet property="emailTextField" destination="PXV-5s-OUb" id="bxF-NF-vw2"/>
-                        <outlet property="nameTexeField" destination="XQf-rz-YGE" id="otW-Sp-zXb"/>
-                        <outlet property="passwordTextField" destination="Zhf-MD-Fnl" id="LZo-97-PR3"/>
                         <outlet property="signUpButton" destination="blZ-Po-9OE" id="GzU-70-chl"/>
                         <outletCollection property="textFields" destination="XQf-rz-YGE" collectionClass="NSMutableArray" id="owf-DS-zGR"/>
                         <outletCollection property="textFields" destination="PXV-5s-OUb" collectionClass="NSMutableArray" id="Gwc-1B-jSb"/>
