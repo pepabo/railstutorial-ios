@@ -1,6 +1,5 @@
 SHELL = /bin/bash
-# PROJECT = FoodTracker.xcodeproj
- PROJECT = FoodTracker.xcworkspace
+PROJECT = FoodTracker.xcworkspace
 TEST_TARGET = FoodTrackerTests
 OS = 8.4
 DEVICE = iPhone 6
