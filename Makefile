@@ -1,12 +1,12 @@
 SHELL = /bin/bash
-PROJECT = FoodTracker.xcodeproj
+PROJECT = FoodTracker.xcworkspace
 TEST_TARGET = FoodTrackerTests
 OS = 8.4
 DEVICE = iPhone 6
 
 test:
 	set -o pipefail && \
-	xcodebuild -project $(PROJECT) \
+	xcodebuild -workspace $(PROJECT) \
 		   -scheme $(TEST_TARGET) \
 		   -sdk iphonesimulator \
 		   -configuration Debug \
