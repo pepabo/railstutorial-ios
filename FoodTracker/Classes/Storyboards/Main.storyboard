@@ -412,7 +412,7 @@ App</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uWr-z4-2wB" kind="presentation" modalTransitionStyle="flipHorizontal" id="sjh-uK-9g5"/>
+                                    <segue destination="uWr-z4-2wB" kind="presentation" id="sjh-uK-9g5"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-iO-WOq">
@@ -576,6 +576,14 @@ App</string>
                                     <outlet property="delegate" destination="uWr-z4-2wB" id="kQQ-z9-rey"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PXV-5s-OUb">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uWr-z4-2wB" id="J7I-Ru-SjY"/>
+                                </connections>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Zhf-MD-Fnl">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -598,14 +606,15 @@ App</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PXV-5s-OUb">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYW-1L-Mhc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Cansel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <outlet property="delegate" destination="uWr-z4-2wB" id="J7I-Ru-SjY"/>
+                                    <segue destination="KDD-nb-63e" kind="presentation" id="QdC-QQ-cHK"/>
                                 </connections>
-                            </textField>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -613,7 +622,9 @@ App</string>
                             <constraint firstAttribute="centerX" secondItem="XQf-rz-YGE" secondAttribute="centerX" id="2SF-Q0-o4H"/>
                             <constraint firstAttribute="centerX" secondItem="NR7-c2-5Sd" secondAttribute="centerX" id="7NV-HU-pOb"/>
                             <constraint firstItem="TwA-TX-7Bs" firstAttribute="top" secondItem="poK-Rz-I16" secondAttribute="bottom" constant="54" id="7hV-ze-wqi"/>
+                            <constraint firstItem="EYW-1L-Mhc" firstAttribute="top" secondItem="poK-Rz-I16" secondAttribute="bottom" constant="8" id="7xG-5P-6F9"/>
                             <constraint firstAttribute="centerX" secondItem="blZ-Po-9OE" secondAttribute="centerX" id="AxC-QZ-fR5"/>
+                            <constraint firstItem="EYW-1L-Mhc" firstAttribute="leading" secondItem="NjW-bi-CJ4" secondAttribute="leadingMargin" id="BBR-6U-3vV"/>
                             <constraint firstAttribute="centerX" secondItem="TwA-TX-7Bs" secondAttribute="centerX" id="DHO-RB-fGT"/>
                             <constraint firstItem="XQf-rz-YGE" firstAttribute="leading" secondItem="NjW-bi-CJ4" secondAttribute="leadingMargin" constant="59" id="Ele-Ee-QcF"/>
                             <constraint firstItem="XQf-rz-YGE" firstAttribute="top" secondItem="TwA-TX-7Bs" secondAttribute="bottom" constant="50" id="Lb2-kd-pEe"/>
@@ -632,12 +643,15 @@ App</string>
                             <mask key="subviews">
                                 <exclude reference="blZ-Po-9OE"/>
                                 <exclude reference="XQf-rz-YGE"/>
+                                <exclude reference="PXV-5s-OUb"/>
                                 <exclude reference="Zhf-MD-Fnl"/>
                                 <exclude reference="NR7-c2-5Sd"/>
                                 <exclude reference="TwA-TX-7Bs"/>
-                                <exclude reference="PXV-5s-OUb"/>
+                                <exclude reference="EYW-1L-Mhc"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="7xG-5P-6F9"/>
+                                <exclude reference="BBR-6U-3vV"/>
                                 <exclude reference="7hV-ze-wqi"/>
                                 <exclude reference="DHO-RB-fGT"/>
                                 <exclude reference="2SF-Q0-o4H"/>
@@ -661,12 +675,15 @@ App</string>
                             <mask key="subviews">
                                 <include reference="blZ-Po-9OE"/>
                                 <include reference="XQf-rz-YGE"/>
+                                <include reference="PXV-5s-OUb"/>
                                 <include reference="Zhf-MD-Fnl"/>
                                 <include reference="NR7-c2-5Sd"/>
                                 <include reference="TwA-TX-7Bs"/>
-                                <include reference="PXV-5s-OUb"/>
+                                <include reference="EYW-1L-Mhc"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="7xG-5P-6F9"/>
+                                <include reference="BBR-6U-3vV"/>
                                 <include reference="7hV-ze-wqi"/>
                                 <include reference="DHO-RB-fGT"/>
                                 <include reference="2SF-Q0-o4H"/>
@@ -690,6 +707,7 @@ App</string>
                             <outletCollection property="gestureRecognizers" destination="6tJ-ii-pUZ" appends="YES" id="k4X-6g-3Ml"/>
                         </connections>
                     </view>
+                    <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="confirmationTextField" destination="NR7-c2-5Sd" id="pDA-bX-OTh"/>
@@ -710,7 +728,7 @@ App</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1297.5" y="-300"/>
+            <point key="canvasLocation" x="-1308" y="-374"/>
         </scene>
         <!--Config-->
         <scene sceneID="5WQ-np-3DR">
