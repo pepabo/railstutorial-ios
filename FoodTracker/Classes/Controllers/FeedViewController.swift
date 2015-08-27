@@ -7,6 +7,10 @@ class FeedViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSampleMicroposts()
+        
+        //tmp
+        let user = User(name: "cat", icon: "")!
+        user.fetchFeed()
     }
     
     override func viewDidAppear(animated: Bool) {
