@@ -646,7 +646,7 @@ App</string>
             </objects>
             <point key="canvasLocation" x="943.5" y="738"/>
         </scene>
-        <!--User View Controller-->
+        <!--ALL-->
         <scene sceneID="2sO-SB-qkS">
             <objects>
                 <tableViewController id="NIT-Rz-oJj" customClass="UserViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -752,6 +752,7 @@ App</string>
                             <outlet property="delegate" destination="NIT-Rz-oJj" id="hO2-Q2-LsH"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="ALL" id="frG-5Q-GKv"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IkW-Lb-U8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1117,7 +1118,7 @@ App</string>
             </objects>
             <point key="canvasLocation" x="1756.5" y="1183"/>
         </scene>
-        <!--Feed View Controller-->
+        <!--Profile-->
         <scene sceneID="cpi-Lj-QyF">
             <objects>
                 <tableViewController id="Y87-VY-49y" customClass="FeedViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -1305,6 +1306,7 @@ App</string>
                             <outlet property="delegate" destination="Y87-VY-49y" id="ak5-Wv-ZY8"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Profile" id="ft7-oW-6FE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nV9-Mb-DI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
