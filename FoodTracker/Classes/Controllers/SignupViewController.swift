@@ -23,4 +23,14 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
         }
     }
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField.tag == 4 {
+            textField.resignFirstResponder()
+        } else {
+            textFields[textField.tag].becomeFirstResponder()
+        }
+        return false
+    }
 }
