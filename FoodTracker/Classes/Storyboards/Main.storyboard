@@ -412,6 +412,9 @@ App</string>
                                 <state key="normal" title="Sign up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="uWr-z4-2wB" kind="presentation" id="sjh-uK-9g5"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-iO-WOq">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -544,6 +547,186 @@ App</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cab-nt-mlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1308" y="388"/>
+        </scene>
+        <!--Signup View Controller-->
+        <scene sceneID="Amc-vt-KkT">
+            <objects>
+                <viewController id="uWr-z4-2wB" customClass="SignupViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="poK-Rz-I16"/>
+                        <viewControllerLayoutGuide type="bottom" id="jf0-Cw-1Np"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NjW-bi-CJ4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blZ-Po-9OE">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Create my account">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NxN-W1-faf" kind="presentation" modalTransitionStyle="flipHorizontal" id="ssW-0D-aXe"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XQf-rz-YGE">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uWr-z4-2wB" id="kQQ-z9-rey"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PXV-5s-OUb">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uWr-z4-2wB" id="J7I-Ru-SjY"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Zhf-MD-Fnl">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="next" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uWr-z4-2wB" id="c0h-HW-02J"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmation" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NR7-c2-5Sd">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uWr-z4-2wB" id="xdB-7W-FUD"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwA-TX-7Bs">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYW-1L-Mhc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Cansel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="KDD-nb-63e" kind="presentation" id="QdC-QQ-cHK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="XQf-rz-YGE" secondAttribute="centerX" id="2SF-Q0-o4H"/>
+                            <constraint firstAttribute="centerX" secondItem="NR7-c2-5Sd" secondAttribute="centerX" id="7NV-HU-pOb"/>
+                            <constraint firstItem="TwA-TX-7Bs" firstAttribute="top" secondItem="poK-Rz-I16" secondAttribute="bottom" constant="54" id="7hV-ze-wqi"/>
+                            <constraint firstItem="EYW-1L-Mhc" firstAttribute="top" secondItem="poK-Rz-I16" secondAttribute="bottom" constant="8" id="7xG-5P-6F9"/>
+                            <constraint firstAttribute="centerX" secondItem="blZ-Po-9OE" secondAttribute="centerX" id="AxC-QZ-fR5"/>
+                            <constraint firstItem="EYW-1L-Mhc" firstAttribute="leading" secondItem="NjW-bi-CJ4" secondAttribute="leadingMargin" id="BBR-6U-3vV"/>
+                            <constraint firstAttribute="centerX" secondItem="TwA-TX-7Bs" secondAttribute="centerX" id="DHO-RB-fGT"/>
+                            <constraint firstItem="XQf-rz-YGE" firstAttribute="leading" secondItem="NjW-bi-CJ4" secondAttribute="leadingMargin" constant="59" id="Ele-Ee-QcF"/>
+                            <constraint firstItem="XQf-rz-YGE" firstAttribute="top" secondItem="TwA-TX-7Bs" secondAttribute="bottom" constant="50" id="Lb2-kd-pEe"/>
+                            <constraint firstItem="NR7-c2-5Sd" firstAttribute="top" secondItem="Zhf-MD-Fnl" secondAttribute="bottom" constant="30" id="M6d-4W-qXs"/>
+                            <constraint firstItem="PXV-5s-OUb" firstAttribute="width" secondItem="Zhf-MD-Fnl" secondAttribute="width" id="QMU-ee-h9v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XQf-rz-YGE" secondAttribute="trailing" constant="59" id="SkB-2i-Woe"/>
+                            <constraint firstItem="Zhf-MD-Fnl" firstAttribute="top" secondItem="PXV-5s-OUb" secondAttribute="bottom" constant="30" id="Xhz-wC-orK"/>
+                            <constraint firstItem="PXV-5s-OUb" firstAttribute="top" secondItem="XQf-rz-YGE" secondAttribute="bottom" constant="30" id="aUL-Xf-8ZC"/>
+                            <constraint firstItem="PXV-5s-OUb" firstAttribute="width" secondItem="NR7-c2-5Sd" secondAttribute="width" id="boN-jD-35c"/>
+                            <constraint firstItem="PXV-5s-OUb" firstAttribute="width" secondItem="XQf-rz-YGE" secondAttribute="width" id="eUS-UU-JRC"/>
+                            <constraint firstAttribute="centerX" secondItem="PXV-5s-OUb" secondAttribute="centerX" id="jYh-Qx-kQ3"/>
+                            <constraint firstAttribute="centerX" secondItem="Zhf-MD-Fnl" secondAttribute="centerX" id="mL7-qd-JUb"/>
+                            <constraint firstItem="blZ-Po-9OE" firstAttribute="top" secondItem="NR7-c2-5Sd" secondAttribute="bottom" constant="50" id="nGD-eC-e5q"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="blZ-Po-9OE"/>
+                                <exclude reference="XQf-rz-YGE"/>
+                                <exclude reference="PXV-5s-OUb"/>
+                                <exclude reference="Zhf-MD-Fnl"/>
+                                <exclude reference="NR7-c2-5Sd"/>
+                                <exclude reference="TwA-TX-7Bs"/>
+                                <exclude reference="EYW-1L-Mhc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="7NV-HU-pOb"/>
+                                <exclude reference="M6d-4W-qXs"/>
+                                <exclude reference="QMU-ee-h9v"/>
+                                <exclude reference="aUL-Xf-8ZC"/>
+                                <exclude reference="boN-jD-35c"/>
+                                <exclude reference="eUS-UU-JRC"/>
+                                <exclude reference="jYh-Qx-kQ3"/>
+                                <exclude reference="7hV-ze-wqi"/>
+                                <exclude reference="DHO-RB-fGT"/>
+                                <exclude reference="2SF-Q0-o4H"/>
+                                <exclude reference="Ele-Ee-QcF"/>
+                                <exclude reference="Lb2-kd-pEe"/>
+                                <exclude reference="SkB-2i-Woe"/>
+                                <exclude reference="Xhz-wC-orK"/>
+                                <exclude reference="mL7-qd-JUb"/>
+                                <exclude reference="7xG-5P-6F9"/>
+                                <exclude reference="BBR-6U-3vV"/>
+                                <exclude reference="AxC-QZ-fR5"/>
+                                <exclude reference="nGD-eC-e5q"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="blZ-Po-9OE"/>
+                                <include reference="XQf-rz-YGE"/>
+                                <include reference="PXV-5s-OUb"/>
+                                <include reference="Zhf-MD-Fnl"/>
+                                <include reference="NR7-c2-5Sd"/>
+                                <include reference="TwA-TX-7Bs"/>
+                                <include reference="EYW-1L-Mhc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="7NV-HU-pOb"/>
+                                <include reference="M6d-4W-qXs"/>
+                                <include reference="QMU-ee-h9v"/>
+                                <include reference="aUL-Xf-8ZC"/>
+                                <include reference="boN-jD-35c"/>
+                                <include reference="eUS-UU-JRC"/>
+                                <include reference="jYh-Qx-kQ3"/>
+                                <include reference="7hV-ze-wqi"/>
+                                <include reference="DHO-RB-fGT"/>
+                                <include reference="2SF-Q0-o4H"/>
+                                <include reference="Ele-Ee-QcF"/>
+                                <include reference="Lb2-kd-pEe"/>
+                                <include reference="SkB-2i-Woe"/>
+                                <include reference="Xhz-wC-orK"/>
+                                <include reference="mL7-qd-JUb"/>
+                                <include reference="7xG-5P-6F9"/>
+                                <include reference="BBR-6U-3vV"/>
+                                <include reference="AxC-QZ-fR5"/>
+                                <include reference="nGD-eC-e5q"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6tJ-ii-pUZ" appends="YES" id="k4X-6g-3Ml"/>
+                        </connections>
+                    </view>
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="PXV-5s-OUb" id="bxF-NF-vw2"/>
+                        <outlet property="signUpButton" destination="blZ-Po-9OE" id="GzU-70-chl"/>
+                        <outletCollection property="textFields" destination="XQf-rz-YGE" collectionClass="NSMutableArray" id="owf-DS-zGR"/>
+                        <outletCollection property="textFields" destination="PXV-5s-OUb" collectionClass="NSMutableArray" id="Gwc-1B-jSb"/>
+                        <outletCollection property="textFields" destination="Zhf-MD-Fnl" collectionClass="NSMutableArray" id="2Rx-aK-ICY"/>
+                        <outletCollection property="textFields" destination="NR7-c2-5Sd" collectionClass="NSMutableArray" id="mMQ-Re-yRR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yVx-D9-mCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6tJ-ii-pUZ">
+                    <connections>
+                        <action selector="unFocusTextField:" destination="uWr-z4-2wB" id="6Us-9I-chg"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1308" y="-374"/>
         </scene>
         <!--Config-->
         <scene sceneID="5WQ-np-3DR">
@@ -1318,4 +1501,7 @@ App</string>
         <image name="Image" width="320" height="320"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ssW-0D-aXe"/>
+    </inferredMetricsTieBreakers>
 </document>
