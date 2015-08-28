@@ -3,6 +3,7 @@ platform :ios, '8.4'
 use_frameworks!
 
 pod 'Alamofire', '~> 1.3'
+pod 'SVProgressHUD'
 
 target 'FoodTracker' do
 end

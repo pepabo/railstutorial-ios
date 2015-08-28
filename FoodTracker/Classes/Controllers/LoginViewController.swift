@@ -16,6 +16,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         checkValidLoginForm()
     }
     
+    // MARK: -
+    @IBAction func touchLogInButton(sender: UIButton) {
+        login()
+    }
+    
     // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool{
         view.endEditing(true)
@@ -44,5 +49,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func checkPresenceField(email: String, password: String) -> Bool{
         return !email.isEmpty && !password.isEmpty
+    }
+    
+    // MARK: -
+    func login() {
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
     }
 }

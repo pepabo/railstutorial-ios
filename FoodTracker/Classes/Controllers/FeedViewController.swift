@@ -12,6 +12,7 @@ class FeedViewController: UITableViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
+        SVProgressHUD.dismiss()
     }
     
     func loadSampleMicroposts() {
