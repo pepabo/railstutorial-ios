@@ -76,15 +76,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AB55C0481B8304830077C16C"
-            BuildableName = "FoodTrackerTests.xctest"
-            BlueprintName = "FoodTrackerTests"
-            ReferencedContainer = "container:FoodTracker.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
