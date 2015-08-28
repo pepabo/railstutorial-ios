@@ -21,9 +21,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         login()
     }
     
+    @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+    }
+    
     // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool{
         view.endEditing(true)
+        if textField.tag == 1 {
+            passwordField.becomeFirstResponder()
+        }
         return false
     }
     
