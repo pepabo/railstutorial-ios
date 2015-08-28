@@ -416,10 +416,10 @@ App</string>
                                     <segue destination="uWr-z4-2wB" kind="presentation" id="sjh-uK-9g5"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-iO-WOq">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-iO-WOq">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBj-fX-bsr">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -427,13 +427,14 @@ App</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JCQ-IN-0lf">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JCQ-IN-0lf">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GBj-fX-bsr" firstAttribute="top" secondItem="HIB-iO-WOq" secondAttribute="bottom" constant="8" id="2ug-cT-bMr"/>
                             <constraint firstItem="3D3-6o-Yb6" firstAttribute="leading" secondItem="4Al-GK-8en" secondAttribute="leadingMargin" constant="79" id="3GH-8a-QsO"/>
@@ -537,6 +538,9 @@ App</string>
                                 <include reference="zx4-6S-mh5"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LHG-EN-oxX" appends="YES" id="0b5-xP-MmV"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="JCQ-IN-0lf" id="P6y-B2-20H"/>
@@ -545,6 +549,11 @@ App</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cab-nt-mlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LHG-EN-oxX">
+                    <connections>
+                        <action selector="unFocusTextField:" destination="KDD-nb-63e" id="sBc-tN-Kcs"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1308" y="388"/>
         </scene>
@@ -1502,6 +1511,6 @@ App</string>
         <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ssW-0D-aXe"/>
+        <segue reference="7f1-2I-NY9"/>
     </inferredMetricsTieBreakers>
 </document>
