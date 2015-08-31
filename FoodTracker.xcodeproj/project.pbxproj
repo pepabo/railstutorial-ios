@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25C861A09D9888E2811D0F06 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48953E8A0982D8CAF6A08ABF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		25C861A09D9888E2811D0F06 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48953E8A0982D8CAF6A08ABF /* Pods.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6B8255FD1B8AC8BA005E2397 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8255FC1B8AC8BA005E2397 /* UserTableViewCell.swift */; };
 		6B8256011B8ACB8D005E2397 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8256001B8ACB8D005E2397 /* UserViewController.swift */; };
 		6B8256091B8AE755005E2397 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8256081B8AE754005E2397 /* User.swift */; };
@@ -23,8 +23,8 @@
 		AB55C0411B8304830077C16C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB55C0401B8304830077C16C /* Images.xcassets */; };
 		AB55C0501B8304830077C16C /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C04F1B8304830077C16C /* FoodTrackerTests.swift */; };
 		AB785DDE1B846EED002DA142 /* MicropostlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB785DDD1B846EED002DA142 /* MicropostlViewController.swift */; };
-		AB785DE01B8486EF002DA142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB785DDF1B8486EF002DA142 /* Main.storyboard */; };
 		AB785DE21B848715002DA142 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB785DE11B848715002DA142 /* LaunchScreen.xib */; };
+		AB980B101B93FC2300ED6ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB980B0F1B93FC2300ED6ACB /* Main.storyboard */; };
 		ABF1C7311B84557D00032F37 /* MicropostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF1C7301B84557D00032F37 /* MicropostCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,8 +60,8 @@
 		AB55C04E1B8304830077C16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB55C04F1B8304830077C16C /* FoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerTests.swift; sourceTree = "<group>"; };
 		AB785DDD1B846EED002DA142 /* MicropostlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicropostlViewController.swift; path = Classes/Controllers/MicropostlViewController.swift; sourceTree = "<group>"; };
-		AB785DDF1B8486EF002DA142 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Classes/Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		AB785DE11B848715002DA142 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Classes/Xibs/LaunchScreen.xib; sourceTree = "<group>"; };
+		AB980B0F1B93FC2300ED6ACB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Classes/Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		ABF1C7301B84557D00032F37 /* MicropostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MicropostCell.swift; path = Classes/Views/Cells/MicropostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,7 +137,7 @@
 		6BD417071B8C0D300027BC14 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				AB785DDF1B8486EF002DA142 /* Main.storyboard */,
+				AB980B0F1B93FC2300ED6ACB /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -278,6 +278,7 @@
 				TargetAttributes = {
 					AB55C0331B8304830077C16C = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = NH7E35TW7H;
 					};
 					AB55C0481B8304830077C16C = {
 						CreatedOnToolsVersion = 6.4;
@@ -309,8 +310,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB980B101B93FC2300ED6ACB /* Main.storyboard in Resources */,
 				AB785DE21B848715002DA142 /* LaunchScreen.xib in Resources */,
-				AB785DE01B8486EF002DA142 /* Main.storyboard in Resources */,
 				AB55C0411B8304830077C16C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +503,7 @@
 			baseConfigurationReference = 31D3F4020A52B9C72A4E00EE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FoodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -515,6 +517,7 @@
 			baseConfigurationReference = 0B37E5E41D741F08483B9CD0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FoodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
