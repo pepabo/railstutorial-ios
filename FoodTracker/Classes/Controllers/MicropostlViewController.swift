@@ -42,7 +42,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
             let content = contentField.text ?? ""
             let picture = pictureImageView.image
             
-            micropost = Micropost(content: content, picture: picture)
+//            micropost = Micropost(content: content, picture: picture)
         }
     }
     
