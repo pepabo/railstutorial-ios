@@ -17,7 +17,7 @@ class FeedViewController: UITableViewController {
     }
     
     func request() {
-        Alamofire.request(Router.GetFeed()).responseJSON { (request, response, data, error) -> Void in
+        Alamofire.request(Router.GetFeed(userId: 1)).responseJSON { (request, response, data, error) -> Void in
             let json = JSON(data!)
             println(json)
             
