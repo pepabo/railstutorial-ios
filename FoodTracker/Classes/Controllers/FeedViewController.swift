@@ -70,11 +70,11 @@ class FeedViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-//    @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
-//        if let sourceViewController = sender.sourceViewController as? MicropostViewController, micropost = sourceViewController.micropost {
-//            let newIndexPath = NSIndexPath(forRow: microposts.count, inSection: 0)
-//            microposts.append(micropost)
-//            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-//        }
-//    }
+    @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? MicropostViewController, micropost = sourceViewController.micropost {
+            let newIndexPath = NSIndexPath(forRow: self.microposts.size, inSection: 0)
+            self.microposts.set(micropost)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
+    }
 }
