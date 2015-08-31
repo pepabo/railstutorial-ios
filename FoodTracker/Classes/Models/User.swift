@@ -12,12 +12,4 @@ class User {
         self.name = name
         self.icon = NSURL(string: dummyIcon)!
     }
-    
-    func fetchFeed() {
-        Alamofire.request(.GET, "https://157.7.190.148/api/users/1/feed")
-            .responseJSON { (request, response, JSON, error) in
-                println(JSON)
-                println(error)
-        }
-    }
 }
