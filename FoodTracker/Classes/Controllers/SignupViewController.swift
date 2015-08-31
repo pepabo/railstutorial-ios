@@ -88,7 +88,17 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                     if let error = user_errors["email"] as String? { self.emailLabel.text = error }
                     if let error = user_errors["password"] as String? { self.passwordLabel.text = error }
                     if let error = user_errors["password_confirmation"] as String? { self.passwordConfirmationLabel.text = error }
-                    SVProgressHUD.dismiss()
+                    
+                    var notice : String = ""
+                    if let errors = messages["notice"] as? Array<String> {
+                        for error in errors {
+                            notice += error + "\n"
+                        }
+                    }
+                    if notice == "" {
+                        notice = "作成に失敗しました"
+                    }
+                    SVProgressHUD.showErrorWithStatus(notice)
                 }
         }
     }
