@@ -1561,4 +1561,7 @@ App</string>
         <image name="Image" width="320" height="320"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7f1-2I-NY9"/>
+    </inferredMetricsTieBreakers>
 </document>
