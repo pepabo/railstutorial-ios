@@ -4,6 +4,7 @@ use_frameworks!
 
 pod 'Alamofire', '~> 1.3'
 pod 'SwiftyJSON', '~> 2.2.1'
+pod 'SDWebImage'
 
 target 'FoodTracker' do
 end
