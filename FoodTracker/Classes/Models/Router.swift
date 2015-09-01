@@ -7,19 +7,34 @@ enum Router: URLRequestConvertible {
     case GetAllUsers()
     case PostUser(params: Dictionary<String, String>)
     
+    var method: Alamofire.Method {
+        switch self {
+        case .GetFeed: return .GET
+        case .GetAllUsers: return .GET
+        case .PostUser: return .POST
+        }
+    }
+    
+    var path: String {
+        switch self {
+        case .GetFeed(let userId): return "/api/users/\(userId)/feed"
+        case .GetAllUsers: return "/api/users"
+        case .PostUser: return "/api/users"
+        }
+    }
+    
+    // MARK: URLRequestConvertible
+    
     var URLRequest: NSURLRequest {
-        let (method: Alamofire.Method, path: String, parameters: [String: AnyObject]?) = {
-            switch self {
-            case .GetFeed(let userId): return (.GET, "/api/users/\(userId)/feed", nil)
-            case .GetAllUsers(): return (.GET, "/api/users/", nil)
-            case .PostUser(let params): return (.POST, "/api/users", ["parameters": params])
-           }
-            }()
-        
         let URL = NSURL(string: Router.baseURLString)!
-        let URLRequest = NSURLRequest(URL: URL.URLByAppendingPathComponent(path))
-        let encoding = Alamofire.ParameterEncoding.URL
+        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+        mutableURLRequest.HTTPMethod = method.rawValue
         
-        return encoding.encode(URLRequest, parameters: parameters).0
+        switch self {
+        case .PostUser(let parameters):
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+        default:
+            return mutableURLRequest
+        }
     }
 }
