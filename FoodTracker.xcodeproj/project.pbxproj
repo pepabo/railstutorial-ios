@@ -13,6 +13,7 @@
 		6B8256091B8AE755005E2397 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8256081B8AE754005E2397 /* User.swift */; };
 		6B82560A1B8AE755005E2397 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8256081B8AE754005E2397 /* User.swift */; };
 		6B82560C1B8AE79D005E2397 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82560B1B8AE79D005E2397 /* UserTests.swift */; };
+		6BB1A5391B9595A200813021 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB1A5381B9595A200813021 /* ResetPasswordViewController.swift */; };
 		6BEBBBEA1B8EED81007EEF4A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */; };
 		6BF845CB1B956BE700BDFA11 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */; };
 		8969712F1B93F5C500B0CB4C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969712E1B93F5C500B0CB4C /* Router.swift */; };
@@ -47,6 +48,7 @@
 		6B8256001B8ACB8D005E2397 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = Classes/Controllers/UserViewController.swift; sourceTree = "<group>"; };
 		6B8256081B8AE754005E2397 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
 		6B82560B1B8AE79D005E2397 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTests.swift; path = FoodTrackerTests/UserTests.swift; sourceTree = SOURCE_ROOT; };
+		6BB1A5381B9595A200813021 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = Classes/Controllers/ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = Classes/Controllers/SignupViewController.swift; sourceTree = "<group>"; };
 		6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Classes/Controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		8969712E1B93F5C500B0CB4C /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Classes/Models/Router.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */,
 				6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */,
 				6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */,
+				6BB1A5381B9595A200813021 /* ResetPasswordViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				6B8255FD1B8AC8BA005E2397 /* UserTableViewCell.swift in Sources */,
 				6BF845CB1B956BE700BDFA11 /* ForgotPasswordViewController.swift in Sources */,
 				6B8256091B8AE755005E2397 /* User.swift in Sources */,
+				6BB1A5391B9595A200813021 /* ResetPasswordViewController.swift in Sources */,
 				89878BAB1B842B41004CCD77 /* Micropost.swift in Sources */,
 				AB55C03A1B8304830077C16C /* AppDelegate.swift in Sources */,
 				AB785DDE1B846EED002DA142 /* MicropostlViewController.swift in Sources */,
