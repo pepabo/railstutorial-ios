@@ -5,13 +5,15 @@ enum Router: URLRequestConvertible {
     
     case GetFeed(userId: Int)
     case GetAllUsers()
+    case PostUser(params: Dictionary<String, String>)
     
     var URLRequest: NSURLRequest {
         let (method: Alamofire.Method, path: String, parameters: [String: AnyObject]?) = {
             switch self {
             case .GetFeed(let userId): return (.GET, "/api/users/\(userId)/feed", nil)
             case .GetAllUsers(): return (.GET, "/api/users/", nil)
-            }
+            case .PostUser(let params): return (.POST, "/api/users", ["parameters": params])
+           }
             }()
         
         let URL = NSURL(string: Router.baseURLString)!

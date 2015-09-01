@@ -1,7 +1,7 @@
 import UIKit
 import Alamofire
 import SVProgressHUD
-       
+
 class SignupViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet var textFields: [UITextField]!
@@ -68,20 +68,18 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             "password_confirmation": password_confirmation
         ]
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
-        //Alamofire.request(.POST, "https://157.7.190.148/api/users", parameters: params, encoding: .JSON)
-        Alamofire.request(.POST, "http://localhost:3000/api/users", parameters: params, encoding: .JSON)
-            .responseJSON { (request, response, JSON, error) in
-                println(JSON)
-                var json = JSON as! Dictionary<String, AnyObject>
-                if json["status"] as! Int == 200 {
-                    SVProgressHUD.dismiss()
-                    let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
-                    self.presentViewController( targetViewController, animated: true, completion: nil)
-                } else{
-                    var messages = json["messages"] as! Dictionary<String, AnyObject>
-                    var user_errors = messages["user"] as! Dictionary<String, String>
-                    SVProgressHUD.showErrorWithStatus(user_errors.values.first)
-                }
+        Alamofire.request(Router.PostUser(params: params)).responseJSON { (request, response, data, error) -> Void in
+            println(data)
+            var json = data as! Dictionary<String, AnyObject>
+            if json["status"] as! Int == 200 {
+                SVProgressHUD.dismiss()
+                let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
+                self.presentViewController( targetViewController, animated: true, completion: nil)
+            } else{
+                var messages = json["messages"] as! Dictionary<String, AnyObject>
+                var user_errors = messages["user"] as! Dictionary<String, String>
+                SVProgressHUD.showErrorWithStatus(user_errors.values.first)
+            }
         }
     }
 }
