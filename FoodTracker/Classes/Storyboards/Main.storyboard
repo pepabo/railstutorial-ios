@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tu5-Lm-ZQY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KDD-nb-63e">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -1184,7 +1184,8 @@ App</string>
                                                 <exclude reference="x8g-ZE-7FO"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="8" y="104" width="284" height="451"/>
                                             <mask key="subviews">
                                                 <include reference="FLb-Ac-Zau"/>
                                                 <include reference="gUU-zN-14g"/>
@@ -1264,7 +1265,8 @@ App</string>
                                         <exclude reference="ZPB-36-QK4"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="50" y="28" width="300" height="564"/>
                                     <mask key="subviews">
                                         <include reference="JQb-NA-4rz"/>
                                         <include reference="N2L-zN-hae"/>
@@ -1336,7 +1338,7 @@ App</string>
         <!--Navigation Controller-->
         <scene sceneID="Epw-3f-oeW">
             <objects>
-                <navigationController id="Tu5-Lm-ZQY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ResetPasswordNavigationController" id="Tu5-Lm-ZQY" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Km-4j-TFH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1762,6 +1764,6 @@ App</string>
         <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eph-rC-yrT"/>
+        <segue reference="QdC-QQ-cHK"/>
     </inferredMetricsTieBreakers>
 </document>
