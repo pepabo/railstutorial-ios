@@ -7,8 +7,8 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-
-    var micropost = Micropost?()
+    var microposts = MicropostDataManager()
+    var micropost: Micropost?
     
     // MARK: - View Events
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
         presentViewController(imagePickerController, animated: true, completion: nil)
         
     }
-    
+        
     // MARK: - Navigation
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -42,7 +42,10 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
             let content = contentField.text ?? ""
             let picture = pictureImageView.image
             
-            micropost = Micropost(content: content, picture: picture)
+            micropost = Micropost(
+                content: content,
+                picture: nil
+            )
         }
     }
     
@@ -51,10 +54,6 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         textView.resignFirstResponder()
         return true
-    }
-
-    func textViewDidBeginEditing(textView: UITextView) {
-        saveButton.enabled = false
     }
     
     func textViewDidChange(textView: UITextView) {

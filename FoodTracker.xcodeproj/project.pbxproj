@@ -119,6 +119,7 @@
 			children = (
 				89878BAA1B842B41004CCD77 /* Micropost.swift */,
 				6B8256081B8AE754005E2397 /* User.swift */,
+				8969712E1B93F5C500B0CB4C /* Router.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -183,6 +184,7 @@
 				6BD417031B8C0CB60027BC14 /* Classes */,
 				AB55C0401B8304830077C16C /* Images.xcassets */,
 				AB55C0371B8304830077C16C /* Supporting Files */,
+				896971301B941B4B00B0CB4C /* Bridging-Header.h */,
 			);
 			path = FoodTracker;
 			sourceTree = "<group>";
@@ -449,6 +451,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "FoodTracker/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

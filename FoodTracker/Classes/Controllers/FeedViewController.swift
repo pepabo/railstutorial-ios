@@ -1,12 +1,14 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class FeedViewController: UITableViewController {
     // MARK: - Properties
-    var microposts = [Micropost]()
+    var microposts = MicropostDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSampleMicroposts()
+        self.request()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -15,19 +17,30 @@ class FeedViewController: UITableViewController {
         SVProgressHUD.dismiss()
     }
     
-    func loadSampleMicroposts() {
-        let photo1 = UIImage(named: "micropost1.jpg")!
-        let micropost1 = Micropost(content: "ねこはかわいい", picture: photo1)!
-        
-        let photo2 = UIImage(named: "micropost2.jpg")!
-        let micropost2 = Micropost(content: "かわいいは正義", picture: photo2)!
-        
-        let photo3 = UIImage(named: "micropost3.jpg")!
-        let micropost3 = Micropost(content: "つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義つまりねこは正義", picture: photo3)!
-        
-        let micropost4 = Micropost(content: "かわいいは正義", picture: nil)!
-        
-        microposts += [micropost1, micropost2, micropost3, micropost4]
+    func request() {
+        Alamofire.request(Router.GetFeed(userId: 1)).responseJSON { (request, response, data, error) -> Void in
+            println(data)
+            if data != nil {
+                let json = JSON(data!)
+                println(json)
+                
+                for (index: String, subJson: JSON) in json["contents"] {
+                    var picture = ""
+                    if let url = subJson["picture"]["url"].string {
+                        picture = url
+                    }
+                    var micropost: Micropost = Micropost(
+                        content: subJson["content"].string!,
+                        picture: NSURL(string: picture)
+                    )
+                    self.microposts.set(micropost)
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView!.reloadData()
+                })
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -36,7 +49,7 @@ class FeedViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return microposts.count
+        return self.microposts.size
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -44,10 +57,10 @@ class FeedViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
         
-        let micropost = microposts[indexPath.row]
+        let micropost: Micropost = self.microposts[indexPath.row] as Micropost
         
         cell.contentLabel.text = micropost.content
-        cell.pictureImageView.image = micropost.picture
+        cell.pictureImageView.sd_setImageWithURL(micropost.picture)
         
         return cell
     }
@@ -63,8 +76,8 @@ class FeedViewController: UITableViewController {
     // MARK: - Navigation
     @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? MicropostViewController, micropost = sourceViewController.micropost {
-            let newIndexPath = NSIndexPath(forRow: microposts.count, inSection: 0)
-            microposts.append(micropost)
+            let newIndexPath = NSIndexPath(forRow: self.microposts.size, inSection: 0)
+            self.microposts.add(micropost)
             tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         }
     }

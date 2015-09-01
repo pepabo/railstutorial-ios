@@ -1,4 +1,5 @@
 import UIKit
+import Alamofire
 
 class User {
     // MARK: - Properties

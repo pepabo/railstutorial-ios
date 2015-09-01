@@ -326,7 +326,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="hfu-xh-Mrc">
                             <connections>
-                                <segue destination="AiK-Mo-ZxH" kind="unwind" unwindAction="unwindToMicropostList:" id="fsB-Sw-KQk"/>
+                                <segue destination="NKA-t8-u52" kind="unwind" unwindAction="unwindToMicropostList:" id="uSc-JA-PA0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -337,7 +337,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="AiK-Mo-ZxH" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="NKA-t8-u52" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="35F-js-VD3">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="NXq-Qr-QpS"/>

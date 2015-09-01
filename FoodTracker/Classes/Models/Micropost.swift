@@ -1,17 +1,29 @@
 import UIKit
 
-class Micropost {
-    // MARK: - Properties
-    var content: String
-    var picture: UIImage?
-    
-    // MARK: - Initialization
-    init?(content: String, picture: UIImage?) {
-        self.content = content
-        self.picture = picture
+struct Micropost {
+    var content: String, picture: NSURL?
+}
 
-        if content.isEmpty {
-            return nil
-        }
+class MicropostDataManager: NSObject {
+    var microposts: [Micropost]
+    
+    override init() {
+        self.microposts = []
+    }
+    
+    var size : Int {
+        return self.microposts.count
+    }
+    
+    subscript(index: Int) -> Micropost {
+        return self.microposts[index]
+    }
+    
+    func set(micropost: Micropost) {
+        self.microposts.append(micropost)
+    }
+    
+    func add(micropost: Micropost) {
+        self.microposts.insert(micropost, atIndex: 0)
     }
 }
