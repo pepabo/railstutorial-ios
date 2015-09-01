@@ -7,13 +7,6 @@ struct Micropost {
 class MicropostDataManager: NSObject {
     var microposts: [Micropost]
     
-    class var sharedInstance : MicropostDataManager {
-        struct Static {
-            static let instance : MicropostDataManager = MicropostDataManager()
-        }
-        return Static.instance
-    }
-    
     override init() {
         self.microposts = []
     }

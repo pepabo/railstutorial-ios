@@ -7,7 +7,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var microposts = MicropostDataManager.sharedInstance
+    var microposts = MicropostDataManager()
     var micropost: Micropost?
     
     // MARK: - View Events

@@ -4,7 +4,7 @@ import SwiftyJSON
 
 class FeedViewController: UITableViewController {
     // MARK: - Properties
-    var microposts = MicropostDataManager.sharedInstance
+    var microposts = MicropostDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
