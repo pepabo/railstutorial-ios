@@ -2,11 +2,10 @@ import UIKit
 
 class UserViewController: UITableViewController {
     // MARK: - Properties
-    var users = [User]()
+    var users = UserDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSampleUsers()
     }
     
     // MARK: - Table view data source
@@ -15,7 +14,7 @@ class UserViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return self.users.size
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -27,13 +26,5 @@ class UserViewController: UITableViewController {
         cell.userIcon.imageView?.image = UIImage(data: NSData(contentsOfURL: user.icon)!)
         
         return cell
-    }
-    
-    func loadSampleUsers() {
-        let user1 = User(name: "cat", icon: "")!
-        let user2 = User(name: "neko", icon: "")!
-        let user3 = User(name: "nyah", icon: "")!
-        
-        users += [user1, user2, user3]
     }
 }

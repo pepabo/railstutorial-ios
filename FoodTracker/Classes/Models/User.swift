@@ -1,15 +1,25 @@
 import UIKit
-import Alamofire
 
-class User {
-    // MARK: - Properties
-    var name: String
-    var icon: NSURL
+struct User {
+    var name: String, icon: NSURL
+}
+
+class UserDataManager: NSObject {
+    var users: [User]
     
-    // MARK: - Initialization
-    init?(name: String, icon: String) {
-        let dummyIcon = "https://pbs.twimg.com/profile_images/591295584516079616/EfyAXyyq_400x400.jpg"
-        self.name = name
-        self.icon = NSURL(string: dummyIcon)!
+    override init() {
+        self.users = []
+    }
+    
+    var size : Int {
+        return self.users.count
+    }
+    
+    subscript(index: Int) -> User {
+        return self.users[index]
+    }
+    
+    func set(user: User) {
+        self.users.append(user)
     }
 }
