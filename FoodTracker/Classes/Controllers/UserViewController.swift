@@ -47,7 +47,7 @@ class UserViewController: UITableViewController {
         let cellIdentifier = "UserTableViewCell"
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UserTableViewCell
-        let user: User = self.users[indexPath.row] as User
+        let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
         cell.userIcon.imageView?.sd_setImageWithURL(user.icon)
         
