@@ -1372,6 +1372,7 @@ App</string>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="LgQ-YN-Afq" firstAttribute="top" secondItem="8rm-yd-Rm0" secondAttribute="bottom" constant="100" id="FXr-Ey-Dp1"/>
                             <constraint firstAttribute="centerX" secondItem="LgQ-YN-Afq" secondAttribute="centerX" id="HDB-s7-kJU"/>
@@ -1402,10 +1403,21 @@ App</string>
                                 <include reference="pBh-X7-4r9"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bDy-xL-gP1" appends="YES" id="sBY-Ke-BMP"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Password reset" id="vz1-Sl-fRY"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="LgQ-YN-Afq" id="VBa-0c-JrC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nd-JF-rk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bDy-xL-gP1">
+                    <connections>
+                        <action selector="unFocusTextField:" destination="n3Q-aK-tkN" id="GMc-ve-M25"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="120" y="1419"/>
         </scene>
