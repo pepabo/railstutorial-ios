@@ -78,9 +78,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
                 self.presentViewController( targetViewController, animated: true, completion: nil)
             } else{
-                var messages = json["messages"]
-                var user_errors = messages["user"]
-                SVProgressHUD.showErrorWithStatus(user_errors.dictionary!.values.first?.stringValue)
+                let tmp = json["messages"]["user"]
+                SVProgressHUD.showErrorWithStatus(json["messages"]["user"].dictionary!.values.first?.stringValue)
             }
         }
     }
