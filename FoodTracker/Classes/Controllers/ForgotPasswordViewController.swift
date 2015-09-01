@@ -1,7 +1,7 @@
 import UIKit
 import SVProgressHUD
 
-class PasswordResetViewController: UIViewController, UITextFieldDelegate {
+class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
@@ -12,7 +12,7 @@ class PasswordResetViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Actions
     @IBAction func touchSubmitButton(sender: UIButton) {
-        resetPassword()
+        forgotPassword()
     }
 
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
@@ -27,7 +27,7 @@ class PasswordResetViewController: UIViewController, UITextFieldDelegate {
     }
 
     // MARK: -
-    private func resetPassword() {
+    private func forgotPassword() {
         emailTextField.resignFirstResponder()
         SVProgressHUD.showWithStatus("", maskType: .Black)
         if checkValidForm() {

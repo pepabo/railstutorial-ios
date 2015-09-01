@@ -1336,7 +1336,7 @@ App</string>
         <!--Forgot password-->
         <scene sceneID="n8S-Vs-cCn">
             <objects>
-                <viewController id="n3Q-aK-tkN" customClass="PasswordResetViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="n3Q-aK-tkN" customClass="ForgotPasswordViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8rm-yd-Rm0"/>
                         <viewControllerLayoutGuide type="bottom" id="WUl-xJ-36Z"/>
