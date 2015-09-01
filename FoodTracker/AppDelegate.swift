@@ -44,7 +44,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
-
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        
+        if url.host != nil {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            var storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let identifier = getControllerIdentifierFromURL(url)
+            var initialViewController = storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+        
+        var params = Dictionary<String, String>()
+        if url.query != nil {
+            params = getParamsFromURL(url)
+        }
+        
+        return true
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -67,6 +86,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func getControllerIdentifierFromURL(url: NSURL) -> String {
+        return url.host!.capitalizedString + "NavigationController"
+    }
 
+    func getParamsFromURL(url: NSURL) -> Dictionary<String, String> {
+        var params = Dictionary<String, String>()
+        if let query = url.query as String! {
+            for param in split(query, allowEmptySlices: true, isSeparator: { $0 == "&" }) {
+                let elements = split(param, allowEmptySlices: true, isSeparator: { $0 == "=" })
+                params[elements[0]] = elements[1]
+            }
+        }
+        return params
+    }
 }
 
