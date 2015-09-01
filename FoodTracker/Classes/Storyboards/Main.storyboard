@@ -826,6 +826,26 @@ App</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="aVx-ih-r6G" style="IBUITableViewCellStyleDefault" id="ojU-gs-noN">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ojU-gs-noN" id="gzz-p2-fD2">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Password reset" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aVx-ih-r6G">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="n3Q-aK-tkN" kind="show" id="8mX-gT-spZ"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1313,6 +1333,81 @@ App</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnh-Ze-oxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1756.5" y="1183"/>
+        </scene>
+        <!--Password reset-->
+        <scene sceneID="n8S-Vs-cCn">
+            <objects>
+                <viewController id="n3Q-aK-tkN" customClass="PasswordResetViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8rm-yd-Rm0"/>
+                        <viewControllerLayoutGuide type="bottom" id="WUl-xJ-36Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZYm-Hp-icg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgQ-YN-Afq">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="ivo-f6-DvU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ivo-f6-DvU"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ivo-f6-DvU"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLL-Up-H4B">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LgQ-YN-Afq" firstAttribute="top" secondItem="8rm-yd-Rm0" secondAttribute="bottom" constant="100" id="FXr-Ey-Dp1"/>
+                            <constraint firstAttribute="centerX" secondItem="LgQ-YN-Afq" secondAttribute="centerX" id="HDB-s7-kJU"/>
+                            <constraint firstAttribute="centerX" secondItem="uLL-Up-H4B" secondAttribute="centerX" id="e51-bL-R9z"/>
+                            <constraint firstItem="uLL-Up-H4B" firstAttribute="top" secondItem="LgQ-YN-Afq" secondAttribute="bottom" constant="50" id="pBh-X7-4r9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="LgQ-YN-Afq"/>
+                                <exclude reference="uLL-Up-H4B"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="FXr-Ey-Dp1"/>
+                                <exclude reference="HDB-s7-kJU"/>
+                                <exclude reference="e51-bL-R9z"/>
+                                <exclude reference="pBh-X7-4r9"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="LgQ-YN-Afq"/>
+                                <include reference="uLL-Up-H4B"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="FXr-Ey-Dp1"/>
+                                <include reference="HDB-s7-kJU"/>
+                                <include reference="e51-bL-R9z"/>
+                                <include reference="pBh-X7-4r9"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Password reset" id="vz1-Sl-fRY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nd-JF-rk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120" y="1419"/>
         </scene>
         <!--Profile-->
         <scene sceneID="cpi-Lj-QyF">
