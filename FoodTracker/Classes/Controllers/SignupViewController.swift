@@ -68,7 +68,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             "password_confirmation": password_confirmation
         ]
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
-        Alamofire.request(.POST, "https://157.7.190.148/api/users", parameters: params, encoding: .JSON)
+        //Alamofire.request(.POST, "https://157.7.190.148/api/users", parameters: params, encoding: .JSON)
+        Alamofire.request(.POST, "http://localhost:3000/api/users", parameters: params, encoding: .JSON)
             .responseJSON { (request, response, JSON, error) in
                 println(JSON)
                 var json = JSON as! Dictionary<String, AnyObject>
