@@ -9,7 +9,7 @@ class FeedViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.request()
+        request()
     }
     
     override func viewDidAppear(animated: Bool) {
