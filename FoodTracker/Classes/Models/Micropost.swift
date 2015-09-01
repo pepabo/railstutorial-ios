@@ -22,4 +22,8 @@ class MicropostDataManager: NSObject {
     func set(micropost: Micropost) {
         self.microposts.append(micropost)
     }
+    
+    func add(micropost: Micropost) {
+        self.microposts.insert(micropost, atIndex: 0)
+    }
 }
