@@ -46,10 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if url.host != nil {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            var storyboard = UIStoryboard(name: "Main", bundle: nil)
             let identifier = getControllerIdentifierFromURL(url)
             var initialViewController = storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
             self.window?.rootViewController = initialViewController
