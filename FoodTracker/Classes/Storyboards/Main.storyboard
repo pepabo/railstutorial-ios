@@ -426,6 +426,9 @@ App</string>
                                 <state key="normal" title=" Forgot">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hP3-Uk-Rju" kind="presentation" id="X5K-Ek-vEb"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JCQ-IN-0lf">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -825,26 +828,6 @@ App</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="aVx-ih-r6G" style="IBUITableViewCellStyleDefault" id="ojU-gs-noN">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ojU-gs-noN" id="gzz-p2-fD2">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Password reset" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aVx-ih-r6G">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    </variation>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="n3Q-aK-tkN" kind="show" id="8mX-gT-spZ"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1334,7 +1317,23 @@ App</string>
             </objects>
             <point key="canvasLocation" x="1756.5" y="1183"/>
         </scene>
-        <!--Password reset-->
+        <!--Navigation Controller-->
+        <scene sceneID="iYR-mB-dly">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hP3-Uk-Rju" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xay-YF-LEp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="n3Q-aK-tkN" kind="relationship" relationship="rootViewController" id="nfX-dk-770"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yKv-tF-HhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1308" y="1100"/>
+        </scene>
+        <!--Forgot password-->
         <scene sceneID="n8S-Vs-cCn">
             <objects>
                 <viewController id="n3Q-aK-tkN" customClass="PasswordResetViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -1413,7 +1412,13 @@ App</string>
                             <outletCollection property="gestureRecognizers" destination="bDy-xL-gP1" appends="YES" id="sBY-Ke-BMP"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Password reset" id="vz1-Sl-fRY"/>
+                    <navigationItem key="navigationItem" title="Forgot password" id="ZwZ-dn-WTt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="aR1-mr-d67">
+                            <connections>
+                                <segue destination="KDD-nb-63e" kind="presentation" id="eph-rC-yrT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="LgQ-YN-Afq" id="VBa-0c-JrC"/>
                         <outlet property="submitButton" destination="uLL-Up-H4B" id="B6S-VU-Uks"/>
@@ -1426,7 +1431,7 @@ App</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="120" y="1419"/>
+            <point key="canvasLocation" x="-603" y="1100"/>
         </scene>
         <!--Profile-->
         <scene sceneID="cpi-Lj-QyF">
@@ -1627,4 +1632,7 @@ App</string>
         <image name="Image" width="320" height="320"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eph-rC-yrT"/>
+    </inferredMetricsTieBreakers>
 </document>
