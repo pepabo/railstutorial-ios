@@ -27,7 +27,7 @@
 			<string>nehan.FoodTracker</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakiko</string>
+				<string>kakico</string>
 			</array>
 		</dict>
 	</array>
