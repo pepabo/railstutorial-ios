@@ -7,9 +7,10 @@ class FeedViewController: UITableViewController {
     // MARK: - Properties
     var microposts = MicropostDataManager()
     
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.request()
+        request()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -58,7 +59,7 @@ class FeedViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
         
-        let micropost: Micropost = self.microposts[indexPath.row] as Micropost
+        let micropost = self.microposts[indexPath.row] as Micropost
         
         cell.contentLabel.text = micropost.content
         cell.pictureImageView.sd_setImageWithURL(micropost.picture)

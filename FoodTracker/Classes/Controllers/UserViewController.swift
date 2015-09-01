@@ -1,12 +1,37 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class UserViewController: UITableViewController {
     // MARK: - Properties
-    var users = [User]()
+    var users = UserDataManager()
     
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSampleUsers()
+        request()
+    }
+    
+    func request() {
+        Alamofire.request(Router.GetAllUsers()).responseJSON { (request, response, data, error) -> Void in
+            println(data)
+            if data != nil {
+                let json = JSON(data!)
+                println(json)
+                
+                for (index: String, subJson: JSON) in json["contents"] {
+                    var user: User = User(
+                        name: subJson["name"].string!,
+                        icon: NSURL(string: "")!
+                    )
+                    self.users.set(user)
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView!.reloadData()
+                })
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -15,25 +40,17 @@ class UserViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return self.users.size
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "UserTableViewCell"
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UserTableViewCell
-        let user = users[indexPath.row]
+        let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
-        cell.userIcon.imageView?.image = UIImage(data: NSData(contentsOfURL: user.icon)!)
+        cell.userIcon.imageView?.sd_setImageWithURL(user.icon)
         
         return cell
-    }
-    
-    func loadSampleUsers() {
-        let user1 = User(name: "cat", icon: "")!
-        let user2 = User(name: "neko", icon: "")!
-        let user3 = User(name: "nyah", icon: "")!
-        
-        users += [user1, user2, user3]
     }
 }

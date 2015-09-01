@@ -4,11 +4,13 @@ enum Router: URLRequestConvertible {
     static let baseURLString = "http://localhost:3000"
     
     case GetFeed(userId: Int)
+    case GetAllUsers()
     
     var URLRequest: NSURLRequest {
         let (method: Alamofire.Method, path: String, parameters: [String: AnyObject]?) = {
             switch self {
             case .GetFeed(let userId): return (.GET, "/api/users/\(userId)/feed", nil)
+            case .GetAllUsers(): return (.GET, "/api/users/", nil)
             }
             }()
         
