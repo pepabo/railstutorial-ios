@@ -18,21 +18,17 @@ class UserViewController: UITableViewController {
                 let json = JSON(data!)
                 println(json)
                 
-//                for (index: String, subJson: JSON) in json["contents"] {
-//                    var picture = ""
-//                    if let url = subJson["picture"]["url"].string {
-//                        picture = url
-//                    }
-//                    var micropost: Micropost = Micropost(
-//                        content: subJson["content"].string!,
-//                        picture: NSURL(string: picture)
-//                    )
-//                    self.microposts.set(micropost)
-//                }
-//                
-//                dispatch_async(dispatch_get_main_queue(), {
-//                    self.tableView!.reloadData()
-//                })
+                for (index: String, subJson: JSON) in json["contents"] {
+                    var user: User = User(
+                        name: subJson["name"].string!,
+                        icon: NSURL(string: "")!
+                    )
+                    self.users.set(user)
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView!.reloadData()
+                })
             }
         }
     }
@@ -50,9 +46,9 @@ class UserViewController: UITableViewController {
         let cellIdentifier = "UserTableViewCell"
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UserTableViewCell
-        let user = users[indexPath.row]
+        let user: User = self.users[indexPath.row] as User
         cell.userName.text = user.name
-        cell.userIcon.imageView?.image = UIImage(data: NSData(contentsOfURL: user.icon)!)
+        cell.userIcon.imageView?.sd_setImageWithURL(user.icon)
         
         return cell
     }
