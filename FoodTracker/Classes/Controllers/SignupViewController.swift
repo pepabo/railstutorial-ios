@@ -1,6 +1,7 @@
 import UIKit
 import Alamofire
 import SVProgressHUD
+import SwiftyJSON
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
@@ -69,16 +70,17 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         ]
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
         Alamofire.request(Router.PostUser(params: params)).responseJSON { (request, response, data, error) -> Void in
-            println(data)
-            var json = data as! Dictionary<String, AnyObject>
-            if json["status"] as! Int == 200 {
+            let json = JSON(data!)
+            println(json)
+            println(json["status"])
+            if json["status"] == 200 {
                 SVProgressHUD.dismiss()
                 let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
                 self.presentViewController( targetViewController, animated: true, completion: nil)
             } else{
-                var messages = json["messages"] as! Dictionary<String, AnyObject>
-                var user_errors = messages["user"] as! Dictionary<String, String>
-                SVProgressHUD.showErrorWithStatus(user_errors.values.first)
+                var messages = json["messages"]
+                var user_errors = messages["user"]
+                SVProgressHUD.showErrorWithStatus(user_errors.dictionary!.values.first?.stringValue)
             }
         }
     }
