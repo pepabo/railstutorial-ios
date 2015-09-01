@@ -10,11 +10,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmationTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var passwordConfirmationLabel: UILabel!
-    
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,22 +78,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 } else{
                     var messages = json["messages"] as! Dictionary<String, AnyObject>
                     var user_errors = messages["user"] as! Dictionary<String, String>
-                    println(user_errors)
-                    if let error = user_errors["name"] as String? { self.nameLabel.text = error }
-                    if let error = user_errors["email"] as String? { self.emailLabel.text = error }
-                    if let error = user_errors["password"] as String? { self.passwordLabel.text = error }
-                    if let error = user_errors["password_confirmation"] as String? { self.passwordConfirmationLabel.text = error }
-                    
-                    var notice : String = ""
-                    if let errors = messages["notice"] as? Array<String> {
-                        for error in errors {
-                            notice += error + "\n"
-                        }
-                    }
-                    if notice == "" {
-                        notice = "作成に失敗しました"
-                    }
-                    SVProgressHUD.showErrorWithStatus(notice)
+                    SVProgressHUD.showErrorWithStatus(user_errors.values.first)
                 }
         }
     }

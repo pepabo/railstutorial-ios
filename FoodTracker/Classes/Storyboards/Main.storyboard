@@ -10,7 +10,7 @@
         <scene sceneID="wRN-C5-hIj">
             <objects>
                 <tableViewController id="Lvb-ZI-qJv" customClass="FeedViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="172" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bub-0Z-Svk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="feed" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="172" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bub-0Z-Svk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -625,42 +625,6 @@ App</string>
                                     <segue destination="KDD-nb-63e" kind="presentation" id="QdC-QQ-cHK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcw-0l-nzI">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="75" y="143" width="250" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtW-BT-uBz">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="75" y="210" width="250" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-uM-gOT">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="75" y="263" width="250" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAa-Fu-wAH">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="75" y="323" width="250" height="21"/>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -694,10 +658,6 @@ App</string>
                                 <exclude reference="NR7-c2-5Sd"/>
                                 <exclude reference="TwA-TX-7Bs"/>
                                 <exclude reference="EYW-1L-Mhc"/>
-                                <exclude reference="wcw-0l-nzI"/>
-                                <exclude reference="ZtW-BT-uBz"/>
-                                <exclude reference="Qsa-uM-gOT"/>
-                                <exclude reference="sAa-Fu-wAH"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="7NV-HU-pOb"/>
@@ -730,10 +690,6 @@ App</string>
                                 <include reference="NR7-c2-5Sd"/>
                                 <include reference="TwA-TX-7Bs"/>
                                 <include reference="EYW-1L-Mhc"/>
-                                <include reference="wcw-0l-nzI"/>
-                                <include reference="ZtW-BT-uBz"/>
-                                <include reference="Qsa-uM-gOT"/>
-                                <include reference="sAa-Fu-wAH"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="7NV-HU-pOb"/>
@@ -765,12 +721,8 @@ App</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="confirmationTextField" destination="NR7-c2-5Sd" id="LQX-NH-mDD"/>
-                        <outlet property="emailLabel" destination="ZtW-BT-uBz" id="SpB-Da-kS5"/>
                         <outlet property="emailTextField" destination="PXV-5s-OUb" id="bxF-NF-vw2"/>
-                        <outlet property="nameLabel" destination="wcw-0l-nzI" id="BPr-iw-wkq"/>
                         <outlet property="nameTextField" destination="XQf-rz-YGE" id="MhH-fU-wXN"/>
-                        <outlet property="passwordConfirmationLabel" destination="sAa-Fu-wAH" id="QNK-tf-sxu"/>
-                        <outlet property="passwordLabel" destination="Qsa-uM-gOT" id="Fr7-i7-3ST"/>
                         <outlet property="passwordTextField" destination="Zhf-MD-Fnl" id="BTU-UC-6Zz"/>
                         <outlet property="signUpButton" destination="blZ-Po-9OE" id="GzU-70-chl"/>
                         <outletCollection property="textFields" destination="XQf-rz-YGE" collectionClass="NSMutableArray" id="owf-DS-zGR"/>
@@ -1561,7 +1513,4 @@ App</string>
         <image name="Image" width="320" height="320"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="7f1-2I-NY9"/>
-    </inferredMetricsTieBreakers>
 </document>
