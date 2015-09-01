@@ -7,8 +7,8 @@ pod 'SVProgressHUD'
 pod 'SwiftyJSON', '~> 2.2.1'
 pod 'SDWebImage'
 
-target 'FoodTracker' do
+target 'Kakico' do
 end
 
-target 'FoodTrackerTests' do
+target 'KakicoTests' do
 end

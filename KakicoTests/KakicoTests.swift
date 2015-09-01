@@ -1,8 +1,7 @@
 import UIKit
 import XCTest
 
-class FoodTrackerTests: XCTestCase {
+class KakicoTests: XCTestCase {
     func testMicropostInitialization() {
     }
 }
-// MARK: FoodTracker Tests

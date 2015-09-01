@@ -1,6 +1,6 @@
 SHELL = /bin/bash
-PROJECT = FoodTracker.xcworkspace
-TEST_TARGET = FoodTrackerTests
+PROJECT = Kakico.xcworkspace
+TEST_TARGET = KakicoTests
 OS = 8.4
 DEVICE = iPhone 6
 

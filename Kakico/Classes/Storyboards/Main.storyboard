@@ -9,13 +9,13 @@
         <!--Feed-->
         <scene sceneID="wRN-C5-hIj">
             <objects>
-                <tableViewController id="Lvb-ZI-qJv" customClass="FeedViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Lvb-ZI-qJv" customClass="FeedViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="feed" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="172" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bub-0Z-Svk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Micropost" rowHeight="216" id="pit-fs-UEW" customClass="MicropostCell" customModule="FoodTracker" customModuleProvider="target">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Micropost" rowHeight="216" id="pit-fs-UEW" customClass="MicropostCell" customModule="Kakico" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pit-fs-UEW" id="Ywk-YM-BeB">
@@ -207,7 +207,7 @@
         <!--New Post-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MicropostViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MicropostViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -372,7 +372,7 @@
         <!--Login View Controller-->
         <scene sceneID="MLw-rH-x4A">
             <objects>
-                <viewController id="KDD-nb-63e" customClass="LoginViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KDD-nb-63e" customClass="LoginViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j4B-Gq-Oix"/>
                         <viewControllerLayoutGuide type="bottom" id="s9q-U1-ifr"/>
@@ -563,7 +563,7 @@ App</string>
         <!--Signup View Controller-->
         <scene sceneID="Amc-vt-KkT">
             <objects>
-                <viewController id="uWr-z4-2wB" customClass="SignupViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uWr-z4-2wB" customClass="SignupViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="poK-Rz-I16"/>
                         <viewControllerLayoutGuide type="bottom" id="jf0-Cw-1Np"/>
@@ -848,13 +848,13 @@ App</string>
         <!--ALL-->
         <scene sceneID="2sO-SB-qkS">
             <objects>
-                <tableViewController id="NIT-Rz-oJj" customClass="UserViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="NIT-Rz-oJj" customClass="UserViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="7uq-mq-iFI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserTableViewCell" rowHeight="66" id="UIw-MM-6Wr" customClass="UserTableViewCell" customModule="FoodTracker" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserTableViewCell" rowHeight="66" id="UIw-MM-6Wr" customClass="UserTableViewCell" customModule="Kakico" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UIw-MM-6Wr" id="emO-jp-z0j">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1354,7 +1354,7 @@ App</string>
         <!--Reset password-->
         <scene sceneID="Qpj-Dl-cWS">
             <objects>
-                <viewController id="VTR-mg-paA" customClass="ResetPasswordViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VTR-mg-paA" customClass="ResetPasswordViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DZr-bX-6xK"/>
                         <viewControllerLayoutGuide type="bottom" id="o8m-xS-oSL"/>
@@ -1467,7 +1467,7 @@ App</string>
         <!--Forgot password-->
         <scene sceneID="n8S-Vs-cCn">
             <objects>
-                <viewController id="n3Q-aK-tkN" customClass="ForgotPasswordViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="n3Q-aK-tkN" customClass="ForgotPasswordViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8rm-yd-Rm0"/>
                         <viewControllerLayoutGuide type="bottom" id="WUl-xJ-36Z"/>
@@ -1567,7 +1567,7 @@ App</string>
         <!--Profile-->
         <scene sceneID="cpi-Lj-QyF">
             <objects>
-                <tableViewController id="Y87-VY-49y" customClass="FeedViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Y87-VY-49y" customClass="FeedViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rig-xa-LSt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1580,7 +1580,7 @@ App</string>
                             </connections>
                         </containerView>
                         <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Micropost" rowHeight="216" id="oWg-Yb-GUA" customClass="MicropostCell" customModule="FoodTracker" customModuleProvider="target">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Micropost" rowHeight="216" id="oWg-Yb-GUA" customClass="MicropostCell" customModule="Kakico" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oWg-Yb-GUA" id="MfU-iI-xqw">
