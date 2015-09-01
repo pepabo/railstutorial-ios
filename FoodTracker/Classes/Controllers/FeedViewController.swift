@@ -1,4 +1,5 @@
 import UIKit
+import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 

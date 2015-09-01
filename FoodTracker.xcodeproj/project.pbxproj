@@ -49,7 +49,6 @@
 		6BCCC6C81B8F227B0006D927 /* FoodTracker-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FoodTracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = Classes/Controllers/SignupViewController.swift; sourceTree = "<group>"; };
 		8969712E1B93F5C500B0CB4C /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Classes/Models/Router.swift; sourceTree = "<group>"; };
-		896971301B941B4B00B0CB4C /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		89878BAA1B842B41004CCD77 /* Micropost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Micropost.swift; path = Classes/Models/Micropost.swift; sourceTree = "<group>"; };
 		89878BB11B844E8C004CCD77 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Classes/Controllers/FeedViewController.swift; sourceTree = "<group>"; };
 		89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Classes/Controllers/LoginViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +186,6 @@
 				6BD417031B8C0CB60027BC14 /* Classes */,
 				AB55C0401B8304830077C16C /* Images.xcassets */,
 				AB55C0371B8304830077C16C /* Supporting Files */,
-				896971301B941B4B00B0CB4C /* Bridging-Header.h */,
 			);
 			path = FoodTracker;
 			sourceTree = "<group>";
@@ -455,7 +453,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "FoodTracker/Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "FoodTracker/Supporting Files/FoodTracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
