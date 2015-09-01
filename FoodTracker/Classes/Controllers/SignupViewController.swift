@@ -1,6 +1,7 @@
 import UIKit
 import Alamofire
-
+import SVProgressHUD
+       
 class SignupViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet var textFields: [UITextField]!
