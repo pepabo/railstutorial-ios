@@ -1363,12 +1363,18 @@ App</string>
                                         <include reference="ivo-f6-DvU"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="n3Q-aK-tkN" id="Nar-re-Ede"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLL-Up-H4B">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchSubmitButton:" destination="n3Q-aK-tkN" eventType="touchUpInside" id="N9I-fl-fFb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1410,6 +1416,7 @@ App</string>
                     <navigationItem key="navigationItem" title="Password reset" id="vz1-Sl-fRY"/>
                     <connections>
                         <outlet property="emailTextField" destination="LgQ-YN-Afq" id="VBa-0c-JrC"/>
+                        <outlet property="submitButton" destination="uLL-Up-H4B" id="B6S-VU-Uks"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nd-JF-rk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
