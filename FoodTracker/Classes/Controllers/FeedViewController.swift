@@ -7,6 +7,7 @@ class FeedViewController: UITableViewController {
     // MARK: - Properties
     var microposts = MicropostDataManager()
     
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         request()

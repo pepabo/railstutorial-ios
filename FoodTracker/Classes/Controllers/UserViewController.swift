@@ -6,6 +6,7 @@ class UserViewController: UITableViewController {
     // MARK: - Properties
     var users = UserDataManager()
     
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         request()
