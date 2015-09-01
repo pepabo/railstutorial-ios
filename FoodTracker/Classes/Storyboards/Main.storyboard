@@ -10,7 +10,7 @@
         <scene sceneID="wRN-C5-hIj">
             <objects>
                 <tableViewController id="Lvb-ZI-qJv" customClass="FeedViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="172" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bub-0Z-Svk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="feed" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="172" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bub-0Z-Svk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -354,7 +354,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Sxj-C5-nhn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NxN-W1-faf" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="NxN-W1-faf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qbO-zW-bie">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -575,7 +575,7 @@ App</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="NxN-W1-faf" kind="presentation" modalTransitionStyle="flipHorizontal" id="ssW-0D-aXe"/>
+                                    <action selector="SubmitSignUpForm:" destination="uWr-z4-2wB" eventType="touchDown" id="Wzt-QI-xLn"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XQf-rz-YGE">
@@ -613,7 +613,7 @@ App</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwA-TX-7Bs">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYW-1L-Mhc">
@@ -720,7 +720,10 @@ App</string>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="confirmationTextField" destination="NR7-c2-5Sd" id="LQX-NH-mDD"/>
                         <outlet property="emailTextField" destination="PXV-5s-OUb" id="bxF-NF-vw2"/>
+                        <outlet property="nameTextField" destination="XQf-rz-YGE" id="MhH-fU-wXN"/>
+                        <outlet property="passwordTextField" destination="Zhf-MD-Fnl" id="BTU-UC-6Zz"/>
                         <outlet property="signUpButton" destination="blZ-Po-9OE" id="GzU-70-chl"/>
                         <outletCollection property="textFields" destination="XQf-rz-YGE" collectionClass="NSMutableArray" id="owf-DS-zGR"/>
                         <outletCollection property="textFields" destination="PXV-5s-OUb" collectionClass="NSMutableArray" id="Gwc-1B-jSb"/>
@@ -1510,7 +1513,4 @@ App</string>
         <image name="Image" width="320" height="320"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="7f1-2I-NY9"/>
-    </inferredMetricsTieBreakers>
 </document>
