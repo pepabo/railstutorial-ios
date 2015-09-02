@@ -1,4 +1,5 @@
 import Alamofire
+import KeychainAccess
 
 enum Router: URLRequestConvertible {
     static let baseURLString = "http://localhost:3000"
@@ -36,6 +37,11 @@ enum Router: URLRequestConvertible {
         let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method.rawValue
         
+        let keychain = Keychain(service: "nehan.Kakico")
+        if let auth_token = keychain["auth_token"] {
+            mutableURLRequest.setValue(auth_token, forHTTPHeaderField: "Authorization")
+        }
+
         switch self {
         case .PostUser(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
