@@ -26,7 +26,9 @@ class UserViewController: UITableViewController {
                 self.setUserList(data)
             }
         }else if listType == "following" {
-            println("fuga")
+            Alamofire.request(Router.GetFollowing(userId: 1)).responseJSON { (request, response, data, error) -> Void in
+                self.setUserList(data)
+            }
         }
     }
     
