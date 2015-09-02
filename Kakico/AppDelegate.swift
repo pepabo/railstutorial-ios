@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return (disposition, credential)
         }
-        
+
         return true
     }
 
