@@ -64,4 +64,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func login() {
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
     }
+
+    func activationPlease() {
+        println("please...")
+    }
 }

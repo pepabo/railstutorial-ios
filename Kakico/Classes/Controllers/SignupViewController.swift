@@ -75,8 +75,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             println(json["status"])
             if json["status"] == 200 {
                 SVProgressHUD.dismiss()
-                let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
-                self.presentViewController( targetViewController, animated: true, completion: nil)
+                let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+                self.presentViewController(targetViewController, animated: true, completion: nil)
+                targetViewController.activationPlease()
             } else{
                 let tmp = json["messages"]["user"]
                 SVProgressHUD.showErrorWithStatus(json["messages"]["user"].dictionary!.values.first?.stringValue)
