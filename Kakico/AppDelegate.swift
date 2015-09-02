@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire
+import KeychainAccess
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-    
+
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         
         if url.host != nil {
@@ -51,9 +52,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             params = getParamsFromURL(url)
         }
         
+        println(application)
+        println(url)
+        println(sourceApplication)
+        println(annotation)
+        
+        if let auth_token = params["auth_token"] {
+            var keychain = Keychain(service: "nehan.Kakico")
+            keychain["auth_token"] = auth_token
+        }
+        
         return true
     }
-    
+
     func applicationWillResignActive(application: UIApplication) {
     }
 
