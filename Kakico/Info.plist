@@ -24,7 +24,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>nehan.FoodTracker</string>
+			<string>nehan.Kakico</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakico</string>
