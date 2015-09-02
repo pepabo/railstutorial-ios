@@ -17,8 +17,8 @@ class ConfigViewController: UITableViewController {
                 userView._listType = "Followers"
             case "Following":
                 userView._listType = "Following"
-        default:
-            println("undefined segue.identifier")
+            default:
+                println("undefined segue.identifier")
         }
     }
 }
