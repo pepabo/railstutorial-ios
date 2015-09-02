@@ -65,7 +65,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
     }
 
-    func activationPlease() {
+    func activatePlease() {
         let alert = UIAlertController(title: "", message: "Please check your email to ativate your account.", preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in })
         alert.addAction(action)

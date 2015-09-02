@@ -77,7 +77,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 SVProgressHUD.dismiss()
                 let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
                 self.presentViewController(targetViewController, animated: true, completion: nil)
-                targetViewController.activationPlease()
+                targetViewController.activatePlease()
             } else{
                 let tmp = json["messages"]["user"]
                 SVProgressHUD.showErrorWithStatus(json["messages"]["user"].dictionary!.values.first?.stringValue)
