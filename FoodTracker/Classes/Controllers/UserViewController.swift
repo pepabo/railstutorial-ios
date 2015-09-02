@@ -17,15 +17,15 @@ class UserViewController: UITableViewController {
         self.navigationItem.title = listType
         
         switch listType {
-        case "all":
+        case "All":
             Alamofire.request(Router.GetAllUsers()).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
-        case "followers":
+        case "Followers":
             Alamofire.request(Router.GetFollowers(userId: 1)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
-        case "following":
+        case "Following":
             Alamofire.request(Router.GetFollowing(userId: 1)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }

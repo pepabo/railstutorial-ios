@@ -11,12 +11,12 @@ class ConfigViewController: UITableViewController {
         
         let type = segue.identifier!
         switch type {
-            case "all":
-                userView._listType = "all"
-            case "followers":
-                userView._listType = "followers"
-            case "following":
-                userView._listType = "following"
+            case "All":
+                userView._listType = "All"
+            case "Followers":
+                userView._listType = "Followers"
+            case "Following":
+                userView._listType = "Following"
         default:
             println("undefined segue.identifier")
         }
