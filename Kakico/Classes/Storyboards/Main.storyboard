@@ -372,7 +372,7 @@
         <!--Login View Controller-->
         <scene sceneID="MLw-rH-x4A">
             <objects>
-                <viewController id="KDD-nb-63e" customClass="LoginViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="KDD-nb-63e" customClass="LoginViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j4B-Gq-Oix"/>
                         <viewControllerLayoutGuide type="bottom" id="s9q-U1-ifr"/>
@@ -1164,8 +1164,7 @@
                                                 <exclude reference="x8g-ZE-7FO"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="8" y="104" width="284" height="50.5"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="FLb-Ac-Zau"/>
                                                 <include reference="gUU-zN-14g"/>
