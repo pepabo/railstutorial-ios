@@ -1,12 +1,13 @@
 import UIKit
 import Alamofire
+import KeychainAccess
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let manager = Alamofire.Manager.sharedInstance
         
@@ -31,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return (disposition, credential)
         }
-
+        
         return true
     }
     
@@ -51,28 +52,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             params = getParamsFromURL(url)
         }
         
+        println(application)
+        println(url)
+        println(sourceApplication)
+        println(annotation)
+        
+        if let auth_token = params["auth_token"] {
+            var keychain = Keychain(service: "nehan.Kakico")
+            keychain["auth_token"] = auth_token
+        }
+        
         return true
     }
     
     func applicationWillResignActive(application: UIApplication) {
     }
-
+    
     func applicationDidEnterBackground(application: UIApplication) {
     }
-
+    
     func applicationWillEnterForeground(application: UIApplication) {
     }
-
+    
     func applicationDidBecomeActive(application: UIApplication) {
     }
-
+    
     func applicationWillTerminate(application: UIApplication) {
     }
-
+    
     func getControllerIdentifierFromURL(url: NSURL) -> String {
         return url.host!.capitalizedString + "NavigationController"
     }
-
+    
     func getParamsFromURL(url: NSURL) -> Dictionary<String, String> {
         var params = Dictionary<String, String>()
         if let query = url.query as String! {
