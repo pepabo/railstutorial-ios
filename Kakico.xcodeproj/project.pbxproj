@@ -21,6 +21,7 @@
 		89878BAC1B842B41004CCD77 /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89878BAA1B842B41004CCD77 /* Micropost.swift */; };
 		89878BB21B844E8C004CCD77 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89878BB11B844E8C004CCD77 /* FeedViewController.swift */; };
 		89A0FFF21B8D7BB000652A4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */; };
+		89DAD6191B96C74300BB43A6 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DAD6181B96C74300BB43A6 /* ConfigViewController.swift */; };
 		AB55C03A1B8304830077C16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C0391B8304830077C16C /* AppDelegate.swift */; };
 		AB55C0411B8304830077C16C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB55C0401B8304830077C16C /* Images.xcassets */; };
 		AB55C0501B8304830077C16C /* KakicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C04F1B8304830077C16C /* KakicoTests.swift */; };
@@ -55,6 +56,7 @@
 		89878BAA1B842B41004CCD77 /* Micropost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Micropost.swift; sourceTree = "<group>"; };
 		89878BB11B844E8C004CCD77 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
 		89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
+		89DAD6181B96C74300BB43A6 /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigViewController.swift; path = Controllers/ConfigViewController.swift; sourceTree = "<group>"; };
 		89F9743A1B955970002A30D7 /* Kakico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kakico-Bridging-Header.h"; sourceTree = "<group>"; };
 		AB55C0341B8304830077C16C /* Kakico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kakico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C0381B8304830077C16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */,
 				6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */,
 				6BB1A5381B9595A200813021 /* ResetPasswordViewController.swift */,
+				89DAD6181B96C74300BB43A6 /* ConfigViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				ABF1C7311B84557D00032F37 /* MicropostCell.swift in Sources */,
 				6BEBBBEA1B8EED81007EEF4A /* SignupViewController.swift in Sources */,
 				8969712F1B93F5C500B0CB4C /* Router.swift in Sources */,
+				89DAD6191B96C74300BB43A6 /* ConfigViewController.swift in Sources */,
 				6B8256011B8ACB8D005E2397 /* UserViewController.swift in Sources */,
 				89878BB21B844E8C004CCD77 /* FeedViewController.swift in Sources */,
 				6B8255FD1B8AC8BA005E2397 /* UserTableViewCell.swift in Sources */,

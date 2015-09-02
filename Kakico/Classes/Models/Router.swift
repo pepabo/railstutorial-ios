@@ -5,12 +5,16 @@ enum Router: URLRequestConvertible {
     
     case GetFeed(userId: Int)
     case GetAllUsers()
+    case GetFollowers(userId: Int)
+    case GetFollowing(userId: Int)
     case PostUser(params: Dictionary<String, String>)
     
     var method: Alamofire.Method {
         switch self {
         case .GetFeed: return .GET
         case .GetAllUsers: return .GET
+        case .GetFollowers: return .GET
+        case .GetFollowing: return .GET
         case .PostUser: return .POST
         }
     }
@@ -19,6 +23,8 @@ enum Router: URLRequestConvertible {
         switch self {
         case .GetFeed(let userId): return "/api/users/\(userId)/feed"
         case .GetAllUsers: return "/api/users"
+        case .GetFollowers(let userId): return "/api/users/\(userId)/followers"
+        case .GetFollowing(let userId): return "/api/users/\(userId)/following"
         case .PostUser: return "/api/users"
         }
     }
