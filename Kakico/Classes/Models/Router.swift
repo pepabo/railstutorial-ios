@@ -10,6 +10,7 @@ enum Router: URLRequestConvertible {
     case GetFollowing(userId: Int)
     case PostUser(params: Dictionary<String, String>)
     case PostSession(params: Dictionary<String, String>)
+    case PostMicropost(params: Dictionary<String, String>)
     
     var method: Alamofire.Method {
         switch self {
@@ -18,6 +19,7 @@ enum Router: URLRequestConvertible {
         case .GetFollowers: return .GET
         case .GetFollowing: return .GET
         case .PostUser: return .POST
+        case .PostMicropost: return .POST
         case .PostSession: return .POST
         }
     }
@@ -29,6 +31,7 @@ enum Router: URLRequestConvertible {
         case .GetFollowers(let userId): return "/api/users/\(userId)/followers"
         case .GetFollowing(let userId): return "/api/users/\(userId)/following"
         case .PostUser: return "/api/users"
+        case .PostMicropost: return "/api/microposts/post"
         case .PostSession: return "api/sessions"
         }
     }
@@ -47,6 +50,8 @@ enum Router: URLRequestConvertible {
 
         switch self {
         case .PostUser(let parameters):
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+        case .PostMicropost(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
         case .PostSession(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0

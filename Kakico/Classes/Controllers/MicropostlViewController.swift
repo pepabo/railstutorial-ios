@@ -1,4 +1,7 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
 
 class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -46,6 +49,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
                 content: content,
                 picture: nil
             )
+            post(contentField.text, picture: nil)
         }
     }
     
@@ -74,5 +78,24 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         pictureImageView.image = selectedImage
         dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    // MARK: -
+    func post(content: String, picture: UIImage?) {
+        let params = [
+            "content": content,
+            "picture": ""
+        ]
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+        Alamofire.request(Router.PostMicropost(params: params)).responseJSON { (request, response, data, error) -> Void in
+            let json = JSON(data!)
+            println(json)
+            println(json["status"])
+            if json["status"] == 200 {
+                SVProgressHUD.showSuccessWithStatus("Post")
+            } else{
+                SVProgressHUD.showErrorWithStatus("", maskType: .Black)
+            }
+        }
     }
 }
