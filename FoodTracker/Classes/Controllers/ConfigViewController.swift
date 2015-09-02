@@ -9,13 +9,16 @@ class ConfigViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var userView = segue.destinationViewController as! UserViewController
         
-        let type = segue.identifier
-        if type == "all" {
-            userView._listType = "all"
-        }else if type == "followers" {
-            userView._listType = "followers"
-        }else if type == "following" {
-            userView._listType = "following"
+        let type = segue.identifier!
+        switch type {
+            case "all":
+                userView._listType = "all"
+            case "followers":
+                userView._listType = "followers"
+            case "following":
+                userView._listType = "following"
+        default:
+            println("undefined segue.identifier")
         }
     }
 }

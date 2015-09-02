@@ -14,21 +14,23 @@ class UserViewController: UITableViewController {
     }
     
     func request(listType: String) {
-        println(listType)
-        println("-------------------------------------")
+        self.navigationItem.title = listType
         
-        if listType == "all" {
+        switch listType {
+        case "all":
             Alamofire.request(Router.GetAllUsers()).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
-        }else if listType == "followers" {
+        case "followers":
             Alamofire.request(Router.GetFollowers(userId: 1)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
-        }else if listType == "following" {
+        case "following":
             Alamofire.request(Router.GetFollowing(userId: 1)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
+        default:
+            println("undefined segue.identifier")
         }
     }
     
