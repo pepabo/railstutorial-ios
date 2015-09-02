@@ -10,29 +10,43 @@ class UserViewController: UITableViewController {
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        request()
-        println(_listType)
+        request(_listType)
     }
     
-    func request() {
-        Alamofire.request(Router.GetAllUsers()).responseJSON { (request, response, data, error) -> Void in
-            println(data)
-            if data != nil {
-                let json = JSON(data!)
-                println(json)
-                
-                for (index: String, subJson: JSON) in json["contents"] {
-                    var user: User = User(
-                        name: subJson["name"].string!,
-                        icon: NSURL(string: "")!
-                    )
-                    self.users.set(user)
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView!.reloadData()
-                })
+    func request(listType: String) {
+        println(listType)
+        println("-------------------------------------")
+        
+        if listType == "all" {
+            Alamofire.request(Router.GetAllUsers()).responseJSON { (request, response, data, error) -> Void in
+                self.setUserList(data)
             }
+        }else if listType == "followers" {
+            Alamofire.request(Router.GetFollowers(userId: 1)).responseJSON { (request, response, data, error) -> Void in
+                self.setUserList(data)
+            }
+        }else if listType == "following" {
+            println("fuga")
+        }
+    }
+    
+    func setUserList(data: AnyObject?) {
+        println(data)
+        if data != nil {
+            let json = JSON(data!)
+            println(json)
+            
+            for (index: String, subJson: JSON) in json["contents"] {
+                var user: User = User(
+                    name: subJson["name"].string!,
+                    icon: NSURL(string: "")!
+                )
+                self.users.set(user)
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView!.reloadData()
+            })
         }
     }
     
