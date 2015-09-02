@@ -66,6 +66,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func activationPlease() {
-        println("please...")
+        let alert = UIAlertController(title: "", message: "Please check your email to ativate your account.", preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in })
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
+
 }
