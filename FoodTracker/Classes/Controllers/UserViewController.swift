@@ -5,11 +5,13 @@ import SwiftyJSON
 class UserViewController: UITableViewController {
     // MARK: - Properties
     var users = UserDataManager()
+    var _listType = ""
     
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         request()
+        println(_listType)
     }
     
     func request() {

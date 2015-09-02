@@ -771,7 +771,7 @@ App</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="NIT-Rz-oJj" kind="show" id="2r0-X7-usJ"/>
+                                            <segue destination="NIT-Rz-oJj" kind="show" identifier="all" id="2r0-X7-usJ"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="R8C-lK-BHY" style="IBUITableViewCellStyleDefault" id="rEe-wU-1NT">
@@ -790,6 +790,9 @@ App</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="NIT-Rz-oJj" kind="show" identifier="followers" id="jbZ-gP-Yax"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="b5V-Xf-s56" style="IBUITableViewCellStyleDefault" id="BSY-VH-prc">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -807,6 +810,9 @@ App</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="NIT-Rz-oJj" kind="show" identifier="following" id="en2-pR-jM8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1634,5 +1640,6 @@ App</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eph-rC-yrT"/>
+        <segue reference="jbZ-gP-Yax"/>
     </inferredMetricsTieBreakers>
 </document>
