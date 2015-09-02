@@ -961,10 +961,10 @@
             </objects>
             <point key="canvasLocation" x="943.5" y="37"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="3hu-jO-D2h">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4rZ-fU-Zsn" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4rZ-fU-Zsn" customClass="ProfileViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D39-Jq-Nmz"/>
                         <viewControllerLayoutGuide type="bottom" id="DtF-pd-UMv"/>
@@ -1298,6 +1298,13 @@
                         </variation>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="followerNum" destination="gNc-ur-DTs" id="245-hX-lQH"/>
+                        <outlet property="followingNum" destination="FLb-Ac-Zau" id="ml4-XO-iLz"/>
+                        <outlet property="nameLabel" destination="JQb-NA-4rz" id="UcA-Co-Rll"/>
+                        <outlet property="postNum" destination="XxY-A2-tRP" id="F5Y-YO-sb7"/>
+                        <outlet property="userIcon" destination="L3e-Wl-OWc" id="tJG-o2-9Pu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnh-Ze-oxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
