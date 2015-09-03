@@ -1,12 +1,15 @@
 import UIKit
 import SVProgressHUD
+import Alamofire
+import SwiftyJSON
+import KeychainAccess
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-
+    
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: -
     @IBAction func touchLogInButton(sender: UIButton) {
-        login()
+        login(emailField.text, password: passwordField.text)
     }
     
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
@@ -61,15 +64,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: -
-    func login() {
+    func login(email: String, password: String) {
+        let params = [
+            "email": email,
+            "password": password
+        ]
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+        Alamofire.request(Router.PostSession(params: params)).responseJSON { (request, response, data, error) -> Void in
+            let json = JSON(data!)
+            println(json)
+            println(json["status"])
+            if json["status"] == 200 {
+                SVProgressHUD.dismiss()
+                var keychain = Keychain(service: "nehan.Kakico")
+                keychain["auth_token"] = json["auth_token"].stringValue
+                let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
+                self.presentViewController(targetViewController, animated: true, completion: nil)
+            } else{
+                SVProgressHUD.showErrorWithStatus(json["messages"]["authorization"].stringValue)
+            }
+        }
     }
-
+    
     func activatePlease() {
         let alert = UIAlertController(title: "", message: "Please check your email to activate your account.", preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in })
         alert.addAction(action)
         self.presentViewController(alert, animated: true, completion: nil)
     }
-
+    
 }
