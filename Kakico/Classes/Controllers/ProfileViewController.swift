@@ -25,9 +25,9 @@ class ProfileViewController: UIViewController {
                 let contents = json["contents"]
                 self.nameLabel.text = contents["name"].string!
                 self.userIcon.sd_setImageWithURL(NSURL(string: contents["icon_url"].string!))
-                self.postCount.setTitle(contents["microposts_count"].description, forState: UIControlState.Normal)
-                self.followingCount.setTitle(contents["following_count"].description, forState: UIControlState.Normal)
-                self.followerCount.setTitle(contents["followers_count"].description, forState: UIControlState.Normal)
+                self.postCount.setTitle(contents["microposts_count"].description, forState: .Normal)
+                self.followingCount.setTitle(contents["following_count"].description, forState: .Normal)
+                self.followerCount.setTitle(contents["followers_count"].description, forState: .Normal)
             }
         }
     }
