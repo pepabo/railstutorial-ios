@@ -28,7 +28,8 @@ class MicropostViewController: UITableViewController {
                     }
                     var micropost: Micropost = Micropost(
                         content: subJson["content"].string!,
-                        picture: NSURL(string: picture)
+                        picture: NSURL(string: picture),
+                        user_id: subJson["user_id"].int!
                     )
                     self.microposts.set(micropost)
                 }

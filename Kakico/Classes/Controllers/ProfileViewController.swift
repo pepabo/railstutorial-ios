@@ -1,33 +1,45 @@
 import UIKit
+import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 
-class ProfileViewController: UIViewController {
-
-    @IBOutlet weak var userIcon: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var postCount: UIButton!
-    @IBOutlet weak var followingCount: UIButton!
-    @IBOutlet weak var followerCount: UIButton!
+class ProfileViewController: MicropostViewController {
+    @IBOutlet weak var header: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         request()
+
+//        let hoge = self.childViewControllers.first as! ProfileHeaderViewController
     }
 
-    func request() {
-        Alamofire.request(Router.GetUser(userId: 1)).responseJSON { (request, response, data, error) -> Void in
+    override func request() {
+        SVProgressHUD.showWithMaskType(.Black)
+        Alamofire.request(Router.GetFeed()).responseJSON { (request, response, data, error) -> Void in
             println(data)
             if data != nil {
                 let json = JSON(data!)
                 println(json)
 
-                let contents = json["contents"]
-                self.nameLabel.text = contents["name"].string!
-                self.userIcon.sd_setImageWithURL(NSURL(string: contents["icon_url"].string!))
-                self.postCount.setTitle(contents["microposts_count"].description, forState: .Normal)
-                self.followingCount.setTitle(contents["following_count"].description, forState: .Normal)
-                self.followerCount.setTitle(contents["followers_count"].description, forState: .Normal)
+                for (index: String, subJson: JSON) in json["contents"] {
+                    var picture = ""
+                    if let url = subJson["picture"]["url"].string {
+                        picture = url
+                    }
+                    var micropost: Micropost = Micropost(
+                        content: subJson["content"].string!,
+                        picture: NSURL(string: picture),
+                        user_id: subJson["user_id"].int!
+                    )
+                    self.microposts.set(micropost)
+                }
+
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
+                SVProgressHUD.dismiss()
+            } else {
+                SVProgressHUD.showErrorWithStatus("", maskType: .Black)
             }
         }
     }

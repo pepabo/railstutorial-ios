@@ -19,7 +19,8 @@ class FeedViewController: MicropostViewController {
                     }
                     var micropost: Micropost = Micropost(
                         content: subJson["content"].string!,
-                        picture: NSURL(string: picture)
+                        picture: NSURL(string: picture),
+                        user_id: subJson["user_id"].int!
                     )
                     self.microposts.set(micropost)
                 }
@@ -32,5 +33,20 @@ class FeedViewController: MicropostViewController {
                 SVProgressHUD.showErrorWithStatus("", maskType: .Black)
             }
         }
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "Micropost"
+
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
+
+        let micropost = self.microposts[indexPath.row] as Micropost
+
+        cell.contentLabel.text = micropost.content
+        cell.pictureImageView.sd_setImageWithURL(micropost.picture)
+
+        cell.viewWithTag(micropost.user_id)
+
+        return cell
     }
 }
