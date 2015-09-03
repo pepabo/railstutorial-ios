@@ -4,18 +4,21 @@ import Alamofire
 import SwiftyJSON
 
 class ProfileViewController: MicropostViewController {
+    // MARK: - Properties
     @IBOutlet weak var header: UIView!
+
+    var _userId = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        request()
+        request(_userId)
 
 //        let hoge = self.childViewControllers.first as! ProfileHeaderViewController
     }
 
-    override func request() {
+    func request(userId: Int) {
         SVProgressHUD.showWithMaskType(.Black)
-        Alamofire.request(Router.GetFeed()).responseJSON { (request, response, data, error) -> Void in
+        Alamofire.request(Router.GetMicroposts(userId: userId)).responseJSON { (request, response, data, error) -> Void in
             println(data)
             if data != nil {
                 let json = JSON(data!)

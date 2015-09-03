@@ -42,6 +42,7 @@ class UserViewController: UITableViewController {
             
             for (index: String, subJson: JSON) in json["contents"] {
                 var user: User = User(
+                    id: subJson["id"].int!,
                     name: subJson["name"].string!,
                     icon: NSURL(string: "")!
                 )
@@ -70,7 +71,14 @@ class UserViewController: UITableViewController {
         let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
         cell.userIcon.imageView?.sd_setImageWithURL(user.icon)
+        cell.tag = user.id
         
         return cell
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var profileView = segue.destinationViewController as! ProfileViewController
+
+        profileView._userId = 1
     }
 }
