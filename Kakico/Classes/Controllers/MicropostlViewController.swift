@@ -42,13 +42,6 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
-            let content = contentField.text ?? ""
-            let picture = pictureImageView.image
-            
-            micropost = Micropost(
-                content: content,
-                picture: nil
-            )
             post(contentField.text, picture: nil)
         }
     }

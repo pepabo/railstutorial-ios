@@ -326,7 +326,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="hfu-xh-Mrc">
                             <connections>
-                                <segue destination="NKA-t8-u52" kind="unwind" unwindAction="unwindToMicropostList:" id="uSc-JA-PA0"/>
+                                <segue destination="NKA-t8-u52" kind="unwind" unwindAction="unwindToMicropostList:" id="saD-mj-AfK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
