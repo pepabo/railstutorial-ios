@@ -1,4 +1,6 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ProfileViewController: UIViewController {
 
@@ -10,5 +12,20 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        request()
+    }
+
+    func request() {
+        Alamofire.request(Router.GetUser(userId: 1)).responseJSON { (request, response, data, error) -> Void in
+            println(data)
+            if data != nil {
+                let json = JSON(data!)
+                println(json)
+
+                let contents = json["contents"]
+                self.nameLabel.text = contents["name"].string!
+                self.userIcon.sd_setImageWithURL(NSURL(string: contents["icon_url"].string!))
+            }
+        }
     }
 }
