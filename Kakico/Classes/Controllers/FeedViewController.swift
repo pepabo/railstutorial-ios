@@ -26,9 +26,14 @@ class FeedViewController: UITableViewController {
                     if let url = subJson["picture"]["url"].string {
                         picture = url
                     }
+                    let user = User(
+                        name: subJson["user"]["name"].string!,
+                        icon: NSURL(fileURLWithPath: subJson["user"]["name"].string!)!
+                    )
                     var micropost: Micropost = Micropost(
                         content: subJson["content"].string!,
-                        picture: NSURL(string: picture)
+                        picture: NSURL(string: picture),
+                        user: user
                     )
                     self.microposts.set(micropost)
                 }

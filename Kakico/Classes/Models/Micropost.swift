@@ -2,6 +2,7 @@ import UIKit
 
 struct Micropost {
     var content: String, picture: NSURL?
+    var user: User
 }
 
 class MicropostDataManager: NSObject {
