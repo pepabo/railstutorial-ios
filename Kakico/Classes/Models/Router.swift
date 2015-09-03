@@ -4,7 +4,7 @@ import KeychainAccess
 enum Router: URLRequestConvertible {
     static let baseURLString = "http://localhost:3000"
     
-    case GetFeed(userId: Int)
+    case GetFeed()
     case GetAllUsers()
     case GetUser(userId: Int)
     case GetFollowers(userId: Int)
@@ -28,7 +28,7 @@ enum Router: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .GetFeed(let userId): return "/api/users/\(userId)/feed"
+        case .GetFeed: return "/api/users/feed"
         case .GetUser(let userId): return "/api/users/\(userId)"
         case .GetAllUsers: return "/api/users"
         case .GetFollowers(let userId): return "/api/users/\(userId)/followers"
