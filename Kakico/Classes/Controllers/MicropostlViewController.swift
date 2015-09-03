@@ -69,7 +69,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     func post(content: String, picture: UIImage?) {
         contentField.resignFirstResponder()
         let params = [
-            "content": "",
+            "content": content,
             "picture": ""
         ]
         SVProgressHUD.showWithMaskType(.Black)
