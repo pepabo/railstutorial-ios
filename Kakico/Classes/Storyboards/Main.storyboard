@@ -1299,10 +1299,10 @@
                     </view>
                     <toolbarItems/>
                     <connections>
-                        <outlet property="followerNum" destination="gNc-ur-DTs" id="245-hX-lQH"/>
-                        <outlet property="followingNum" destination="FLb-Ac-Zau" id="ml4-XO-iLz"/>
+                        <outlet property="followerCount" destination="gNc-ur-DTs" id="6Yd-mR-k8k"/>
+                        <outlet property="followingCount" destination="FLb-Ac-Zau" id="SRq-05-JDt"/>
                         <outlet property="nameLabel" destination="JQb-NA-4rz" id="UcA-Co-Rll"/>
-                        <outlet property="postNum" destination="XxY-A2-tRP" id="F5Y-YO-sb7"/>
+                        <outlet property="postCount" destination="XxY-A2-tRP" id="cNm-dC-qsV"/>
                         <outlet property="userIcon" destination="L3e-Wl-OWc" id="tJG-o2-9Pu"/>
                     </connections>
                 </viewController>

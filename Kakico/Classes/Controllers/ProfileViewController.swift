@@ -6,9 +6,9 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var postNum: UIButton!
-    @IBOutlet weak var followingNum: UIButton!
-    @IBOutlet weak var followerNum: UIButton!
+    @IBOutlet weak var postCount: UIButton!
+    @IBOutlet weak var followingCount: UIButton!
+    @IBOutlet weak var followerCount: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
