@@ -3,7 +3,7 @@ import Alamofire
 import SwiftyJSON
 import SVProgressHUD
 
-class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
     @IBOutlet weak var contentField: UITextView!

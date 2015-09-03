@@ -26,7 +26,7 @@
 		AB55C03A1B8304830077C16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C0391B8304830077C16C /* AppDelegate.swift */; };
 		AB55C0411B8304830077C16C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB55C0401B8304830077C16C /* Images.xcassets */; };
 		AB55C0501B8304830077C16C /* KakicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C04F1B8304830077C16C /* KakicoTests.swift */; };
-		AB785DDE1B846EED002DA142 /* MicropostlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB785DDD1B846EED002DA142 /* MicropostlViewController.swift */; };
+		AB785DDE1B846EED002DA142 /* NewPostlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */; };
 		AB785DE21B848715002DA142 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB785DE11B848715002DA142 /* LaunchScreen.xib */; };
 		AB980B101B93FC2300ED6ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB980B0F1B93FC2300ED6ACB /* Main.storyboard */; };
 		ABF1C7311B84557D00032F37 /* MicropostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF1C7301B84557D00032F37 /* MicropostCell.swift */; };
@@ -67,7 +67,7 @@
 		AB55C0491B8304830077C16C /* KakicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KakicoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C04E1B8304830077C16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB55C04F1B8304830077C16C /* KakicoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakicoTests.swift; sourceTree = "<group>"; };
-		AB785DDD1B846EED002DA142 /* MicropostlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicropostlViewController.swift; path = Controllers/MicropostlViewController.swift; sourceTree = "<group>"; };
+		AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPostlViewController.swift; path = Controllers/NewPostlViewController.swift; sourceTree = "<group>"; };
 		AB785DE11B848715002DA142 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Xibs/LaunchScreen.xib; sourceTree = "<group>"; };
 		AB980B0F1B93FC2300ED6ACB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		ABF1C7301B84557D00032F37 /* MicropostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MicropostCell.swift; path = Views/Cells/MicropostCell.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				89878BB11B844E8C004CCD77 /* FeedViewController.swift */,
-				AB785DDD1B846EED002DA142 /* MicropostlViewController.swift */,
+				AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */,
 				6B8256001B8ACB8D005E2397 /* UserViewController.swift */,
 				89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */,
 				6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */,
@@ -403,7 +403,7 @@
 				89878BAB1B842B41004CCD77 /* Micropost.swift in Sources */,
 				89A8F4161B96D7A90014C18E /* ProfileViewController.swift in Sources */,
 				AB55C03A1B8304830077C16C /* AppDelegate.swift in Sources */,
-				AB785DDE1B846EED002DA142 /* MicropostlViewController.swift in Sources */,
+				AB785DDE1B846EED002DA142 /* NewPostlViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
