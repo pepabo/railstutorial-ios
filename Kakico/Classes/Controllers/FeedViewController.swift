@@ -12,14 +12,9 @@ class FeedViewController: UITableViewController {
         super.viewDidLoad()
         request()
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.tableView.reloadData()
-        SVProgressHUD.dismiss()
-    }
-    
+
     func request() {
+        SVProgressHUD.showWithMaskType(.Black)
         Alamofire.request(Router.GetFeed(userId: 1)).responseJSON { (request, response, data, error) -> Void in
             println(data)
             if data != nil {
@@ -39,8 +34,11 @@ class FeedViewController: UITableViewController {
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView!.reloadData()
+                    self.tableView.reloadData()
                 })
+                SVProgressHUD.dismiss()
+            } else {
+                SVProgressHUD.showErrorWithStatus("", maskType: .Black)
             }
         }
     }
@@ -60,7 +58,7 @@ class FeedViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
         
         let micropost = self.microposts[indexPath.row] as Micropost
-        
+
         cell.contentLabel.text = micropost.content
         cell.pictureImageView.sd_setImageWithURL(micropost.picture)
         
@@ -77,10 +75,6 @@ class FeedViewController: UITableViewController {
     
     // MARK: - Navigation
     @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? MicropostViewController, micropost = sourceViewController.micropost {
-            let newIndexPath = NSIndexPath(forRow: self.microposts.size, inSection: 0)
-            self.microposts.add(micropost)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-        }
+        request()
     }
 }

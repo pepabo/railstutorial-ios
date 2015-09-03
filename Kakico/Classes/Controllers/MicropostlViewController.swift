@@ -1,4 +1,7 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
 
 class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -6,10 +9,7 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
     @IBOutlet weak var contentField: UITextView!
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    var microposts = MicropostDataManager()
-    var micropost: Micropost?
-    
+
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,26 +29,15 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
         imagePickerController.sourceType = .PhotoLibrary
         imagePickerController.delegate = self
         presentViewController(imagePickerController, animated: true, completion: nil)
-        
     }
-        
-    // MARK: - Navigation
+
+    @IBAction func save(sender: UIBarButtonItem) {
+        post(contentField.text, picture: nil)
+    }
+
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender {
-            let content = contentField.text ?? ""
-            let picture = pictureImageView.image
-            
-            micropost = Micropost(
-                content: content,
-                picture: nil
-            )
-        }
-    }
-    
     
     // MARK: - UITextFieldDelegate
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
@@ -74,5 +63,27 @@ class MicropostViewController: UIViewController, UITextViewDelegate, UIImagePick
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         pictureImageView.image = selectedImage
         dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    // MARK: -
+    func post(content: String, picture: UIImage?) {
+        contentField.resignFirstResponder()
+        let params = [
+            "content": content,
+            "picture": ""
+        ]
+        SVProgressHUD.showWithMaskType(.Black)
+        Alamofire.request(Router.PostMicropost(params: params)).responseJSON { (request, response, data, error) -> Void in
+            let json = JSON(data!)
+            println(json)
+            println(json["status"])
+            if json["status"] == 200 {
+                SVProgressHUD.showSuccessWithStatus("Post")
+                let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
+                self.presentViewController(targetViewController, animated: true, completion: nil)
+            } else{
+                SVProgressHUD.showErrorWithStatus(json["messages"]["notice"].array!.first?.stringValue, maskType: .Black)
+            }
+        }
     }
 }
