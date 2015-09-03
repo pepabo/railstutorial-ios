@@ -15,7 +15,7 @@ class FeedViewController: UITableViewController {
 
     func request() {
         SVProgressHUD.showWithMaskType(.Black)
-        Alamofire.request(Router.GetFeed(userId: 1)).responseJSON { (request, response, data, error) -> Void in
+        Alamofire.request(Router.GetFeed()).responseJSON { (request, response, data, error) -> Void in
             println(data)
             if data != nil {
                 let json = JSON(data!)
