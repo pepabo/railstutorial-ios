@@ -64,6 +64,8 @@ class FeedViewController: UITableViewController {
         
         let micropost = self.microposts[indexPath.row] as Micropost
 
+        cell.userNameLabel.text = micropost.user.name
+        cell.userIcon.imageView!.sd_setImageWithURL(micropost.user.icon)
         cell.contentLabel.text = micropost.content
         cell.pictureImageView.sd_setImageWithURL(micropost.picture)
         

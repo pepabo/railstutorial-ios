@@ -179,6 +179,9 @@
                                 <connections>
                                     <outlet property="contentLabel" destination="mGM-8S-zvL" id="LDy-FE-0wU"/>
                                     <outlet property="pictureImageView" destination="yzR-f9-U4L" id="u4N-13-KwS"/>
+                                    <outlet property="tiemLabel" destination="f2B-Ob-xQm" id="kzb-VQ-eq6"/>
+                                    <outlet property="userIcon" destination="PVv-Iw-R6b" id="P3u-V0-Gbd"/>
+                                    <outlet property="userNameLabel" destination="NwP-ri-1gG" id="oHD-ml-hvv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -420,9 +423,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="95" y="133" width="210" height="45.5"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
