@@ -90,19 +90,18 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
             Alamofire.upload(
                 Router.PostMicropostTest(),
                 multipartFormData: { (multipartFormData) in
+                    multipartFormData.appendBodyPart(data: content.dataUsingEncoding(NSUTF8StringEncoding)!, name: "content")
+
                     let data = NSData(data: UIImagePNGRepresentation(picture))
                     let filePath = NSTemporaryDirectory() + "/picture_temp.png"
                     data.writeToFile(filePath, atomically: true)
-                    multipartFormData.appendBodyPart(fileURL: NSURL(fileURLWithPath: filePath)!, name: "picture")
-                    if let data = content.dataUsingEncoding(NSUTF8StringEncoding) {
-                        multipartFormData.appendBodyPart(data: data, name: "content")
-                    }
+                    multipartFormData.appendBodyPart(fileURL: NSURL(fileURLWithPath: filePath)!, name: "picture", fileName: "picture.png", mimeType: "image/png")
                 },
                 encodingCompletion: { (encodingResult) in
                     switch encodingResult {
                     case .Success(let upload, _, _):
                         upload.responseJSON { _, _, json, error in
-                            println(JSON)
+                            println(json)
                         }
                     case .Failure(let encodingError):
                         println(encodingError)
