@@ -193,7 +193,7 @@
                                 <segue destination="oh9-xM-0V8" kind="presentation" identifier="AddItem" id="5o1-dl-6Ww"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="FXL-Nz-yWU">
+                        <barButtonItem key="rightBarButtonItem" image="hamburger" id="FXL-Nz-yWU">
                             <connections>
                                 <segue destination="Ao4-24-NL4" kind="show" id="1cz-yJ-NVU"/>
                             </connections>
@@ -1747,6 +1747,7 @@
     </scenes>
     <resources>
         <image name="Image" width="320" height="320"/>
+        <image name="hamburger" width="14" height="14"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
