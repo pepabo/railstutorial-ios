@@ -91,8 +91,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
                 Router.PostMicropostTest(),
                 multipartFormData: { (multipartFormData) in
                     let data = NSData(data: UIImagePNGRepresentation(picture))
-                    multipartFormData.appendBodyPart(data: data, name: "picture", mimeType: "image/png")
-
+                    let filePath = NSTemporaryDirectory() + "/picture_temp.png"
+                    data.writeToFile(filePath, atomically: true)
+                    multipartFormData.appendBodyPart(fileURL: NSURL(fileURLWithPath: filePath)!, name: "picture")
                     if let data = content.dataUsingEncoding(NSUTF8StringEncoding) {
                         multipartFormData.appendBodyPart(data: data, name: "content")
                     }
@@ -100,7 +101,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
                 encodingCompletion: { (encodingResult) in
                     switch encodingResult {
                     case .Success(let upload, _, _):
-                        upload.responseJSON { request, response, JSON, error in
+                        upload.responseJSON { _, _, json, error in
                             println(JSON)
                         }
                     case .Failure(let encodingError):
