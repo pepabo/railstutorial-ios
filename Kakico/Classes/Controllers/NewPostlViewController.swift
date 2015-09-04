@@ -67,47 +67,38 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
 
     // MARK: -
     func post(content: String, picture: UIImage?) {
+        SVProgressHUD.showWithMaskType(.Black)
         contentField.resignFirstResponder()
-        if picture == nil {
-            let params = [
-                "content": content,
-                "picture": ""
-            ]
-            SVProgressHUD.showWithMaskType(.Black)
-            Alamofire.request(Router.PostMicropost(params: params)).responseJSON { (request, response, data, error) -> Void in
-                let json = JSON(data!)
-                println(json)
-                println(json["status"])
-                if json["status"] == 200 {
-                    SVProgressHUD.showSuccessWithStatus("Post")
-                    let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
-                    self.presentViewController(targetViewController, animated: true, completion: nil)
-                } else{
-                    SVProgressHUD.showErrorWithStatus(json["messages"]["notice"].array!.first?.stringValue, maskType: .Black)
-                }
-            }
-        } else {
-            Alamofire.upload(
-                Router.PostMicropostTest(),
-                multipartFormData: { (multipartFormData) in
-                    multipartFormData.appendBodyPart(data: content.dataUsingEncoding(NSUTF8StringEncoding)!, name: "content")
+        Alamofire.upload(
+            Router.PostMicropost(),
+            multipartFormData: { (multipartFormData) in
+                multipartFormData.appendBodyPart(data: content.dataUsingEncoding(NSUTF8StringEncoding)!, name: "content")
 
+                if picture != nil {
                     let data = NSData(data: UIImagePNGRepresentation(picture))
                     let filePath = NSTemporaryDirectory() + "/picture_temp.png"
                     data.writeToFile(filePath, atomically: true)
                     multipartFormData.appendBodyPart(fileURL: NSURL(fileURLWithPath: filePath)!, name: "picture", fileName: "picture.png", mimeType: "image/png")
-                },
-                encodingCompletion: { (encodingResult) in
-                    switch encodingResult {
-                    case .Success(let upload, _, _):
-                        upload.responseJSON { _, _, json, error in
-                            println(json)
+                }
+            },
+            encodingCompletion: { (encodingResult) in
+                switch encodingResult {
+                case .Success(let upload, _, _):
+                    upload.responseJSON { _, _, data, error in
+                        let json = JSON(data!)
+                        println(json)
+                        println(json["status"])
+                        if json["status"] == 200 {
+                            SVProgressHUD.showSuccessWithStatus("Post")
+                            let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
+                                self.presentViewController(targetViewController, animated: true, completion: nil)
+                        } else{
+                            SVProgressHUD.showErrorWithStatus(json["messages"]["notice"].array!.first?.stringValue, maskType: .Black)
                         }
-                    case .Failure(let encodingError):
-                        println(encodingError)
                     }
-            })
-        }
-        
+                case .Failure(let encodingError):
+                    println(encodingError)
+                }
+        })
     }
 }
