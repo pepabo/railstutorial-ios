@@ -720,7 +720,7 @@
         <!--Menu-->
         <scene sceneID="5WQ-np-3DR">
             <objects>
-                <tableViewController id="Ao4-24-NL4" customClass="ConfigViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ao4-24-NL4" customClass="MenuViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Cg0-FZ-A2R">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1747,7 +1747,7 @@
     </scenes>
     <resources>
         <image name="Image" width="320" height="320"/>
-        <image name="hamburger" width="14" height="14"/>
+        <image name="hamburger" width="22" height="22"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
