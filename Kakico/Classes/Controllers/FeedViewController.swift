@@ -37,14 +37,25 @@ class FeedViewController: MicropostViewController {
                 
                 for (index: String, subJson: JSON) in json["contents"] {
                     var picture = ""
+                    var userName = "No name"
+                    var iconURL = ""
                     if let url = subJson["picture"]["url"].string {
                         picture = url
                     }
+                    if let name = subJson["user"]["name"].string {
+                        userName = name
+                    }
+                    if let url = subJson["user"]["icon_url"].string {
+                        iconURL = url
+                    }
                     var micropost: Micropost = Micropost(
+                        userName: userName,
                         content: subJson["content"].string!,
                         picture: NSURL(string: picture),
-                        user_id: subJson["user_id"].int!
-                    )
+                        user_id: subJson["user_id"].int!,
+                        userIcon: NSURL(string: iconURL),
+                        timeAgoInWords:subJson["time_ago_in_words"].string!
+                    )                  
                     self.microposts.set(micropost)
                 }
                 
@@ -77,10 +88,14 @@ class FeedViewController: MicropostViewController {
 
         let micropost = self.microposts[indexPath.row] as Micropost
 
+        cell.userNameLabel.text = micropost.userName
         cell.contentLabel.text = micropost.content
         cell.pictureImageView.sd_setImageWithURL(micropost.picture)
 
         cell.viewWithTag(micropost.user_id)
+
+        cell.userIconImageView.sd_setImageWithURL(micropost.userIcon)
+        cell.timeAgoInWordsLabel.text = micropost.timeAgoInWords
 
         return cell
     }
