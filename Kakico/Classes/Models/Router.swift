@@ -12,6 +12,7 @@ enum Router: URLRequestConvertible {
     case PostUser(params: Dictionary<String, String>)
     case PostSession(params: Dictionary<String, String>)
     case PostMicropost()
+    case GetMicroposts(userId: Int)
     
     var method: Alamofire.Method {
         switch self {
