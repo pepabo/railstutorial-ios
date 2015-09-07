@@ -9,14 +9,16 @@ class ProfileHeaderViewController: UIViewController {
     @IBOutlet weak var postCount: UIButton!
     @IBOutlet weak var followingCount: UIButton!
     @IBOutlet weak var followerCount: UIButton!
+
+    var _selectUserId: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        request()
+        request(_selectUserId)
     }
 
-    func request() {
-        Alamofire.request(Router.GetUser(userId: 1)).responseJSON { (request, response, data, error) -> Void in
+    func request(selectUserId: Int) {
+        Alamofire.request(Router.GetUser(userId: selectUserId)).responseJSON { (request, response, data, error) -> Void in
             println(data)
             if data != nil {
                 let json = JSON(data!)

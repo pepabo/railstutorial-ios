@@ -1560,7 +1560,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <connections>
-                                <segue destination="4rZ-fU-Zsn" kind="embed" id="BQD-C8-vJZ"/>
+                                <segue destination="4rZ-fU-Zsn" kind="embed" identifier="ProfileHeaderView" id="BQD-C8-vJZ"/>
                             </connections>
                         </containerView>
                         <prototypes>

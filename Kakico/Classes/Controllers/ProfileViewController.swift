@@ -8,11 +8,11 @@ class ProfileViewController: MicropostViewController {
     @IBOutlet weak var header: UIView!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        println("-----------ProfileView-----------")
-        request(super._selectUserId)
+//        var headerView = self.childViewControllers.first as! ProfileHeaderViewController
+//        headerView._selectUserId = super._selectUserId
 
-//        let hoge = self.childViewControllers.first as! ProfileHeaderViewController
+        super.viewDidLoad()
+        request(super._selectUserId)
     }
 
     func request(selectUserId: Int) {
@@ -43,6 +43,14 @@ class ProfileViewController: MicropostViewController {
             } else {
                 SVProgressHUD.showErrorWithStatus("", maskType: .Black)
             }
+        }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "ProfileHeaderView" {
+            var headerView: ProfileHeaderViewController = segue.destinationViewController as! ProfileHeaderViewController
+
+            headerView._selectUserId = self._selectUserId
         }
     }
 }
