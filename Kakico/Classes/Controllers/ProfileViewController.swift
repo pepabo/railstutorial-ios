@@ -8,9 +8,6 @@ class ProfileViewController: MicropostViewController {
     @IBOutlet weak var header: UIView!
 
     override func viewDidLoad() {
-//        var headerView = self.childViewControllers.first as! ProfileHeaderViewController
-//        headerView._selectUserId = super._selectUserId
-
         super.viewDidLoad()
         request(super._selectUserId)
     }

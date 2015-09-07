@@ -37,10 +37,10 @@ class UserViewController: UITableViewController {
     }
     
     func setUserList(data: AnyObject?) {
-//        println(data)
+        println(data)
         if data != nil {
             let json = JSON(data!)
-//            println(json)
+            println(json)
 
             for (index: String, subJson: JSON) in json["contents"] {
                 var user: User = User(
@@ -80,12 +80,10 @@ class UserViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "ProfileView" {
             var profileView: ProfileViewController = segue.destinationViewController as! ProfileViewController
-//            var headerView: ProfileHeaderViewController = profileView.childViewControllers.first as! ProfileHeaderViewController
 
             let indexPath : NSIndexPath = self.tableView.indexPathForSelectedRow()!
             let user = self.users[indexPath.row] as User
             profileView._selectUserId = user.id
-//            headerView._selectUserId = user.id
         }
     }
 }
