@@ -3,5 +3,6 @@
 
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
+         
 #endif
