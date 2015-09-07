@@ -216,34 +216,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="iFx-V5-qcZ">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <gestureRecognizers/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2er-ME-KKc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="S1S-KZ-vSQ"/>
-                                    <constraint firstAttribute="height" constant="240" id="lth-vm-gDa"/>
+                                    <constraint firstAttribute="height" constant="50" id="CR3-zF-Log"/>
+                                    <constraint firstAttribute="width" constant="50" id="Uu0-44-tQM"/>
+                                    <constraint firstAttribute="width" constant="50" id="kA4-Xa-7C8"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="📷">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="S1S-KZ-vSQ"/>
-                                        <exclude reference="lth-vm-gDa"/>
+                                        <exclude reference="CR3-zF-Log"/>
+                                        <exclude reference="Uu0-44-tQM"/>
+                                        <exclude reference="kA4-Xa-7C8"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="S1S-KZ-vSQ"/>
-                                        <include reference="lth-vm-gDa"/>
+                                        <include reference="CR3-zF-Log"/>
+                                        <exclude reference="Uu0-44-tQM"/>
+                                        <include reference="kA4-Xa-7C8"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="35F-js-VD3" appends="YES" id="jW9-rH-8wc"/>
-                                </connections>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2er-ME-KKc">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="photo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
                                     <action selector="openPhotoLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VI7-RN-q8g"/>
                                 </connections>
@@ -270,48 +267,89 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="H6q-0W-Q2P"/>
                                 </connections>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFx-V5-qcZ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="S1S-KZ-vSQ"/>
+                                    <constraint firstAttribute="height" constant="240" id="lth-vm-gDa"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S1S-KZ-vSQ"/>
+                                        <exclude reference="lth-vm-gDa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="S1S-KZ-vSQ"/>
+                                        <exclude reference="lth-vm-gDa"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="35F-js-VD3" appends="YES" id="jW9-rH-8wc"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="iFx-V5-qcZ" secondAttribute="centerX" id="70D-49-g7q"/>
                             <constraint firstItem="GYj-qb-mGM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ac2-Sl-uCz"/>
+                            <constraint firstItem="iFx-V5-qcZ" firstAttribute="width" secondItem="2er-ME-KKc" secondAttribute="width" id="DUr-Uz-gEF"/>
                             <constraint firstItem="GYj-qb-mGM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="100" id="FnD-1l-d11"/>
+                            <constraint firstItem="GYj-qb-mGM" firstAttribute="leading" secondItem="2er-ME-KKc" secondAttribute="leading" id="Inz-iZ-JwI"/>
+                            <constraint firstItem="iFx-V5-qcZ" firstAttribute="height" secondItem="2er-ME-KKc" secondAttribute="height" id="Kvf-he-q1d"/>
+                            <constraint firstItem="2er-ME-KKc" firstAttribute="top" secondItem="GYj-qb-mGM" secondAttribute="bottom" constant="8" id="MBD-O3-p6l"/>
                             <constraint firstAttribute="centerX" secondItem="2er-ME-KKc" secondAttribute="centerX" id="YsX-j4-lcg"/>
                             <constraint firstItem="iFx-V5-qcZ" firstAttribute="top" secondItem="GYj-qb-mGM" secondAttribute="bottom" constant="22" id="gCF-ql-0LX"/>
                             <constraint firstItem="2er-ME-KKc" firstAttribute="top" secondItem="iFx-V5-qcZ" secondAttribute="bottom" constant="23" id="p4t-4G-j1w"/>
                             <constraint firstItem="GYj-qb-mGM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="vWU-ng-uqM"/>
+                            <constraint firstItem="iFx-V5-qcZ" firstAttribute="top" secondItem="2er-ME-KKc" secondAttribute="top" id="yvJ-HB-jXQ"/>
+                            <constraint firstItem="iFx-V5-qcZ" firstAttribute="leading" secondItem="2er-ME-KKc" secondAttribute="trailing" constant="8" id="zjq-jK-vPK"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="iFx-V5-qcZ"/>
                                 <exclude reference="2er-ME-KKc"/>
                                 <exclude reference="GYj-qb-mGM"/>
+                                <exclude reference="iFx-V5-qcZ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="YsX-j4-lcg"/>
-                                <exclude reference="p4t-4G-j1w"/>
                                 <exclude reference="Ac2-Sl-uCz"/>
                                 <exclude reference="FnD-1l-d11"/>
+                                <exclude reference="Inz-iZ-JwI"/>
                                 <exclude reference="vWU-ng-uqM"/>
+                                <exclude reference="MBD-O3-p6l"/>
+                                <exclude reference="YsX-j4-lcg"/>
+                                <exclude reference="p4t-4G-j1w"/>
                                 <exclude reference="70D-49-g7q"/>
+                                <exclude reference="DUr-Uz-gEF"/>
+                                <exclude reference="Kvf-he-q1d"/>
                                 <exclude reference="gCF-ql-0LX"/>
+                                <exclude reference="yvJ-HB-jXQ"/>
+                                <exclude reference="zjq-jK-vPK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="iFx-V5-qcZ"/>
                                 <include reference="2er-ME-KKc"/>
                                 <include reference="GYj-qb-mGM"/>
+                                <include reference="iFx-V5-qcZ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="YsX-j4-lcg"/>
-                                <include reference="p4t-4G-j1w"/>
                                 <include reference="Ac2-Sl-uCz"/>
                                 <include reference="FnD-1l-d11"/>
+                                <include reference="Inz-iZ-JwI"/>
                                 <include reference="vWU-ng-uqM"/>
-                                <include reference="70D-49-g7q"/>
-                                <include reference="gCF-ql-0LX"/>
+                                <include reference="MBD-O3-p6l"/>
+                                <exclude reference="YsX-j4-lcg"/>
+                                <exclude reference="p4t-4G-j1w"/>
+                                <exclude reference="70D-49-g7q"/>
+                                <include reference="DUr-Uz-gEF"/>
+                                <include reference="Kvf-he-q1d"/>
+                                <exclude reference="gCF-ql-0LX"/>
+                                <include reference="yvJ-HB-jXQ"/>
+                                <include reference="zjq-jK-vPK"/>
                             </mask>
                         </variation>
                         <connections>
@@ -1746,7 +1784,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="320" height="320"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>

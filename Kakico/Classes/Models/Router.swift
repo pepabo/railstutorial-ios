@@ -11,7 +11,7 @@ enum Router: URLRequestConvertible {
     case GetFollowing(userId: Int)
     case PostUser(params: Dictionary<String, String>)
     case PostSession(params: Dictionary<String, String>)
-    case PostMicropost(params: Dictionary<String, String>)
+    case PostMicropost()
     
     var method: Alamofire.Method {
         switch self {
@@ -53,8 +53,6 @@ enum Router: URLRequestConvertible {
 
         switch self {
         case .PostUser(let parameters):
-            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
-        case .PostMicropost(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
         case .PostSession(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
