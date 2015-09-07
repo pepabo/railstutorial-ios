@@ -5,8 +5,6 @@ import SwiftyJSON
 class UserViewController: UITableViewController {
     // MARK: - Properties
     var users = UserDataManager()
-
-    var selectedRow: Int?
     var _listType = ""
     
     // MARK: - View Events
