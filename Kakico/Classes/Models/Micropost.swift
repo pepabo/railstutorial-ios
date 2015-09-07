@@ -6,6 +6,7 @@ struct Micropost {
 
 class MicropostDataManager: NSObject {
     var microposts: [Micropost]
+    var next_page: Int?
     
     override init() {
         self.microposts = []
