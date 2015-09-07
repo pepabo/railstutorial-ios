@@ -77,18 +77,19 @@ class UserViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("------------userView - tableView ------------")
-        self.selectedRow = indexPath.row
-        performSegueWithIdentifier("ProfileView", sender: nil)
-    }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        println("------------userView - tableView ------------")
+//        self.selectedRow = indexPath.row
+//        performSegueWithIdentifier("ProfileView", sender: nil)
+//    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "ProfileView") && (self.selectedRow != nil) {
+        if segue.identifier == "ProfileView" {
             var profileView: ProfileViewController = segue.destinationViewController as! ProfileViewController
 
             println("----------userView-----------")
-            let user = self.users[self.selectedRow!] as User
+            let indexPath : NSIndexPath = self.tableView.indexPathForSelectedRow()!
+            let user = self.users[indexPath.row] as User
             profileView._selectUserId = user.id
             println(profileView._selectUserId)
         }

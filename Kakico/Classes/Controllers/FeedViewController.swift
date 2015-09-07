@@ -4,6 +4,12 @@ import Alamofire
 import SwiftyJSON
 
 class FeedViewController: MicropostViewController {
+    // MARK: - View Events
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        request()
+    }
+
     override func request() {
         SVProgressHUD.showWithMaskType(.Black)
         Alamofire.request(Router.GetFeed()).responseJSON { (request, response, data, error) -> Void in

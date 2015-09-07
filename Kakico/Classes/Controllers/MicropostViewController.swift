@@ -9,11 +9,11 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
 
     var _selectUserId: Int = 0
 
-    // MARK: - View Events
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        request()
-    }
+//    // MARK: - View Events
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        request()
+//    }
 
     func request() {
         SVProgressHUD.showWithMaskType(.Black)
