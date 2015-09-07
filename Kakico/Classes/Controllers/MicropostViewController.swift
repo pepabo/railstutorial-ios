@@ -3,21 +3,20 @@ import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 
-class FeedViewController: MicropostViewController {
-    // MARK: - View Events
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        request()
-    }
+class MicropostViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Properties
+    var microposts = MicropostDataManager()
 
-    override func request() {
+    var _selectUserId: Int = 0
+
+    func request() {
         SVProgressHUD.showWithMaskType(.Black)
         Alamofire.request(Router.GetFeed()).responseJSON { (request, response, data, error) -> Void in
             println(data)
             if data != nil {
                 let json = JSON(data!)
                 println(json)
-                
+
                 for (index: String, subJson: JSON) in json["contents"] {
                     var picture = ""
                     if let url = subJson["picture"]["url"].string {
@@ -30,7 +29,7 @@ class FeedViewController: MicropostViewController {
                     )
                     self.microposts.set(micropost)
                 }
-                
+
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
                 })
@@ -39,6 +38,15 @@ class FeedViewController: MicropostViewController {
                 SVProgressHUD.showErrorWithStatus("", maskType: .Black)
             }
         }
+    }
+
+    // MARK: - Table view data source
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.microposts.size
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -51,8 +59,19 @@ class FeedViewController: MicropostViewController {
         cell.contentLabel.text = micropost.content
         cell.pictureImageView.sd_setImageWithURL(micropost.picture)
 
-        cell.viewWithTag(micropost.user_id)
-
         return cell
+    }
+
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 216
+    }
+
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+    // MARK: - Navigation
+    @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
+        request()
     }
 }

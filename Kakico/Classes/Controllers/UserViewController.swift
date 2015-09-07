@@ -39,9 +39,10 @@ class UserViewController: UITableViewController {
         if data != nil {
             let json = JSON(data!)
             println(json)
-            
+
             for (index: String, subJson: JSON) in json["contents"] {
                 var user: User = User(
+                    id: subJson["id"].int!,
                     name: subJson["name"].string!,
                     icon: NSURL(string: "")!
                 )
@@ -62,7 +63,7 @@ class UserViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.users.size
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "UserTableViewCell"
         
@@ -72,5 +73,15 @@ class UserViewController: UITableViewController {
         cell.userIcon.imageView?.sd_setImageWithURL(user.icon)
         
         return cell
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "ProfileView" {
+            var profileView: ProfileViewController = segue.destinationViewController as! ProfileViewController
+
+            let indexPath : NSIndexPath = self.tableView.indexPathForSelectedRow()!
+            let user = self.users[indexPath.row] as User
+            profileView._selectUserId = user.id
+        }
     }
 }

@@ -914,9 +914,6 @@
                                                     <include reference="Cmr-aj-zM0"/>
                                                 </mask>
                                             </variation>
-                                            <connections>
-                                                <segue destination="Y87-VY-49y" kind="show" id="PHi-F4-VMw"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -961,6 +958,7 @@
                                 <connections>
                                     <outlet property="userIcon" destination="306-To-mFN" id="lX1-iS-JhT"/>
                                     <outlet property="userName" destination="p2h-WL-bd7" id="OBW-bX-A64"/>
+                                    <segue destination="Y87-VY-49y" kind="show" identifier="ProfileView" id="t9R-Wy-UH5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -993,10 +991,10 @@
             </objects>
             <point key="canvasLocation" x="943.5" y="37"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile Header View Controller-->
         <scene sceneID="3hu-jO-D2h">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4rZ-fU-Zsn" customClass="ProfileViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4rZ-fU-Zsn" customClass="ProfileHeaderViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D39-Jq-Nmz"/>
                         <viewControllerLayoutGuide type="bottom" id="DtF-pd-UMv"/>
@@ -1331,11 +1329,11 @@
                     </view>
                     <toolbarItems/>
                     <connections>
-                        <outlet property="followerCount" destination="gNc-ur-DTs" id="6Yd-mR-k8k"/>
-                        <outlet property="followingCount" destination="FLb-Ac-Zau" id="SRq-05-JDt"/>
-                        <outlet property="nameLabel" destination="JQb-NA-4rz" id="UcA-Co-Rll"/>
-                        <outlet property="postCount" destination="XxY-A2-tRP" id="cNm-dC-qsV"/>
-                        <outlet property="userIcon" destination="L3e-Wl-OWc" id="tJG-o2-9Pu"/>
+                        <outlet property="followerCount" destination="gNc-ur-DTs" id="WYb-cR-6hr"/>
+                        <outlet property="followingCount" destination="FLb-Ac-Zau" id="cHT-xb-H1x"/>
+                        <outlet property="nameLabel" destination="JQb-NA-4rz" id="JHv-x0-BxY"/>
+                        <outlet property="postCount" destination="XxY-A2-tRP" id="9Vk-9x-EX1"/>
+                        <outlet property="userIcon" destination="L3e-Wl-OWc" id="WZH-1m-gWz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnh-Ze-oxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1591,7 +1589,7 @@
         <!--Profile-->
         <scene sceneID="cpi-Lj-QyF">
             <objects>
-                <tableViewController id="Y87-VY-49y" customClass="FeedViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Y87-VY-49y" customClass="ProfileViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rig-xa-LSt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1600,7 +1598,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <connections>
-                                <segue destination="4rZ-fU-Zsn" kind="embed" id="BQD-C8-vJZ"/>
+                                <segue destination="4rZ-fU-Zsn" kind="embed" identifier="ProfileHeaderView" id="BQD-C8-vJZ"/>
                             </connections>
                         </containerView>
                         <prototypes>
@@ -1777,6 +1775,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="ft7-oW-6FE"/>
+                    <connections>
+                        <outlet property="header" destination="waq-l5-QbF" id="8N7-br-LCX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nV9-Mb-DI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
