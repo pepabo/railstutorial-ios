@@ -4,7 +4,8 @@ import KeychainAccess
 enum Router: URLRequestConvertible {
     static let baseURLString = "http://localhost:3000"
     
-    case GetFeed()
+    case GetFeed(params: Dictionary<String, String>)
+    //case GetFeed(page: Int)
     case GetAllUsers()
     case GetUser(userId: Int)
     case GetFollowers(userId: Int)
@@ -30,7 +31,7 @@ enum Router: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .GetFeed: return "/api/users/feed"
+        case .GetFeed(let page): return "/api/users/feed"
         case .GetUser(let userId): return "/api/users/\(userId)"
         case .GetAllUsers: return "/api/users"
         case .GetFollowers(let userId): return "/api/users/\(userId)/followers"
@@ -41,24 +42,26 @@ enum Router: URLRequestConvertible {
         case .PostMicropost: return "/api/microposts/post"
         }
     }
-    
+
     // MARK: URLRequestConvertible
     
     var URLRequest: NSURLRequest {
-        let URL = NSURL(string: Router.baseURLString)!
-        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+        let url = NSURL(string: Router.baseURLString)!
+        let mutableURLRequest = NSMutableURLRequest(URL: url.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method.rawValue
         
         let keychain = Keychain(service: "nehan.Kakico")
         if let auth_token = keychain["auth_token"] {
             mutableURLRequest.setValue(auth_token, forHTTPHeaderField: "Authorization")
         }
-
+        
         switch self {
         case .PostUser(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
         case .PostSession(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+            case .GetFeed(let parameters):
+                return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
         default:
             return mutableURLRequest
         }
