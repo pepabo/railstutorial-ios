@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KDD-nb-63e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KDD-nb-63e">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -193,7 +193,7 @@
                                 <segue destination="oh9-xM-0V8" kind="presentation" identifier="AddItem" id="5o1-dl-6Ww"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="FXL-Nz-yWU">
+                        <barButtonItem key="rightBarButtonItem" image="hamburger" id="FXL-Nz-yWU">
                             <connections>
                                 <segue destination="Ao4-24-NL4" kind="show" id="1cz-yJ-NVU"/>
                             </connections>
@@ -755,10 +755,10 @@
             </objects>
             <point key="canvasLocation" x="-1308" y="-374"/>
         </scene>
-        <!--Config-->
+        <!--Menu-->
         <scene sceneID="5WQ-np-3DR">
             <objects>
-                <tableViewController id="Ao4-24-NL4" customClass="ConfigViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ao4-24-NL4" customClass="MenuViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Cg0-FZ-A2R">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -856,7 +856,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Config" id="2t1-0Z-D2P"/>
+                    <navigationItem key="navigationItem" title="Menu" id="2t1-0Z-D2P"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1Q-Yk-YVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1785,6 +1785,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Image" width="320" height="320"/>
+        <image name="hamburger" width="22" height="22"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>

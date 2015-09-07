@@ -1,6 +1,6 @@
 import UIKit
 
-class ConfigViewController: UITableViewController {
+class MenuViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
