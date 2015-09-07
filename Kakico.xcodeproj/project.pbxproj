@@ -296,6 +296,7 @@
 				TargetAttributes = {
 					AB55C0331B8304830077C16C = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = NH7E35TW7H;
 					};
 					AB55C0481B8304830077C16C = {
 						CreatedOnToolsVersion = 6.4;
@@ -529,9 +530,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Kakico/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Kakico;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Kakico/Kakico-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -543,9 +546,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Kakico/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Kakico;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Kakico/Kakico-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

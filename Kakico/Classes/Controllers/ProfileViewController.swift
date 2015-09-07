@@ -7,18 +7,17 @@ class ProfileViewController: MicropostViewController {
     // MARK: - Properties
     @IBOutlet weak var header: UIView!
 
-    var _userId = 1
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        request(_userId)
+        println("-----------ProfileView-----------")
+        request(super._selectUserId)
 
 //        let hoge = self.childViewControllers.first as! ProfileHeaderViewController
     }
 
-    func request(userId: Int) {
+    func request(selectUserId: Int) {
         SVProgressHUD.showWithMaskType(.Black)
-        Alamofire.request(Router.GetMicroposts(userId: userId)).responseJSON { (request, response, data, error) -> Void in
+        Alamofire.request(Router.GetMicroposts(userId: selectUserId)).responseJSON { (request, response, data, error) -> Void in
             println(data)
             if data != nil {
                 let json = JSON(data!)
@@ -32,7 +31,7 @@ class ProfileViewController: MicropostViewController {
                     var micropost: Micropost = Micropost(
                         content: subJson["content"].string!,
                         picture: NSURL(string: picture),
-                        user_id: subJson["user_id"].int!
+                        user_id: selectUserId
                     )
                     self.microposts.set(micropost)
                 }

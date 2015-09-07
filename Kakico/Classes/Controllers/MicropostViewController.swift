@@ -3,9 +3,11 @@ import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 
-class MicropostViewController: UITableViewController {
+class MicropostViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Properties
     var microposts = MicropostDataManager()
+
+    var _selectUserId: Int = 0
 
     // MARK: - View Events
     override func viewDidLoad() {

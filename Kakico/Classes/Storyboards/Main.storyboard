@@ -876,9 +876,6 @@
                                                     <include reference="Cmr-aj-zM0"/>
                                                 </mask>
                                             </variation>
-                                            <connections>
-                                                <segue destination="Y87-VY-49y" kind="show" id="PHi-F4-VMw"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -923,6 +920,7 @@
                                 <connections>
                                     <outlet property="userIcon" destination="306-To-mFN" id="lX1-iS-JhT"/>
                                     <outlet property="userName" destination="p2h-WL-bd7" id="OBW-bX-A64"/>
+                                    <segue destination="Y87-VY-49y" kind="show" identifier="ProfileView" id="6dy-dw-HtE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

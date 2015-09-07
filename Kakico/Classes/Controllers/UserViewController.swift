@@ -5,6 +5,8 @@ import SwiftyJSON
 class UserViewController: UITableViewController {
     // MARK: - Properties
     var users = UserDataManager()
+
+    var selectedRow: Int?
     var _listType = ""
     
     // MARK: - View Events
@@ -35,11 +37,11 @@ class UserViewController: UITableViewController {
     }
     
     func setUserList(data: AnyObject?) {
-        println(data)
+//        println(data)
         if data != nil {
             let json = JSON(data!)
-            println(json)
-            
+//            println(json)
+
             for (index: String, subJson: JSON) in json["contents"] {
                 var user: User = User(
                     id: subJson["id"].int!,
@@ -63,7 +65,7 @@ class UserViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.users.size
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "UserTableViewCell"
         
@@ -71,14 +73,24 @@ class UserViewController: UITableViewController {
         let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
         cell.userIcon.imageView?.sd_setImageWithURL(user.icon)
-        cell.tag = user.id
         
         return cell
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var profileView = segue.destinationViewController as! ProfileViewController
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("------------userView - tableView ------------")
+        self.selectedRow = indexPath.row
+        performSegueWithIdentifier("ProfileView", sender: nil)
+    }
 
-        profileView._userId = 1
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "ProfileView") && (self.selectedRow != nil) {
+            var profileView: ProfileViewController = segue.destinationViewController as! ProfileViewController
+
+            println("----------userView-----------")
+            let user = self.users[self.selectedRow!] as User
+            profileView._selectUserId = user.id
+            println(profileView._selectUserId)
+        }
     }
 }
