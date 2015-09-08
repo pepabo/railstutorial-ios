@@ -4,7 +4,7 @@ struct Micropost {
     var userName: String,
     content: String,
     picture: NSURL?,
-    usr_id: Int,
+    user_id: Int,
     userIcon: NSURL?,
     timeAgoInWords: String
 }
