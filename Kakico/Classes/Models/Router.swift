@@ -13,8 +13,8 @@ enum Router: URLRequestConvertible {
     case PostSession(params: Dictionary<String, String>)
     case PostMicropost()
     case GetMicroposts(userId: Int)
-    case PostRelationships(userId: Int)
-    case DeleteRelationships(userId: Int)
+    case PostRelationships(followedId: Int)
+    case DeleteRelationships(followedId: Int)
     
     var method: Alamofire.Method {
         switch self {

@@ -15,16 +15,19 @@ class ProfileHeaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        followButton.tag = _selectUserId
         request(_selectUserId)
     }
 
     @IBAction func followOrUnfollow(sender: UIButton) {
         if sender.titleLabel?.text == "Follow" {
+            follow(sender.tag)
             sender.setTitle("Unfollow", forState: .Normal)
             sender.setTitleColor(UIColor.grayColor(), forState: .Normal)
         }else {
+            unfollow(sender.tag)
             sender.setTitle("Follow", forState: .Normal)
-            let hoge = UIColor(red: 19.0, green: 121.0, blue: 255.0, alpha: 1.0)
             sender.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
         }
     }
@@ -44,5 +47,13 @@ class ProfileHeaderViewController: UIViewController {
                 self.followerCount.setTitle(contents["followers_count"].description, forState: .Normal)
             }
         }
+    }
+
+    func follow(followedId: Int) {
+        Alamofire.request(Router.PostRelationships(followedId: followedId))
+    }
+
+    func unfollow(followedId: Int) {
+        Alamofire.request(Router.DeleteRelationships(followedId: followedId))
     }
 }
