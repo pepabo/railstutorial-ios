@@ -3,19 +3,32 @@ import Alamofire
 import SVProgressHUD
 import SwiftyJSON
 
-class SignupViewController: UIViewController, UITextFieldDelegate {
+class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     // MARK: - Properties
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    private var activeTextField = UITextField()
+    private var keyboardLimit: CGFloat?
     
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpButton.enabled = checkValidSignupForm()
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        addKeyboardNotifications()
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        removeKeyboardNotifications()
+        super.viewWillDisappear(animated)
     }
     
     // MARK: - Actions
@@ -24,8 +37,17 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
         }
     }
-    
+
+    @IBAction func SubmitSignUpForm(sender: UIButton) {
+        create(nameTextField.text, email: emailTextField.text, password: passwordTextField.text, password_confirmation: confirmationTextField.text)
+    }
+
     // MARK: - UITextFieldDelegate
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        activeTextField = textField
+        return true
+    }
+
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         signUpButton.enabled = checkValidSignupForm()
         return true
@@ -35,6 +57,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         if textField.tag == 4 {
             textField.resignFirstResponder()
         } else {
+            textField.resignFirstResponder()
             textFields[textField.tag].becomeFirstResponder()
         }
         return false
@@ -56,11 +79,37 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         }
         return result
     }
-    
-    @IBAction func SubmitSignUpForm(sender: UIButton) {
-        create(nameTextField.text, email: emailTextField.text, password: passwordTextField.text, password_confirmation: confirmationTextField.text)
+
+    // MARK: - Keyboard
+    func addKeyboardNotifications() {
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
     }
-    
+
+    func removeKeyboardNotifications() {
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+
+    func handleKeyboardWillShowNotification(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
+        var txtLimit = activeTextField.frame.origin.y + activeTextField.frame.height + 8.0
+        keyboardLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        if txtLimit >= keyboardLimit {
+            scrollView.contentOffset.y = txtLimit - keyboardLimit!
+        }
+
+    }
+
+    func handleKeyboardWillHideNotification(notification: NSNotification) {
+        scrollView.contentOffset.y = 0
+    }
+
+    // MARK: -
     func create(name: String, email: String, password: String, password_confirmation: String) {
         let params = [
             "name": name,
