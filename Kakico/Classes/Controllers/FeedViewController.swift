@@ -77,7 +77,7 @@ class FeedViewController: MicropostViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
 
         let micropost = self.microposts[indexPath.row] as Micropost
-        
+
         cell.contentLabel.text = micropost.content
         cell.pictureImageView.sd_setImageWithURL(micropost.picture)
 

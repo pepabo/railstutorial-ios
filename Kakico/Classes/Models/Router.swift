@@ -53,7 +53,7 @@ enum Router: URLRequestConvertible {
         if let auth_token = keychain["auth_token"] {
             mutableURLRequest.setValue(auth_token, forHTTPHeaderField: "Authorization")
         }
-        
+
         switch self {
         case .PostUser(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
