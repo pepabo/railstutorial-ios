@@ -13,6 +13,8 @@ enum Router: URLRequestConvertible {
     case PostSession(params: Dictionary<String, String>)
     case PostMicropost()
     case GetMicroposts(userId: Int)
+    case PostRelationships(userId: Int)
+    case DeleteRelationships(userId: Int)
     
     var method: Alamofire.Method {
         switch self {
@@ -25,6 +27,8 @@ enum Router: URLRequestConvertible {
         case .PostSession: return .POST
         case .GetMicroposts: return .GET
         case .PostMicropost: return .POST
+        case .PostRelationships: return .POST
+        case .DeleteRelationships: return .DELETE
         }
     }
     
@@ -39,6 +43,8 @@ enum Router: URLRequestConvertible {
         case .PostSession: return "api/sessions"
         case .GetMicroposts(let userId): return "/api/users/\(userId)/microposts"
         case .PostMicropost: return "/api/microposts/post"
+        case .PostRelationships(let followedId): return "/api/relationships/\(followedId)"
+        case .DeleteRelationships(let followedId): return "/api/relationships/\(followedId)"
         }
     }
     
