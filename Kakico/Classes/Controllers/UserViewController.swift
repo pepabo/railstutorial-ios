@@ -12,7 +12,11 @@ class UserViewController: UITableViewController {
         super.viewDidLoad()
         request(_listType)
     }
-    
+
+    @IBAction func followOrUnfollow(sender: UIButton) {
+        println("touched")
+    }
+
     func request(listType: String) {
         self.navigationItem.title = listType
         
@@ -44,7 +48,8 @@ class UserViewController: UITableViewController {
                 var user: User = User(
                     id: subJson["id"].int!,
                     name: subJson["name"].string!,
-                    icon: NSURL(string: "")!
+                    icon: NSURL(string: "")!,
+                    following_flag: subJson["following_flag"].bool!
                 )
                 self.users.set(user)
             }
@@ -53,6 +58,33 @@ class UserViewController: UITableViewController {
                 self.tableView!.reloadData()
             })
         }
+    }
+
+    func follow(followedId: Int) {
+        Alamofire.request(Router.PostRelationships(followedId: followedId))
+    }
+
+    func unfollow(followedId: Int) {
+        Alamofire.request(Router.DeleteRelationships(followedId: followedId))
+    }
+
+    func initFollowButton(button: UIButton, user: User) {
+        if user.following_flag {
+            followButtonStyle(button)
+        }else {
+            unfollowButtonStyle(button)
+        }
+        button.tag = user.id
+    }
+
+    func followButtonStyle(button: UIButton) {
+        button.setTitle("Unfollow", forState: .Normal)
+        button.setTitleColor(UIColor.grayColor(), forState: .Normal)
+    }
+
+    func unfollowButtonStyle(button: UIButton) {
+        button.setTitle("Follow", forState: .Normal)
+        button.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
     }
     
     // MARK: - Table view data source
@@ -71,6 +103,7 @@ class UserViewController: UITableViewController {
         let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
         cell.userIcon.imageView?.sd_setImageWithURL(user.icon)
+        initFollowButton(cell.followButton, user: user)
         
         return cell
     }

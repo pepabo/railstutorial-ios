@@ -883,15 +883,6 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yre-4t-S5p">
-                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="follow:" destination="UIw-MM-6Wr" eventType="touchUpInside" id="4pS-Qg-geG"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="306-To-mFN" userLabel="User Icon">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                             <accessibility key="accessibilityConfiguration" label=""/>
@@ -915,47 +906,59 @@
                                                 </mask>
                                             </variation>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yre-4t-S5p">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal" title="Follow"/>
+                                            <variation key="widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="309" y="15" width="83" height="36"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="followOrUnfollow:" destination="UIw-MM-6Wr" eventType="touchUpInside" id="SnK-Tx-A41"/>
+                                                <action selector="followOrUnfollow:" destination="NIT-Rz-oJj" eventType="touchUpInside" id="yAB-tL-4Rc"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="yre-4t-S5p" secondAttribute="centerY" id="6Fk-D7-GO5"/>
                                         <constraint firstAttribute="centerY" secondItem="306-To-mFN" secondAttribute="centerY" id="Jyl-nh-lpT"/>
                                         <constraint firstAttribute="centerY" secondItem="p2h-WL-bd7" secondAttribute="centerY" id="M5Q-jc-fUA"/>
+                                        <constraint firstItem="yre-4t-S5p" firstAttribute="trailing" secondItem="emO-jp-z0j" secondAttribute="trailingMargin" id="dXw-fR-PmM"/>
                                         <constraint firstItem="306-To-mFN" firstAttribute="leading" secondItem="emO-jp-z0j" secondAttribute="leadingMargin" id="dwB-Q6-c6S"/>
                                         <constraint firstItem="p2h-WL-bd7" firstAttribute="leading" secondItem="306-To-mFN" secondAttribute="trailing" constant="8" id="ee8-c7-viv"/>
-                                        <constraint firstItem="yre-4t-S5p" firstAttribute="trailing" secondItem="emO-jp-z0j" secondAttribute="trailingMargin" id="oKU-gT-uRZ"/>
+                                        <constraint firstAttribute="centerY" secondItem="yre-4t-S5p" secondAttribute="centerY" id="qTI-yr-H9y"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="p2h-WL-bd7"/>
-                                            <exclude reference="yre-4t-S5p"/>
                                             <exclude reference="306-To-mFN"/>
+                                            <exclude reference="yre-4t-S5p"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="M5Q-jc-fUA"/>
-                                            <exclude reference="ee8-c7-viv"/>
                                             <exclude reference="Jyl-nh-lpT"/>
                                             <exclude reference="dwB-Q6-c6S"/>
-                                            <exclude reference="6Fk-D7-GO5"/>
-                                            <exclude reference="oKU-gT-uRZ"/>
+                                            <exclude reference="M5Q-jc-fUA"/>
+                                            <exclude reference="ee8-c7-viv"/>
+                                            <exclude reference="dXw-fR-PmM"/>
+                                            <exclude reference="qTI-yr-H9y"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="p2h-WL-bd7"/>
-                                            <include reference="yre-4t-S5p"/>
                                             <include reference="306-To-mFN"/>
+                                            <include reference="yre-4t-S5p"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="M5Q-jc-fUA"/>
-                                            <include reference="ee8-c7-viv"/>
                                             <include reference="Jyl-nh-lpT"/>
                                             <include reference="dwB-Q6-c6S"/>
-                                            <include reference="6Fk-D7-GO5"/>
-                                            <include reference="oKU-gT-uRZ"/>
+                                            <include reference="M5Q-jc-fUA"/>
+                                            <include reference="ee8-c7-viv"/>
+                                            <include reference="dXw-fR-PmM"/>
+                                            <include reference="qTI-yr-H9y"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="followButton" destination="yre-4t-S5p" id="Ese-2R-9oW"/>
                                     <outlet property="userIcon" destination="306-To-mFN" id="lX1-iS-JhT"/>
                                     <outlet property="userName" destination="p2h-WL-bd7" id="OBW-bX-A64"/>
                                     <segue destination="Y87-VY-49y" kind="show" identifier="ProfileView" id="t9R-Wy-UH5"/>
