@@ -57,9 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println(sourceApplication)
         println(annotation)
         
-        if let auth_token = params["auth_token"] {
+        if let authToken = params["auth_token"] {
             var keychain = Keychain(service: "nehan.Kakico")
-            keychain["auth_token"] = auth_token
+            keychain["authToken"] = authToken
+        }
+        if let userId = params["user_id"] {
+            var keychain = Keychain(service: "nehan.Kakico")
+            keychain["userId"] = userId
         }
         
         return true

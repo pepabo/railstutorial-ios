@@ -1,6 +1,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import KeychainAccess
 
 class UserViewController: UITableViewController {
     // MARK: - Properties
@@ -15,6 +16,12 @@ class UserViewController: UITableViewController {
     
     func request(listType: String) {
         self.navigationItem.title = listType
+
+        var userId : Int = 1
+        let keychain = Keychain(service: "nehan.Kakico")
+        if let id = keychain["userId"] {
+            userId = id.toInt()!
+        }
         
         switch listType {
         case "All":
@@ -22,11 +29,11 @@ class UserViewController: UITableViewController {
                 self.setUserList(data)
             }
         case "Followers":
-            Alamofire.request(Router.GetFollowers(userId: 1)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowers(userId: userId)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         case "Following":
-            Alamofire.request(Router.GetFollowing(userId: 1)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowing(userId: userId)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         default:
@@ -44,7 +51,7 @@ class UserViewController: UITableViewController {
                 var user: User = User(
                     id: subJson["id"].int!,
                     name: subJson["name"].string!,
-                    icon: NSURL(string: "")!
+                    icon: NSURL(string: subJson["icon_url"].stringValue)!
                 )
                 self.users.set(user)
             }
@@ -70,8 +77,8 @@ class UserViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UserTableViewCell
         let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
-        cell.userIcon.imageView?.sd_setImageWithURL(user.icon)
-        
+        cell.userIcon.sd_setImageWithURL(user.icon)
+
         return cell
     }
 
