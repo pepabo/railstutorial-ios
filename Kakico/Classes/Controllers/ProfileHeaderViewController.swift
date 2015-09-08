@@ -9,12 +9,24 @@ class ProfileHeaderViewController: UIViewController {
     @IBOutlet weak var postCount: UIButton!
     @IBOutlet weak var followingCount: UIButton!
     @IBOutlet weak var followerCount: UIButton!
+    @IBOutlet weak var followButton: UIButton!
 
     var _selectUserId: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         request(_selectUserId)
+    }
+
+    @IBAction func followOrUnfollow(sender: UIButton) {
+        if sender.titleLabel?.text == "Follow" {
+            sender.setTitle("Unfollow", forState: .Normal)
+            sender.setTitleColor(UIColor.grayColor(), forState: .Normal)
+        }else {
+            sender.setTitle("Follow", forState: .Normal)
+            let hoge = UIColor(red: 19.0, green: 121.0, blue: 255.0, alpha: 1.0)
+            sender.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
+        }
     }
 
     func request(selectUserId: Int) {

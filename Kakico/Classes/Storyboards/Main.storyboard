@@ -1152,9 +1152,14 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-CT-QJI">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Follow">
+                                                    <color key="titleColor" red="0.074509803921568626" green="0.47450980392156861" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="followOrUnfollow:" destination="4rZ-fU-Zsn" eventType="touchUpInside" id="wrU-OV-Zvp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1360,6 +1365,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="230"/>
                     <connections>
+                        <outlet property="followButton" destination="pZi-CT-QJI" id="wYp-Fp-01n"/>
                         <outlet property="followerCount" destination="gNc-ur-DTs" id="WYb-cR-6hr"/>
                         <outlet property="followingCount" destination="FLb-Ac-Zau" id="cHT-xb-H1x"/>
                         <outlet property="nameLabel" destination="JQb-NA-4rz" id="JHv-x0-BxY"/>
