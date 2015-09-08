@@ -52,7 +52,7 @@ class FeedViewController: MicropostViewController {
                         userName: userName,
                         content: subJson["content"].string!,
                         picture: NSURL(string: picture),
-                        user_id: subJson["user_id"].int!,
+                        userId: subJson["user_id"].int!,
                         userIcon: NSURL(string: iconURL),
                         timeAgoInWords:subJson["time_ago_in_words"].string!
                     )                  
@@ -92,7 +92,7 @@ class FeedViewController: MicropostViewController {
         cell.contentLabel.text = micropost.content
         cell.pictureImageView.sd_setImageWithURL(micropost.picture)
 
-        cell.viewWithTag(micropost.user_id)
+        cell.viewWithTag(micropost.userId)
 
         cell.userIconImageView.sd_setImageWithURL(micropost.userIcon)
         cell.timeAgoInWordsLabel.text = micropost.timeAgoInWords

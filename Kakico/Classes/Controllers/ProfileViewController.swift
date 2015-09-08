@@ -37,7 +37,7 @@ class ProfileViewController: MicropostViewController {
                         userName: userName,
                         content: subJson["content"].string!,
                         picture: NSURL(string: picture),
-                        user_id: selectUserId,
+                        userId: selectUserId,
                         userIcon: NSURL(string: iconURL),
                         timeAgoInWords:subJson["time_ago_in_words"].string!
                     )
