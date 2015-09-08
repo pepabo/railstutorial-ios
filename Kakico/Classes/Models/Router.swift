@@ -2,10 +2,9 @@ import Alamofire
 import KeychainAccess
 
 enum Router: URLRequestConvertible {
-    static let baseURLString = "http://localhost:3000"
-    
+    static let baseURLString = "https://157.7.190.148"
+
     case GetFeed(params: Dictionary<String, String>)
-    //case GetFeed(page: Int)
     case GetAllUsers()
     case GetUser(userId: Int)
     case GetFollowers(userId: Int)
