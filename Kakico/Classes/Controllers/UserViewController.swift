@@ -44,7 +44,7 @@ class UserViewController: UITableViewController {
                 var user: User = User(
                     id: subJson["id"].int!,
                     name: subJson["name"].string!,
-                    icon: NSURL(string: "")!
+                    icon: NSURL(string: subJson["icon_url"].stringValue)!
                 )
                 self.users.set(user)
             }
@@ -70,8 +70,8 @@ class UserViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UserTableViewCell
         let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
-        cell.userIcon.imageView?.sd_setImageWithURL(user.icon)
-        
+        cell.userIcon.sd_setImageWithURL(user.icon)
+
         return cell
     }
 
