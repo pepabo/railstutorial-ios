@@ -908,13 +908,25 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yre-4t-S5p">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="1Ag-rm-3r8"/>
+                                                <constraint firstAttribute="width" constant="83" id="oq3-NP-rQy"/>
+                                            </constraints>
                                             <state key="normal" title="Follow"/>
-                                            <variation key="widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="309" y="15" width="83" height="36"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="1Ag-rm-3r8"/>
+                                                    <exclude reference="oq3-NP-rQy"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="1Ag-rm-3r8"/>
+                                                    <include reference="oq3-NP-rQy"/>
+                                                </mask>
                                             </variation>
                                             <connections>
-                                                <action selector="followOrUnfollow:" destination="UIw-MM-6Wr" eventType="touchUpInside" id="SnK-Tx-A41"/>
-                                                <action selector="followOrUnfollow:" destination="NIT-Rz-oJj" eventType="touchUpInside" id="yAB-tL-4Rc"/>
+                                                <action selector="followOrUnfollow:" destination="NIT-Rz-oJj" eventType="touchUpInside" id="fYZ-UY-27L"/>
                                             </connections>
                                         </button>
                                     </subviews>

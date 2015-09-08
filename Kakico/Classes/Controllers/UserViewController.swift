@@ -14,7 +14,7 @@ class UserViewController: UITableViewController {
     }
 
     @IBAction func followOrUnfollow(sender: UIButton) {
-        println("touched")
+        println("hoge")
     }
 
     func request(listType: String) {
