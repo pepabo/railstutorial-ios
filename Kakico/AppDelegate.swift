@@ -81,7 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func getControllerIdentifierFromURL(url: NSURL) -> String {
-        return url.host!.capitalizedString + "NavigationController"
+        return url.host! + "NavigationController"
+
     }
 
     func getParamsFromURL(url: NSURL) -> Dictionary<String, String> {
