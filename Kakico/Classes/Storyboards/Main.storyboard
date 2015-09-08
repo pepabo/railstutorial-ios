@@ -301,14 +301,14 @@
                                         <exclude reference="iFx-V5-qcZ"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="R5d-Id-tw2"/>
-                                        <exclude reference="gr0-Gx-MLL"/>
-                                        <exclude reference="tLu-X5-kUi"/>
                                         <exclude reference="MD5-qi-Mfa"/>
                                         <exclude reference="dci-7k-VFR"/>
                                         <exclude reference="i4c-3U-yQL"/>
                                         <exclude reference="pCW-wf-P4r"/>
                                         <exclude reference="xow-A5-ZgD"/>
+                                        <exclude reference="R5d-Id-tw2"/>
+                                        <exclude reference="gr0-Gx-MLL"/>
+                                        <exclude reference="tLu-X5-kUi"/>
                                         <exclude reference="b3m-8K-PH5"/>
                                         <exclude reference="pO2-wE-UJN"/>
                                     </mask>
@@ -320,14 +320,14 @@
                                         <include reference="iFx-V5-qcZ"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="R5d-Id-tw2"/>
-                                        <include reference="gr0-Gx-MLL"/>
-                                        <include reference="tLu-X5-kUi"/>
                                         <include reference="MD5-qi-Mfa"/>
                                         <include reference="dci-7k-VFR"/>
                                         <include reference="i4c-3U-yQL"/>
                                         <include reference="pCW-wf-P4r"/>
                                         <include reference="xow-A5-ZgD"/>
+                                        <include reference="R5d-Id-tw2"/>
+                                        <include reference="gr0-Gx-MLL"/>
+                                        <include reference="tLu-X5-kUi"/>
                                         <include reference="b3m-8K-PH5"/>
                                         <include reference="pO2-wE-UJN"/>
                                     </mask>
@@ -347,10 +347,10 @@
                                 <exclude reference="xWe-he-Xhe"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="jEJ-N2-641"/>
                                 <exclude reference="8aI-bY-N8B"/>
                                 <exclude reference="Sow-ed-HZR"/>
                                 <exclude reference="Spc-JZ-q22"/>
-                                <exclude reference="jEJ-N2-641"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -358,10 +358,10 @@
                                 <include reference="xWe-he-Xhe"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="jEJ-N2-641"/>
                                 <include reference="8aI-bY-N8B"/>
                                 <include reference="Sow-ed-HZR"/>
                                 <include reference="Spc-JZ-q22"/>
-                                <include reference="jEJ-N2-641"/>
                             </mask>
                         </variation>
                         <connections>

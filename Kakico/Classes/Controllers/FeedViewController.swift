@@ -25,7 +25,6 @@ class FeedViewController: MicropostViewController {
         }
     }
 
-
     func request(page: Int) {
         let params = [
             "page": String(page)
