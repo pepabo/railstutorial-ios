@@ -14,7 +14,13 @@ class UserViewController: UITableViewController {
     }
 
     @IBAction func followOrUnfollow(sender: UIButton) {
-        println("hoge")
+        if sender.titleLabel?.text == "Follow" {
+            follow(sender.tag)
+            followButtonStyle(sender)
+        }else {
+            unfollow(sender.tag)
+            unfollowButtonStyle(sender)
+        }
     }
 
     func request(listType: String) {
