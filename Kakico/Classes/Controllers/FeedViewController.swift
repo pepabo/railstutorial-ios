@@ -21,9 +21,9 @@ class FeedViewController: MicropostViewController {
         }
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         self.tableView.reloadData()
-        super.viewWillAppear(animated)
     }
 
     func request(page: Int) {
