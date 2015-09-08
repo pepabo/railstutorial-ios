@@ -15,8 +15,6 @@ class ProfileHeaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        followButton.tag = _selectUserId
         request(_selectUserId)
     }
 
@@ -45,6 +43,8 @@ class ProfileHeaderViewController: UIViewController {
                 self.postCount.setTitle(contents["microposts_count"].description, forState: .Normal)
                 self.followingCount.setTitle(contents["following_count"].description, forState: .Normal)
                 self.followerCount.setTitle(contents["followers_count"].description, forState: .Normal)
+
+                self.initFollowButton(contents["following_flag"].bool!)
             }
         }
     }
@@ -55,5 +55,16 @@ class ProfileHeaderViewController: UIViewController {
 
     func unfollow(followedId: Int) {
         Alamofire.request(Router.DeleteRelationships(followedId: followedId))
+    }
+
+    func initFollowButton(following_status: Bool) {
+        if following_status {
+            followButton.setTitle("Unfollow", forState: .Normal)
+            followButton.setTitleColor(UIColor.grayColor(), forState: .Normal)
+        }else {
+            followButton.setTitle("Follow", forState: .Normal)
+            followButton.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
+        }
+        followButton.tag = _selectUserId
     }
 }
