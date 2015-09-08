@@ -24,6 +24,7 @@ class FeedViewController: MicropostViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
+        SVProgressHUD.dismiss()
     }
 
     func request(page: Int) {
@@ -65,11 +66,7 @@ class FeedViewController: MicropostViewController {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
                 })
-                SVProgressHUD.dismiss()
-            } else {
-                SVProgressHUD.showErrorWithStatus("", maskType: .Black)
             }
-            
         }
     }
 
