@@ -123,7 +123,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
             if json["status"] == 200 {
                 SVProgressHUD.dismiss()
                 var keychain = Keychain(service: "nehan.Kakico")
-                keychain["auth_token"] = json["auth_token"].stringValue
+                keychain["authToken"] = json["auth_token"].stringValue
+                keychain["userId"] = json["user_id"].stringValue
                 let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
                 self.presentViewController(targetViewController, animated: true, completion: nil)
             } else{

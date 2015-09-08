@@ -50,8 +50,8 @@ enum Router: URLRequestConvertible {
         mutableURLRequest.HTTPMethod = method.rawValue
         
         let keychain = Keychain(service: "nehan.Kakico")
-        if let auth_token = keychain["auth_token"] {
-            mutableURLRequest.setValue(auth_token, forHTTPHeaderField: "Authorization")
+        if let authToken = keychain["authToken"] {
+            mutableURLRequest.setValue(authToken, forHTTPHeaderField: "Authorization")
         }
 
         switch self {
