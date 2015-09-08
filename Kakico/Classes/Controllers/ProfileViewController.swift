@@ -9,12 +9,28 @@ class ProfileViewController: MicropostViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        request(super._selectUserId)
+        SVProgressHUD.showWithMaskType(.Black)
+        request(super._selectUserId, page: 1)
+
+        // Add infinite scroll handler
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+            
+            if (self.microposts.next_page != nil) {
+                self.request(super._selectUserId, page: self.microposts.next_page!)
+            }
+            
+            self.tableView.reloadData()
+            
+            tableView.finishInfiniteScroll()
+        }
     }
 
-    func request(selectUserId: Int) {
-        SVProgressHUD.showWithMaskType(.Black)
-        Alamofire.request(Router.GetMicroposts(userId: selectUserId)).responseJSON { (request, response, data, error) -> Void in
+    func request(selectUserId: Int, page: Int) {
+        let params = [
+            "page": String(page)
+        ]
+        Alamofire.request(Router.GetMicroposts(userId: selectUserId, params: params)).responseJSON { (request, response, data, error) -> Void in
             println(data)
             if data != nil {
                 let json = JSON(data!)
@@ -44,6 +60,8 @@ class ProfileViewController: MicropostViewController {
                     self.microposts.set(micropost)
                 }
 
+                self.microposts.next_page = json["next_page"].intValue
+
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
                 })
@@ -63,7 +81,7 @@ class ProfileViewController: MicropostViewController {
     }
 
     // MARK: - Navigation
-    @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
-        request(1)
-    }
+    //@IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
+    //    request(1)
+    //}
 }

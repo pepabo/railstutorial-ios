@@ -6,6 +6,7 @@ struct User {
 
 class UserDataManager: NSObject {
     var users: [User]
+    var next_page: Int?
     
     override init() {
         self.users = []
