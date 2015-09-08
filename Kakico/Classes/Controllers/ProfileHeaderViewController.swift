@@ -21,12 +21,10 @@ class ProfileHeaderViewController: UIViewController {
     @IBAction func followOrUnfollow(sender: UIButton) {
         if sender.titleLabel?.text == "Follow" {
             follow(sender.tag)
-            sender.setTitle("Unfollow", forState: .Normal)
-            sender.setTitleColor(UIColor.grayColor(), forState: .Normal)
+            followButtonStyle()
         }else {
             unfollow(sender.tag)
-            sender.setTitle("Follow", forState: .Normal)
-            sender.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
+            unfollowButtonStyle()
         }
     }
 
@@ -59,12 +57,20 @@ class ProfileHeaderViewController: UIViewController {
 
     func initFollowButton(following_status: Bool) {
         if following_status {
-            followButton.setTitle("Unfollow", forState: .Normal)
-            followButton.setTitleColor(UIColor.grayColor(), forState: .Normal)
+            followButtonStyle()
         }else {
-            followButton.setTitle("Follow", forState: .Normal)
-            followButton.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
+            unfollowButtonStyle()
         }
         followButton.tag = _selectUserId
+    }
+
+    func followButtonStyle() {
+        followButton.setTitle("Unfollow", forState: .Normal)
+        followButton.setTitleColor(UIColor.grayColor(), forState: .Normal)
+    }
+
+    func unfollowButtonStyle() {
+        followButton.setTitle("Follow", forState: .Normal)
+        followButton.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
     }
 }
