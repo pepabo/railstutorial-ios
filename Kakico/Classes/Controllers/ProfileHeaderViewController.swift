@@ -18,7 +18,7 @@ class ProfileHeaderViewController: UIViewController {
         request(_selectUserId)
     }
 
-    @IBAction func followOrUnfollow(sender: UIButton) {
+    @IBAction func toggleFollow(sender: UIButton) {
         if sender.titleLabel?.text == "Follow" {
             follow(sender.tag)
             followButtonStyle()

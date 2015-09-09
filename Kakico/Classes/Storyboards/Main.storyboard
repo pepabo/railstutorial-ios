@@ -926,7 +926,7 @@
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <action selector="followOrUnfollow:" destination="NIT-Rz-oJj" eventType="touchUpInside" id="fYZ-UY-27L"/>
+                                                <action selector="toggleFollow:" destination="NIT-Rz-oJj" eventType="touchUpInside" id="yaM-22-hIs"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -945,10 +945,10 @@
                                             <exclude reference="yre-4t-S5p"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="Jyl-nh-lpT"/>
-                                            <exclude reference="dwB-Q6-c6S"/>
                                             <exclude reference="M5Q-jc-fUA"/>
                                             <exclude reference="ee8-c7-viv"/>
+                                            <exclude reference="Jyl-nh-lpT"/>
+                                            <exclude reference="dwB-Q6-c6S"/>
                                             <exclude reference="dXw-fR-PmM"/>
                                             <exclude reference="qTI-yr-H9y"/>
                                         </mask>
@@ -960,10 +960,10 @@
                                             <include reference="yre-4t-S5p"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="Jyl-nh-lpT"/>
-                                            <include reference="dwB-Q6-c6S"/>
                                             <include reference="M5Q-jc-fUA"/>
                                             <include reference="ee8-c7-viv"/>
+                                            <include reference="Jyl-nh-lpT"/>
+                                            <include reference="dwB-Q6-c6S"/>
                                             <include reference="dXw-fR-PmM"/>
                                             <include reference="qTI-yr-H9y"/>
                                         </mask>
@@ -1173,7 +1173,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="followOrUnfollow:" destination="4rZ-fU-Zsn" eventType="touchUpInside" id="wrU-OV-Zvp"/>
+                                                    <action selector="toggleFollow:" destination="4rZ-fU-Zsn" eventType="touchUpInside" id="FcS-Yj-nsQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
