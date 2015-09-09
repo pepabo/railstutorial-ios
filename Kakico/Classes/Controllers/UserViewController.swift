@@ -2,6 +2,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import KeychainAccess
+import UIScrollView_InfiniteScroll
 
 class UserViewController: UITableViewController {
     // MARK: - Properties
@@ -11,10 +12,23 @@ class UserViewController: UITableViewController {
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        request(_listType)
+        request(_listType, page: 1)
+
+        // Add infinite scroll handler
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+            
+            if (self.users.nextPage != nil) {
+                self.request(self._listType, page: self.users.nextPage!)
+            }
+            
+            self.tableView.reloadData()
+            
+            tableView.finishInfiniteScroll()
+        }
     }
     
-    func request(listType: String) {
+    func request(listType: String, page: Int) {
         self.navigationItem.title = listType
 
         var userId : Int = 1
@@ -23,17 +37,21 @@ class UserViewController: UITableViewController {
             userId = id.toInt()!
         }
         
+        let params = [
+            "page": String(page)
+        ]
+
         switch listType {
         case "All":
-            Alamofire.request(Router.GetAllUsers()).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetAllUsers(params: params)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         case "Followers":
-            Alamofire.request(Router.GetFollowers(userId: userId)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowers(userId: userId, params: params)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         case "Following":
-            Alamofire.request(Router.GetFollowing(userId: userId)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowing(userId: userId, params: params)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         default:
@@ -55,10 +73,13 @@ class UserViewController: UITableViewController {
                 )
                 self.users.set(user)
             }
-            
+
+            self.users.nextPage = json["next_page"].intValue
+
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView!.reloadData()
             })
+
         }
     }
     

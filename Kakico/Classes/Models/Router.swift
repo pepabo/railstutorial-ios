@@ -4,40 +4,46 @@ import KeychainAccess
 enum Router: URLRequestConvertible {
     static let baseURLString = "https://157.7.190.148"
 
-    case GetFeed(params: Dictionary<String, String>)
-    case GetAllUsers()
     case GetUser(userId: Int)
-    case GetFollowers(userId: Int)
-    case GetFollowing(userId: Int)
+
+    case GetFeed(params: Dictionary<String, String>)
+    case GetAllUsers(params: Dictionary<String, String>)
+
+    case GetFollowers(userId: Int, params: Dictionary<String, String>)
+    case GetFollowing(userId: Int, params: Dictionary<String, String>)
+    case GetMicroposts(userId: Int, params: Dictionary<String, String>)
+
     case PostUser(params: Dictionary<String, String>)
     case PostSession(params: Dictionary<String, String>)
     case PostMicropost()
-    case GetMicroposts(userId: Int)
-    
+
     var method: Alamofire.Method {
         switch self {
-        case .GetFeed: return .GET
         case .GetUser: return .GET
+        case .GetFeed: return .GET
         case .GetAllUsers: return .GET
         case .GetFollowers: return .GET
         case .GetFollowing: return .GET
+        case .GetMicroposts: return .GET
         case .PostUser: return .POST
         case .PostSession: return .POST
-        case .GetMicroposts: return .GET
         case .PostMicropost: return .POST
         }
     }
     
     var path: String {
         switch self {
-        case .GetFeed(let page): return "/api/users/feed"
         case .GetUser(let userId): return "/api/users/\(userId)"
+
+        case .GetFeed(let page): return "/api/users/feed"
         case .GetAllUsers: return "/api/users"
-        case .GetFollowers(let userId): return "/api/users/\(userId)/followers"
-        case .GetFollowing(let userId): return "/api/users/\(userId)/following"
+
+        case .GetFollowers(let userId, let params): return "/api/users/\(userId)/followers"
+        case .GetFollowing(let userId, let params): return "/api/users/\(userId)/following"
+        case .GetMicroposts(let userId, let params): return "/api/users/\(userId)/microposts"
+
         case .PostUser: return "/api/users"
         case .PostSession: return "api/sessions"
-        case .GetMicroposts(let userId): return "/api/users/\(userId)/microposts"
         case .PostMicropost: return "/api/microposts/post"
         }
     }
@@ -59,8 +65,16 @@ enum Router: URLRequestConvertible {
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
         case .PostSession(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
-            case .GetFeed(let parameters):
-                return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+        case .GetFeed(let parameters):
+            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+        case .GetAllUsers(let parameters):
+            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+        case .GetFollowers(let userId, let parameters):
+            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+        case .GetFollowing(let userId, let parameters):
+            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+        case .GetMicroposts(let userId, let parameters):
+            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
         default:
             return mutableURLRequest
         }
