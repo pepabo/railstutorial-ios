@@ -16,8 +16,8 @@ class ProfileViewController: MicropostViewController {
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
             
-            if (self.microposts.next_page != nil) {
-                self.request(super._selectUserId, page: self.microposts.next_page!)
+            if (self.microposts.nextPage != nil) {
+                self.request(super._selectUserId, page: self.microposts.nextPage!)
             }
             
             self.tableView.reloadData()
@@ -60,7 +60,7 @@ class ProfileViewController: MicropostViewController {
                     self.microposts.set(micropost)
                 }
 
-                self.microposts.next_page = json["next_page"].intValue
+                self.microposts.nextPage = json["next_page"].intValue
 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()

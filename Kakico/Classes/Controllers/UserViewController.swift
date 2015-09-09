@@ -18,8 +18,8 @@ class UserViewController: UITableViewController {
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
             
-            if (self.users.next_page != nil) {
-                self.request(self._listType, page: self.users.next_page!)
+            if (self.users.nextPage != nil) {
+                self.request(self._listType, page: self.users.nextPage!)
             }
             
             self.tableView.reloadData()
@@ -74,7 +74,7 @@ class UserViewController: UITableViewController {
                 self.users.set(user)
             }
 
-            self.users.next_page = json["next_page"].intValue
+            self.users.nextPage = json["next_page"].intValue
 
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView!.reloadData()

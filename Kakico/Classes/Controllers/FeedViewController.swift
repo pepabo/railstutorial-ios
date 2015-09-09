@@ -14,8 +14,8 @@ class FeedViewController: MicropostViewController {
         // Add infinite scroll handler
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
-            if (self.microposts.next_page != nil) {
-                self.request(self.microposts.next_page!)
+            if (self.microposts.nextPage != nil) {
+                self.request(self.microposts.nextPage!)
             }
             tableView.finishInfiniteScroll()
         }
@@ -61,7 +61,7 @@ class FeedViewController: MicropostViewController {
                     self.microposts.set(micropost)
                 }
                 
-                self.microposts.next_page = json["next_page"].intValue
+                self.microposts.nextPage = json["next_page"].intValue
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
