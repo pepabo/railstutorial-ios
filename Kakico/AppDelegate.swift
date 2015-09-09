@@ -33,6 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return (disposition, credential)
         }
 
+        var keychain = Keychain(service: "nehan.Kakico")
+        if keychain["authToken"] != nil && keychain["userId"] != nil {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            var storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var initialViewController = storyboard.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+
         return true
     }
 
