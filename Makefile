@@ -13,3 +13,6 @@ test:
 		   -destination platform='iOS Simulator',OS=$(OS),name='$(DEVICE)' \
 		   clean test | \
 		   bundle exec xcpretty -c
+
+deploy:
+	bundle exec ipa build && bundle exec dgate push Kakico.ipa
