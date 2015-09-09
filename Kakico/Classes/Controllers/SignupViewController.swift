@@ -58,7 +58,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
             textField.resignFirstResponder()
         } else {
             textField.resignFirstResponder()
-            textFields[textField.tag].becomeFirstResponder()
+            for field : UITextField in textFields {
+                if field.tag == textField.tag + 1 {
+                    field.becomeFirstResponder()
+                }
+            }
         }
         return false
     }
