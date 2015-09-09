@@ -91,8 +91,8 @@ class FeedViewController: MicropostViewController {
         cell.userIconImageView.sd_setImageWithURL(micropost.userIcon)
         cell.timeAgoInWordsLabel.text = micropost.timeAgoInWords
 
-        println(micropost.havePicture())
         if micropost.havePicture() {
+            cell.pictureImageView.hidden = false
             cell.pictureImageViewHeightConstraint.constant = 150
             cell.pictureImageView.sd_setImageWithURL(micropost.picture)
         } else {
