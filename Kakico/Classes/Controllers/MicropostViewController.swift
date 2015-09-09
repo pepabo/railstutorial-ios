@@ -56,4 +56,44 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+
+    // MARK: -
+    func setData(data: AnyObject?) {
+        println(data)
+        if data != nil {
+            let json = JSON(data!)
+            println(json)
+
+            for (index: String, subJson: JSON) in json["contents"] {
+                var picture = ""
+                var userName = "No name"
+                var iconURL = ""
+                if let url = subJson["picture"]["url"].string {
+                    picture = url
+                }
+                if let name = subJson["user"]["name"].string {
+                    userName = name
+                }
+                if let url = subJson["user"]["icon_url"].string {
+                    iconURL = url
+                }
+                let pictureURL = picture.isEmpty ? nil : NSURL(string: picture)
+                var micropost: Micropost = Micropost(
+                    userName: userName,
+                    content: subJson["content"].string!,
+                    picture: pictureURL,
+                    userId: subJson["user_id"].int!,
+                    userIcon: NSURL(string: iconURL),
+                    timeAgoInWords:subJson["time_ago_in_words"].string!
+                )
+                self.microposts.set(micropost)
+            }
+
+            self.microposts.nextPage = json["next_page"].intValue
+
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+        }
+    }
 }
