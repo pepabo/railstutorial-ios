@@ -121,29 +121,22 @@
                                             <exclude reference="mGM-8S-zvL"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="TLc-a3-dmx"/>
-                                            <exclude reference="wJ5-MD-szh"/>
                                             <exclude reference="2Da-ul-8KP"/>
                                             <exclude reference="mhV-p1-6Ub"/>
                                             <exclude reference="C1Q-4L-qUB"/>
                                             <exclude reference="QSe-ar-fHc"/>
+                                            <exclude reference="TtK-yF-WoQ"/>
                                             <exclude reference="V8g-8B-wto"/>
-                                            <exclude reference="Wbt-Cb-fSV"/>
                                             <exclude reference="Pko-C3-LoQ"/>
                                             <exclude reference="SSS-7a-uU7"/>
                                             <exclude reference="wg9-Y1-bpt"/>
                                             <exclude reference="TLc-a3-dmx"/>
                                             <exclude reference="wJ5-MD-szh"/>
-                                            <exclude reference="xfe-Sa-DXf"/>
                                             <exclude reference="5UD-ft-122"/>
                                             <exclude reference="Uik-dO-iUs"/>
                                             <exclude reference="k8A-rP-eZA"/>
                                             <exclude reference="nvm-J8-uOl"/>
                                             <exclude reference="z2e-Ub-ACK"/>
-                                            <exclude reference="C1Q-4L-qUB"/>
-                                            <exclude reference="QSe-ar-fHc"/>
-                                            <exclude reference="TtK-yF-WoQ"/>
-                                            <exclude reference="V8g-8B-wto"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -155,29 +148,22 @@
                                             <include reference="mGM-8S-zvL"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="TLc-a3-dmx"/>
-                                            <include reference="wJ5-MD-szh"/>
                                             <include reference="2Da-ul-8KP"/>
                                             <include reference="mhV-p1-6Ub"/>
                                             <include reference="C1Q-4L-qUB"/>
                                             <include reference="QSe-ar-fHc"/>
+                                            <include reference="TtK-yF-WoQ"/>
                                             <include reference="V8g-8B-wto"/>
-                                            <exclude reference="Wbt-Cb-fSV"/>
                                             <include reference="Pko-C3-LoQ"/>
                                             <include reference="SSS-7a-uU7"/>
                                             <include reference="wg9-Y1-bpt"/>
                                             <include reference="TLc-a3-dmx"/>
                                             <include reference="wJ5-MD-szh"/>
-                                            <exclude reference="xfe-Sa-DXf"/>
                                             <include reference="5UD-ft-122"/>
                                             <include reference="Uik-dO-iUs"/>
                                             <include reference="k8A-rP-eZA"/>
                                             <include reference="nvm-J8-uOl"/>
                                             <include reference="z2e-Ub-ACK"/>
-                                            <include reference="C1Q-4L-qUB"/>
-                                            <include reference="QSe-ar-fHc"/>
-                                            <include reference="TtK-yF-WoQ"/>
-                                            <include reference="V8g-8B-wto"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -1722,7 +1708,7 @@
         <!--Profile Edit-->
         <scene sceneID="D3c-Ya-Bfp">
             <objects>
-                <viewController id="99L-UM-3HS" customClass="ProfileEditViewController" sceneMemberID="viewController">
+                <viewController id="99L-UM-3HS" customClass="ProfileEditViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gvr-Xj-1Rr"/>
                         <viewControllerLayoutGuide type="bottom" id="YIK-2t-d97"/>
@@ -1819,6 +1805,9 @@
                                         <include reference="LTE-LO-CGE"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="submitProfileEditForm:" destination="99L-UM-3HS" eventType="touchUpInside" id="3k3-pT-zf6"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eV-4C-Td6">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -1899,6 +1888,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Profile Edit" id="tkU-m5-gch"/>
+                    <connections>
+                        <outlet property="confirmationTextField" destination="Y3d-rA-3xe" id="aab-Ae-m1t"/>
+                        <outlet property="emailTextField" destination="Zo4-Pj-awo" id="aPI-xc-uhM"/>
+                        <outlet property="nameTextField" destination="WIL-Wr-ovb" id="mh3-Xa-YHF"/>
+                        <outlet property="passwordTextField" destination="8eV-4C-Td6" id="7E8-EC-2wT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8a-S4-IRI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
