@@ -6,6 +6,7 @@ import KeychainAccess
 class UserViewController: UITableViewController {
     // MARK: - Properties
     var users = UserDataManager()
+    var currentUserId = 0
     var _listType = ""
     
     // MARK: - View Events
@@ -27,10 +28,9 @@ class UserViewController: UITableViewController {
     func request(listType: String) {
         self.navigationItem.title = listType
 
-        var userId : Int = 1
         let keychain = Keychain(service: "nehan.Kakico")
         if let id = keychain["userId"] {
-            userId = id.toInt()!
+            currentUserId = id.toInt()!
         }
         
         switch listType {
@@ -39,11 +39,11 @@ class UserViewController: UITableViewController {
                 self.setUserList(data)
             }
         case "Followers":
-            Alamofire.request(Router.GetFollowers(userId: userId)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowers(userId: currentUserId)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         case "Following":
-            Alamofire.request(Router.GetFollowing(userId: userId)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowing(userId: currentUserId)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         default:
@@ -82,7 +82,9 @@ class UserViewController: UITableViewController {
     }
 
     func initFollowButton(button: UIButton, user: User) {
-        if user.followingFlag {
+        if user.id == currentUserId {
+            button.hidden = true
+        }else if user.followingFlag {
             followButtonStyle(button)
         }else {
             unfollowButtonStyle(button)
