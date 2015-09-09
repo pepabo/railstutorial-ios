@@ -7,8 +7,6 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     // MARK: - Properties
     var microposts = MicropostDataManager()
 
-    var _selectUserId: Int = 0
-
     // MARK: - View Events
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

@@ -7,18 +7,19 @@ import UIScrollView_InfiniteScroll
 class ProfileViewController: MicropostViewController {
     // MARK: - Properties
     @IBOutlet weak var header: UIView!
+    var _selectUserId: Int = 0
 
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.showWithMaskType(.Black)
-        request(super._selectUserId)
+        request(_selectUserId)
 
         // Add infinite scroll handler
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
             if (self.microposts.nextPage != nil) {
-                self.request(super._selectUserId, page: self.microposts.nextPage!)
+                self.request(self._selectUserId, page: self.microposts.nextPage!)
             }
             tableView.finishInfiniteScroll()
         }
