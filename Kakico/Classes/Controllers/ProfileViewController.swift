@@ -12,7 +12,7 @@ class ProfileViewController: MicropostViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.showWithMaskType(.Black)
-        request(super._selectUserId, page: 1)
+        request(super._selectUserId)
 
         // Add infinite scroll handler
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
@@ -24,7 +24,7 @@ class ProfileViewController: MicropostViewController {
         }
     }
 
-    func request(selectUserId: Int, page: Int) {
+    func request(selectUserId: Int, page: Int = 1) {
         let params = [
             "page": String(page)
         ]

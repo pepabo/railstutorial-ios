@@ -9,19 +9,19 @@ class FeedViewController: MicropostViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.showWithMaskType(.Black)
-        request(1)
+        request()
 
         // Add infinite scroll handler
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
             if (self.microposts.nextPage != nil) {
-                self.request(self.microposts.nextPage!)
+                self.request(page: self.microposts.nextPage!)
             }
             tableView.finishInfiniteScroll()
         }
     }
 
-    func request(page: Int) {
+    func request(page: Int = 1) {
         let params = [
             "page": String(page)
         ]
@@ -67,6 +67,6 @@ class FeedViewController: MicropostViewController {
 
     // MARK: - Navigation
     @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
-        request(1)
+        request()
     }
 }
