@@ -55,7 +55,7 @@ class UserViewController: UITableViewController {
                     id: subJson["id"].int!,
                     name: subJson["name"].string!,
                     icon: NSURL(string: "")!,
-                    following_flag: subJson["following_flag"].bool!
+                    followingFlag: subJson["following_flag"].bool!
                 )
                 self.users.set(user)
             }
@@ -75,7 +75,7 @@ class UserViewController: UITableViewController {
     }
 
     func initFollowButton(button: UIButton, user: User) {
-        if user.following_flag {
+        if user.followingFlag {
             followButtonStyle(button)
         }else {
             unfollowButtonStyle(button)
