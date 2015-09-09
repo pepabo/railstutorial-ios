@@ -1,4 +1,5 @@
 import UIKit
+import KeychainAccess
 
 class MenuViewController: UITableViewController {
 
@@ -6,8 +7,10 @@ class MenuViewController: UITableViewController {
         super.viewDidLoad()
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("hoge")
+    func logout() {
+        var keychain = Keychain(service: "nehan.Kakico")
+        keychain["authToken"] = nil
+        keychain["userId"] = nil
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -23,6 +26,8 @@ class MenuViewController: UITableViewController {
             default:
                 println("undefined segue.identifier in ConfigViewController")
             }
+        }else if segue.identifier == "Logout" {
+            logout()
         }
     }
 }

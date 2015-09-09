@@ -990,6 +990,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="KDD-nb-63e" kind="presentation" identifier="Logout" id="0aT-xe-g31"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -2166,7 +2169,7 @@
         <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QdC-QQ-cHK"/>
+        <segue reference="0aT-xe-g31"/>
         <segue reference="R1A-dp-hUo"/>
     </inferredMetricsTieBreakers>
 </document>
