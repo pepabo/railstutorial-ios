@@ -82,6 +82,9 @@ class UserViewController: UITableViewController {
     }
 
     func initFollowButton(button: UIButton, user: User) {
+        button.hidden = false
+        button.tag = user.id
+
         if user.id == currentUserId {
             button.hidden = true
         }else if user.followingFlag {
@@ -89,7 +92,6 @@ class UserViewController: UITableViewController {
         }else {
             unfollowButtonStyle(button)
         }
-        button.tag = user.id
     }
 
     func followButtonStyle(button: UIButton) {
