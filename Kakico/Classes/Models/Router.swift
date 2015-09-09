@@ -16,7 +16,7 @@ enum Router: URLRequestConvertible {
     case PostUser(params: Dictionary<String, String>)
     case PostSession(params: Dictionary<String, String>)
     case PostMicropost()
-    case GetMicroposts(userId: Int)
+    
     case PostRelationships(followedId: Int)
     case DeleteRelationships(followedId: Int)
     

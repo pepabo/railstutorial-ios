@@ -13,7 +13,7 @@ class ProfileHeaderViewController: UIViewController {
     @IBOutlet weak var followButton: UIButton!
 
     var _selectUserId = 0
-    var currentUserId = 0
+    var userId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class ProfileHeaderViewController: UIViewController {
     func request(selectUserId: Int) {
         let keychain = Keychain(service: "nehan.Kakico")
         if let id = keychain["userId"] {
-            currentUserId = id.toInt()!
+            userId = id.toInt()!
         }
 
         Alamofire.request(Router.GetUser(userId: selectUserId)).responseJSON { (request, response, data, error) -> Void in
@@ -66,7 +66,7 @@ class ProfileHeaderViewController: UIViewController {
         followButton.hidden = false
         followButton.tag = _selectUserId
 
-        if _selectUserId == currentUserId {
+        if _selectUserId == userId {
             followButton.hidden = true
         }else if following_status {
             followButtonStyle(followButton)

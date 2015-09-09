@@ -7,7 +7,7 @@ import UIScrollView_InfiniteScroll
 class UserViewController: UITableViewController {
     // MARK: - Properties
     var users = UserDataManager()
-    var currentUserId = 0
+    var userId = 0
     var _listType = ""
     
     // MARK: - View Events
@@ -39,12 +39,12 @@ class UserViewController: UITableViewController {
         }
     }
 
-    func request(listType: String) {
+    func request(listType: String, page: Int) {
         self.navigationItem.title = listType
 
         let keychain = Keychain(service: "nehan.Kakico")
         if let id = keychain["userId"] {
-            currentUserId = id.toInt()!
+            userId = id.toInt()!
         }
         
         let params = [
@@ -57,11 +57,11 @@ class UserViewController: UITableViewController {
                 self.setUserList(data)
             }
         case "Followers":
-            Alamofire.request(Router.GetFollowers(userId: currentUserId)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowers(userId: userId, params: params)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         case "Following":
-            Alamofire.request(Router.GetFollowing(userId: currentUserId)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowing(userId: userId, params: params)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         default:
@@ -106,7 +106,7 @@ class UserViewController: UITableViewController {
         button.hidden = false
         button.tag = user.id
 
-        if user.id == currentUserId {
+        if user.id == userId {
             button.hidden = true
         }else if user.followingFlag {
             followButtonStyle(button)
