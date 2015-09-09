@@ -79,9 +79,4 @@ class ProfileViewController: MicropostViewController {
             headerView._selectUserId = self._selectUserId
         }
     }
-
-    // MARK: - Navigation
-    //@IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
-    //    request(1)
-    //}
 }
