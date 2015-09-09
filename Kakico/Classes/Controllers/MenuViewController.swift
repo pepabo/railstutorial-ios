@@ -6,6 +6,10 @@ class MenuViewController: UITableViewController {
         super.viewDidLoad()
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("hoge")
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if let userView = segue.destinationViewController as? UserViewController {
             let type = segue.identifier!

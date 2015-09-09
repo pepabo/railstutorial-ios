@@ -127,13 +127,11 @@
                                             <exclude reference="QSe-ar-fHc"/>
                                             <exclude reference="TtK-yF-WoQ"/>
                                             <exclude reference="V8g-8B-wto"/>
-                                            <exclude reference="Wbt-Cb-fSV"/>
                                             <exclude reference="Pko-C3-LoQ"/>
                                             <exclude reference="SSS-7a-uU7"/>
                                             <exclude reference="wg9-Y1-bpt"/>
                                             <exclude reference="TLc-a3-dmx"/>
                                             <exclude reference="wJ5-MD-szh"/>
-                                            <exclude reference="xfe-Sa-DXf"/>
                                             <exclude reference="5UD-ft-122"/>
                                             <exclude reference="Uik-dO-iUs"/>
                                             <exclude reference="k8A-rP-eZA"/>
@@ -156,13 +154,11 @@
                                             <include reference="QSe-ar-fHc"/>
                                             <include reference="TtK-yF-WoQ"/>
                                             <include reference="V8g-8B-wto"/>
-                                            <exclude reference="Wbt-Cb-fSV"/>
                                             <include reference="Pko-C3-LoQ"/>
                                             <include reference="SSS-7a-uU7"/>
                                             <include reference="wg9-Y1-bpt"/>
                                             <include reference="TLc-a3-dmx"/>
                                             <include reference="wJ5-MD-szh"/>
-                                            <exclude reference="xfe-Sa-DXf"/>
                                             <include reference="5UD-ft-122"/>
                                             <include reference="Uik-dO-iUs"/>
                                             <include reference="k8A-rP-eZA"/>
@@ -973,6 +969,27 @@
                                         <connections>
                                             <segue destination="99L-UM-3HS" kind="show" identifier="ProfileEdit" id="5Ka-46-vEE"/>
                                         </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="IhO-Z3-xUg">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="l6b-Nv-GMb" style="IBUITableViewCellStyleDefault" id="NQf-8G-2Us">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NQf-8G-2Us" id="Kgm-2M-jdq">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Log out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l6b-Nv-GMb">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -2149,7 +2166,7 @@
         <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nNw-D4-O07"/>
         <segue reference="QdC-QQ-cHK"/>
+        <segue reference="R1A-dp-hUo"/>
     </inferredMetricsTieBreakers>
 </document>
