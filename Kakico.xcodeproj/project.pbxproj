@@ -24,6 +24,7 @@
 		89878BB21B844E8C004CCD77 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89878BB11B844E8C004CCD77 /* FeedViewController.swift */; };
 		89A0FFF21B8D7BB000652A4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */; };
 		89A8F4161B96D7A90014C18E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8F4151B96D7A90014C18E /* ProfileViewController.swift */; };
+		89C956351B9E88DC009C5BA2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C956341B9E88DC009C5BA2 /* UIColorExtension.swift */; };
 		89DAD6191B96C74300BB43A6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DAD6181B96C74300BB43A6 /* MenuViewController.swift */; };
 		AB55C03A1B8304830077C16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C0391B8304830077C16C /* AppDelegate.swift */; };
 		AB55C0411B8304830077C16C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB55C0401B8304830077C16C /* Images.xcassets */; };
@@ -63,6 +64,7 @@
 		89878BB11B844E8C004CCD77 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
 		89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		89A8F4151B96D7A90014C18E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
+		89C956341B9E88DC009C5BA2 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		89DAD6181B96C74300BB43A6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = Controllers/MenuViewController.swift; sourceTree = "<group>"; };
 		89F9743A1B955970002A30D7 /* Kakico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kakico-Bridging-Header.h"; sourceTree = "<group>"; };
 		AB55C0341B8304830077C16C /* Kakico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kakico.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				89878BAA1B842B41004CCD77 /* Micropost.swift */,
 				6B8256081B8AE754005E2397 /* User.swift */,
 				8969712E1B93F5C500B0CB4C /* Router.swift */,
+				89C956341B9E88DC009C5BA2 /* UIColorExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				6BEBBBEA1B8EED81007EEF4A /* SignupViewController.swift in Sources */,
 				8969712F1B93F5C500B0CB4C /* Router.swift in Sources */,
 				89DAD6191B96C74300BB43A6 /* MenuViewController.swift in Sources */,
+				89C956351B9E88DC009C5BA2 /* UIColorExtension.swift in Sources */,
 				6B8256011B8ACB8D005E2397 /* UserViewController.swift in Sources */,
 				89878BB21B844E8C004CCD77 /* FeedViewController.swift in Sources */,
 				893C220D1B983F9300C006E4 /* ProfileHeaderViewController.swift in Sources */,

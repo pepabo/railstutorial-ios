@@ -1,7 +1,7 @@
 import UIKit
 
 struct User {
-    var id: Int, name: String, icon: NSURL
+    var id: Int, name: String, icon: NSURL, followingFlag: Bool
 }
 
 class UserDataManager: NSObject {

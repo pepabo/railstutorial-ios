@@ -7,6 +7,7 @@ import UIScrollView_InfiniteScroll
 class UserViewController: UITableViewController {
     // MARK: - Properties
     var users = UserDataManager()
+    var userId = 0
     var _listType = ""
     
     // MARK: - View Events
@@ -27,11 +28,20 @@ class UserViewController: UITableViewController {
             tableView.finishInfiniteScroll()
         }
     }
-    
+
+    @IBAction func toggleFollow(sender: UIButton) {
+        if sender.titleLabel?.text == "Follow" {
+            follow(sender.tag)
+            followButtonStyle(sender)
+        }else {
+            unfollow(sender.tag)
+            unfollowButtonStyle(sender)
+        }
+    }
+
     func request(listType: String, page: Int) {
         self.navigationItem.title = listType
 
-        var userId : Int = 1
         let keychain = Keychain(service: "nehan.Kakico")
         if let id = keychain["userId"] {
             userId = id.toInt()!
@@ -69,7 +79,8 @@ class UserViewController: UITableViewController {
                 var user: User = User(
                     id: subJson["id"].int!,
                     name: subJson["name"].string!,
-                    icon: NSURL(string: subJson["icon_url"].stringValue)!
+                    icon: NSURL(string: subJson["icon_url"].stringValue)!,
+                    followingFlag: subJson["following_flag"].bool!
                 )
                 self.users.set(user)
             }
@@ -81,6 +92,37 @@ class UserViewController: UITableViewController {
             })
 
         }
+    }
+
+    func follow(followedId: Int) {
+        Alamofire.request(Router.PostRelationships(followedId: followedId))
+    }
+
+    func unfollow(followedId: Int) {
+        Alamofire.request(Router.DeleteRelationships(followedId: followedId))
+    }
+
+    func initFollowButton(button: UIButton, user: User) {
+        button.hidden = false
+        button.tag = user.id
+
+        if user.id == userId {
+            button.hidden = true
+        }else if user.followingFlag {
+            followButtonStyle(button)
+        }else {
+            unfollowButtonStyle(button)
+        }
+    }
+
+    func followButtonStyle(button: UIButton) {
+        button.setTitle("Unfollow", forState: .Normal)
+        button.setTitleColor(UIColor.grayColor(), forState: .Normal)
+    }
+
+    func unfollowButtonStyle(button: UIButton) {
+        button.setTitle("Follow", forState: .Normal)
+        button.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
     }
     
     // MARK: - Table view data source
@@ -99,7 +141,8 @@ class UserViewController: UITableViewController {
         let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
         cell.userIcon.sd_setImageWithURL(user.icon)
-
+        initFollowButton(cell.followButton, user: user)
+        
         return cell
     }
 
