@@ -1,6 +1,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import KeychainAccess
 
 class ProfileHeaderViewController: UIViewController {
     // MARK: - Properties
@@ -11,7 +12,8 @@ class ProfileHeaderViewController: UIViewController {
     @IBOutlet weak var followerCount: UIButton!
     @IBOutlet weak var followButton: UIButton!
 
-    var _selectUserId: Int = 0
+    var _selectUserId = 0
+    var currentUserId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +23,19 @@ class ProfileHeaderViewController: UIViewController {
     @IBAction func toggleFollow(sender: UIButton) {
         if sender.titleLabel?.text == "Follow" {
             follow(sender.tag)
-            followButtonStyle()
+            followButtonStyle(sender)
         }else {
             unfollow(sender.tag)
-            unfollowButtonStyle()
+            unfollowButtonStyle(sender)
         }
     }
 
     func request(selectUserId: Int) {
+        let keychain = Keychain(service: "nehan.Kakico")
+        if let id = keychain["userId"] {
+            currentUserId = id.toInt()!
+        }
+
         Alamofire.request(Router.GetUser(userId: selectUserId)).responseJSON { (request, response, data, error) -> Void in
             println(data)
             if data != nil {
@@ -56,21 +63,25 @@ class ProfileHeaderViewController: UIViewController {
     }
 
     func initFollowButton(following_status: Bool) {
-        if following_status {
-            followButtonStyle()
-        }else {
-            unfollowButtonStyle()
-        }
+        followButton.hidden = false
         followButton.tag = _selectUserId
+
+        if _selectUserId == currentUserId {
+            followButton.hidden = true
+        }else if following_status {
+            followButtonStyle(followButton)
+        }else {
+            unfollowButtonStyle(followButton)
+        }
     }
 
-    func followButtonStyle() {
-        followButton.setTitle("Unfollow", forState: .Normal)
-        followButton.setTitleColor(UIColor.grayColor(), forState: .Normal)
+    func followButtonStyle(button: UIButton) {
+        button.setTitle("Unfollow", forState: .Normal)
+        button.setTitleColor(UIColor.grayColor(), forState: .Normal)
     }
 
-    func unfollowButtonStyle() {
-        followButton.setTitle("Follow", forState: .Normal)
-        followButton.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
+    func unfollowButtonStyle(button: UIButton) {
+        button.setTitle("Follow", forState: .Normal)
+        button.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
     }
 }
