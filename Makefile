@@ -15,4 +15,6 @@ test:
 		   bundle exec xcpretty -c
 
 deploy:
-	bundle exec ipa build && bundle exec dgate push Kakico.ipa
+	bundle exec ipa build && \
+		bundle exec terminal-notifier -message 'Build Succeeded' && \
+		bundle exec dgate push Kakico.ipa
