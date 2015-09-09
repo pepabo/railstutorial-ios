@@ -106,7 +106,7 @@
                                         <constraint firstItem="yzR-f9-U4L" firstAttribute="top" secondItem="mGM-8S-zvL" secondAttribute="bottom" constant="8" id="Uik-dO-iUs"/>
                                         <constraint firstItem="f2B-Ob-xQm" firstAttribute="trailing" secondItem="mGM-8S-zvL" secondAttribute="trailing" id="V8g-8B-wto"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="yzR-f9-U4L" secondAttribute="bottom" id="k8A-rP-eZA"/>
-                                        <constraint firstItem="NwP-ri-1gG" firstAttribute="leading" secondItem="NE1-O0-oeN" secondAttribute="trailing" constant="4" id="mhV-p1-6Ub"/>
+                                        <constraint firstItem="NwP-ri-1gG" firstAttribute="leading" secondItem="NE1-O0-oeN" secondAttribute="trailing" constant="8" id="mhV-p1-6Ub"/>
                                         <constraint firstItem="yzR-f9-U4L" firstAttribute="trailing" secondItem="mGM-8S-zvL" secondAttribute="trailing" id="nvm-J8-uOl"/>
                                         <constraint firstItem="NE1-O0-oeN" firstAttribute="top" secondItem="Ywk-YM-BeB" secondAttribute="topMargin" id="wJ5-MD-szh"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="mGM-8S-zvL" secondAttribute="trailing" id="wg9-Y1-bpt"/>
@@ -127,13 +127,11 @@
                                             <exclude reference="QSe-ar-fHc"/>
                                             <exclude reference="TtK-yF-WoQ"/>
                                             <exclude reference="V8g-8B-wto"/>
-                                            <exclude reference="Wbt-Cb-fSV"/>
                                             <exclude reference="Pko-C3-LoQ"/>
                                             <exclude reference="SSS-7a-uU7"/>
                                             <exclude reference="wg9-Y1-bpt"/>
                                             <exclude reference="TLc-a3-dmx"/>
                                             <exclude reference="wJ5-MD-szh"/>
-                                            <exclude reference="xfe-Sa-DXf"/>
                                             <exclude reference="5UD-ft-122"/>
                                             <exclude reference="Uik-dO-iUs"/>
                                             <exclude reference="k8A-rP-eZA"/>
@@ -156,13 +154,11 @@
                                             <include reference="QSe-ar-fHc"/>
                                             <include reference="TtK-yF-WoQ"/>
                                             <include reference="V8g-8B-wto"/>
-                                            <exclude reference="Wbt-Cb-fSV"/>
                                             <include reference="Pko-C3-LoQ"/>
                                             <include reference="SSS-7a-uU7"/>
                                             <include reference="wg9-Y1-bpt"/>
                                             <include reference="TLc-a3-dmx"/>
                                             <include reference="wJ5-MD-szh"/>
-                                            <exclude reference="xfe-Sa-DXf"/>
                                             <include reference="5UD-ft-122"/>
                                             <include reference="Uik-dO-iUs"/>
                                             <include reference="k8A-rP-eZA"/>
@@ -174,6 +170,7 @@
                                 <connections>
                                     <outlet property="contentLabel" destination="mGM-8S-zvL" id="LDy-FE-0wU"/>
                                     <outlet property="pictureImageView" destination="yzR-f9-U4L" id="u4N-13-KwS"/>
+                                    <outlet property="pictureImageViewHeightConstraint" destination="kzU-wb-TYq" id="FQF-06-rHf"/>
                                     <outlet property="timeAgoInWordsLabel" destination="f2B-Ob-xQm" id="BlG-ch-v2x"/>
                                     <outlet property="userIconImageView" destination="NE1-O0-oeN" id="aDR-lm-27S"/>
                                     <outlet property="userNameLabel" destination="NwP-ri-1gG" id="wU3-M9-XWz"/>

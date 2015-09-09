@@ -50,10 +50,11 @@ class FeedViewController: MicropostViewController {
                     if let url = subJson["user"]["icon_url"].string {
                         iconURL = url
                     }
+                    let pictureUrl = picture.isEmpty ? nil : NSURL(string: picture)
                     var micropost: Micropost = Micropost(
                         userName: userName,
                         content: subJson["content"].string!,
-                        picture: NSURL(string: picture),
+                        picture: pictureUrl,
                         userId: subJson["user_id"].int!,
                         userIcon: NSURL(string: iconURL),
                         timeAgoInWords:subJson["time_ago_in_words"].string!
@@ -81,25 +82,34 @@ class FeedViewController: MicropostViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "Micropost"
-
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
-
         let micropost = self.microposts[indexPath.row] as Micropost
 
         cell.userNameLabel.text = micropost.userName
         cell.contentLabel.text = micropost.content
-        cell.pictureImageView.sd_setImageWithURL(micropost.picture)
-
         cell.viewWithTag(micropost.userId)
-
         cell.userIconImageView.sd_setImageWithURL(micropost.userIcon)
         cell.timeAgoInWordsLabel.text = micropost.timeAgoInWords
+
+        println(micropost.havePicture())
+        if micropost.havePicture() {
+            cell.pictureImageViewHeightConstraint.constant = 150
+            cell.pictureImageView.sd_setImageWithURL(micropost.picture)
+        } else {
+            cell.pictureImageView.hidden = true
+            cell.pictureImageViewHeightConstraint.constant = 0
+        }
+
 
         return cell
     }
 
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 216
+        let cellIdentifier = "Micropost"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
+        let micropost = self.microposts[indexPath.row] as Micropost
+
+        return micropost.havePicture() ? 216 : 66
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
