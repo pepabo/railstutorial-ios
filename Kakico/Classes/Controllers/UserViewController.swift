@@ -2,6 +2,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import KeychainAccess
+import UIScrollView_InfiniteScroll
 
 class UserViewController: UITableViewController {
     // MARK: - Properties
@@ -12,7 +13,20 @@ class UserViewController: UITableViewController {
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        request(_listType)
+        request(_listType, page: 1)
+
+        // Add infinite scroll handler
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+            
+            if (self.users.nextPage != nil) {
+                self.request(self._listType, page: self.users.nextPage!)
+            }
+            
+            self.tableView.reloadData()
+            
+            tableView.finishInfiniteScroll()
+        }
     }
 
     @IBAction func toggleFollow(sender: UIButton) {
@@ -33,9 +47,13 @@ class UserViewController: UITableViewController {
             currentUserId = id.toInt()!
         }
         
+        let params = [
+            "page": String(page)
+        ]
+
         switch listType {
         case "All":
-            Alamofire.request(Router.GetAllUsers()).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetAllUsers(params: params)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         case "Followers":
@@ -66,10 +84,13 @@ class UserViewController: UITableViewController {
                 )
                 self.users.set(user)
             }
-            
+
+            self.users.nextPage = json["next_page"].intValue
+
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView!.reloadData()
             })
+
         }
     }
 

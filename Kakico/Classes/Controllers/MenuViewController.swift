@@ -1,16 +1,15 @@
 import UIKit
 
 class MenuViewController: UITableViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var userView = segue.destinationViewController as! UserViewController
-        
-        let type = segue.identifier!
-        switch type {
+        if let userView = segue.destinationViewController as? UserViewController {
+            let type = segue.identifier!
+            switch type {
             case "All":
                 userView._listType = "All"
             case "Followers":
@@ -19,6 +18,7 @@ class MenuViewController: UITableViewController {
                 userView._listType = "Following"
             default:
                 println("undefined segue.identifier in ConfigViewController")
+            }
         }
     }
 }
