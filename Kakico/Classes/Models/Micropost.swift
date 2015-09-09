@@ -1,11 +1,17 @@
 import UIKit
 
 struct Micropost {
-    var content: String, picture: NSURL?, user_id: Int
+    var userName: String,
+    content: String,
+    picture: NSURL?,
+    userId: Int,
+    userIcon: NSURL?,
+    timeAgoInWords: String
 }
 
 class MicropostDataManager: NSObject {
     var microposts: [Micropost]
+    var next_page: Int?
     
     override init() {
         self.microposts = []

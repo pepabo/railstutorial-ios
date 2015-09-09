@@ -7,6 +7,7 @@ pod 'SVProgressHUD'
 pod 'SwiftyJSON', '~> 2.2.1'
 pod 'SDWebImage'
 pod 'KeychainAccess'
+pod 'UIScrollView-InfiniteScroll'
 
 target 'Kakico' do
 end
