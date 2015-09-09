@@ -2,12 +2,18 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 import SwiftyJSON
+import UIScrollView_InfiniteScroll
 
 class MicropostViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Properties
     var microposts = MicropostDataManager()
 
     // MARK: - View Events
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        SVProgressHUD.showWithMaskType(.Black)
+    }
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()

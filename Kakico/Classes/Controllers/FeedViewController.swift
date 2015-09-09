@@ -8,7 +8,6 @@ class FeedViewController: MicropostViewController {
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.showWithMaskType(.Black)
         request()
 
         // Add infinite scroll handler

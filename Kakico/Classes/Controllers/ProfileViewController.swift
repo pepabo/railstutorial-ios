@@ -12,7 +12,6 @@ class ProfileViewController: MicropostViewController {
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.showWithMaskType(.Black)
         request(_selectUserId)
 
         // Add infinite scroll handler
