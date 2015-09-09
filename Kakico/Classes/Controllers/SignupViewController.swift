@@ -64,12 +64,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
     }
     
     func checkValidSignupForm() -> Bool {
-        return checkPresenceField() && checkValidEmail()
-    }
-    
-    func checkValidEmail() -> Bool{
-        let regex = "^[\\w+\\-.]+@[a-z\\d\\-]+(\\.[a-z\\d\\-]+)*\\.[a-z]+$"
-        return NSPredicate(format: "SELF MATCHES %@", regex).evaluateWithObject(emailTextField.text)
+        return checkPresenceField()
     }
     
     func checkPresenceField() -> Bool{
