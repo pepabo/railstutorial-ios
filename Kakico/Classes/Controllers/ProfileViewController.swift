@@ -2,11 +2,13 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 import SwiftyJSON
+import UIScrollView_InfiniteScroll
 
 class ProfileViewController: MicropostViewController {
     // MARK: - Properties
     @IBOutlet weak var header: UIView!
 
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.showWithMaskType(.Black)
@@ -15,13 +17,9 @@ class ProfileViewController: MicropostViewController {
         // Add infinite scroll handler
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
-            
             if (self.microposts.nextPage != nil) {
                 self.request(super._selectUserId, page: self.microposts.nextPage!)
             }
-            
-            self.tableView.reloadData()
-            
             tableView.finishInfiniteScroll()
         }
     }
