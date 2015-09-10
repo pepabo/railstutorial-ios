@@ -31,7 +31,7 @@ class MenuViewController: UITableViewController {
 
     func selectAlert() {
         let alertController = UIAlertController(title: "Are you sure you want to log out?", message: "", preferredStyle: .ActionSheet)
-        let logoutAction = UIAlertAction(title: "Yes", style: .Default) {
+        let logoutAction = UIAlertAction(title: "Log out", style: .Default) {
             action in self.logout()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
