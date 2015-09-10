@@ -9,15 +9,6 @@ class FeedViewController: MicropostViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         request()
-
-        // Add infinite scroll handler
-        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
-            let tableView = scrollView as! UITableView
-            if (self.microposts.nextPage != nil) {
-                self.request(page: self.microposts.nextPage!)
-            }
-            tableView.finishInfiniteScroll()
-        }
     }
 
     func request(page: Int = 1) {
@@ -26,11 +17,17 @@ class FeedViewController: MicropostViewController {
         ]
         Alamofire.request(Router.GetFeed(params: params)).responseJSON { (request, response, data, error) -> Void in
             self.setData(data)
+            self.addInfiniteScroll()
         }
     }
 
-    // MARK: - Navigation
-    @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
-        request()
+    func addInfiniteScroll() {
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+            if (self.microposts.nextPage != nil) {
+                self.request(page: self.microposts.nextPage!)
+            }
+            tableView.finishInfiniteScroll()
+        }
     }
 }
