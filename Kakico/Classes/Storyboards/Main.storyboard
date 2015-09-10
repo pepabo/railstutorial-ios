@@ -974,7 +974,7 @@
                             </tableViewSection>
                             <tableViewSection id="IhO-Z3-xUg">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="l6b-Nv-GMb" style="IBUITableViewCellStyleDefault" id="NQf-8G-2Us">
+                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="l6b-Nv-GMb" style="IBUITableViewCellStyleDefault" id="NQf-8G-2Us">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NQf-8G-2Us" id="Kgm-2M-jdq">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -990,9 +990,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="KDD-nb-63e" kind="presentation" identifier="Logout" id="0aT-xe-g31"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -2169,7 +2166,7 @@
         <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0aT-xe-g31"/>
         <segue reference="R1A-dp-hUo"/>
+        <segue reference="eph-rC-yrT"/>
     </inferredMetricsTieBreakers>
 </document>
