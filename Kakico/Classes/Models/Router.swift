@@ -2,8 +2,7 @@ import Alamofire
 import KeychainAccess
 
 enum Router: URLRequestConvertible {
-    //static let baseURLString = "https://157.7.190.148"
-    static let baseURLString = "http://localhost:3000"
+    static let baseURLString = "https://157.7.190.148"
 
     case GetUser(userId: Int)
 
