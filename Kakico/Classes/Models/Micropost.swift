@@ -7,6 +7,10 @@ struct Micropost {
     userId: Int,
     userIcon: NSURL?,
     timeAgoInWords: String
+
+    func havePicture() -> Bool {
+        return picture != nil
+    }
 }
 
 class MicropostDataManager: NSObject {
