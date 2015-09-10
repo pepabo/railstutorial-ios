@@ -36,12 +36,12 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     func sendResetEmail(email: String) {
+        emailTextField.resignFirstResponder()
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+
         let params = [
             "email": email
         ]
-
-        emailTextField.resignFirstResponder()
-        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
 
         Alamofire.request(Router.PostPasswordResetEmail(params: params)).responseJSON { (request, response, data, error) -> Void in
             let json = JSON(data!)

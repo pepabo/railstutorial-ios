@@ -48,13 +48,13 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func resetPassword(password: String, password_confirmation: String) {
+        hideKeyboard()
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+
         let params = [
             "password": password,
             "password_confirmation": password_confirmation
         ]
-
-        hideKeyboard()
-        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
 
         Alamofire.request(Router.UpdatePassword(params: params)).responseJSON { (request, response, data, error) -> Void in
             let json = JSON(data!)
