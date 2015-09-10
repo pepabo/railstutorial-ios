@@ -1,6 +1,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import KeychainAccess
 import SVProgressHUD
 
 class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
@@ -60,6 +61,9 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
             println(json)
             println(json["status"])
             if json["status"] == 200 {
+                var keychain = Keychain(service: "nehan.Kakico")
+                keychain["userId"] = json["user_id"].stringValue
+
                 self.moveToFeedView()
             } else{
                 SVProgressHUD.showErrorWithStatus(json["messages"]["user"].dictionary!.values.first?.stringValue)
