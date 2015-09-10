@@ -56,7 +56,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
         let micropost = self.microposts[indexPath.row] as Micropost
 
-        return micropost.havePicture() ? 216 : 66
+        return micropost.havePicture() ? 207 : 66
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
