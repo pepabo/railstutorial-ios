@@ -1,9 +1,13 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 import SVProgressHUD
 
 class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet var textFields: [UITextField]!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var confirmationField: UITextField!
     @IBOutlet weak var updateButton: UIButton!
 
     // MARK: - View Events
@@ -13,7 +17,7 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Actions
     @IBAction func touchUpdateButton(sender: UIButton) {
-        resetPassword()
+        resetPassword(passwordField.text, password_confirmation: confirmationField.text)
     }
 
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
@@ -36,13 +40,30 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     // MARK: -
-    private func resetPassword() {
+    func moveToFeedView() {
+        let feedView = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
+        feedView.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.presentViewController(feedView, animated: true, completion: nil)
+    }
+
+    private func resetPassword(password: String, password_confirmation: String) {
+        let params = [
+            "password": password,
+            "password_confirmation": password_confirmation
+        ]
+
         hideKeyboard()
-        SVProgressHUD.showWithStatus("", maskType: .Black)
-        if checkPresenceField() {
-            SVProgressHUD.showSuccessWithStatus("", maskType: .Black)
-        } else {
-            SVProgressHUD.showErrorWithStatus("", maskType: .Black)
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+
+        Alamofire.request(Router.UpdatePassword(params: params)).responseJSON { (request, response, data, error) -> Void in
+            let json = JSON(data!)
+            println(json)
+            println(json["status"])
+            if json["status"] == 200 {
+                self.moveToFeedView()
+            } else{
+                SVProgressHUD.showErrorWithStatus(json["messages"]["user"].dictionary!.values.first?.stringValue)
+            }
         }
     }
 

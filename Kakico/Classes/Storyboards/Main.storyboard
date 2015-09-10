@@ -1665,6 +1665,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reset password" id="nHa-EP-apq"/>
                     <connections>
+                        <outlet property="confirmationField" destination="y5Y-a1-WCO" id="0Ni-oE-L8M"/>
+                        <outlet property="passwordField" destination="Dud-9d-LQj" id="QP4-9n-gw4"/>
                         <outlet property="updateButton" destination="hOj-Cf-h6b" id="IWw-8h-suu"/>
                         <outletCollection property="textFields" destination="Dud-9d-LQj" collectionClass="NSMutableArray" id="OFS-Vj-kHc"/>
                         <outletCollection property="textFields" destination="y5Y-a1-WCO" collectionClass="NSMutableArray" id="qrl-5R-4cJ"/>
