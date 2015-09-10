@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KDD-nb-63e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KDD-nb-63e">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -975,7 +975,7 @@
                             </tableViewSection>
                             <tableViewSection id="IhO-Z3-xUg">
                                 <cells>
-                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="l6b-Nv-GMb" style="IBUITableViewCellStyleDefault" id="NQf-8G-2Us">
+                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="l6b-Nv-GMb" style="IBUITableViewCellStyleDefault" id="NQf-8G-2Us">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NQf-8G-2Us" id="Kgm-2M-jdq">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -2085,22 +2085,22 @@
                                             <exclude reference="03D-4y-bqA"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="sKI-mb-jA1"/>
-                                            <exclude reference="Vw8-nI-Ri6"/>
-                                            <exclude reference="tT6-1m-QV3"/>
-                                            <exclude reference="Wg0-NM-d2V"/>
-                                            <exclude reference="tVo-cu-VOq"/>
-                                            <exclude reference="ovu-1b-bmh"/>
+                                            <exclude reference="HKq-OD-gTs"/>
                                             <exclude reference="OEw-AK-4FW"/>
                                             <exclude reference="gDd-dz-N0E"/>
-                                            <exclude reference="HKq-OD-gTs"/>
+                                            <exclude reference="Wg0-NM-d2V"/>
+                                            <exclude reference="ovu-1b-bmh"/>
+                                            <exclude reference="tT6-1m-QV3"/>
+                                            <exclude reference="tVo-cu-VOq"/>
+                                            <exclude reference="Vw8-nI-Ri6"/>
+                                            <exclude reference="sKI-mb-jA1"/>
+                                            <exclude reference="flW-Mi-oDc"/>
+                                            <exclude reference="hA8-Fo-ErP"/>
+                                            <exclude reference="hhR-q3-rJk"/>
+                                            <exclude reference="qRD-KG-oaH"/>
+                                            <exclude reference="y2N-3I-Izn"/>
                                             <exclude reference="ABx-L4-odJ"/>
                                             <exclude reference="dpY-DQ-0Y0"/>
-                                            <exclude reference="y2N-3I-Izn"/>
-                                            <exclude reference="qRD-KG-oaH"/>
-                                            <exclude reference="flW-Mi-oDc"/>
-                                            <exclude reference="hhR-q3-rJk"/>
-                                            <exclude reference="hA8-Fo-ErP"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -2112,22 +2112,22 @@
                                             <include reference="03D-4y-bqA"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="sKI-mb-jA1"/>
-                                            <include reference="Vw8-nI-Ri6"/>
-                                            <include reference="tT6-1m-QV3"/>
-                                            <include reference="Wg0-NM-d2V"/>
-                                            <include reference="tVo-cu-VOq"/>
-                                            <include reference="ovu-1b-bmh"/>
+                                            <include reference="HKq-OD-gTs"/>
                                             <include reference="OEw-AK-4FW"/>
                                             <include reference="gDd-dz-N0E"/>
-                                            <include reference="HKq-OD-gTs"/>
+                                            <include reference="Wg0-NM-d2V"/>
+                                            <include reference="ovu-1b-bmh"/>
+                                            <include reference="tT6-1m-QV3"/>
+                                            <include reference="tVo-cu-VOq"/>
+                                            <include reference="Vw8-nI-Ri6"/>
+                                            <include reference="sKI-mb-jA1"/>
+                                            <include reference="flW-Mi-oDc"/>
+                                            <include reference="hA8-Fo-ErP"/>
+                                            <include reference="hhR-q3-rJk"/>
+                                            <include reference="qRD-KG-oaH"/>
+                                            <include reference="y2N-3I-Izn"/>
                                             <include reference="ABx-L4-odJ"/>
                                             <include reference="dpY-DQ-0Y0"/>
-                                            <include reference="y2N-3I-Izn"/>
-                                            <include reference="qRD-KG-oaH"/>
-                                            <include reference="flW-Mi-oDc"/>
-                                            <include reference="hhR-q3-rJk"/>
-                                            <include reference="hA8-Fo-ErP"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
