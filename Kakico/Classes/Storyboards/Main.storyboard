@@ -831,11 +831,11 @@
                                 <exclude reference="c0G-fe-nRO"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Rje-mw-dHY"/>
                                 <exclude reference="55D-uC-3tj"/>
                                 <exclude reference="6qW-2b-7js"/>
                                 <exclude reference="Sfv-Fr-Pwv"/>
                                 <exclude reference="Tnh-N4-yOJ"/>
-                                <exclude reference="Rje-mw-dHY"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -843,11 +843,11 @@
                                 <include reference="c0G-fe-nRO"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Rje-mw-dHY"/>
                                 <include reference="55D-uC-3tj"/>
                                 <include reference="6qW-2b-7js"/>
                                 <include reference="Sfv-Fr-Pwv"/>
                                 <include reference="Tnh-N4-yOJ"/>
-                                <exclude reference="Rje-mw-dHY"/>
                             </mask>
                         </variation>
                         <connections>
@@ -1758,7 +1758,7 @@
                                             <constraint firstAttribute="width" constant="250" id="WTJ-ON-7fC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="2iH-pW-NvL"/>
@@ -1807,7 +1807,7 @@
                                             <constraint firstAttribute="height" constant="30" id="hSE-99-JAO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="next" secureTextEntry="YES"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="bml-lc-e15"/>
