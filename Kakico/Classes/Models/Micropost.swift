@@ -6,7 +6,8 @@ struct Micropost {
     picture: NSURL?,
     userId: Int,
     userIcon: NSURL?,
-    timeAgoInWords: String
+    timeAgoInWords: String,
+    unixTimeCreatedAt: Int
 
     func havePicture() -> Bool {
         return picture != nil
@@ -16,7 +17,7 @@ struct Micropost {
 class MicropostDataManager: NSObject {
     var microposts: [Micropost]
     var nextPage: Int?
-    
+
     override init() {
         self.microposts = []
     }
@@ -35,5 +36,16 @@ class MicropostDataManager: NSObject {
     
     func add(micropost: Micropost) {
         self.microposts.insert(micropost, atIndex: 0)
+    }
+
+    func add(microposts: [Micropost]) {
+        self.microposts = microposts + self.microposts
+    }
+
+    func lastUpdate() -> Int {
+        if let micropost = microposts.first {
+            return micropost.unixTimeCreatedAt
+        }
+        return 0
     }
 }
