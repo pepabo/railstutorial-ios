@@ -2,20 +2,24 @@ import Alamofire
 import KeychainAccess
 
 enum Router: URLRequestConvertible {
-    static let baseURLString = "https://157.7.190.148"
+    //static let baseURLString = "https://157.7.190.148"
+    static let baseURLString = "http://localhost:3000"
 
     case GetUser(userId: Int)
 
-    case GetFeed(params: Dictionary<String, String>)
-    case GetAllUsers(params: Dictionary<String, String>)
+    case GetFeed(params: Dictionary<String, AnyObject>)
+    case GetAllUsers(params: Dictionary<String, AnyObject>)
 
-    case GetFollowers(userId: Int, params: Dictionary<String, String>)
-    case GetFollowing(userId: Int, params: Dictionary<String, String>)
-    case GetMicroposts(userId: Int, params: Dictionary<String, String>)
+    case GetLatestFeed(lastUpdate: Int)
+    case GetLatestMicroposts(userId: Int, lastUpdate: Int)
 
-    case PostUser(params: Dictionary<String, String>)
-    case PostProfile(params: Dictionary<String, String>)
-    case PostSession(params: Dictionary<String, String>)
+    case GetFollowers(userId: Int, params: Dictionary<String, AnyObject>)
+    case GetFollowing(userId: Int, params: Dictionary<String, AnyObject>)
+    case GetMicroposts(userId: Int, params: Dictionary<String, AnyObject>)
+
+    case PostUser(params: Dictionary<String, AnyObject>)
+    case PostProfile(params: Dictionary<String, AnyObject>)
+    case PostSession(params: Dictionary<String, AnyObject>)
     case PostMicropost()
     
     case PostRelationships(followedId: Int)
@@ -26,6 +30,8 @@ enum Router: URLRequestConvertible {
         case .GetUser: return .GET
         case .GetFeed: return .GET
         case .GetAllUsers: return .GET
+        case GetLatestFeed: return .GET
+        case GetLatestMicroposts: return .GET
         case .GetFollowers: return .GET
         case .GetFollowing: return .GET
         case .GetMicroposts: return .GET
@@ -45,6 +51,9 @@ enum Router: URLRequestConvertible {
         case .GetFeed(let page): return "/api/users/feed"
         case .GetAllUsers: return "/api/users"
 
+        case GetLatestFeed(let lastUpdate): return "/api/users/feed/latest/\(lastUpdate)"
+        case GetLatestMicroposts(let userId, let lastUpdate): return "/api/users/\(userId)/microposts/latest/\(lastUpdate)"
+                                 
         case .GetFollowers(let userId, let params): return "/api/users/\(userId)/followers"
         case .GetFollowing(let userId, let params): return "/api/users/\(userId)/following"
         case .GetMicroposts(let userId, let params): return "/api/users/\(userId)/microposts"
