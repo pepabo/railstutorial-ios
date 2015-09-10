@@ -55,12 +55,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    private func checkValidEmail(email: String) -> Bool{
-        let regex = "^[\\w+\\-.]+@[a-z\\d\\-]+(\\.[a-z\\d\\-]+)*\\.[a-z]+$"
-        return NSPredicate(format: "SELF MATCHES %@", regex).evaluateWithObject(email)
-    }
-
     private func checkValidForm() -> Bool {
-        return emailTextField.hasText() && checkValidEmail(emailTextField.text)
+        return emailTextField.hasText()
     }
 }
