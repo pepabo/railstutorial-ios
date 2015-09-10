@@ -89,7 +89,8 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
                     picture: pictureURL,
                     userId: subJson["user_id"].int!,
                     userIcon: NSURL(string: iconURL),
-                    timeAgoInWords:subJson["time_ago_in_words"].string!
+                    timeAgoInWords:subJson["time_ago_in_words"].string!,
+                    unixTimeCreatedAt:subJson["unix_time_created_at"].intValue
                 )
                 self.microposts.set(micropost)
             }
@@ -98,6 +99,51 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
 
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
+            })
+        }
+    }
+
+    func addData(data: AnyObject?, refreshControl: UIRefreshControl? = nil) {
+        println(data)
+        var newMicroposts: [Micropost] = []
+        if data != nil {
+            let json = JSON(data!)
+            println(json)
+
+            for (index: String, subJson: JSON) in json["contents"] {
+                var picture = ""
+                var userName = "No name"
+                var iconURL = ""
+                if let url = subJson["picture"]["url"].string {
+                    picture = url
+                }
+                if let name = subJson["user"]["name"].string {
+                    userName = name
+                }
+                if let url = subJson["user"]["icon_url"].string {
+                    iconURL = url
+                }
+                let pictureURL = picture.isEmpty ? nil : NSURL(string: picture)
+                var micropost: Micropost = Micropost(
+                    userName: userName,
+                    content: subJson["content"].string!,
+                    picture: pictureURL,
+                    userId: subJson["user_id"].int!,
+                    userIcon: NSURL(string: iconURL),
+                    timeAgoInWords:subJson["time_ago_in_words"].string!,
+                    unixTimeCreatedAt:subJson["unix_time_created_at"].intValue
+                )
+                newMicroposts.append(micropost)
+            }
+
+            self.microposts.nextPage = json["next_page"].intValue
+
+            dispatch_async(dispatch_get_main_queue(), {
+                self.microposts.add(newMicroposts)
+                self.tableView.reloadData()
+                if let refreshControl = self.refreshControl {
+                    refreshControl.endRefreshing()
+                }
             })
         }
     }
