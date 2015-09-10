@@ -33,18 +33,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return (disposition, credential)
         }
 
+        var keychain = Keychain(service: "nehan.Kakico")
+        if keychain["authToken"] != nil && keychain["userId"] != nil {
+            chooseViewController("FeedNavigationController")
+        }
+
         return true
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         
         if url.host != nil {
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            var storyboard = UIStoryboard(name: "Main", bundle: nil)
             let identifier = getControllerIdentifierFromURL(url)
-            var initialViewController = storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
+            chooseViewController(identifier)
         }
         
         var params = Dictionary<String, String>()
@@ -98,6 +99,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return params
+    }
+
+    func chooseViewController (identifier: String) -> Void {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var initialViewController = storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
     }
 }
 

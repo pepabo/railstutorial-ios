@@ -11,10 +11,6 @@ class MenuViewController: UITableViewController {
         var keychain = Keychain(service: "nehan.Kakico")
         keychain["authToken"] = nil
         keychain["userId"] = nil
-        println("---------- keychain info ----------")
-        println(keychain["authToken"])
-        println(keychain["userId"])
-        println("---------- keychain info ----------")
     }
 
     func moveToLoginView() {
@@ -26,7 +22,6 @@ class MenuViewController: UITableViewController {
     func logout() {
         removeKeychain()
         moveToLoginView()
-        println("Log out complete...")
     }
 
     func selectAlert() {
