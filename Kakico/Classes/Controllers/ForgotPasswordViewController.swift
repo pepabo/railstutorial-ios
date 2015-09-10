@@ -19,6 +19,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
         emailTextField.resignFirstResponder()
+        submitButton.enabled = checkValidForm()
     }
 
     // MARK: - UITextFieldDelegate
