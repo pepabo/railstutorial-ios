@@ -7,4 +7,5 @@ class MicropostCell: UITableViewCell {
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var userIconImageView: UIImageView!
     @IBOutlet weak var timeAgoInWordsLabel: UILabel!
+    @IBOutlet weak var pictureImageViewHeightConstraint: NSLayoutConstraint!
 }
