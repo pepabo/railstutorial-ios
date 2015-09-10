@@ -1,4 +1,6 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 import SVProgressHUD
 
 class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
@@ -12,7 +14,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Actions
     @IBAction func touchSubmitButton(sender: UIButton) {
-        forgotPassword()
+        sendResetEmail(emailTextField.text)
     }
 
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
@@ -27,13 +29,29 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     // MARK: -
-    private func forgotPassword() {
+    func moveToLoginView() {
+        let loginView = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
+        loginView.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.presentViewController(loginView, animated: true, completion: nil)
+    }
+
+    func sendResetEmail(email: String) {
+        let params = [
+            "email": email
+        ]
+
         emailTextField.resignFirstResponder()
-        SVProgressHUD.showWithStatus("", maskType: .Black)
-        if checkValidForm() {
-            SVProgressHUD.showSuccessWithStatus("", maskType: .Black)
-        } else {
-            SVProgressHUD.showErrorWithStatus("", maskType: .Black)
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+
+        Alamofire.request(Router.PostPasswordResetEmail(params: params)).responseJSON { (request, response, data, error) -> Void in
+            let json = JSON(data!)
+            println(json)
+            println(json["status"])
+            if json["status"] == 200 {
+                self.moveToLoginView()
+            } else{
+                SVProgressHUD.showErrorWithStatus(json["messages"]["notice"][0].stringValue)
+            }
         }
     }
 
