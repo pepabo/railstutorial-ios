@@ -50,7 +50,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
             if json["status"] == 200 {
                 self.moveToLoginView()
             } else{
-                SVProgressHUD.showErrorWithStatus(json["messages"]["notice"][0].stringValue)
+                SVProgressHUD.showErrorWithStatus(json["messages"]["notice"].array!.first?.stringValue)
             }
         }
     }
