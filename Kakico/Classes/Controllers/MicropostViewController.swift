@@ -48,13 +48,14 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             cell.pictureImageView.hidden = true
             cell.pictureImageViewHeightConstraint.constant = 0
         }
+
         return cell
     }
 
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let micropost = self.microposts[indexPath.row] as Micropost
 
-        return micropost.havePicture() ? 207 : 66
+        return micropost.havePicture() ? 216 : 66
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
