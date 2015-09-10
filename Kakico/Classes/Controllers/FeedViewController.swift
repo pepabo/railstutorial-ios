@@ -9,8 +9,28 @@ class FeedViewController: MicropostViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         request()
-    }
 
+        // Add infinite scroll handler
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+            if (self.microposts.nextPage != nil) {
+                self.request(page: self.microposts.nextPage!)
+            }
+            tableView.finishInfiniteScroll()
+        }
+        super.viewDidLoad()
+
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl!)
+    }
+    
+    func refreshFeed() -> Void {
+        Alamofire.request(Router.GetLatestFeed(lastUpdate: self.microposts.lastUpdate())).responseJSON { (request, response, data, error) -> Void in
+            self.addData(data, refreshControl: self.refreshControl!)
+        }
+    }
+    
     func request(page: Int = 1) {
         let params = [
             "page": String(page)

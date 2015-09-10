@@ -13,6 +13,25 @@ class ProfileViewController: MicropostViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         request(_selectUserId)
+
+        // Add infinite scroll handler
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+            if (self.microposts.nextPage != nil) {
+                self.request(self._selectUserId, page: self.microposts.nextPage!)
+            }
+            tableView.finishInfiniteScroll()
+        }
+
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: "refreshProfile", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl!)
+    }
+
+    func refreshProfile() -> Void {
+        Alamofire.request(Router.GetLatestMicroposts(userId: self._selectUserId, lastUpdate: self.microposts.lastUpdate())).responseJSON { (request, response, data, error) -> Void in
+            self.addData(data, refreshControl: self.refreshControl!)
+        }
     }
 
     func request(selectUserId: Int, page: Int = 1) {
