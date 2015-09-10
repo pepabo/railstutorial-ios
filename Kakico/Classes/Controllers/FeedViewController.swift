@@ -28,9 +28,4 @@ class FeedViewController: MicropostViewController {
             self.setData(data)
         }
     }
-
-    // MARK: - Navigation
-    @IBAction func unwindToMicropostList(sender: UIStoryboardSegue) {
-        request()
-    }
 }
