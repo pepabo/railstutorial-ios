@@ -401,7 +401,40 @@
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fgM-tv-afY">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="ygQ-lO-5n0">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ygQ-lO-5n0" secondAttribute="trailing" id="BuD-pc-D9Q"/>
+                            <constraint firstItem="MWA-po-MPR" firstAttribute="top" secondItem="ygQ-lO-5n0" secondAttribute="bottom" id="BwG-BY-bN1"/>
+                            <constraint firstItem="ygQ-lO-5n0" firstAttribute="leading" secondItem="fgM-tv-afY" secondAttribute="leading" id="wKC-9X-HGH"/>
+                            <constraint firstItem="ygQ-lO-5n0" firstAttribute="top" secondItem="fgM-tv-afY" secondAttribute="top" id="z5E-8D-VcA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ygQ-lO-5n0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BuD-pc-D9Q"/>
+                                <exclude reference="wKC-9X-HGH"/>
+                                <exclude reference="z5E-8D-VcA"/>
+                                <exclude reference="BwG-BY-bN1"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ygQ-lO-5n0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="BuD-pc-D9Q"/>
+                                <include reference="wKC-9X-HGH"/>
+                                <include reference="z5E-8D-VcA"/>
+                                <include reference="BwG-BY-bN1"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWx-hK-LEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2240,6 +2273,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Splash" width="640" height="960"/>
         <image name="hamburger" width="22" height="22"/>
         <image name="micropost1" width="400" height="264"/>
     </resources>
