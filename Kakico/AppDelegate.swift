@@ -33,11 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return (disposition, credential)
         }
 
-        var keychain = Keychain(service: "nehan.Kakico")
-        if keychain["authToken"] != nil && keychain["userId"] != nil {
-            chooseViewController("FeedNavigationController")
-        }
-
         return true
     }
 

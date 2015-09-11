@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KDD-nb-63e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1o7-qB-Pic">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -390,6 +390,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JUC-VQ-5Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1020" y="-484"/>
+        </scene>
+        <!--Load View Controller-->
+        <scene sceneID="zNh-79-Xsd">
+            <objects>
+                <viewController storyboardIdentifier="LoadViewController" id="1o7-qB-Pic" customClass="LoadViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wpn-cQ-KOF"/>
+                        <viewControllerLayoutGuide type="bottom" id="MWA-po-MPR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fgM-tv-afY">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWx-hK-LEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4089" y="-484"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="MLw-rH-x4A">
