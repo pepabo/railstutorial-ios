@@ -136,8 +136,6 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
                 newMicroposts.append(micropost)
             }
 
-            self.microposts.nextPage = json["next_page"].intValue
-
             dispatch_async(dispatch_get_main_queue(), {
                 self.microposts.add(newMicroposts)
                 self.tableView.reloadData()
