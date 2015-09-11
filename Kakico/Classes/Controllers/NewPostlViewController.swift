@@ -36,6 +36,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
     }
 
     @IBAction func cancel(sender: UIBarButtonItem) {
+        contentField.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
     }
 
