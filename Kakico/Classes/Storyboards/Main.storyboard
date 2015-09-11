@@ -400,6 +400,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MWA-po-MPR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fgM-tv-afY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="ygQ-lO-5n0">
@@ -1121,6 +1122,7 @@
                                     <constraints>
                                         <constraint firstItem="MkW-h6-wnG" firstAttribute="leading" secondItem="emO-jp-z0j" secondAttribute="leadingMargin" id="EHN-Fv-cc3"/>
                                         <constraint firstAttribute="centerY" secondItem="p2h-WL-bd7" secondAttribute="centerY" id="M5Q-jc-fUA"/>
+                                        <constraint firstItem="yre-4t-S5p" firstAttribute="leading" secondItem="p2h-WL-bd7" secondAttribute="trailing" constant="8" id="MQX-ge-A3W"/>
                                         <constraint firstAttribute="centerY" secondItem="MkW-h6-wnG" secondAttribute="centerY" id="Mpm-mz-pMS"/>
                                         <constraint firstItem="yre-4t-S5p" firstAttribute="trailing" secondItem="emO-jp-z0j" secondAttribute="trailingMargin" id="dXw-fR-PmM"/>
                                         <constraint firstItem="p2h-WL-bd7" firstAttribute="leading" secondItem="MkW-h6-wnG" secondAttribute="trailing" constant="8" id="jQB-Ah-dtH"/>
@@ -1133,12 +1135,13 @@
                                             <exclude reference="yre-4t-S5p"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="M5Q-jc-fUA"/>
-                                            <exclude reference="jQB-Ah-dtH"/>
-                                            <exclude reference="dXw-fR-PmM"/>
-                                            <exclude reference="qTI-yr-H9y"/>
                                             <exclude reference="EHN-Fv-cc3"/>
                                             <exclude reference="Mpm-mz-pMS"/>
+                                            <exclude reference="M5Q-jc-fUA"/>
+                                            <exclude reference="jQB-Ah-dtH"/>
+                                            <exclude reference="MQX-ge-A3W"/>
+                                            <exclude reference="dXw-fR-PmM"/>
+                                            <exclude reference="qTI-yr-H9y"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -1148,12 +1151,13 @@
                                             <include reference="yre-4t-S5p"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="M5Q-jc-fUA"/>
-                                            <include reference="jQB-Ah-dtH"/>
-                                            <include reference="dXw-fR-PmM"/>
-                                            <include reference="qTI-yr-H9y"/>
                                             <include reference="EHN-Fv-cc3"/>
                                             <include reference="Mpm-mz-pMS"/>
+                                            <include reference="M5Q-jc-fUA"/>
+                                            <include reference="jQB-Ah-dtH"/>
+                                            <include reference="MQX-ge-A3W"/>
+                                            <include reference="dXw-fR-PmM"/>
+                                            <include reference="qTI-yr-H9y"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
