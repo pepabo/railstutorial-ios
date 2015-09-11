@@ -1000,7 +1000,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Menu" id="2t1-0Z-D2P"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1Q-Yk-YVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
