@@ -1663,6 +1663,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reset password" id="nHa-EP-apq"/>
                     <connections>
+                        <outlet property="confirmationField" destination="y5Y-a1-WCO" id="0Ni-oE-L8M"/>
+                        <outlet property="passwordField" destination="Dud-9d-LQj" id="QP4-9n-gw4"/>
                         <outlet property="updateButton" destination="hOj-Cf-h6b" id="IWw-8h-suu"/>
                         <outletCollection property="textFields" destination="Dud-9d-LQj" collectionClass="NSMutableArray" id="OFS-Vj-kHc"/>
                         <outletCollection property="textFields" destination="y5Y-a1-WCO" collectionClass="NSMutableArray" id="qrl-5R-4cJ"/>
@@ -1689,7 +1691,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgQ-YN-Afq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LgQ-YN-Afq">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="ivo-f6-DvU"/>

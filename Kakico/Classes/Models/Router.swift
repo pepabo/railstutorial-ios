@@ -23,6 +23,9 @@ enum Router: URLRequestConvertible {
     
     case PostRelationships(followedId: Int)
     case DeleteRelationships(followedId: Int)
+
+    case PostPasswordResetEmail(params: Dictionary<String, String>)
+    case UpdatePassword(params: Dictionary<String, String>)
     
     var method: Alamofire.Method {
         switch self {
@@ -40,6 +43,8 @@ enum Router: URLRequestConvertible {
         case .PostMicropost: return .POST
         case .PostRelationships: return .POST
         case .DeleteRelationships: return .DELETE
+        case .PostPasswordResetEmail: return .POST
+        case .UpdatePassword: return .POST
         }
     }
     
@@ -63,6 +68,9 @@ enum Router: URLRequestConvertible {
         case .PostMicropost: return "/api/microposts/post"
         case .PostRelationships(let followedId): return "/api/relationships/\(followedId)"
         case .DeleteRelationships(let followedId): return "/api/relationships/\(followedId)"
+
+        case .PostPasswordResetEmail: return "/api/password_resets/create"
+        case .UpdatePassword: return "/api/password_resets/update"
         }
     }
 
@@ -95,6 +103,10 @@ enum Router: URLRequestConvertible {
             return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
         case .GetMicroposts(let userId, let parameters):
             return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+        case .PostPasswordResetEmail(let parameters):
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+        case .UpdatePassword(let parameters):
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
         default:
             return mutableURLRequest
         }

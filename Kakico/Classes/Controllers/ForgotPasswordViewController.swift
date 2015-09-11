@@ -1,4 +1,6 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 import SVProgressHUD
 
 class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
@@ -12,11 +14,12 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Actions
     @IBAction func touchSubmitButton(sender: UIButton) {
-        forgotPassword()
+        sendResetEmail(emailTextField.text)
     }
 
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
         emailTextField.resignFirstResponder()
+        submitButton.enabled = checkValidForm()
     }
 
     // MARK: - UITextFieldDelegate
@@ -27,22 +30,33 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     // MARK: -
-    private func forgotPassword() {
+    func moveToLoginView() {
+        let loginView = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
+        loginView.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.presentViewController(loginView, animated: true, completion: nil)
+    }
+
+    func sendResetEmail(email: String) {
         emailTextField.resignFirstResponder()
-        SVProgressHUD.showWithStatus("", maskType: .Black)
-        if checkValidForm() {
-            SVProgressHUD.showSuccessWithStatus("", maskType: .Black)
-        } else {
-            SVProgressHUD.showErrorWithStatus("", maskType: .Black)
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+
+        let params = [
+            "email": email
+        ]
+
+        Alamofire.request(Router.PostPasswordResetEmail(params: params)).responseJSON { (request, response, data, error) -> Void in
+            let json = JSON(data!)
+            println(json)
+            println(json["status"])
+            if json["status"] == 200 {
+                self.moveToLoginView()
+            } else{
+                SVProgressHUD.showErrorWithStatus(json["messages"]["notice"].array!.first?.stringValue)
+            }
         }
     }
 
-    private func checkValidEmail(email: String) -> Bool{
-        let regex = "^[\\w+\\-.]+@[a-z\\d\\-]+(\\.[a-z\\d\\-]+)*\\.[a-z]+$"
-        return NSPredicate(format: "SELF MATCHES %@", regex).evaluateWithObject(email)
-    }
-
     private func checkValidForm() -> Bool {
-        return emailTextField.hasText() && checkValidEmail(emailTextField.text)
+        return emailTextField.hasText()
     }
 }
