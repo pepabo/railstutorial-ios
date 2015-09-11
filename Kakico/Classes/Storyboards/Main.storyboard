@@ -44,7 +44,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="5分前" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2B-Ob-xQm" userLabel="Time">
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="5分前" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2B-Ob-xQm" userLabel="Time">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2069,18 +2069,18 @@
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="nhS-bk-0sy"/>
                                                     <exclude reference="TMI-Gx-fmQ"/>
+                                                    <exclude reference="nhS-bk-0sy"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="constraints">
-                                                    <include reference="nhS-bk-0sy"/>
                                                     <include reference="TMI-Gx-fmQ"/>
+                                                    <include reference="nhS-bk-0sy"/>
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="5分前" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S24-WD-RCM" userLabel="Time">
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="5分前" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S24-WD-RCM" userLabel="Time">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2154,21 +2154,21 @@
                                             <exclude reference="1tM-c4-Lze"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="xPP-51-ins"/>
-                                            <exclude reference="an9-e2-77u"/>
-                                            <exclude reference="V6n-pF-dWJ"/>
-                                            <exclude reference="LpU-6y-p5Q"/>
-                                            <exclude reference="uCv-Bq-jxe"/>
-                                            <exclude reference="f2h-Xz-j0l"/>
-                                            <exclude reference="pTp-YU-eYD"/>
                                             <exclude reference="9MI-fO-bel"/>
                                             <exclude reference="lcn-LD-Fs0"/>
+                                            <exclude reference="pTp-YU-eYD"/>
+                                            <exclude reference="LpU-6y-p5Q"/>
+                                            <exclude reference="V6n-pF-dWJ"/>
+                                            <exclude reference="f2h-Xz-j0l"/>
+                                            <exclude reference="uCv-Bq-jxe"/>
+                                            <exclude reference="an9-e2-77u"/>
+                                            <exclude reference="xPP-51-ins"/>
                                             <exclude reference="GUp-aQ-fRm"/>
                                             <exclude reference="xgj-Pb-N8p"/>
-                                            <exclude reference="jmc-mG-QX5"/>
                                             <exclude reference="0tu-Ep-TQO"/>
-                                            <exclude reference="pHd-OR-Fj9"/>
                                             <exclude reference="Cg9-84-tgW"/>
+                                            <exclude reference="jmc-mG-QX5"/>
+                                            <exclude reference="pHd-OR-Fj9"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -2180,21 +2180,21 @@
                                             <include reference="1tM-c4-Lze"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="xPP-51-ins"/>
-                                            <include reference="an9-e2-77u"/>
-                                            <include reference="V6n-pF-dWJ"/>
-                                            <include reference="LpU-6y-p5Q"/>
-                                            <include reference="uCv-Bq-jxe"/>
-                                            <include reference="f2h-Xz-j0l"/>
-                                            <include reference="pTp-YU-eYD"/>
                                             <include reference="9MI-fO-bel"/>
                                             <include reference="lcn-LD-Fs0"/>
+                                            <include reference="pTp-YU-eYD"/>
+                                            <include reference="LpU-6y-p5Q"/>
+                                            <include reference="V6n-pF-dWJ"/>
+                                            <include reference="f2h-Xz-j0l"/>
+                                            <include reference="uCv-Bq-jxe"/>
+                                            <include reference="an9-e2-77u"/>
+                                            <include reference="xPP-51-ins"/>
                                             <include reference="GUp-aQ-fRm"/>
                                             <include reference="xgj-Pb-N8p"/>
-                                            <include reference="jmc-mG-QX5"/>
                                             <include reference="0tu-Ep-TQO"/>
-                                            <include reference="pHd-OR-Fj9"/>
                                             <include reference="Cg9-84-tgW"/>
+                                            <include reference="jmc-mG-QX5"/>
+                                            <include reference="pHd-OR-Fj9"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
