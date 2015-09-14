@@ -11,13 +11,13 @@ class UserTests: XCTestCase {
         super.tearDown()
     }
 
-    func createUser() {
+    func testCreateUser() {
         let contents: JSON = [
             "created_at" : "2015-08-24T09:59:06.000Z",
             "email" : "test@test.com",
             "followers_count" : 10,
             "following_count" : 20,
-            "following_flag" : 1,
+            "following_flag" : true,
             "icon_url" : "https://secure.gravatar.com/avatar",
             "id" : 1,
             "microposts_count" : 51,
