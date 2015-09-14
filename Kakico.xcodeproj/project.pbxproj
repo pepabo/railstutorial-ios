@@ -33,7 +33,6 @@
 		89DAD6191B96C74300BB43A6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DAD6181B96C74300BB43A6 /* MenuViewController.swift */; };
 		AB55C03A1B8304830077C16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C0391B8304830077C16C /* AppDelegate.swift */; };
 		AB55C0411B8304830077C16C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB55C0401B8304830077C16C /* Images.xcassets */; };
-		AB55C0501B8304830077C16C /* KakicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C04F1B8304830077C16C /* KakicoTests.swift */; };
 		AB785DDE1B846EED002DA142 /* NewPostlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */; };
 		AB785DE21B848715002DA142 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB785DE11B848715002DA142 /* LaunchScreen.xib */; };
 		AB980B101B93FC2300ED6ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB980B0F1B93FC2300ED6ACB /* Main.storyboard */; };
@@ -81,7 +80,6 @@
 		AB55C0401B8304830077C16C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AB55C0491B8304830077C16C /* KakicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KakicoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C04E1B8304830077C16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB55C04F1B8304830077C16C /* KakicoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakicoTests.swift; sourceTree = "<group>"; };
 		AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPostlViewController.swift; path = Controllers/NewPostlViewController.swift; sourceTree = "<group>"; };
 		AB785DE11B848715002DA142 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Xibs/LaunchScreen.xib; sourceTree = "<group>"; };
 		AB980B0F1B93FC2300ED6ACB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 		AB55C04C1B8304830077C16C /* KakicoTests */ = {
 			isa = PBXGroup;
 			children = (
-				AB55C04F1B8304830077C16C /* KakicoTests.swift */,
 				6B8C45161BA67020006195BF /* Classes */,
 				AB55C04D1B8304830077C16C /* Supporting Files */,
 			);
@@ -458,7 +455,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89878BAC1B842B41004CCD77 /* Micropost.swift in Sources */,
-				AB55C0501B8304830077C16C /* KakicoTests.swift in Sources */,
 				6B653F3C1BA67339008BAC59 /* UserTests.swift in Sources */,
 				6BCAE9731BA6ABB300A5C447 /* Router.swift in Sources */,
 				6B8C45191BA67068006195BF /* APIClientTests.swift in Sources */,
