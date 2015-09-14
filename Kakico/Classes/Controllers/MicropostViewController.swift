@@ -11,12 +11,14 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetSeparatorStyle()
         SVProgressHUD.showWithMaskType(.Black)
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
+        resetSeparatorStyle()
         SVProgressHUD.dismiss()
     }
 
@@ -145,4 +147,13 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             })
         }
     }
+
+    func resetSeparatorStyle() -> Void {
+        if self.microposts.size == 0 {
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        } else {
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        }
+    }
+
 }
