@@ -477,11 +477,6 @@
                                             <segue destination="uWr-z4-2wB" kind="presentation" id="sjh-uK-9g5"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-iO-WOq">
-                                        <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JCQ-IN-0lf">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                         <constraints>
@@ -518,6 +513,11 @@
                                             <segue destination="hP3-Uk-Rju" kind="presentation" id="X5K-Ek-vEb"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-iO-WOq">
+                                        <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="GBj-fX-bsr" firstAttribute="top" secondItem="HIB-iO-WOq" secondAttribute="bottom" constant="8" id="2uA-2v-2KM"/>
@@ -541,10 +541,10 @@
                                     <mask key="subviews">
                                         <exclude reference="hZV-py-OPX"/>
                                         <exclude reference="3D3-6o-Yb6"/>
-                                        <exclude reference="HIB-iO-WOq"/>
                                         <exclude reference="JCQ-IN-0lf"/>
                                         <exclude reference="oHM-DA-Up4"/>
                                         <exclude reference="GBj-fX-bsr"/>
+                                        <exclude reference="HIB-iO-WOq"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="HRC-Ex-gbR"/>
@@ -570,10 +570,10 @@
                                     <mask key="subviews">
                                         <include reference="hZV-py-OPX"/>
                                         <include reference="3D3-6o-Yb6"/>
-                                        <include reference="HIB-iO-WOq"/>
                                         <include reference="JCQ-IN-0lf"/>
                                         <include reference="oHM-DA-Up4"/>
                                         <include reference="GBj-fX-bsr"/>
+                                        <include reference="HIB-iO-WOq"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="HRC-Ex-gbR"/>
@@ -2283,6 +2283,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R1A-dp-hUo"/>
-        <segue reference="QdC-QQ-cHK"/>
+        <segue reference="eph-rC-yrT"/>
     </inferredMetricsTieBreakers>
 </document>
