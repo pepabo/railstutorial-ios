@@ -351,7 +351,7 @@
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="eO9-t0-Nfe"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hfu-xh-Mrc">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="hfu-xh-Mrc">
                             <connections>
                                 <action selector="save:" destination="BYZ-38-t0r" id="kbM-2e-fbA"/>
                             </connections>
