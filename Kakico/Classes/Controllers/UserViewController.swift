@@ -116,13 +116,19 @@ class UserViewController: UITableViewController {
     }
 
     func followButtonStyle(button: UIButton) {
+        UIView.setAnimationsEnabled(false)
         button.setTitle("Unfollow", forState: .Normal)
         button.setTitleColor(UIColor.grayColor(), forState: .Normal)
+        button.layoutIfNeeded()
+        UIView.setAnimationsEnabled(true)
     }
 
     func unfollowButtonStyle(button: UIButton) {
+        UIView.setAnimationsEnabled(false)
         button.setTitle("Follow", forState: .Normal)
         button.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
+        button.layoutIfNeeded()
+        UIView.setAnimationsEnabled(true)
     }
     
     // MARK: - Table view data source
