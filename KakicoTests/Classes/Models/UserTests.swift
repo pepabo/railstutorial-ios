@@ -1,5 +1,6 @@
 import UIKit
 import XCTest
+import SwiftyJSON
 
 class UserTests: XCTestCase {
     override func setUp() {
@@ -11,7 +12,7 @@ class UserTests: XCTestCase {
     }
 
     func createUser() {
-        let contents = [
+        let contents: JSON = [
             "created_at" : "2015-08-24T09:59:06.000Z",
             "email" : "test@test.com",
             "followers_count" : 10,
@@ -26,13 +27,14 @@ class UserTests: XCTestCase {
             "updated_at" : "2015-09-11T02:39:14.000Z",
         ]
 
-        let icon = NSURL(string: contents["icon_url"] as! String)!
-        let user = User(
-            id: contents["id"] as! Int,
-            name: contents["name"] as! String,
-            icon: icon,
-            followingFlag: contents["following_flag"] as! Bool
-        )
-        XCTAssertEqual(user.id, contents["id"] as! Int)
+        let user = User(data: contents)
+        XCTAssertEqual(user.id, contents["id"].int!)
+        XCTAssertEqual(user.name, contents["name"].string!)
+        XCTAssertEqual(user.email, contents["email"].string!)
+        XCTAssertEqual(user.icon, NSURL(string: contents["icon_url"].string!)!)
+        XCTAssertEqual(user.micropostsCount, contents["microposts_count"].int!)
+        XCTAssertEqual(user.followersCount, contents["followers_count"].int!)
+        XCTAssertEqual(user.followingCount, contents["following_count"].int!)
+        XCTAssertEqual(user.followingFlag, contents["following_flag"].bool!)
     }
 }

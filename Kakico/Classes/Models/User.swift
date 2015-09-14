@@ -1,7 +1,26 @@
 import UIKit
+import SwiftyJSON
 
 struct User {
-    var id: Int, name: String, icon: NSURL, followingFlag: Bool
+    let id: Int,
+        name: String,
+        email: String,
+        icon: NSURL,
+        micropostsCount: Int,
+        followersCount: Int,
+        followingCount: Int,
+        followingFlag: Bool
+
+    init(data: JSON) {
+        id = data["id"].int!
+        name = data["name"].string!
+        email = data["email"].string!
+        icon = NSURL(string: data["icon_url"].string!)!
+        micropostsCount = data["microposts_count"].int!
+        followersCount = data["followers_count"].int!
+        followingCount = data["following_count"].int!
+        followingFlag = data["following_flag"].bool!
+    }
 }
 
 class UserDataManager: NSObject {
