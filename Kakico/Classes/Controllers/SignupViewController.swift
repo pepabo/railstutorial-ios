@@ -125,7 +125,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
                 SVProgressHUD.dismiss()
                 let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
                 self.presentViewController(targetViewController, animated: true, completion: nil)
-                targetViewController.activatePlease()
+                targetViewController.checkEmailPlease("Please check your email to activate your account.")
             } else{
                 let tmp = json["messages"]["user"]
                 SVProgressHUD.showErrorWithStatus(json["messages"]["user"].dictionary!.values.first?.stringValue)
