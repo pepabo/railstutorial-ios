@@ -128,8 +128,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
         }
     }
     
-    func activatePlease() {
-        let alert = UIAlertController(title: "", message: "Please check your email to activate your account.", preferredStyle: UIAlertControllerStyle.Alert)
+    func checkEmailPlease(message: String) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in })
         alert.addAction(action)
         self.presentViewController(alert, animated: true, completion: nil)
