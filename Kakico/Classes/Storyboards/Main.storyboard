@@ -747,7 +747,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYW-1L-Mhc">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="Cansel">
+                                        <state key="normal" title="Cancel">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2283,6 +2283,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R1A-dp-hUo"/>
-        <segue reference="eph-rC-yrT"/>
+        <segue reference="QdC-QQ-cHK"/>
     </inferredMetricsTieBreakers>
 </document>
