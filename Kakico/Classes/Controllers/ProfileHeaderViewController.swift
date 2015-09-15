@@ -10,7 +10,7 @@ class ProfileHeaderViewController: UIViewController {
     @IBOutlet weak var postCount: UIButton!
     @IBOutlet weak var followingCount: UIButton!
     @IBOutlet weak var followerCount: UIButton!
-    @IBOutlet weak var followButton: UIButton!
+    @IBOutlet weak var followUserButton: followButton!
 
     var _selectUserId = 0
     var userId = 0
@@ -20,13 +20,12 @@ class ProfileHeaderViewController: UIViewController {
         request(_selectUserId)
     }
 
-    @IBAction func toggleFollow(sender: UIButton) {
+    @IBAction func toggleFollow(sender: followButton) {
         if sender.titleLabel?.text == "Follow" {
             follow(sender.tag)
-            followButtonStyle(sender)
+            sender.unfollowstyle()
         }else {
-            unfollow(sender.tag)
-            unfollowButtonStyle(sender)
+            showUnfollowingAlert(sender)
         }
     }
 
@@ -54,6 +53,21 @@ class ProfileHeaderViewController: UIViewController {
         }
     }
 
+    func showUnfollowingAlert(button: followButton) {
+        let alertController = UIAlertController(title: "Are you sure you want to unfollow?", message: "", preferredStyle: .ActionSheet)
+        let unfollowAction = UIAlertAction(title: "Unfollow", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
+            self.unfollow(button.tag)
+            button.followstyle()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            action in println("Unfollow canceled")
+        }
+
+        alertController.addAction(unfollowAction)
+        alertController.addAction(cancelAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+
     func follow(followedId: Int) {
         Alamofire.request(Router.PostRelationships(followedId: followedId))
     }
@@ -63,25 +77,19 @@ class ProfileHeaderViewController: UIViewController {
     }
 
     func initFollowButton(following_status: Bool) {
-        followButton.hidden = false
-        followButton.tag = _selectUserId
+        followUserButton.hidden = false
+        followUserButton.tag = _selectUserId
 
         if _selectUserId == userId {
-            followButton.hidden = true
+            followUserButton.hidden = true
         }else if following_status {
-            followButtonStyle(followButton)
+            UIView.setAnimationsEnabled(false)
+            followUserButton.unfollowstyle()
+            UIView.setAnimationsEnabled(true)
         }else {
-            unfollowButtonStyle(followButton)
+            UIView.setAnimationsEnabled(false)
+            followUserButton.followstyle()
+            UIView.setAnimationsEnabled(true)
         }
-    }
-
-    func followButtonStyle(button: UIButton) {
-        button.setTitle("Unfollow", forState: .Normal)
-        button.setTitleColor(UIColor.grayColor(), forState: .Normal)
-    }
-
-    func unfollowButtonStyle(button: UIButton) {
-        button.setTitle("Follow", forState: .Normal)
-        button.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
     }
 }
