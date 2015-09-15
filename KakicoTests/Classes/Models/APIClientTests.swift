@@ -20,14 +20,14 @@ class APIClientTests: XCTestCase {
         apiClient.getUser(userId,
             onSuccess: { (user) -> Void in
                 sample = user
+                XCTAssertEqual(sample!.id, userId)
                 expectation.fulfill()
             }, onFailure: { (error) -> Void in
+                XCTFail("")
                 expectation.fulfill()
         })
 
         waitForExpectationsWithTimeout(5.0, handler: nil)
-
-        XCTAssertEqual(sample!.id, userId)
     }
 
     func testGetUserFailure() {
@@ -37,14 +37,13 @@ class APIClientTests: XCTestCase {
         let userId = 999999
         apiClient.getUser(userId,
             onSuccess: { (user) -> Void in
-                sample = user
+                XCTFail()
                 expectation.fulfill()
             }, onFailure: { (error) -> Void in
+                XCTAssertTrue(sample == nil)
                 expectation.fulfill()
         })
 
         waitForExpectationsWithTimeout(5.0, handler: nil)
-
-        XCTAssertTrue(sample == nil)
     }
 }
