@@ -84,4 +84,18 @@ class ProfileHeaderViewController: UIViewController {
         button.setTitle("Follow", forState: .Normal)
         button.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if let userView = segue.destinationViewController as? UserViewController {
+            let type = segue.identifier!
+            switch type {
+            case "Followers":
+                userView._listType = "Followers"
+            case "Following":
+                userView._listType = "Following"
+            default:
+                println("undefined segue.identifier in ConfigViewController")
+            }
+        }
+    }
 }
