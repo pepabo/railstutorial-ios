@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
         emailField.delegate = self
         passwordField.delegate = self
         
-        checkValidLoginForm()
+        enablePushSubmitButton()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -32,7 +32,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
         super.viewWillDisappear(animated)
     }
 
-    // MARK: -
+    // MARK: - Actions
     @IBAction func touchLogInButton(sender: UIButton) {
         login(emailField.text, password: passwordField.text)
     }
@@ -41,7 +41,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
     }
-    
+
+    @IBAction func editingTextField(sender: AnyObject) {
+        enablePushSubmitButton()
+    }
+
     // MARK: - UITextFieldDelegate
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         activeTextField = textField
@@ -56,16 +60,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
         return false
     }
 
-    func textFieldDidBeginEditing(textField: UITextField) {
-        loginButton.enabled = false
-    }
-    
     func textFieldShouldEndEditing(textField: UITextField) -> Bool{
-        checkValidLoginForm()
+        enablePushSubmitButton()
         return true
     }
     
-    func checkValidLoginForm() {
+    func enablePushSubmitButton() {
         let email = emailField.text ?? ""
         let password = passwordField.text ?? ""
         loginButton.enabled = checkPresenceField(email, password: password)
