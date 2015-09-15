@@ -16,6 +16,7 @@ class ProfileEditViewController: UIViewController, UITextFieldDelegate, UIScroll
     @IBOutlet var textFields: [UITextField]!
     private var activeTextField = UITextField()
     private var keyboardLimit: CGFloat?
+    @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,11 @@ class ProfileEditViewController: UIViewController, UITextFieldDelegate, UIScroll
     @IBAction func submitProfileEditForm(sender: UIButton) {
         submit(nameTextField.text, email: emailTextField.text, password: passwordTextField.text, password_confirmation: confirmationTextField.text)
     }
-    
+
+    @IBAction func editingTextField(sender: AnyObject) {
+        enablePushSubmitButton()
+    }
+
     // MARK: - helpers
     
     func initForm() -> Void {
@@ -112,12 +117,8 @@ class ProfileEditViewController: UIViewController, UITextFieldDelegate, UIScroll
         return false
     }
     
-    func checkPresenceField() -> Bool{
-        var result = true
-        for textField : UITextField in textFields {
-            result = result && textField.hasText()
-        }
-        return result
+    func enablePushSubmitButton() {
+        submitButton.enabled = nameTextField.hasText() && emailTextField.hasText()
     }
 
     // MARK: - Keyboard
