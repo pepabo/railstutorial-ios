@@ -6,13 +6,10 @@ class APIClientTests: XCTestCase {
     func testGetUserSuccess() {
         let expectation = expectationWithDescription("getUserSuccess")
 
-        var sample: User? = nil
-
         let userId = 1
         apiClient.getUser(userId,
             onSuccess: { (user) -> Void in
-                sample = user
-                XCTAssertEqual(sample!.id, userId)
+                XCTAssertEqual(user.id, userId)
                 expectation.fulfill()
             }, onFailure: { (error) -> Void in
                 XCTFail()
@@ -24,13 +21,12 @@ class APIClientTests: XCTestCase {
     func testGetUserFailure() {
         let expectation = expectationWithDescription("getUserFailure")
 
-        var sample: User? = nil
         let userId = 999999
         apiClient.getUser(userId,
             onSuccess: { (user) -> Void in
                 XCTFail()
             }, onFailure: { (error) -> Void in
-                XCTAssertTrue(sample == nil)
+                XCTAssertNotNil(error)
                 expectation.fulfill()
         })
 
