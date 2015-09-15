@@ -16,7 +16,6 @@ class APIClientTests: XCTestCase {
                 expectation.fulfill()
             }, onFailure: { (error) -> Void in
                 XCTFail("")
-                expectation.fulfill()
         })
 
         waitForExpectationsWithTimeout(5.0, handler: nil)
@@ -30,7 +29,6 @@ class APIClientTests: XCTestCase {
         apiClient.getUser(userId,
             onSuccess: { (user) -> Void in
                 XCTFail()
-                expectation.fulfill()
             }, onFailure: { (error) -> Void in
                 XCTAssertTrue(sample == nil)
                 expectation.fulfill()
