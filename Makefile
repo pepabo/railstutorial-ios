@@ -7,12 +7,20 @@ DEVICE = iPhone 6
 test:
 	set -o pipefail && \
 	xcodebuild -workspace $(PROJECT) \
-		   -scheme $(TEST_TARGET) \
-		   -sdk iphonesimulator \
-		   -configuration Debug \
-		   -destination platform='iOS Simulator',OS=$(OS),name='$(DEVICE)' \
-		   clean test | \
-		   bundle exec xcpretty -c
+		-scheme $(TEST_TARGET) \
+		-sdk iphonesimulator \
+		-configuration Debug \
+		-destination platform='iOS Simulator',OS=$(OS),name='$(DEVICE)' \
+		clean test | \
+		bundle exec xcpretty -c
+
+debug-test:
+	xcodebuild -workspace $(PROJECT) \
+		-scheme $(TEST_TARGET) \
+		-sdk iphonesimulator \
+		-configuration Debug \
+		-destination platform='iOS Simulator',OS=$(OS),name='$(DEVICE)' \
+		clean test
 
 deploy:
 	bundle exec ipa build -w Kakico.xcworkspace -s Kakico && \
