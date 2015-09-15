@@ -30,7 +30,7 @@ class UserViewController: UITableViewController {
     }
 
     @IBAction func toggleFollow(sender: followButton) {
-        if sender.isFollowng() {
+        if sender.isFollowing() {
             follow(sender.tag)
             sender.unfollowstyle()
         }else {

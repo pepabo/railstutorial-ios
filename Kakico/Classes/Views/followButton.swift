@@ -30,7 +30,7 @@ class followButton: UIButton {
         self.layoutIfNeeded()
     }
     
-    func isFollowng() -> Bool {
+    func isFollowing() -> Bool {
         return self.titleLabel!.text == "Follow"
     }
 }
