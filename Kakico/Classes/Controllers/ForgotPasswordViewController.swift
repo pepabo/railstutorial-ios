@@ -9,7 +9,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitButton: UIButton!
 
     override func viewDidLoad() {
-        submitButton.enabled = checkValidForm()
+        validateSubmitButton()
     }
 
     // MARK: - Actions
@@ -19,13 +19,17 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
         emailTextField.resignFirstResponder()
-        submitButton.enabled = checkValidForm()
+        validateSubmitButton()
+    }
+
+    @IBAction func editingTextField(sender: AnyObject) {
+        validateSubmitButton()
     }
 
     // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         emailTextField.resignFirstResponder()
-        submitButton.enabled = checkValidForm()
+        validateSubmitButton()
         return false
     }
 
@@ -57,7 +61,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    private func checkValidForm() -> Bool {
-        return emailTextField.hasText()
+    private func validateSubmitButton() {
+        submitButton.enabled = emailTextField.hasText()
     }
 }

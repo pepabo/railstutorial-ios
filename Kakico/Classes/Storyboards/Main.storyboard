@@ -497,6 +497,9 @@
                                                 <include reference="q1t-0s-I7z"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="editingTextField:" destination="KDD-nb-63e" eventType="editingChanged" id="3sQ-Ry-9Ka"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kakico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHM-DA-Up4">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -517,6 +520,9 @@
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="editingTextField:" destination="KDD-nb-63e" eventType="editingChanged" id="Clm-1u-iQL"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -691,6 +697,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <action selector="editingTextField:" destination="uWr-z4-2wB" eventType="editingChanged" id="rvA-Nl-uZ3"/>
                                             <outlet property="delegate" destination="uWr-z4-2wB" id="kQQ-z9-rey"/>
                                         </connections>
                                     </textField>
@@ -712,6 +719,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <action selector="editingTextField:" destination="uWr-z4-2wB" eventType="editingChanged" id="uF9-Kq-gZ9"/>
                                             <outlet property="delegate" destination="uWr-z4-2wB" id="J7I-Ru-SjY"/>
                                         </connections>
                                     </textField>
@@ -733,6 +741,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <action selector="editingTextField:" destination="uWr-z4-2wB" eventType="editingChanged" id="0U0-j4-ZY0"/>
                                             <outlet property="delegate" destination="uWr-z4-2wB" id="xdB-7W-FUD"/>
                                         </connections>
                                     </textField>
@@ -772,6 +781,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <action selector="editingTextField:" destination="uWr-z4-2wB" eventType="editingChanged" id="5td-RK-B2F"/>
                                             <outlet property="delegate" destination="uWr-z4-2wB" id="c0h-HW-02J"/>
                                         </connections>
                                     </textField>
@@ -1646,6 +1656,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="editingTextField:" destination="VTR-mg-paA" eventType="editingChanged" id="IH5-lH-Tul"/>
                                     <outlet property="delegate" destination="VTR-mg-paA" id="T0q-sg-jOF"/>
                                 </connections>
                             </textField>
@@ -1654,6 +1665,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
+                                    <action selector="editingTextField:" destination="VTR-mg-paA" eventType="editingChanged" id="tlD-rz-qEL"/>
                                     <outlet property="delegate" destination="VTR-mg-paA" id="Vki-c2-t6C"/>
                                 </connections>
                             </textField>
@@ -1762,6 +1774,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="editingTextField:" destination="n3Q-aK-tkN" eventType="editingChanged" id="by8-HL-LDY"/>
                                     <outlet property="delegate" destination="n3Q-aK-tkN" id="Nar-re-Ede"/>
                                 </connections>
                             </textField>
@@ -1872,6 +1885,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <action selector="editingTextField:" destination="99L-UM-3HS" eventType="editingChanged" id="Ad2-ku-3G7"/>
                                             <outlet property="delegate" destination="99L-UM-3HS" id="ou2-I1-iNW"/>
                                         </connections>
                                     </textField>
@@ -1896,6 +1910,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <action selector="editingTextField:" destination="99L-UM-3HS" eventType="editingChanged" id="fxa-9g-Dha"/>
                                             <outlet property="delegate" destination="99L-UM-3HS" id="BMr-y6-NEW"/>
                                         </connections>
                                     </textField>
@@ -1945,6 +1960,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <action selector="editingTextField:" destination="99L-UM-3HS" eventType="editingChanged" id="3jY-Dk-5l6"/>
                                             <outlet property="delegate" destination="99L-UM-3HS" id="MQ5-5k-OLM"/>
                                         </connections>
                                     </textField>
@@ -1969,6 +1985,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <action selector="editingTextField:" destination="99L-UM-3HS" eventType="editingChanged" id="Z5V-ie-swg"/>
                                             <outlet property="delegate" destination="99L-UM-3HS" id="KPY-w7-McP"/>
                                         </connections>
                                     </textField>
@@ -2074,6 +2091,7 @@
                         <outlet property="nameTextField" destination="WIL-Wr-ovb" id="mh3-Xa-YHF"/>
                         <outlet property="passwordTextField" destination="8eV-4C-Td6" id="7E8-EC-2wT"/>
                         <outlet property="scrollView" destination="65c-gU-3Qo" id="0XP-bF-kjz"/>
+                        <outlet property="submitButton" destination="Lcv-yl-wIi" id="43h-ol-jZ2"/>
                         <outletCollection property="textFields" destination="Y3d-rA-3xe" collectionClass="NSMutableArray" id="MCa-le-685"/>
                         <outletCollection property="textFields" destination="8eV-4C-Td6" collectionClass="NSMutableArray" id="flO-fb-7Ap"/>
                         <outletCollection property="textFields" destination="Zo4-Pj-awo" collectionClass="NSMutableArray" id="4XM-EI-Ag4"/>

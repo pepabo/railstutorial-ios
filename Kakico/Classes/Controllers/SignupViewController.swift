@@ -18,7 +18,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        signUpButton.enabled = checkValidSignupForm()
+        validateSubmitButton()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -42,6 +42,10 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         create(nameTextField.text, email: emailTextField.text, password: passwordTextField.text, password_confirmation: confirmationTextField.text)
     }
 
+    @IBAction func editingTextField(sender: AnyObject) {
+        validateSubmitButton()
+    }
+
     // MARK: - UITextFieldDelegate
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         activeTextField = textField
@@ -49,7 +53,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
     }
 
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        signUpButton.enabled = checkValidSignupForm()
+        validateSubmitButton()
         return true
     }
     
@@ -67,8 +71,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         return false
     }
     
-    func checkValidSignupForm() -> Bool {
-        return checkPresenceField()
+    func validateSubmitButton() {
+        signUpButton.enabled = checkPresenceField()
     }
     
     func checkPresenceField() -> Bool{

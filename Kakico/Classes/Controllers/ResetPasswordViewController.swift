@@ -13,7 +13,7 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - View Events
     override func viewDidLoad() {
-        updateButton.enabled = checkPresenceField()
+        validateSubmitButton()
     }
 
     // MARK: - Actions
@@ -25,9 +25,13 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         hideKeyboard()
     }
 
+    @IBAction func editingTextField(sender: AnyObject) {
+        validateSubmitButton()
+    }
+
     // MARK: - UITextFieldDelegate
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        updateButton.enabled = checkPresenceField()
+        validateSubmitButton()
         return true
     }
 
@@ -71,12 +75,12 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func checkPresenceField() -> Bool{
+    func validateSubmitButton() {
         var result = true
         for textField : UITextField in textFields {
             result = result && textField.hasText()
         }
-        return result
+        updateButton.enabled = result
     }
 
     private func hideKeyboard() {
