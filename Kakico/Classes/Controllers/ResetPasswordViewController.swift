@@ -13,7 +13,7 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - View Events
     override func viewDidLoad() {
-        enablePushSubmitButton()
+        validateSubmitButton()
     }
 
     // MARK: - Actions
@@ -26,12 +26,12 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func editingTextField(sender: AnyObject) {
-        enablePushSubmitButton()
+        validateSubmitButton()
     }
 
     // MARK: - UITextFieldDelegate
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        enablePushSubmitButton()
+        validateSubmitButton()
         return true
     }
 
@@ -75,7 +75,7 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func enablePushSubmitButton() {
+    func validateSubmitButton() {
         var result = true
         for textField : UITextField in textFields {
             result = result && textField.hasText()

@@ -51,7 +51,7 @@ class ProfileEditViewController: UIViewController, UITextFieldDelegate, UIScroll
     }
 
     @IBAction func editingTextField(sender: AnyObject) {
-        enablePushSubmitButton()
+        validateSubmitButton()
     }
 
     // MARK: - helpers
@@ -117,7 +117,7 @@ class ProfileEditViewController: UIViewController, UITextFieldDelegate, UIScroll
         return false
     }
     
-    func enablePushSubmitButton() {
+    func validateSubmitButton() {
         submitButton.enabled = nameTextField.hasText() && emailTextField.hasText()
     }
 
