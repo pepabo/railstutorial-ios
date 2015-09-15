@@ -20,6 +20,7 @@
 		6B8C45191BA67068006195BF /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C45181BA67068006195BF /* APIClientTests.swift */; };
 		6BB1A5391B9595A200813021 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB1A5381B9595A200813021 /* ResetPasswordViewController.swift */; };
 		6BCAE9731BA6ABB300A5C447 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969712E1B93F5C500B0CB4C /* Router.swift */; };
+		6BCAE9761BA804AD00A5C447 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BCAE9751BA804AD00A5C447 /* user.json */; };
 		6BEBBBEA1B8EED81007EEF4A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */; };
 		6BF845CB1B956BE700BDFA11 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */; };
 		893C220B1B9835EE00C006E4 /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C220A1B9835EE00C006E4 /* MicropostViewController.swift */; };
@@ -65,6 +66,7 @@
 		6B8C45141BA66FCC006195BF /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		6B8C45181BA67068006195BF /* APIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClientTests.swift; path = Classes/Models/APIClientTests.swift; sourceTree = "<group>"; };
 		6BB1A5381B9595A200813021 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = Controllers/ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		6BCAE9751BA804AD00A5C447 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = user.json; path = Fixtures/user.json; sourceTree = "<group>"; };
 		6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = Controllers/SignupViewController.swift; sourceTree = "<group>"; };
 		6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		893C220A1B9835EE00C006E4 /* MicropostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicropostViewController.swift; path = Controllers/MicropostViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 				894790941BA8FB0B0021EA87 /* MicropostTests.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		6BCAE9741BA8046100A5C447 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				6BCAE9751BA804AD00A5C447 /* user.json */,
+			);
+			name = Fixtures;
 			sourceTree = "<group>";
 		};
 		6BD417031B8C0CB60027BC14 /* Classes */ = {
@@ -261,6 +271,7 @@
 		AB55C04C1B8304830077C16C /* KakicoTests */ = {
 			isa = PBXGroup;
 			children = (
+				6BCAE9741BA8046100A5C447 /* Fixtures */,
 				6B8C45161BA67020006195BF /* Classes */,
 				AB55C04D1B8304830077C16C /* Supporting Files */,
 			);
@@ -381,6 +392,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BCAE9761BA804AD00A5C447 /* user.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
