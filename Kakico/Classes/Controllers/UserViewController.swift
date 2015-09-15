@@ -9,7 +9,7 @@ class UserViewController: UITableViewController {
     var users = UserDataManager()
     var userId = 0
     var _listType = ""
-    
+
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +29,12 @@ class UserViewController: UITableViewController {
         }
     }
 
-    @IBAction func toggleFollow(sender: UIButton) {
-        if sender.titleLabel?.text == "Follow" {
+    @IBAction func toggleFollow(sender: followButton) {
+        if sender.isFollowng() {
             follow(sender.tag)
-            followButtonStyle(sender)
+            sender.unfollowstyle()
         }else {
-            unfollow(sender.tag)
-            unfollowButtonStyle(sender)
+            showUnfollowingAlert(sender)
         }
     }
 
@@ -94,6 +93,21 @@ class UserViewController: UITableViewController {
         }
     }
 
+    func showUnfollowingAlert(button: followButton) {
+        let alertController = UIAlertController(title: "Are you sure you want to unfollow?", message: "", preferredStyle: .ActionSheet)
+        let unfollowAction = UIAlertAction(title: "Unfollow", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
+            self.unfollow(button.tag)
+            button.followstyle()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            action in println("Unfollow canceled")
+        }
+
+        alertController.addAction(unfollowAction)
+        alertController.addAction(cancelAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+
     func follow(followedId: Int) {
         Alamofire.request(Router.PostRelationships(followedId: followedId))
     }
@@ -102,35 +116,23 @@ class UserViewController: UITableViewController {
         Alamofire.request(Router.DeleteRelationships(followedId: followedId))
     }
 
-    func initFollowButton(button: UIButton, user: User) {
+    func initFollowButton(button: followButton, user: User) {
         button.hidden = false
         button.tag = user.id
 
         if user.id == userId {
             button.hidden = true
         }else if user.followingFlag {
-            followButtonStyle(button)
+            UIView.setAnimationsEnabled(false)
+            button.unfollowstyle()
+            UIView.setAnimationsEnabled(true)
         }else {
-            unfollowButtonStyle(button)
+            UIView.setAnimationsEnabled(false)
+            button.followstyle()
+            UIView.setAnimationsEnabled(true)
         }
     }
 
-    func followButtonStyle(button: UIButton) {
-        UIView.setAnimationsEnabled(false)
-        button.setTitle("Unfollow", forState: .Normal)
-        button.setTitleColor(UIColor.grayColor(), forState: .Normal)
-        button.layoutIfNeeded()
-        UIView.setAnimationsEnabled(true)
-    }
-
-    func unfollowButtonStyle(button: UIButton) {
-        UIView.setAnimationsEnabled(false)
-        button.setTitle("Follow", forState: .Normal)
-        button.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
-        button.layoutIfNeeded()
-        UIView.setAnimationsEnabled(true)
-    }
-    
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -147,8 +149,8 @@ class UserViewController: UITableViewController {
         let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
         cell.userIcon.sd_setImageWithURL(user.icon)
-        initFollowButton(cell.followButton, user: user)
-        
+        initFollowButton(cell.followButton as! followButton, user: user)
+
         return cell
     }
 
