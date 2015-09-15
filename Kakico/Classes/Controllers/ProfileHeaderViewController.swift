@@ -96,6 +96,7 @@ class ProfileHeaderViewController: UIViewController {
             default:
                 println("undefined segue.identifier in ConfigViewController")
             }
+            userView._selectedId = _selectUserId
         }
     }
 }
