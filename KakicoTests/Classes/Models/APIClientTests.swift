@@ -15,7 +15,7 @@ class APIClientTests: XCTestCase {
                 XCTAssertEqual(sample!.id, userId)
                 expectation.fulfill()
             }, onFailure: { (error) -> Void in
-                XCTFail("")
+                XCTFail()
         })
 
         waitForExpectationsWithTimeout(5.0, handler: nil)
