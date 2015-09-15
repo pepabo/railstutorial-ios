@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25C861A09D9888E2811D0F06 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48953E8A0982D8CAF6A08ABF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6A7E2CC9FA35033D51A92D21 /* Pods_KakicoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33D08823E29526F7E4F97BA /* Pods_KakicoTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6B449CCC1BA26D1E00D25549 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B449CCB1BA26D1E00D25549 /* LoadViewController.swift */; };
 		6B653F3C1BA67339008BAC59 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B653F3B1BA67339008BAC59 /* UserTests.swift */; };
 		6B653F3D1BA69174008BAC59 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C45141BA66FCC006195BF /* APIClient.swift */; };
@@ -77,6 +78,7 @@
 		89C956341B9E88DC009C5BA2 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		89DAD6181B96C74300BB43A6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = Controllers/MenuViewController.swift; sourceTree = "<group>"; };
 		89F9743A1B955970002A30D7 /* Kakico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kakico-Bridging-Header.h"; sourceTree = "<group>"; };
+		A33D08823E29526F7E4F97BA /* Pods_KakicoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KakicoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C0341B8304830077C16C /* Kakico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kakico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C0381B8304830077C16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB55C0391B8304830077C16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7E2CC9FA35033D51A92D21 /* Pods_KakicoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				48953E8A0982D8CAF6A08ABF /* Pods.framework */,
+				A33D08823E29526F7E4F97BA /* Pods_KakicoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -307,9 +311,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB55C0561B8304830077C16C /* Build configuration list for PBXNativeTarget "KakicoTests" */;
 			buildPhases = (
+				513D134322E5C07F18589993 /* Check Pods Manifest.lock */,
 				AB55C0451B8304830077C16C /* Sources */,
 				AB55C0461B8304830077C16C /* Frameworks */,
 				AB55C0471B8304830077C16C /* Resources */,
+				4618E2E1B7209377560BE138 /* Embed Pods Frameworks */,
+				B1F42B5AEFD5D43E3476C317 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -408,6 +415,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4618E2E1B7209377560BE138 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KakicoTests/Pods-KakicoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		513D134322E5C07F18589993 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B1F42B5AEFD5D43E3476C317 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KakicoTests/Pods-KakicoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EDA96548AEDC66CACDE30961 /* Embed Pods Frameworks */ = {
