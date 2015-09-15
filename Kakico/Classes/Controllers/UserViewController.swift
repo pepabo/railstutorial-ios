@@ -76,12 +76,7 @@ class UserViewController: UITableViewController {
             println(json)
 
             for (index: String, subJson: JSON) in json["contents"] {
-                var user: User = User(
-                    id: subJson["id"].int!,
-                    name: subJson["name"].string!,
-                    icon: NSURL(string: subJson["icon_url"].stringValue)!,
-                    followingFlag: subJson["following_flag"].bool!
-                )
+                var user = User(data: subJson)
                 self.users.set(user)
             }
 
