@@ -2,14 +2,6 @@ import XCTest
 
 class APIClientTests: XCTestCase {
     let apiClient = APIClient()
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
 
     func testGetUserSuccess() {
         let expectation = expectationWithDescription("getUserSuccess")
