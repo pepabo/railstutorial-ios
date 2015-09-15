@@ -31,6 +31,12 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
 
+    @IBAction func deletePicture(sender: AnyObject) {
+        if self.pictureImageView.image != nil {
+            showDeletingAlert()
+        }
+    }
+
     @IBAction func save(sender: UIBarButtonItem) {
         post(contentField.text, picture: pictureImageView.image)
     }
@@ -38,6 +44,21 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
     @IBAction func cancel(sender: UIBarButtonItem) {
         contentField.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func showDeletingAlert() {
+        let alertController = UIAlertController(title: "Are you sure you want to delete the picture?", message: "", preferredStyle: .ActionSheet)
+        let logoutAction = UIAlertAction(title: "Delete", style: .Default) {
+            action in self.pictureImageView.image = nil
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            action in println("Delete picture canceled")
+        }
+
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelAction)
+
+        presentViewController(alertController, animated: true, completion: nil)
     }
 
     // MARK: - UITextFieldDelegate

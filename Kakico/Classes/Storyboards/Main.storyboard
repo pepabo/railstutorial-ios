@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1o7-qB-Pic">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1o7-qB-Pic">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -247,7 +247,7 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="H6q-0W-Q2P"/>
                                         </connections>
                                     </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFx-V5-qcZ">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFx-V5-qcZ">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -267,7 +267,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="35F-js-VD3" appends="YES" id="jW9-rH-8wc"/>
+                                            <outletCollection property="gestureRecognizers" destination="KPh-b0-S07" appends="YES" id="cvQ-6b-XIE"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
@@ -370,6 +370,11 @@
                         <action selector="unFocusTextField:" destination="BYZ-38-t0r" id="JLn-vk-AzE"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="KPh-b0-S07">
+                    <connections>
+                        <action selector="deletePicture:" destination="BYZ-38-t0r" id="bSp-bF-bKd"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1522.5" y="-484"/>
         </scene>
