@@ -33,6 +33,7 @@
 		AB785DDE1B846EED002DA142 /* NewPostlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */; };
 		AB785DE21B848715002DA142 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB785DE11B848715002DA142 /* LaunchScreen.xib */; };
 		AB980B101B93FC2300ED6ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB980B0F1B93FC2300ED6ACB /* Main.storyboard */; };
+		ABB01A101BA7C81E004B2486 /* followButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB01A0F1BA7C81E004B2486 /* followButton.swift */; };
 		ABD628071B9FD597001762E4 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD628061B9FD597001762E4 /* ProfileEditViewController.swift */; };
 		ABF1C7311B84557D00032F37 /* MicropostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF1C7301B84557D00032F37 /* MicropostCell.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPostlViewController.swift; path = Controllers/NewPostlViewController.swift; sourceTree = "<group>"; };
 		AB785DE11B848715002DA142 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Xibs/LaunchScreen.xib; sourceTree = "<group>"; };
 		AB980B0F1B93FC2300ED6ACB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		ABB01A0F1BA7C81E004B2486 /* followButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = followButton.swift; path = Views/followButton.swift; sourceTree = "<group>"; };
 		ABD628061B9FD597001762E4 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileEditViewController.swift; path = Controllers/ProfileEditViewController.swift; sourceTree = "<group>"; };
 		ABF1C7301B84557D00032F37 /* MicropostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MicropostCell.swift; path = Views/Cells/MicropostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				6BD417081B8C0D500027BC14 /* Cells */,
+				ABB01A0F1BA7C81E004B2486 /* followButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				6B8256011B8ACB8D005E2397 /* UserViewController.swift in Sources */,
 				89878BB21B844E8C004CCD77 /* FeedViewController.swift in Sources */,
 				893C220D1B983F9300C006E4 /* ProfileHeaderViewController.swift in Sources */,
+				ABB01A101BA7C81E004B2486 /* followButton.swift in Sources */,
 				893C220B1B9835EE00C006E4 /* MicropostViewController.swift in Sources */,
 				6B449CCC1BA26D1E00D25549 /* LoadViewController.swift in Sources */,
 				6B8255FD1B8AC8BA005E2397 /* UserTableViewCell.swift in Sources */,
