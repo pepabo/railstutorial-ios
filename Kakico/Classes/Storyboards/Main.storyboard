@@ -1095,13 +1095,24 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yre-4t-S5p">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yre-4t-S5p" customClass="followButton" customModule="Kakico" customModuleProvider="target">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="1Ag-rm-3r8"/>
                                                 <constraint firstAttribute="width" constant="83" id="oq3-NP-rQy"/>
                                             </constraints>
                                             <state key="normal" title="Follow"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="1Ag-rm-3r8"/>
@@ -1357,7 +1368,7 @@
                                                     </mask>
                                                 </variation>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-CT-QJI">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-CT-QJI" customClass="followButton" customModule="Kakico" customModuleProvider="target">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Follow">
@@ -1365,13 +1376,15 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="toggleFollow:" destination="4rZ-fU-Zsn" eventType="touchUpInside" id="FcS-Yj-nsQ"/>
+                                                    <action selector="toggleFollow:" destination="4rZ-fU-Zsn" eventType="touchUpInside" id="gVr-pQ-440"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="pZi-CT-QJI" firstAttribute="leading" secondItem="N2L-zN-hae" secondAttribute="leading" id="1ff-nV-gPR"/>
+                                            <constraint firstItem="pZi-CT-QJI" firstAttribute="leading" secondItem="N2L-zN-hae" secondAttribute="leading" id="1ff-nV-gPR">
+                                                <variation key="widthClass=compact" constant="15"/>
+                                            </constraint>
                                             <constraint firstItem="XxY-A2-tRP" firstAttribute="top" secondItem="kTc-r3-ujn" secondAttribute="bottom" constant="3" id="2pM-yp-PDh"/>
                                             <constraint firstItem="pZi-CT-QJI" firstAttribute="top" secondItem="gNc-ur-DTs" secondAttribute="bottom" constant="9" id="5vI-bL-ty7"/>
                                             <constraint firstItem="gUU-zN-14g" firstAttribute="top" secondItem="N2L-zN-hae" secondAttribute="top" id="6GN-FB-oAO"/>
@@ -1380,7 +1393,9 @@
                                             <constraint firstItem="kTc-r3-ujn" firstAttribute="centerX" secondItem="XxY-A2-tRP" secondAttribute="centerX" id="9sS-SE-75y"/>
                                             <constraint firstItem="mob-j2-Ijd" firstAttribute="top" secondItem="kTc-r3-ujn" secondAttribute="top" id="Ale-nb-4CP"/>
                                             <constraint firstItem="gUU-zN-14g" firstAttribute="width" secondItem="mob-j2-Ijd" secondAttribute="width" id="BWL-uG-fzw"/>
-                                            <constraint firstAttribute="trailing" secondItem="pZi-CT-QJI" secondAttribute="trailing" id="IJG-Tz-q23"/>
+                                            <constraint firstAttribute="trailing" secondItem="pZi-CT-QJI" secondAttribute="trailing" id="IJG-Tz-q23">
+                                                <variation key="widthClass=compact" constant="15"/>
+                                            </constraint>
                                             <constraint firstAttribute="centerX" secondItem="pZi-CT-QJI" secondAttribute="centerX" id="M1h-IO-sr0"/>
                                             <constraint firstAttribute="trailing" secondItem="mob-j2-Ijd" secondAttribute="trailing" id="Q4x-wK-7Jd"/>
                                             <constraint firstItem="gNc-ur-DTs" firstAttribute="top" secondItem="mob-j2-Ijd" secondAttribute="bottom" constant="3" id="Wpu-tO-RuA"/>
@@ -1572,7 +1587,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="230"/>
                     <connections>
-                        <outlet property="followButton" destination="pZi-CT-QJI" id="wYp-Fp-01n"/>
+                        <outlet property="followUserButton" destination="pZi-CT-QJI" id="wDd-7Q-4TH"/>
                         <outlet property="followerCount" destination="gNc-ur-DTs" id="WYb-cR-6hr"/>
                         <outlet property="followingCount" destination="FLb-Ac-Zau" id="cHT-xb-H1x"/>
                         <outlet property="nameLabel" destination="JQb-NA-4rz" id="JHv-x0-BxY"/>
@@ -2285,4 +2300,5 @@
         <segue reference="R1A-dp-hUo"/>
         <segue reference="eph-rC-yrT"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
