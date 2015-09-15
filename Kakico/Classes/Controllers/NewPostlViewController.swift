@@ -33,7 +33,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
 
     @IBAction func deletePicture(sender: AnyObject) {
         if self.pictureImageView.image != nil {
-            selectAlert()
+            showDeletingAlert()
         }
     }
 
@@ -46,13 +46,13 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func selectAlert() {
-        let alertController = UIAlertController(title: "Are you sure you want to delete the image?", message: "", preferredStyle: .ActionSheet)
+    func showDeletingAlert() {
+        let alertController = UIAlertController(title: "Are you sure you want to delete the picture?", message: "", preferredStyle: .ActionSheet)
         let logoutAction = UIAlertAction(title: "Delete", style: .Default) {
             action in self.pictureImageView.image = nil
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
-            action in println("Cancel")
+            action in println("Delete picture canceled")
         }
 
         alertController.addAction(logoutAction)
