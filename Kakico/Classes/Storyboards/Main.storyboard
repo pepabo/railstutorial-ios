@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1o7-qB-Pic">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1o7-qB-Pic">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -1076,7 +1076,7 @@
             <objects>
                 <tableViewController id="NIT-Rz-oJj" customClass="UserViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="7uq-mq-iFI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="230"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1117,17 +1117,6 @@
                                                 <constraint firstAttribute="width" constant="83" id="oq3-NP-rQy"/>
                                             </constraints>
                                             <state key="normal" title="Follow"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="1Ag-rm-3r8"/>
@@ -1141,7 +1130,7 @@
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <action selector="toggleFollow:" destination="NIT-Rz-oJj" eventType="touchUpInside" id="yaM-22-hIs"/>
+                                                <action selector="toggleFollow:" destination="NIT-Rz-oJj" eventType="touchUpInside" id="02z-aK-sR7"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1188,7 +1177,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="followButton" destination="yre-4t-S5p" id="Ese-2R-9oW"/>
+                                    <outlet property="followUserButton" destination="yre-4t-S5p" id="ahP-Au-ffg"/>
                                     <outlet property="userIcon" destination="MkW-h6-wnG" id="EC0-0o-Bed"/>
                                     <outlet property="userName" destination="p2h-WL-bd7" id="OBW-bX-A64"/>
                                     <segue destination="Y87-VY-49y" kind="show" identifier="ProfileView" id="t9R-Wy-UH5"/>
@@ -2138,11 +2127,11 @@
             <objects>
                 <tableViewController id="Y87-VY-49y" customClass="ProfileViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rig-xa-LSt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="230"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="waq-l5-QbF">
-                            <rect key="frame" x="0.0" y="64" width="600" height="230"/>
+                            <rect key="frame" x="0.0" y="0.0" width="400" height="230"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <connections>
                                 <segue destination="4rZ-fU-Zsn" kind="embed" identifier="ProfileHeaderView" id="BQD-C8-vJZ"/>

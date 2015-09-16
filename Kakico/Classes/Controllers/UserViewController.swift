@@ -161,7 +161,7 @@ class UserViewController: UITableViewController {
         let user = self.users[indexPath.row] as User
         cell.userName.text = user.name
         cell.userIcon.sd_setImageWithURL(user.icon)
-        initFollowButton(cell.followButton as! followButton, user: user)
+        initFollowButton(cell.followUserButton, user: user)
 
         return cell
     }
