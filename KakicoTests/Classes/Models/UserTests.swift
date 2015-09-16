@@ -20,13 +20,13 @@ class UserTests: XCTestCase {
         ]
 
         let user = User(data: contents)
-        XCTAssertEqual(user.id, contents["id"].int!)
-        XCTAssertEqual(user.name, contents["name"].string!)
-        XCTAssertEqual(user.email, contents["email"].string!)
-        XCTAssertEqual(user.icon, NSURL(string: contents["icon_url"].string!)!)
-        XCTAssertEqual(user.micropostsCount, contents["microposts_count"].int!)
-        XCTAssertEqual(user.followersCount, contents["followers_count"].int!)
-        XCTAssertEqual(user.followingCount, contents["following_count"].int!)
-        XCTAssertEqual(user.followingFlag, contents["following_flag"].bool!)
+        XCTAssertEqual(user.id, contents["id"].intValue)
+        XCTAssertEqual(user.name, contents["name"].stringValue)
+        XCTAssertEqual(user.email, contents["email"].stringValue)
+        XCTAssertEqual(user.icon, NSURL(string: contents["icon_url"].stringValue)!)
+        XCTAssertEqual(user.micropostsCount, contents["microposts_count"].intValue)
+        XCTAssertEqual(user.followersCount, contents["followers_count"].intValue)
+        XCTAssertEqual(user.followingCount, contents["following_count"].intValue)
+        XCTAssertEqual(user.followingFlag, contents["following_flag"].boolValue)
     }
 }

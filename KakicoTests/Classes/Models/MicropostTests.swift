@@ -21,12 +21,12 @@ class MicropostTests: XCTestCase {
         ]
 
         let post = Micropost(data: contents)
-        XCTAssertEqual(post.userName, contents["user"]["name"].string!)
-        XCTAssertEqual(post.content, contents["content"].string!)
-        XCTAssertEqual(post.picture!, NSURL(string: contents["picture"]["url"].string!)!)
-        XCTAssertEqual(post.userId, contents["user_id"].int!)
-        XCTAssertEqual(post.userIcon, NSURL(string: contents["user"]["icon_url"].string!)!)
-        XCTAssertEqual(post.timeAgoInWords, contents["time_ago_in_words"].string!)
+        XCTAssertEqual(post.userName, contents["user"]["name"].stringValue)
+        XCTAssertEqual(post.content, contents["content"].stringValue)
+        XCTAssertEqual(post.picture!, NSURL(string: contents["picture"]["url"].stringValue)!)
+        XCTAssertEqual(post.userId, contents["user_id"].intValue)
+        XCTAssertEqual(post.userIcon, NSURL(string: contents["user"]["icon_url"].stringValue)!)
+        XCTAssertEqual(post.timeAgoInWords, contents["time_ago_in_words"].stringValue)
         XCTAssertEqual(post.unixTimeCreatedAt, contents["unix_time_created_at"].intValue)
     }
 }

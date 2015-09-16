@@ -16,12 +16,12 @@ struct Micropost {
             picture_url = url
         }
 
-        userName = data["user"]["name"].string!
-        content = data["content"].string!
+        userName = data["user"]["name"].stringValue
+        content = data["content"].stringValue
         picture = picture_url.isEmpty ? nil : NSURL(string: picture_url)
-        userId = data["user_id"].int!
-        userIcon = NSURL(string: data["user"]["icon_url"].string!)!
-        timeAgoInWords = data["time_ago_in_words"].string!
+        userId = data["user_id"].intValue
+        userIcon = NSURL(string: data["user"]["icon_url"].stringValue)!
+        timeAgoInWords = data["time_ago_in_words"].stringValue
         unixTimeCreatedAt = data["unix_time_created_at"].intValue
     }
 
