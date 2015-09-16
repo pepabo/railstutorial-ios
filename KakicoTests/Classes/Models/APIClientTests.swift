@@ -1,5 +1,4 @@
 import XCTest
-import OHHTTPStubs
 
 class APIClientTests: XCTestCase {
     let apiClient = APIClient()
