@@ -17,8 +17,12 @@ class APIStub {
     }
 
     private func checkHost(request: NSURLRequest) -> Bool {
-        if request.URL != nil && request.URL!.host != nil && Router.baseURLString.hasSuffix(request.URL!.host!) {
-            return true
+        if request.URL != nil {
+            let scheme = request.URL!.scheme as String!
+            let host = request.URL!.host as String!
+            if Router.baseURLString.hasPrefix("\(scheme)://\(host)") {
+                return true
+            }
         }
         return false
     }
