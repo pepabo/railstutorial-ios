@@ -91,10 +91,9 @@ class UserViewController: UITableViewController {
 
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView!.reloadData()
-                self.resetSeparatorStyle()
-                SVProgressHUD.dismiss()
             })
-
+            self.resetSeparatorStyle()
+            SVProgressHUD.dismiss()
         }
     }
 
