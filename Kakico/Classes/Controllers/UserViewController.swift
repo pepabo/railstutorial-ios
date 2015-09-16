@@ -1,4 +1,5 @@
 import UIKit
+import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 import KeychainAccess
@@ -14,6 +15,8 @@ class UserViewController: UITableViewController {
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetSeparatorStyle()
+        SVProgressHUD.showWithMaskType(.Black)
         request(_listType, page: 1)
 
         // Add infinite scroll handler
@@ -28,6 +31,13 @@ class UserViewController: UITableViewController {
             
             tableView.finishInfiniteScroll()
         }
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+        resetSeparatorStyle()
+        SVProgressHUD.dismiss()
     }
 
     @IBAction func toggleFollow(sender: followButton) {
@@ -133,6 +143,14 @@ class UserViewController: UITableViewController {
         }
     }
 
+    func resetSeparatorStyle() -> Void {
+        if self.users.size == 0 {
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        } else {
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        }
+    }
+
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -152,6 +170,14 @@ class UserViewController: UITableViewController {
         initFollowButton(cell.followButton as! followButton, user: user)
 
         return cell
+    }
+
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
