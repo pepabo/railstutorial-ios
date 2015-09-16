@@ -1,13 +1,29 @@
 import UIKit
+import SwiftyJSON
 
 struct Micropost {
-    var userName: String,
-    content: String,
-    picture: NSURL?,
-    userId: Int,
-    userIcon: NSURL?,
-    timeAgoInWords: String,
-    unixTimeCreatedAt: Int
+    let userName: String,
+        content: String,
+        picture: NSURL?,
+        userId: Int,
+        userIcon: NSURL,
+        timeAgoInWords: String,
+        unixTimeCreatedAt: Int
+
+    init(data: JSON) {
+        var picture_url = ""
+        if let url = data["picture"]["url"].string {
+            picture_url = url
+        }
+
+        userName = data["user"]["name"].stringValue
+        content = data["content"].stringValue
+        picture = picture_url.isEmpty ? nil : NSURL(string: picture_url)
+        userId = data["user_id"].intValue
+        userIcon = NSURL(string: data["user"]["icon_url"].stringValue)!
+        timeAgoInWords = data["time_ago_in_words"].stringValue
+        unixTimeCreatedAt = data["unix_time_created_at"].intValue
+    }
 
     func havePicture() -> Bool {
         return picture != nil

@@ -12,14 +12,14 @@ struct User {
         followingFlag: Bool
 
     init(data: JSON) {
-        id = data["id"].int!
-        name = data["name"].string!
-        email = data["email"].string!
-        icon = NSURL(string: data["icon_url"].string!)!
-        micropostsCount = data["microposts_count"].int!
-        followersCount = data["followers_count"].int!
-        followingCount = data["following_count"].int!
-        followingFlag = data["following_flag"].bool!
+        id = data["id"].intValue
+        name = data["name"].stringValue
+        email = data["email"].stringValue
+        icon = NSURL(string: data["icon_url"].stringValue)!
+        micropostsCount = data["microposts_count"].intValue
+        followersCount = data["followers_count"].intValue
+        followingCount = data["following_count"].intValue
+        followingFlag = data["following_flag"].boolValue
     }
 }
 

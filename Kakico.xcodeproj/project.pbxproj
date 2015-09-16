@@ -23,6 +23,7 @@
 		6BF845CB1B956BE700BDFA11 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */; };
 		893C220B1B9835EE00C006E4 /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C220A1B9835EE00C006E4 /* MicropostViewController.swift */; };
 		893C220D1B983F9300C006E4 /* ProfileHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C220C1B983F9300C006E4 /* ProfileHeaderViewController.swift */; };
+		894790961BA8FB0B0021EA87 /* MicropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894790941BA8FB0B0021EA87 /* MicropostTests.swift */; };
 		8969712F1B93F5C500B0CB4C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969712E1B93F5C500B0CB4C /* Router.swift */; };
 		89878BAB1B842B41004CCD77 /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89878BAA1B842B41004CCD77 /* Micropost.swift */; };
 		89878BAC1B842B41004CCD77 /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89878BAA1B842B41004CCD77 /* Micropost.swift */; };
@@ -67,6 +68,7 @@
 		6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		893C220A1B9835EE00C006E4 /* MicropostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicropostViewController.swift; path = Controllers/MicropostViewController.swift; sourceTree = "<group>"; };
 		893C220C1B983F9300C006E4 /* ProfileHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHeaderViewController.swift; path = Controllers/ProfileHeaderViewController.swift; sourceTree = "<group>"; };
+		894790941BA8FB0B0021EA87 /* MicropostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicropostTests.swift; path = Classes/Models/MicropostTests.swift; sourceTree = "<group>"; };
 		8969712E1B93F5C500B0CB4C /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		89878BAA1B842B41004CCD77 /* Micropost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Micropost.swift; sourceTree = "<group>"; };
 		89878BB11B844E8C004CCD77 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				6B653F3B1BA67339008BAC59 /* UserTests.swift */,
 				6B8C45181BA67068006195BF /* APIClientTests.swift */,
+				894790941BA8FB0B0021EA87 /* MicropostTests.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89878BAC1B842B41004CCD77 /* Micropost.swift in Sources */,
+				894790961BA8FB0B0021EA87 /* MicropostTests.swift in Sources */,
 				6B653F3C1BA67339008BAC59 /* UserTests.swift in Sources */,
 				6BCAE9731BA6ABB300A5C447 /* Router.swift in Sources */,
 				6B8C45191BA67068006195BF /* APIClientTests.swift in Sources */,
