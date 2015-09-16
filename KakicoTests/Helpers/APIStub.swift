@@ -10,10 +10,8 @@ class APIStub {
                 return self.checkHost(request)
             }, withStubResponse: { (request: NSURLRequest) -> OHHTTPStubsResponse in
                 switch request.URL!.path! {
-                case "/api/users/\(self.userId)": return OHHTTPStubsResponse(fileAtPath:OHPathForFile("user.json", self.dynamicType)!,
-                    statusCode:200, headers:["Content-Type":"application/json"])
-                default: return OHHTTPStubsResponse(fileAtPath:OHPathForFile("500.json", self.dynamicType)!,
-                    statusCode:500, headers:["Content-Type":"application/json"])
+                case "/api/users/\(self.userId)": return self.stubJson("user")
+                default: return self.stubJson("500")
                 }
         })
     }
@@ -23,5 +21,14 @@ class APIStub {
             return true
         }
         return false
+    }
+
+    private func stubJson(fileName: String) -> OHHTTPStubsResponse {
+        var tmp = fileName
+        if !fileName.hasSuffix(".json") {
+            tmp = fileName + ".json"
+        }
+        return OHHTTPStubsResponse(fileAtPath:OHPathForFile(tmp, self.dynamicType)!,
+            statusCode:200, headers:["Content-Type":"application/json"])
     }
 }
