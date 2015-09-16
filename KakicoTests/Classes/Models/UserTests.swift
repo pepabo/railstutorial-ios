@@ -3,14 +3,6 @@ import XCTest
 import SwiftyJSON
 
 class UserTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testCreateUser() {
         let contents: JSON = [
             "created_at" : "2015-08-24T09:59:06.000Z",

@@ -3,14 +3,6 @@ import XCTest
 import SwiftyJSON
 
 class MicropostTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testCreateMicropost() {
         let contents: JSON = [
             "id": 227,
