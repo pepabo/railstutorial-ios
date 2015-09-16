@@ -33,13 +33,6 @@ class UserViewController: UITableViewController {
         }
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.tableView.reloadData()
-        resetSeparatorStyle()
-        SVProgressHUD.dismiss()
-    }
-
     @IBAction func toggleFollow(sender: followButton) {
         if sender.isFollowing() {
             follow(sender.tag)
@@ -98,6 +91,8 @@ class UserViewController: UITableViewController {
 
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView!.reloadData()
+                self.resetSeparatorStyle()
+                SVProgressHUD.dismiss()
             })
 
         }
