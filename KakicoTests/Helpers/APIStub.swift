@@ -7,15 +7,11 @@ class APIStub {
     init() {
         OHHTTPStubs.stubRequestsPassingTest(
             { (request: NSURLRequest) -> Bool in
-                if request.URL!.path!.hasSuffix("/api/users/feed") {
-                    return false
-                }
                 if request.URL != nil && Router.baseURLString.hasSuffix(request.URL!.host!) {
                     return true
                 }
                 return false
             }, withStubResponse: { (request: NSURLRequest) -> OHHTTPStubsResponse in
-                println(request.URL!.path!)
                 switch request.URL!.path! {
                 case "/api/users/\(self.userId)": return OHHTTPStubsResponse(fileAtPath:OHPathForFile("user.json", self.dynamicType)!,
                     statusCode:200, headers:["Content-Type":"application/json"])
