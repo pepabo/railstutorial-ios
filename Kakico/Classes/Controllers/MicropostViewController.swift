@@ -72,28 +72,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             println(json)
 
             for (index: String, subJson: JSON) in json["contents"] {
-                var picture = ""
-                var userName = "No name"
-                var iconURL = ""
-                if let url = subJson["picture"]["url"].string {
-                    picture = url
-                }
-                if let name = subJson["user"]["name"].string {
-                    userName = name
-                }
-                if let url = subJson["user"]["icon_url"].string {
-                    iconURL = url
-                }
-                let pictureURL = picture.isEmpty ? nil : NSURL(string: picture)
-                var micropost: Micropost = Micropost(
-                    userName: userName,
-                    content: subJson["content"].string!,
-                    picture: pictureURL,
-                    userId: subJson["user_id"].int!,
-                    userIcon: NSURL(string: iconURL),
-                    timeAgoInWords:subJson["time_ago_in_words"].string!,
-                    unixTimeCreatedAt:subJson["unix_time_created_at"].intValue
-                )
+                let micropost = Micropost(data: subJson)
                 self.microposts.set(micropost)
             }
 
@@ -113,28 +92,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             println(json)
 
             for (index: String, subJson: JSON) in json["contents"] {
-                var picture = ""
-                var userName = "No name"
-                var iconURL = ""
-                if let url = subJson["picture"]["url"].string {
-                    picture = url
-                }
-                if let name = subJson["user"]["name"].string {
-                    userName = name
-                }
-                if let url = subJson["user"]["icon_url"].string {
-                    iconURL = url
-                }
-                let pictureURL = picture.isEmpty ? nil : NSURL(string: picture)
-                var micropost: Micropost = Micropost(
-                    userName: userName,
-                    content: subJson["content"].string!,
-                    picture: pictureURL,
-                    userId: subJson["user_id"].int!,
-                    userIcon: NSURL(string: iconURL),
-                    timeAgoInWords:subJson["time_ago_in_words"].string!,
-                    unixTimeCreatedAt:subJson["unix_time_created_at"].intValue
-                )
+                let micropost = Micropost(data: subJson)
                 newMicroposts.append(micropost)
             }
 
