@@ -11,8 +11,9 @@ class APIStub {
             }, withStubResponse: { (request: NSURLRequest) -> OHHTTPStubsResponse in
                 switch request.URL!.path! {
                 case "/api/users/\(self.userId)": return self.stubJson("user", status: 200)
+                case "/api/users/\(self.illegalValue)": return self.stubJson("user_404", status: 404)
                 default: return self.stubJson("500", status: 500)
-                }
+            }
         })
     }
 

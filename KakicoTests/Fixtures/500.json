@@ -1,4 +1,8 @@
 {
-    status: "500",
-    error: "Sorry, but something was wrong."
+    "status": 500,
+    "messages": {
+        "notice": [
+            "Sorry, but something was wrong."
+        ]
+    }
 }
