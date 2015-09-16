@@ -1,4 +1,5 @@
 import XCTest
+import SwiftyJSON
 
 class APIClientTests: XCTestCase {
     let apiClient = APIClient()
@@ -24,8 +25,13 @@ class APIClientTests: XCTestCase {
         apiClient.getUser(apiStub.illegalValue,
             onSuccess: { (user) -> Void in
                 XCTFail()
-            }, onFailure: { (error) -> Void in
+            }, onFailure: { (error, messages) -> Void in
                 XCTAssertNotNil(error)
+                XCTAssertFalse(messages == nil)
+                if messages != nil {
+                    let message = messages!["notice"].array!.first?.stringValue as String!
+                    XCTAssertEqual(message, "User not found, maybe id 999999 is invalid.")
+                }
                 expectation.fulfill()
         })
 
