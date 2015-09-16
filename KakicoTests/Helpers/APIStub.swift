@@ -23,12 +23,11 @@ class APIStub {
         return false
     }
 
-    private func stubJson(fileName: String) -> OHHTTPStubsResponse {
-        var tmp = fileName
+    private func stubJson(var fileName: String) -> OHHTTPStubsResponse {
         if !fileName.hasSuffix(".json") {
-            tmp = fileName + ".json"
+            fileName = fileName + ".json"
         }
-        return OHHTTPStubsResponse(fileAtPath:OHPathForFile(tmp, self.dynamicType)!,
+        return OHHTTPStubsResponse(fileAtPath:OHPathForFile(fileName, self.dynamicType)!,
             statusCode:200, headers:["Content-Type":"application/json"])
     }
 }
