@@ -1,4 +1,4 @@
 {
     status: "500",
-    error: "Internal Server Error"
+    error: "Sorry, but something was wrong."
 }
