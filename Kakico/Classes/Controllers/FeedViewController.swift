@@ -25,11 +25,9 @@ class FeedViewController: MicropostViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        resetFeed()
+        SVProgressHUD.showWithMaskType(.Black)
         super.viewDidAppear(animated)
-        self.tableView.reloadData()
-        resetSeparatorStyle()
-        SVProgressHUD.dismiss()
+        resetFeed()
     }
 
     func resetFeed() {
