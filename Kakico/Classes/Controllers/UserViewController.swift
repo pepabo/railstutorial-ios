@@ -12,9 +12,6 @@ class UserViewController: UITableViewController {
     var _listType = ""
 
     // MARK: - View Events
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     override func viewWillAppear(animated: Bool) {
         resetSeparatorStyle()
