@@ -103,14 +103,15 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
                 }
             })
             resetSeparatorStyle()
+            SVProgressHUD.dismiss()
         }
     }
 
     func resetSeparatorStyle() -> Void {
         if self.microposts.size == 0 {
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            self.tableView.separatorStyle = .None
         } else {
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+            self.tableView.separatorStyle = .SingleLine
         }
     }
 
