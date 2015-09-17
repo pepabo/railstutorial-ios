@@ -58,6 +58,13 @@ class MenuViewController: UITableViewController {
             default:
                 println("undefined segue.identifier in ConfigViewController")
             }
+        }else if segue.identifier == "MyProfileView" {
+            var profileView: ProfileViewController = segue.destinationViewController as! ProfileViewController
+
+            let keychain = Keychain(service: "nehan.Kakico")
+            if let myId = keychain["userId"] {
+                profileView._selectUserId = myId.toInt()!
+            }
         }
     }
 }
