@@ -94,14 +94,14 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
                 let micropost = Micropost(data: subJson)
                 newMicroposts.append(micropost)
             }
+            self.microposts.add(newMicroposts)
 
             dispatch_async(dispatch_get_main_queue(), {
-                self.microposts.add(newMicroposts)
                 self.tableView.reloadData()
-                if let refreshControl = self.refreshControl {
-                    refreshControl.endRefreshing()
-                }
             })
+            if let refreshControl = self.refreshControl {
+                refreshControl.endRefreshing()
+            }
             resetSeparatorStyle()
             SVProgressHUD.dismiss()
         }
