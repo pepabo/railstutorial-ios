@@ -8,13 +8,13 @@ class FeedViewController: MicropostViewController {
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        request()
+        request(size: 30)
 
         // Add infinite scroll handler
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
-            if (self.microposts.nextPage != nil) {
-                self.request(page: self.microposts.nextPage!)
+            if (self.microposts.lowerId() != 1 && self.microposts.lowerId() != nil) {
+                self.request(upperId: self.microposts.lowerId())
             }
             tableView.finishInfiniteScroll()
         }
@@ -45,11 +45,20 @@ class FeedViewController: MicropostViewController {
             self.addData(data, refreshControl: self.refreshControl!)
         }
     }
-    
-    func request(page: Int = 1) {
-        let params = [
-            "page": String(page)
-        ]
+
+    func request(upperId: Int? = nil, lowerId: Int? = nil, size: Int? = nil) {
+        var params = Dictionary<String, AnyObject>()
+
+        if let upper = upperId {
+            params["upper"] = String(upper)
+        }
+        if let lower = lowerId {
+            params["lower"] = String(lower)
+        }
+        if let s = size {
+            params["size"] = String(s)
+        }
+
         Alamofire.request(Router.GetFeed(params: params)).responseJSON { (request, response, data, error) -> Void in
             self.setData(data)
             self.addInfiniteScroll()
@@ -59,8 +68,8 @@ class FeedViewController: MicropostViewController {
     func addInfiniteScroll() {
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
-            if (self.microposts.nextPage != nil) {
-                self.request(page: self.microposts.nextPage!)
+            if (self.microposts.lowerId() != 1 && self.microposts.lowerId() != nil) {
+                self.request(upperId: self.microposts.lowerId())
             }
             tableView.finishInfiniteScroll()
         }

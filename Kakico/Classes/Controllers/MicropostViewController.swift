@@ -11,15 +11,12 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetSeparatorStyle()
         SVProgressHUD.showWithMaskType(.Black)
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
-        resetSeparatorStyle()
-        SVProgressHUD.dismiss()
     }
 
     // MARK: - Table view data source
@@ -85,6 +82,8 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
+            resetSeparatorStyle()
+            SVProgressHUD.dismiss()
         }
     }
 
@@ -99,22 +98,24 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
                 let micropost = Micropost(data: subJson)
                 newMicroposts.append(micropost)
             }
+            self.microposts.add(newMicroposts)
 
             dispatch_async(dispatch_get_main_queue(), {
-                self.microposts.add(newMicroposts)
                 self.tableView.reloadData()
-                if let refreshControl = self.refreshControl {
-                    refreshControl.endRefreshing()
-                }
             })
+            if let refreshControl = self.refreshControl {
+                refreshControl.endRefreshing()
+            }
+            resetSeparatorStyle()
+            SVProgressHUD.dismiss()
         }
     }
 
     func resetSeparatorStyle() -> Void {
         if self.microposts.size == 0 {
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            self.tableView.separatorStyle = .None
         } else {
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+            self.tableView.separatorStyle = .SingleLine
         }
     }
 

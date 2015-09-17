@@ -8,7 +8,8 @@ struct Micropost {
         userId: Int,
         userIcon: NSURL,
         timeAgoInWords: String,
-        unixTimeCreatedAt: Int
+        unixTimeCreatedAt: Int,
+        id: Int
 
     init(data: JSON) {
         var picture_url = ""
@@ -23,6 +24,7 @@ struct Micropost {
         userIcon = NSURL(string: data["user"]["icon_url"].stringValue)!
         timeAgoInWords = data["time_ago_in_words"].stringValue
         unixTimeCreatedAt = data["unix_time_created_at"].intValue
+        id = data["id"].intValue
     }
 
     func havePicture() -> Bool {
@@ -63,5 +65,19 @@ class MicropostDataManager: NSObject {
             return micropost.unixTimeCreatedAt
         }
         return 0
+    }
+
+    func upperId() -> Int? {
+        if microposts.count == 0 {
+            return nil
+        }
+        return microposts.reduce(microposts[0].id, combine: { max($0, $1.id) })
+    }
+
+    func lowerId() -> Int? {
+        if microposts.count == 0 {
+            return nil
+        }
+        return microposts.reduce(microposts[0].id, combine: { min($0, $1.id) })
     }
 }
