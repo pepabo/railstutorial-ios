@@ -115,7 +115,6 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     }
 
     func deleteMicropost(indexPath: NSIndexPath) {
-        println(indexPath.row)
         let alertController = UIAlertController(title: "Are you sure you want to delete this micropost?", message: "", preferredStyle: .ActionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
             let micropostId = self.microposts[indexPath.row].id
@@ -124,7 +123,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
-            action in println("Delete picture canceled")
+            action in println("Delete micropost canceled")
         }
 
         alertController.addAction(deleteAction)
