@@ -3,7 +3,6 @@ import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 import KeychainAccess
-import UIScrollView_InfiniteScroll
 
 class UserViewController: UITableViewController {
     // MARK: - Properties
@@ -13,24 +12,13 @@ class UserViewController: UITableViewController {
     var _listType = ""
 
     // MARK: - View Events
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         resetSeparatorStyle()
         SVProgressHUD.showWithMaskType(.Black)
-        request(_listType, page: 1)
-
-        // Add infinite scroll handler
-        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
-            let tableView = scrollView as! UITableView
-            
-            if (self.users.nextPage != nil) {
-                self.request(self._listType, page: self.users.nextPage!)
-            }
-            
-            self.tableView.reloadData()
-            
-            tableView.finishInfiniteScroll()
-        }
+        users.drop()
+        request(_listType)
     }
 
     @IBAction func toggleFollow(sender: followButton) {
@@ -42,7 +30,7 @@ class UserViewController: UITableViewController {
         }
     }
 
-    func request(listType: String, page: Int) {
+    func request(listType: String) {
         self.navigationItem.title = listType
 
         let keychain = Keychain(service: "nehan.Kakico")
@@ -54,21 +42,17 @@ class UserViewController: UITableViewController {
             _selectedId = myId
         }
 
-        let params = [
-            "page": String(page)
-        ]
-
         switch listType {
         case "All":
-            Alamofire.request(Router.GetAllUsers(params: params)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetAllUsers()).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         case "Followers":
-            Alamofire.request(Router.GetFollowers(userId: _selectedId, params: params)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowers(userId: _selectedId)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         case "Following":
-            Alamofire.request(Router.GetFollowing(userId: _selectedId, params: params)).responseJSON { (request, response, data, error) -> Void in
+            Alamofire.request(Router.GetFollowing(userId: _selectedId)).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }
         default:

@@ -7,13 +7,13 @@ enum Router: URLRequestConvertible {
     case GetUser(userId: Int)
 
     case GetFeed(params: Dictionary<String, AnyObject>)
-    case GetAllUsers(params: Dictionary<String, AnyObject>)
+    case GetAllUsers()
 
     case GetLatestFeed(lastUpdate: Int)
     case GetLatestMicroposts(userId: Int, lastUpdate: Int)
 
-    case GetFollowers(userId: Int, params: Dictionary<String, AnyObject>)
-    case GetFollowing(userId: Int, params: Dictionary<String, AnyObject>)
+    case GetFollowers(userId: Int)
+    case GetFollowing(userId: Int)
     case GetMicroposts(userId: Int, params: Dictionary<String, AnyObject>)
 
     case PostUser(params: Dictionary<String, AnyObject>)
@@ -58,8 +58,8 @@ enum Router: URLRequestConvertible {
         case GetLatestFeed(let lastUpdate): return "/api/users/feed/latest/\(lastUpdate)"
         case GetLatestMicroposts(let userId, let lastUpdate): return "/api/users/\(userId)/microposts/latest/\(lastUpdate)"
                                  
-        case .GetFollowers(let userId, let params): return "/api/users/\(userId)/followers"
-        case .GetFollowing(let userId, let params): return "/api/users/\(userId)/following"
+        case .GetFollowers(let userId): return "/api/users/\(userId)/followers"
+        case .GetFollowing(let userId): return "/api/users/\(userId)/following"
         case .GetMicroposts(let userId, let params): return "/api/users/\(userId)/microposts"
 
         case .PostUser: return "/api/users"
@@ -94,12 +94,6 @@ enum Router: URLRequestConvertible {
         case .PostSession(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
         case .GetFeed(let parameters):
-            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
-        case .GetAllUsers(let parameters):
-            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
-        case .GetFollowers(let userId, let parameters):
-            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
-        case .GetFollowing(let userId, let parameters):
             return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
         case .GetMicroposts(let userId, let parameters):
             return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
