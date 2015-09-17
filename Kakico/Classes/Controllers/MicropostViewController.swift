@@ -11,14 +11,12 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetSeparatorStyle()
         SVProgressHUD.showWithMaskType(.Black)
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
-        resetSeparatorStyle()
         SVProgressHUD.dismiss()
     }
 
@@ -81,6 +79,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
+            resetSeparatorStyle()
         }
     }
 
@@ -103,6 +102,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
                     refreshControl.endRefreshing()
                 }
             })
+            resetSeparatorStyle()
         }
     }
 
