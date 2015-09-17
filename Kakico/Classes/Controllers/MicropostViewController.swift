@@ -17,7 +17,6 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
-        SVProgressHUD.dismiss()
     }
 
     // MARK: - Table view data source
@@ -80,6 +79,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
                 self.tableView.reloadData()
             })
             resetSeparatorStyle()
+            SVProgressHUD.dismiss()
         }
     }
 
