@@ -14,6 +14,8 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
     override func viewDidLoad() {
         super.viewDidLoad()
         contentField.delegate = self
+        contentField.textColor = UIColor.lightGrayColor()
+        contentField.text = "Compose new micropost..."
         checkValidMicropostContent()
     }
 
@@ -67,8 +69,22 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
         return true
     }
 
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "Compose new micropost..." {
+            textView.textColor = UIColor.blackColor()
+            textView.text = ""
+        }
+    }
+
     func textViewDidChange(textView: UITextView) {
         checkValidMicropostContent()
+    }
+
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text == "" {
+            textView.textColor = UIColor.lightGrayColor()
+            textView.text = "Compose new micropost..."
+        }
     }
 
     func checkValidMicropostContent() {
