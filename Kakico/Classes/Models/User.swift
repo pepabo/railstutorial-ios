@@ -42,4 +42,8 @@ class UserDataManager: NSObject {
     func set(user: User) {
         self.users.append(user)
     }
+
+    func drop() {
+        self.users.removeAll()
+    }
 }

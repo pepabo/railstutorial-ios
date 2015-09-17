@@ -19,7 +19,7 @@ class UserViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         resetSeparatorStyle()
         SVProgressHUD.showWithMaskType(.Black)
-        users.users = []
+        users.drop()
         request(_listType)
     }
 
