@@ -52,7 +52,7 @@ enum Router: URLRequestConvertible {
         switch self {
         case .GetUser(let userId): return "/api/users/\(userId)"
 
-        case .GetFeed(let page): return "/api/users/feed"
+        case .GetFeed: return "/api/users/feed"
         case .GetAllUsers: return "/api/users"
 
         case GetLatestFeed(let lastUpdate): return "/api/users/feed/latest/\(lastUpdate)"
