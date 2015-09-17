@@ -23,6 +23,8 @@ debug-test:
 		clean test
 
 deploy:
-	bundle exec ipa build -w Kakico.xcworkspace -s Kakico && \
+	git checkout development && \
+		git pull origin development && \
+		bundle exec ipa build -w Kakico.xcworkspace -s Kakico && \
 		bundle exec terminal-notifier -message 'Build Succeeded' && \
 		bundle exec dgate push Kakico.ipa
