@@ -118,7 +118,12 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
         let alertController = UIAlertController(title: "Are you sure you want to delete this micropost?", message: "", preferredStyle: .ActionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
             let micropostId = self.microposts[indexPath.row].id
-            Alamofire.request(Router.DeleteMicropost(micropostId: micropostId))
+            let apiClient = APIClient()
+            apiClient.deleteMicropost(micropostId, onSuccess: { () -> Void in
+                println("Deleted micropost")
+            }, onFailure: { (error, messages) -> Void in
+                println("We couldn't delete it, something was wrong")
+            })
             self.microposts.deleteMicropost(indexPath.row)
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         })
