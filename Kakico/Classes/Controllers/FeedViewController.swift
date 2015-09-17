@@ -18,11 +18,26 @@ class FeedViewController: MicropostViewController {
             }
             tableView.finishInfiniteScroll()
         }
-        super.viewDidLoad()
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        resetFeed()
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+        resetSeparatorStyle()
+        SVProgressHUD.dismiss()
+    }
+
+    func resetFeed() {
+        Alamofire.request(Router.GetFeed(params: ["page": "1"])).responseJSON { (request, response, data, error) -> Void in
+            self.resetData()
+            self.setData(data)
+            self.addInfiniteScroll()
+        }
     }
     
     func refreshFeed() -> Void {
