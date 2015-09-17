@@ -50,4 +50,9 @@ class FeedViewController: MicropostViewController {
             tableView.finishInfiniteScroll()
         }
     }
+    @IBAction func longPushed(sender: UILongPressGestureRecognizer) {
+        let tappedPoint = sender.locationInView(self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(tappedPoint)
+        self.deleteMicropost(indexPath!)
+    }
 }
