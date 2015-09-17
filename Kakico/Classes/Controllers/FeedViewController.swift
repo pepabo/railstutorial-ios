@@ -13,7 +13,7 @@ class FeedViewController: MicropostViewController {
         // Add infinite scroll handler
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
-            if (self.microposts.lowerId() != nil) {
+            if (self.microposts.lowerId() != 1 && self.microposts.lowerId() != nil) {
                 self.request(upperId: self.microposts.lowerId())
             }
             tableView.finishInfiniteScroll()
@@ -52,7 +52,7 @@ class FeedViewController: MicropostViewController {
     func addInfiniteScroll() {
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
-            if (self.microposts.nextPage != nil) {
+            if (self.microposts.lowerId() != 1 && self.microposts.lowerId() != nil) {
                 self.request(upperId: self.microposts.lowerId())
             }
             tableView.finishInfiniteScroll()
