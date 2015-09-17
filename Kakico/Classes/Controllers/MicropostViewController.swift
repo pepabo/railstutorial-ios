@@ -114,4 +114,23 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
         }
     }
 
+    func deleteMicropost(indexPath: NSIndexPath) {
+        println(indexPath.row)
+        let alertController = UIAlertController(title: "Are you sure you want to delete this micropost?", message: "", preferredStyle: .ActionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
+            let micropostId = self.microposts[indexPath.row].id
+            Alamofire.request(Router.DeleteMicropost(micropostId: micropostId))
+            self.microposts.deleteMicropost(indexPath.row)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            action in println("Delete picture canceled")
+        }
+
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+
 }
