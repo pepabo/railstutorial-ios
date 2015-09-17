@@ -18,7 +18,6 @@ class FeedViewController: MicropostViewController {
             }
             tableView.finishInfiniteScroll()
         }
-        super.viewDidLoad()
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
