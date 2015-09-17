@@ -2,7 +2,8 @@ import Alamofire
 import KeychainAccess
 
 enum Router: URLRequestConvertible {
-    static let baseURLString = "https://157.7.190.148"
+//    static let baseURLString = "https://157.7.190.148"
+    static let baseURLString = "http://localhost:3000"
 
     case GetUser(userId: Int)
 
@@ -52,7 +53,7 @@ enum Router: URLRequestConvertible {
         switch self {
         case .GetUser(let userId): return "/api/users/\(userId)"
 
-        case .GetFeed(let page): return "/api/users/feed"
+        case .GetFeed: return "/api/users/feed"
         case .GetAllUsers: return "/api/users"
 
         case GetLatestFeed(let lastUpdate): return "/api/users/feed/latest/\(lastUpdate)"
