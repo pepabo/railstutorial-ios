@@ -14,6 +14,7 @@ class UserViewController: UITableViewController {
     // MARK: - View Events
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         resetSeparatorStyle()
         SVProgressHUD.showWithMaskType(.Black)
         users.drop()
