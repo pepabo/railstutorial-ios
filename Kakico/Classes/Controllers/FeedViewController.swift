@@ -3,6 +3,7 @@ import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 import UIScrollView_InfiniteScroll
+import KeychainAccess
 
 class FeedViewController: MicropostViewController {
     // MARK: - View Events
@@ -53,6 +54,12 @@ class FeedViewController: MicropostViewController {
     @IBAction func longPushed(sender: UILongPressGestureRecognizer) {
         let tappedPoint = sender.locationInView(self.tableView)
         let indexPath = self.tableView.indexPathForRowAtPoint(tappedPoint)
-        self.deleteMicropost(indexPath!)
+
+        let keychain = Keychain(service: "nehan.Kakico")
+        let userId = keychain["userId"]
+
+        if self.microposts[indexPath!.row].userId == userId?.toInt() {
+            self.deleteMicropost(indexPath!)
+        }
     }
 }
