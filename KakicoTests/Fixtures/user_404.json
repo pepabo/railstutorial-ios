@@ -1,0 +1,8 @@
+{
+    "status": 404,
+    "messages": {
+        "notice": [
+            "User not found, maybe id 999999 is invalid."
+        ]
+    }
+}
