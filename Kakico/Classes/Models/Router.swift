@@ -26,7 +26,9 @@ enum Router: URLRequestConvertible {
 
     case PostPasswordResetEmail(params: Dictionary<String, String>)
     case UpdatePassword(params: Dictionary<String, String>)
-    
+
+    case DeleteMicropost(micropostId: Int)
+
     var method: Alamofire.Method {
         switch self {
         case .GetUser: return .GET
@@ -45,6 +47,7 @@ enum Router: URLRequestConvertible {
         case .DeleteRelationships: return .DELETE
         case .PostPasswordResetEmail: return .POST
         case .UpdatePassword: return .POST
+        case .DeleteMicropost: return .DELETE
         }
     }
     
@@ -71,6 +74,8 @@ enum Router: URLRequestConvertible {
 
         case .PostPasswordResetEmail: return "/api/password_resets/create"
         case .UpdatePassword: return "/api/password_resets/update"
+
+        case .DeleteMicropost(let micropostId): return "/api/microposts/\(micropostId)"
         }
     }
 
