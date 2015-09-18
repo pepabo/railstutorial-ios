@@ -25,7 +25,6 @@ class FeedViewController: MicropostViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        SVProgressHUD.showWithMaskType(.Black)
         super.viewDidAppear(animated)
         resetFeed()
     }
