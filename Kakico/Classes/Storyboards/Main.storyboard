@@ -1060,7 +1060,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="99L-UM-3HS" kind="show" identifier="ProfileEdit" id="5Ka-46-vEE"/>
+                                            <segue destination="99L-UM-3HS" kind="show" identifier="Settings" id="5Ka-46-vEE"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1931,7 +1931,7 @@
         <!--Settings-->
         <scene sceneID="D3c-Ya-Bfp">
             <objects>
-                <viewController storyboardIdentifier="ProfileEditView" id="99L-UM-3HS" customClass="ProfileEditViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsView" id="99L-UM-3HS" customClass="SettingsViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gvr-Xj-1Rr"/>
                         <viewControllerLayoutGuide type="bottom" id="YIK-2t-d97"/>
@@ -2019,7 +2019,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="submitProfileEditForm:" destination="99L-UM-3HS" eventType="touchUpInside" id="3k3-pT-zf6"/>
+                                            <action selector="submitSettingsForm:" destination="99L-UM-3HS" eventType="touchUpInside" id="Wxa-9t-Dpi"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eV-4C-Td6">

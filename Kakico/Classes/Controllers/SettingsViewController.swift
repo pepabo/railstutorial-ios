@@ -4,7 +4,7 @@ import SVProgressHUD
 import SwiftyJSON
 import KeychainAccess
 
-class ProfileEditViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
+class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
                                                   
     // MARK: - Properties
     
@@ -46,7 +46,7 @@ class ProfileEditViewController: UIViewController, UITextFieldDelegate, UIScroll
         }
     }
 
-    @IBAction func submitProfileEditForm(sender: UIButton) {
+    @IBAction func submitSettingsForm(sender: UIButton) {
         submit(nameTextField.text, email: emailTextField.text, password: passwordTextField.text, password_confirmation: confirmationTextField.text)
     }
 
