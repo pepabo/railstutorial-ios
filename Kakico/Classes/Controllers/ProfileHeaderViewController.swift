@@ -23,7 +23,7 @@ class ProfileHeaderViewController: UIViewController {
     @IBAction func toggleFollow(sender: followButton) {
         if sender.titleLabel?.text == "Follow" {
             follow(sender.tag)
-            sender.unfollowstyle()
+            sender.unfollowStyle()
         }else {
             showUnfollowingAlert(sender)
         }
@@ -57,7 +57,7 @@ class ProfileHeaderViewController: UIViewController {
         let alertController = UIAlertController(title: "Are you sure you want to unfollow?", message: "", preferredStyle: .ActionSheet)
         let unfollowAction = UIAlertAction(title: "Unfollow", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
             self.unfollow(button.tag)
-            button.followstyle()
+            button.followStyle()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
             action in println("Unfollow canceled")
@@ -84,11 +84,11 @@ class ProfileHeaderViewController: UIViewController {
             followUserButton.hidden = true
         }else if following_status {
             UIView.setAnimationsEnabled(false)
-            followUserButton.unfollowstyle()
+            followUserButton.unfollowStyle()
             UIView.setAnimationsEnabled(true)
         }else {
             UIView.setAnimationsEnabled(false)
-            followUserButton.followstyle()
+            followUserButton.followStyle()
             UIView.setAnimationsEnabled(true)
         }
     }

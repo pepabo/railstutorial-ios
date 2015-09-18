@@ -24,7 +24,7 @@ class UserViewController: UITableViewController {
     @IBAction func toggleFollow(sender: followButton) {
         if sender.isFollowing() {
             follow(sender.tag)
-            sender.unfollowstyle()
+            sender.unfollowStyle()
         }else {
             showUnfollowingAlert(sender)
         }
@@ -85,7 +85,7 @@ class UserViewController: UITableViewController {
         let alertController = UIAlertController(title: "Are you sure you want to unfollow?", message: "", preferredStyle: .ActionSheet)
         let unfollowAction = UIAlertAction(title: "Unfollow", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
             self.unfollow(button.tag)
-            button.followstyle()
+            button.followStyle()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
             action in println("Unfollow canceled")
@@ -112,11 +112,11 @@ class UserViewController: UITableViewController {
             button.hidden = true
         }else if user.followingFlag {
             UIView.setAnimationsEnabled(false)
-            button.unfollowstyle()
+            button.unfollowStyle()
             UIView.setAnimationsEnabled(true)
         }else {
             UIView.setAnimationsEnabled(false)
-            button.followstyle()
+            button.followStyle()
             UIView.setAnimationsEnabled(true)
         }
     }
