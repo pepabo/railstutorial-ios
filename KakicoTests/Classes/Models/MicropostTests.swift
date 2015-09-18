@@ -8,7 +8,8 @@ class MicropostTests: XCTestCase {
     override func setUp() {
         super.setUp()
         for i in 1...10 {
-            createRandomMicropost(randomInt: i)
+            let post = createRandomMicropost(randomInt: i)
+            managar.set(post)
         }
     }
 
@@ -47,7 +48,13 @@ class MicropostTests: XCTestCase {
         XCTAssertEqual(1, managar.lowerId()!)
     }
 
-    func createRandomMicropost(randomInt: Int = Int(arc4random())) {
+    func testTimeAgoInWords() {
+        let date = NSDate()
+        let micropost = createRandomMicropost(randomInt: Int(date.timeIntervalSince1970))
+        XCTAssertEqual("Just now", micropost.getTimeAgoInWords())
+    }
+
+    func createRandomMicropost(randomInt: Int = Int(arc4random())) -> Micropost {
         let contents: JSON = [
             "id": randomInt,
             "content": "Random content \(randomInt)",
@@ -63,7 +70,6 @@ class MicropostTests: XCTestCase {
             "unix_time_created_at": randomInt,
             "unix_time_updated_at": randomInt
         ]
-        let post = Micropost(data: contents)
-        managar.set(post)
+        return Micropost(data: contents)
     }
 }
