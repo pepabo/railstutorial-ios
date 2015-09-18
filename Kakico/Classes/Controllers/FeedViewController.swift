@@ -12,17 +12,27 @@ class FeedViewController: MicropostViewController {
         request(size: 30)
 
         // Add infinite scroll handler
-        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
-            let tableView = scrollView as! UITableView
-            if (self.microposts.lowerId() != 1 && self.microposts.lowerId() != nil) {
-                self.request(upperId: self.microposts.lowerId())
-            }
-            tableView.finishInfiniteScroll()
-        }
+        addInfiniteScroll()
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        resetFeed()
+    }
+
+    func resetFeed() {
+        let params = [
+            "size": self.microposts.size
+        ]
+
+        Alamofire.request(Router.GetFeed(params: params)).responseJSON { (request, response, data, error) -> Void in
+            self.resetData()
+            self.setData(data)
+        }
     }
     
     func refreshFeed() -> Void {
@@ -35,25 +45,24 @@ class FeedViewController: MicropostViewController {
         var params = Dictionary<String, AnyObject>()
 
         if let upper = upperId {
-            params["upper"] = String(upper)
+            params["upper"] = upper
         }
         if let lower = lowerId {
-            params["lower"] = String(lower)
+            params["lower"] = lower
         }
         if let s = size {
-            params["size"] = String(s)
+            params["size"] = s
         }
 
         Alamofire.request(Router.GetFeed(params: params)).responseJSON { (request, response, data, error) -> Void in
             self.setData(data)
-            self.addInfiniteScroll()
         }
     }
 
     func addInfiniteScroll() {
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
-            if (self.microposts.lowerId() != 1 && self.microposts.lowerId() != nil) {
+            if self.microposts.lowerId() != nil {
                 self.request(upperId: self.microposts.lowerId())
             }
             tableView.finishInfiniteScroll()

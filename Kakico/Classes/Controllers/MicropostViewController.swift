@@ -62,6 +62,10 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     }
 
     // MARK: -
+    func resetData() {
+        self.microposts.drop()
+    }
+
     func setData(data: AnyObject?) {
         println(data)
         if data != nil {
