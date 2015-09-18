@@ -21,11 +21,16 @@ class ProfileHeaderViewController: UIViewController {
     }
 
     @IBAction func toggleFollow(sender: followButton) {
-        if sender.titleLabel?.text == "Follow" {
-            follow(sender.tag)
-            sender.unfollowStyle()
-        }else {
-            showUnfollowingAlert(sender)
+        let state = sender.titleLabel?.text
+        switch state as String! {
+            case "Follow":
+                follow(sender.tag)
+                sender.unfollowStyle()
+            case "Unfollow":
+                showUnfollowingAlert(sender)
+            default:
+                showEditProfile()
+                break
         }
     }
 
@@ -76,12 +81,19 @@ class ProfileHeaderViewController: UIViewController {
         Alamofire.request(Router.DeleteRelationships(followedId: followedId))
     }
 
+    func showEditProfile() {
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileEditView") as! UIViewController
+        self.showViewController(viewController, sender: nil)
+    }
+
     func initFollowButton(following_status: Bool) {
         followUserButton.hidden = false
         followUserButton.tag = _selectUserId
 
         if _selectUserId == userId {
-            followUserButton.hidden = true
+            UIView.setAnimationsEnabled(false)
+            followUserButton.configStyle()
+            UIView.setAnimationsEnabled(true)
         }else if following_status {
             UIView.setAnimationsEnabled(false)
             followUserButton.unfollowStyle()

@@ -21,6 +21,13 @@ class followButton: UIButton {
         backgroundColor = UIColor.whiteColor()
         layoutIfNeeded()
     }
+
+    func configStyle() {
+        setTitle("Edit Profile", forState: .Normal)
+        setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        backgroundColor = UIColor.lightGrayColor()
+        layoutIfNeeded()
+    }
     
     func isFollowing() -> Bool {
         return titleLabel!.text == "Follow"
