@@ -10,6 +10,7 @@ pod 'KeychainAccess'
 pod 'UIScrollView-InfiniteScroll'
 pod 'OHHTTPStubs'
 pod 'DateTools'
+pod 'UITextView+Placeholder'
 
 target 'Kakico' do
 end
