@@ -43,6 +43,10 @@ class UserDataManager: NSObject {
         self.users.append(user)
     }
 
+    func set(users: [User]) {
+        self.users += users
+    }
+
     func drop() {
         self.users.removeAll()
     }
