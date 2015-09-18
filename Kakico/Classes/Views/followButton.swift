@@ -1,11 +1,3 @@
-//
-//  followButton.swift
-//  Kakico
-//
-//  Created by usr0600370 on 2015/09/15.
-//  Copyright (c) 2015年 usr0600370. All rights reserved.
-//
-
 import UIKit
 
 class followButton: UIButton {
