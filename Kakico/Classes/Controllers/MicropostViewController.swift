@@ -37,7 +37,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
         cell.contentLabel.text = micropost.content
         cell.viewWithTag(micropost.userId)
         cell.userIconImageView.sd_setImageWithURL(micropost.userIcon)
-        cell.timeAgoInWordsLabel.text = micropost.timeAgoInWords
+        cell.timeAgoInWordsLabel.text = micropost.getTimeAgoInWords()
 
         if micropost.havePicture() {
             cell.pictureImageView.hidden = false
