@@ -93,16 +93,6 @@ class ProfileHeaderViewController: UIViewController {
         }
     }
 
-    func followButtonStyle(button: UIButton) {
-        button.setTitle("Unfollow", forState: .Normal)
-        button.setTitleColor(UIColor.grayColor(), forState: .Normal)
-    }
-
-    func unfollowButtonStyle(button: UIButton) {
-        button.setTitle("Follow", forState: .Normal)
-        button.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
-    }
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if let userView = segue.destinationViewController as? UserViewController {
             let type = segue.identifier!
