@@ -46,7 +46,7 @@ class UserViewController: UITableViewController {
         }
 
         switch listType {
-        case "All":
+        case "All Users":
             Alamofire.request(Router.GetAllUsers()).responseJSON { (request, response, data, error) -> Void in
                 self.setUserList(data)
             }

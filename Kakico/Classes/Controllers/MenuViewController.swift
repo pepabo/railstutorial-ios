@@ -49,8 +49,8 @@ class MenuViewController: UITableViewController {
         if let userView = segue.destinationViewController as? UserViewController {
             let type = segue.identifier!
             switch type {
-            case "All":
-                userView._listType = "All"
+            case "All Users":
+                userView._listType = "All Users"
             case "Followers":
                 userView._listType = "Followers"
             case "Following":
