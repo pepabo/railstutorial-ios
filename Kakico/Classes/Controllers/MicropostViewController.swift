@@ -3,6 +3,7 @@ import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 import UIScrollView_InfiniteScroll
+import KeychainAccess
 
 class MicropostViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Properties
@@ -59,6 +60,20 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+
+    // MARK: - Actions
+
+    @IBAction func longPushed(sender: UILongPressGestureRecognizer) {
+        let tappedPoint = sender.locationInView(self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(tappedPoint)
+
+        let keychain = Keychain(service: "nehan.Kakico")
+        let userId = keychain["userId"]
+
+        if self.microposts[indexPath!.row].userId == userId?.toInt() {
+            self.deleteMicropost(indexPath!)
+        }
     }
 
     // MARK: -
