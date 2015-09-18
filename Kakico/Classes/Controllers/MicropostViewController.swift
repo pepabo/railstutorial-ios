@@ -125,7 +125,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
                 println("We couldn't delete it, something was wrong")
             })
             self.microposts.deleteMicropost(indexPath.row)
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
             action in println("Delete micropost canceled")
