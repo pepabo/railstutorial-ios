@@ -197,7 +197,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obp-Ke-p0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="1qJ-6S-mYF">
                     <connections>
-                        <action selector="longPushed:" destination="Lvb-ZI-qJv" id="dVq-z9-dMQ"/>
+                        <action selector="longPushed:" destination="Lvb-ZI-qJv" id="hx8-Cr-VoK"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
@@ -2367,6 +2367,7 @@
                         <connections>
                             <outlet property="dataSource" destination="Y87-VY-49y" id="qc7-Y1-W0o"/>
                             <outlet property="delegate" destination="Y87-VY-49y" id="ak5-Wv-ZY8"/>
+                            <outletCollection property="gestureRecognizers" destination="O9y-Of-M91" appends="YES" id="0ZZ-QS-bph"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="ft7-oW-6FE"/>
@@ -2375,6 +2376,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nV9-Mb-DI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="O9y-Of-M91">
+                    <connections>
+                        <action selector="longPushed:" destination="Y87-VY-49y" id="mJe-s3-jka"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="631.5" y="1019"/>
         </scene>
@@ -2385,8 +2391,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eph-rC-yrT"/>
-        <segue reference="t9R-Wy-UH5"/>
         <segue reference="6jz-1V-Yxg"/>
+        <segue reference="t9R-Wy-UH5"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
