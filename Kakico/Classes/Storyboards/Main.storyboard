@@ -1928,7 +1928,7 @@
             </objects>
             <point key="canvasLocation" x="-2076" y="264"/>
         </scene>
-        <!--Profile Edit-->
+        <!--Settings-->
         <scene sceneID="D3c-Ya-Bfp">
             <objects>
                 <viewController storyboardIdentifier="ProfileEditView" id="99L-UM-3HS" customClass="ProfileEditViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
@@ -2167,7 +2167,7 @@
                             <outletCollection property="gestureRecognizers" destination="y79-hb-PFM" appends="YES" id="Xqq-r6-T0s"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile Edit" id="tkU-m5-gch"/>
+                    <navigationItem key="navigationItem" title="Settings" id="tkU-m5-gch"/>
                     <connections>
                         <outlet property="confirmationTextField" destination="Y3d-rA-3xe" id="aab-Ae-m1t"/>
                         <outlet property="emailTextField" destination="Zo4-Pj-awo" id="aPI-xc-uhM"/>
