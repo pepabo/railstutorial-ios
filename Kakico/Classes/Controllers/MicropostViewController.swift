@@ -63,7 +63,6 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     }
 
     // MARK: - Actions
-
     @IBAction func longPushed(sender: UILongPressGestureRecognizer) {
         let tappedPoint = sender.locationInView(self.tableView)
         let indexPath = self.tableView.indexPathForRowAtPoint(tappedPoint)
