@@ -1,5 +1,6 @@
 import UIKit
 import SwiftyJSON
+import DateTools
 
 struct Micropost {
     let userName: String,
@@ -30,6 +31,12 @@ struct Micropost {
     func havePicture() -> Bool {
         return picture != nil
     }
+
+    func getTimeAgoInWords() -> String {
+        let interval: NSTimeInterval = NSTimeInterval(unixTimeCreatedAt)
+        let date: NSDate = NSDate(timeIntervalSince1970: interval)
+        return date.timeAgoSinceNow()
+    }
 }
 
 class MicropostDataManager: NSObject {
@@ -39,15 +46,15 @@ class MicropostDataManager: NSObject {
     override init() {
         self.microposts = []
     }
-    
+
     var size : Int {
         return self.microposts.count
     }
-    
+
     subscript(index: Int) -> Micropost {
         return self.microposts[index]
     }
-    
+
     func set(micropost: Micropost) {
         self.microposts.append(micropost)
     }
