@@ -11,13 +11,7 @@ class FeedViewController: MicropostViewController {
         request(size: 30)
 
         // Add infinite scroll handler
-        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
-            let tableView = scrollView as! UITableView
-            if self.microposts.lowerId() != nil {
-                self.request(upperId: self.microposts.lowerId())
-            }
-            tableView.finishInfiniteScroll()
-        }
+        addInfiniteScroll()
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
@@ -37,7 +31,6 @@ class FeedViewController: MicropostViewController {
         Alamofire.request(Router.GetFeed(params: params)).responseJSON { (request, response, data, error) -> Void in
             self.resetData()
             self.setData(data)
-            self.addInfiniteScroll()
         }
     }
     
@@ -62,7 +55,6 @@ class FeedViewController: MicropostViewController {
 
         Alamofire.request(Router.GetFeed(params: params)).responseJSON { (request, response, data, error) -> Void in
             self.setData(data)
-            self.addInfiniteScroll()
         }
     }
 
