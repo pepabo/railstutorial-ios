@@ -9,6 +9,7 @@ pod 'SDWebImage'
 pod 'KeychainAccess'
 pod 'UIScrollView-InfiniteScroll'
 pod 'OHHTTPStubs'
+pod 'DateTools'
 
 target 'Kakico' do
 end
