@@ -31,9 +31,8 @@ class FeedViewController: MicropostViewController {
     }
 
     func resetFeed() {
-        let feedSize = self.microposts.size
         let params = [
-            "size": String(feedSize)
+            "size": self.microposts.size
         ]
 
         Alamofire.request(Router.GetFeed(params: params)).responseJSON { (request, response, data, error) -> Void in
@@ -53,13 +52,13 @@ class FeedViewController: MicropostViewController {
         var params = Dictionary<String, AnyObject>()
 
         if let upper = upperId {
-            params["upper"] = String(upper)
+            params["upper"] = upper
         }
         if let lower = lowerId {
-            params["lower"] = String(lower)
+            params["lower"] = lower
         }
         if let s = size {
-            params["size"] = String(s)
+            params["size"] = s
         }
 
         Alamofire.request(Router.GetFeed(params: params)).responseJSON { (request, response, data, error) -> Void in
