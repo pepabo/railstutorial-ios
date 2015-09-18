@@ -1374,11 +1374,24 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-CT-QJI" customClass="followButton" customModule="Kakico" customModuleProvider="target">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ium-c3-xLT"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Follow">
                                                     <color key="titleColor" red="0.074509803921568626" green="0.47450980392156861" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="ium-c3-xLT"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="ium-c3-xLT"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <action selector="toggleFollow:" destination="4rZ-fU-Zsn" eventType="touchUpInside" id="gVr-pQ-440"/>
                                                 </connections>
@@ -1542,7 +1555,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="micropost1" translatesAutoresizingMaskIntoConstraints="NO" id="L3e-Wl-OWc">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L3e-Wl-OWc">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="fPq-w8-eQA"/>
@@ -2358,7 +2371,6 @@
     <resources>
         <image name="Splash" width="640" height="960"/>
         <image name="hamburger" width="22" height="22"/>
-        <image name="micropost1" width="400" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VpE-PQ-hPy"/>
