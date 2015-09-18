@@ -1217,7 +1217,7 @@
                             <outlet property="delegate" destination="NIT-Rz-oJj" id="hO2-Q2-LsH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All" id="frG-5Q-GKv" userLabel="User List"/>
+                    <navigationItem key="navigationItem" id="frG-5Q-GKv" userLabel="User List"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IkW-Lb-U8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2195,11 +2195,11 @@
             <objects>
                 <tableViewController id="Y87-VY-49y" customClass="ProfileViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rig-xa-LSt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="230"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="waq-l5-QbF">
-                            <rect key="frame" x="0.0" y="64" width="600" height="230"/>
+                            <rect key="frame" x="0.0" y="0.0" width="400" height="230"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <connections>
                                 <segue destination="4rZ-fU-Zsn" kind="embed" identifier="ProfileHeaderView" id="BQD-C8-vJZ"/>
