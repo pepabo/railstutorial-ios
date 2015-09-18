@@ -23,7 +23,7 @@ class followButton: UIButton {
     }
 
     func configStyle() {
-        setTitle("Edit Profile", forState: .Normal)
+        setTitle("Settings", forState: .Normal)
         setTitleColor(UIColor.whiteColor(), forState: .Normal)
         backgroundColor = UIColor.lightGrayColor()
         layoutIfNeeded()

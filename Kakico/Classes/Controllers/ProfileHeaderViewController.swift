@@ -82,7 +82,7 @@ class ProfileHeaderViewController: UIViewController {
     }
 
     func showEditProfile() {
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileEditView") as! UIViewController
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsView") as! UIViewController
         self.showViewController(viewController, sender: nil)
     }
 
