@@ -1,11 +1,3 @@
-//
-//  followButton.swift
-//  Kakico
-//
-//  Created by usr0600370 on 2015/09/15.
-//  Copyright (c) 2015年 usr0600370. All rights reserved.
-//
-
 import UIKit
 
 class followButton: UIButton {
@@ -16,17 +8,24 @@ class followButton: UIButton {
         layer.cornerRadius = 5
     }
     
-    func followstyle() {
+    func followStyle() {
         setTitle("Follow", forState: .Normal)
         setTitleColor(UIColor.whiteColor(), forState: .Normal)
         backgroundColor = twitterBlue
         layoutIfNeeded()
     }
     
-    func unfollowstyle() {
+    func unfollowStyle() {
         setTitle("Unfollow", forState: .Normal)
         setTitleColor(twitterBlue, forState: .Normal)
         backgroundColor = UIColor.whiteColor()
+        layoutIfNeeded()
+    }
+
+    func configStyle() {
+        setTitle("Edit Profile", forState: .Normal)
+        setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        backgroundColor = UIColor.lightGrayColor()
         layoutIfNeeded()
     }
     

@@ -21,11 +21,16 @@ class ProfileHeaderViewController: UIViewController {
     }
 
     @IBAction func toggleFollow(sender: followButton) {
-        if sender.titleLabel?.text == "Follow" {
-            follow(sender.tag)
-            sender.unfollowstyle()
-        }else {
-            showUnfollowingAlert(sender)
+        let state = sender.titleLabel?.text
+        switch state as String! {
+            case "Follow":
+                follow(sender.tag)
+                sender.unfollowStyle()
+            case "Unfollow":
+                showUnfollowingAlert(sender)
+            default:
+                showEditProfile()
+                break
         }
     }
 
@@ -57,7 +62,7 @@ class ProfileHeaderViewController: UIViewController {
         let alertController = UIAlertController(title: "Are you sure you want to unfollow?", message: "", preferredStyle: .ActionSheet)
         let unfollowAction = UIAlertAction(title: "Unfollow", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
             self.unfollow(button.tag)
-            button.followstyle()
+            button.followStyle()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
             action in println("Unfollow canceled")
@@ -76,31 +81,28 @@ class ProfileHeaderViewController: UIViewController {
         Alamofire.request(Router.DeleteRelationships(followedId: followedId))
     }
 
+    func showEditProfile() {
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileEditView") as! UIViewController
+        self.showViewController(viewController, sender: nil)
+    }
+
     func initFollowButton(following_status: Bool) {
         followUserButton.hidden = false
         followUserButton.tag = _selectUserId
 
         if _selectUserId == userId {
-            followUserButton.hidden = true
+            UIView.setAnimationsEnabled(false)
+            followUserButton.configStyle()
+            UIView.setAnimationsEnabled(true)
         }else if following_status {
             UIView.setAnimationsEnabled(false)
-            followUserButton.unfollowstyle()
+            followUserButton.unfollowStyle()
             UIView.setAnimationsEnabled(true)
         }else {
             UIView.setAnimationsEnabled(false)
-            followUserButton.followstyle()
+            followUserButton.followStyle()
             UIView.setAnimationsEnabled(true)
         }
-    }
-
-    func followButtonStyle(button: UIButton) {
-        button.setTitle("Unfollow", forState: .Normal)
-        button.setTitleColor(UIColor.grayColor(), forState: .Normal)
-    }
-
-    func unfollowButtonStyle(button: UIButton) {
-        button.setTitle("Follow", forState: .Normal)
-        button.setTitleColor(UIColor.DefaultColor(), forState: .Normal)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
