@@ -81,14 +81,11 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
     }
 
     private func setPlaceHolder(textView: UITextView) {
-        let placeHolder = "Compose new micropost..."
-        if textView.text == "" {
-            textView.textColor = UIColor.lightGrayColor()
-            textView.text = placeHolder
-        } else if textView.text == placeHolder && textView.textColor == UIColor.lightGrayColor() {
-            textView.textColor = UIColor.blackColor()
-            textView.text = ""
-        }
+        if textView.hasText() {
+            textView.placeholder = ""
+        } else {
+            textView.placeholder = "Compose new micropost..."
+        }                           
     }
 
     func checkValidMicropostContent() {
