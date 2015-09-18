@@ -60,6 +60,11 @@ class MicropostDataManager: NSObject {
         self.microposts = microposts + self.microposts
     }
 
+    func deleteMicropost(index: Int) {
+        self.microposts.removeAtIndex(index)
+
+    }
+
     func lastUpdate() -> Int {
         if let micropost = microposts.first {
             return micropost.unixTimeCreatedAt

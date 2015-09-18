@@ -162,6 +162,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="contentLabel" destination="mGM-8S-zvL" id="LDy-FE-0wU"/>
                                     <outlet property="pictureImageView" destination="yzR-f9-U4L" id="u4N-13-KwS"/>
@@ -175,6 +176,7 @@
                         <connections>
                             <outlet property="dataSource" destination="Lvb-ZI-qJv" id="4Tu-o5-OFd"/>
                             <outlet property="delegate" destination="Lvb-ZI-qJv" id="CZr-qG-oMR"/>
+                            <outletCollection property="gestureRecognizers" destination="1qJ-6S-mYF" appends="YES" id="L7h-qg-Uhn"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Feed" id="Jbw-O7-ucR">
@@ -191,6 +193,11 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obp-Ke-p0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="1qJ-6S-mYF">
+                    <connections>
+                        <action selector="longPushed:" destination="Lvb-ZI-qJv" id="dVq-z9-dMQ"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-216" y="-484"/>
         </scene>

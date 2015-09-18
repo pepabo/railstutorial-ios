@@ -3,6 +3,8 @@ import OHHTTPStubs
 class APIStub {
     let userId = 1
     let illegalValue = 999999
+    let micropostId = 1
+    let illegalMicropostId = 999999
 
     init() {
         OHHTTPStubs.stubRequestsPassingTest(
@@ -12,6 +14,8 @@ class APIStub {
                 switch request.URL!.path! {
                 case "/api/users/\(self.userId)": return self.stubJson("user", status: 200)
                 case "/api/users/\(self.illegalValue)": return self.stubJson("user_404", status: 404)
+                case "/api/microposts/\(self.micropostId)": return self.stubJson("delete_micropost", status: 200)
+                case "/api/microposts/\(self.illegalMicropostId)": return self.stubJson("delete_micropost_404", status: 404)
                 default: return self.stubJson("500", status: 500)
             }
         })
@@ -29,6 +33,7 @@ class APIStub {
     }
 
     private func stubJson(var fileName: String, status: Int32) -> OHHTTPStubsResponse {
+        println(fileName)
         if !fileName.hasSuffix(".json") {
             fileName = fileName + ".json"
         }

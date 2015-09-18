@@ -21,4 +21,23 @@ class APIClient: NSObject {
                 }
             }
         }
+    func deleteMicropost(
+        micropostId: Int,
+        onSuccess: () -> Void,
+        onFailure: (error: NSHTTPURLResponse, messages:JSON? ) -> Void
+        ) {
+            Alamofire.request(Router.DeleteMicropost(micropostId: micropostId)).responseJSON { (request, response, data, error) -> Void in
+                if data == nil {
+                    onFailure(error: response!, messages: nil)
+                } else {
+                    let json = JSON(data!)
+                    switch json["status"] {
+                    case 200:
+                        onSuccess()
+                    default:
+                        onFailure(error: response!, messages: json["messages"])
+                    }
+                }
+            }
+        }
 }
