@@ -6,5 +6,7 @@
 #import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <DateTools/DateTools.h>
+#import <DateTools/DateTools.h>
+#import <UITextView_Placeholder/UITextView+Placeholder.h>
 
 #endif
