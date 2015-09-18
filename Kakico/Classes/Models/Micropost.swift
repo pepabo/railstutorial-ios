@@ -62,6 +62,7 @@ class MicropostDataManager: NSObject {
 
     func deleteMicropost(index: Int) {
         self.microposts.removeAtIndex(index)
+    }
 
     func drop() {
         self.microposts.removeAll()
