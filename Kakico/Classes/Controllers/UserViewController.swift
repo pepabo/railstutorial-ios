@@ -19,6 +19,9 @@ class UserViewController: UITableViewController {
         SVProgressHUD.showWithMaskType(.Black)
         users.drop()
         request(_listType)
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: "refreshUsers", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl!)
     }
 
     @IBAction func toggleFollow(sender: followButton) {
@@ -62,19 +65,23 @@ class UserViewController: UITableViewController {
     
     func setUserList(data: AnyObject?) {
         println(data)
+        var newUsers: [User] = []
         if data != nil {
             let json = JSON(data!)
             println(json)
 
             for (index: String, subJson: JSON) in json["contents"] {
                 var user = User(data: subJson)
-                self.users.set(user)
+                newUsers.append(user)
             }
 
             self.users.nextPage = json["next_page"].intValue
 
             dispatch_async(dispatch_get_main_queue(), {
+                self.users.drop()
+                self.users.set(newUsers)
                 self.tableView!.reloadData()
+                self.refreshControl!.endRefreshing()
             })
             self.resetSeparatorStyle()
             SVProgressHUD.dismiss()
@@ -166,5 +173,11 @@ class UserViewController: UITableViewController {
             let user = self.users[indexPath.row] as User
             profileView._selectUserId = user.id
         }
+    }
+
+    // MARK: - helpers
+
+    func refreshUsers () {
+        request(_listType)
     }
 }
