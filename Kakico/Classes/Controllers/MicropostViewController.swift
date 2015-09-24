@@ -55,7 +55,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
         if micropost.havePicture() {
             cell.pictureImageView.hidden = false
             cell.pictureImageViewHeightConstraint.constant = 150
-            cell.pictureImageView.sd_setImageWithURL(micropost.picture)
+            cell.pictureImageView.sd_setImageWithURL(micropost.picture!)
         } else {
             cell.pictureImageView.hidden = true
             cell.pictureImageViewHeightConstraint.constant = 0
