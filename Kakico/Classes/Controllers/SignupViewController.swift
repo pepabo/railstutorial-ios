@@ -10,7 +10,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmationTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     private var activeTextField = UITextField()
     private var keyboardLimit: CGFloat?
@@ -39,7 +38,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
     }
 
     @IBAction func SubmitSignUpForm(sender: UIButton) {
-        create(nameTextField.text, email: emailTextField.text, password: passwordTextField.text, password_confirmation: confirmationTextField.text)
+        create(nameTextField.text, email: emailTextField.text, password: passwordTextField.text)
     }
 
     @IBAction func editingTextField(sender: AnyObject) {
@@ -58,7 +57,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField.tag == 4 {
+        if textField.tag == textFields.count {
             textField.resignFirstResponder()
         } else {
             textField.resignFirstResponder()
@@ -113,12 +112,12 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
     }
 
     // MARK: -
-    func create(name: String, email: String, password: String, password_confirmation: String) {
+    func create(name: String, email: String, password: String) {
         let params = [
             "name": name,
             "email": email,
             "password": password,
-            "password_confirmation": password_confirmation
+            "password_confirmation": password
         ]
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
         Alamofire.request(Router.PostUser(params: params)).responseJSON { (request, response, data, error) -> Void in
