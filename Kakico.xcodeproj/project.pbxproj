@@ -43,8 +43,6 @@
 		AB785DE21B848715002DA142 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB785DE11B848715002DA142 /* LaunchScreen.xib */; };
 		AB980B101B93FC2300ED6ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB980B0F1B93FC2300ED6ACB /* Main.storyboard */; };
 		ABB01A101BA7C81E004B2486 /* followButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB01A0F1BA7C81E004B2486 /* followButton.swift */; };
-		ABD4E04E1BAAB13F0062290A /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C220A1B9835EE00C006E4 /* MicropostViewController.swift */; };
-		ABD4E04F1BAAB14A0062290A /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89878BB11B844E8C004CCD77 /* FeedViewController.swift */; };
 		ABD4E0501BAAB2740062290A /* MicropostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF1C7301B84557D00032F37 /* MicropostCell.swift */; };
 		ABD4E0521BAAB3050062290A /* delete_micropost.json in Resources */ = {isa = PBXBuildFile; fileRef = ABD4E0511BAAB3050062290A /* delete_micropost.json */; };
 		ABD4E0561BAABCD60062290A /* delete_micropost_404.json in Resources */ = {isa = PBXBuildFile; fileRef = ABD4E0551BAABCD60062290A /* delete_micropost_404.json */; };
@@ -562,10 +560,8 @@
 				6B653F3C1BA67339008BAC59 /* UserTests.swift in Sources */,
 				6BCAE9731BA6ABB300A5C447 /* Router.swift in Sources */,
 				6B8C45191BA67068006195BF /* APIClientTests.swift in Sources */,
-				ABD4E04F1BAAB14A0062290A /* FeedViewController.swift in Sources */,
 				6B82560A1B8AE755005E2397 /* User.swift in Sources */,
 				6B653F3D1BA69174008BAC59 /* APIClient.swift in Sources */,
-				ABD4E04E1BAAB13F0062290A /* MicropostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
