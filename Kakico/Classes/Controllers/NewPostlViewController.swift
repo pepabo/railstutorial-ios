@@ -69,6 +69,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        println(info[UIImagePickerControllerOriginalImage])
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         pictureImageView.image = selectedImage
         dismissViewControllerAnimated(true, completion: nil)
@@ -84,7 +85,8 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
                 multipartFormData.appendBodyPart(data: content.dataUsingEncoding(NSUTF8StringEncoding)!, name: "content")
 
                 if picture != nil {
-                    let data = NSData(data: UIImagePNGRepresentation(picture))
+                    let rotatedPicture = self.rotateImageAlongOrientation(picture!)
+                    let data = NSData(data: UIImagePNGRepresentation(rotatedPicture))
                     let filePath = NSTemporaryDirectory() + "/picture_temp.png"
                     data.writeToFile(filePath, atomically: true)
                     multipartFormData.appendBodyPart(fileURL: NSURL(fileURLWithPath: filePath)!, name: "picture", fileName: "picture.png", mimeType: "image/png")
@@ -138,5 +140,20 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
         alertController.addAction(cancelAction)
 
         presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    func rotateImageAlongOrientation(image: UIImage) -> UIImage {
+        var rotatedImage: UIImage
+        switch image.imageOrientation {
+        case .Right :
+            rotatedImage = image.imageRotatedByDegrees(90.0, flip: false)
+        case .Down :
+            rotatedImage = image.imageRotatedByDegrees(180.0, flip: false)
+        case .Left :
+            rotatedImage = image.imageRotatedByDegrees(270.0, flip: false)
+        default:
+            rotatedImage = image
+        }
+        return rotatedImage
     }
 }

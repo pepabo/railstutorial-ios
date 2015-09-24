@@ -39,6 +39,7 @@
 		89DAD6191B96C74300BB43A6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DAD6181B96C74300BB43A6 /* MenuViewController.swift */; };
 		AB55C03A1B8304830077C16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C0391B8304830077C16C /* AppDelegate.swift */; };
 		AB55C0411B8304830077C16C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB55C0401B8304830077C16C /* Images.xcassets */; };
+		AB69D0CB1BB3D6CE00037EC7 /* UIImage+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB69D0CA1BB3D6CE00037EC7 /* UIImage+Rotation.swift */; };
 		AB785DDE1B846EED002DA142 /* NewPostlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */; };
 		AB785DE21B848715002DA142 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB785DE11B848715002DA142 /* LaunchScreen.xib */; };
 		AB980B101B93FC2300ED6ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB980B0F1B93FC2300ED6ACB /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		AB55C0401B8304830077C16C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AB55C0491B8304830077C16C /* KakicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KakicoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C04E1B8304830077C16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB69D0CA1BB3D6CE00037EC7 /* UIImage+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Rotation.swift"; path = "Views/UIImage+Rotation.swift"; sourceTree = "<group>"; };
 		AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPostlViewController.swift; path = Controllers/NewPostlViewController.swift; sourceTree = "<group>"; };
 		AB785DE11B848715002DA142 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Xibs/LaunchScreen.xib; sourceTree = "<group>"; };
 		AB980B0F1B93FC2300ED6ACB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				6BD417081B8C0D500027BC14 /* Cells */,
 				ABB01A0F1BA7C81E004B2486 /* followButton.swift */,
+				AB69D0CA1BB3D6CE00037EC7 /* UIImage+Rotation.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -539,6 +542,8 @@
 				6B449CCC1BA26D1E00D25549 /* LoadViewController.swift in Sources */,
 				6B8255FD1B8AC8BA005E2397 /* UserTableViewCell.swift in Sources */,
 				ABD628071B9FD597001762E4 /* SettingsViewController.swift in Sources */,
+				ABD628071B9FD597001762E4 /* ProfileEditViewController.swift in Sources */,
+				AB69D0CB1BB3D6CE00037EC7 /* UIImage+Rotation.swift in Sources */,
 				6BF845CB1B956BE700BDFA11 /* ForgotPasswordViewController.swift in Sources */,
 				6B8256091B8AE755005E2397 /* User.swift in Sources */,
 				6BB1A5391B9595A200813021 /* ResetPasswordViewController.swift in Sources */,
