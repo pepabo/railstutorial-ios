@@ -1715,15 +1715,6 @@
                                     <outlet property="delegate" destination="VTR-mg-paA" id="T0q-sg-jOF"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmation" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="y5Y-a1-WCO">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
-                                <connections>
-                                    <action selector="editingTextField:" destination="VTR-mg-paA" eventType="editingChanged" id="tlD-rz-qEL"/>
-                                    <outlet property="delegate" destination="VTR-mg-paA" id="Vki-c2-t6C"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOj-Cf-h6b">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Update password">
@@ -1737,44 +1728,33 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="hOj-Cf-h6b" firstAttribute="top" secondItem="y5Y-a1-WCO" secondAttribute="bottom" constant="50" id="1Pr-SM-4jr"/>
-                            <constraint firstAttribute="centerX" secondItem="y5Y-a1-WCO" secondAttribute="centerX" id="2T7-Fs-O0W"/>
                             <constraint firstAttribute="centerX" secondItem="hOj-Cf-h6b" secondAttribute="centerX" id="6kA-Xn-Nzp"/>
+                            <constraint firstItem="hOj-Cf-h6b" firstAttribute="top" secondItem="Dud-9d-LQj" secondAttribute="bottom" constant="50" id="CAS-1S-0Iu"/>
                             <constraint firstItem="Dud-9d-LQj" firstAttribute="top" secondItem="DZr-bX-6xK" secondAttribute="bottom" constant="100" id="I5K-Aa-1bm"/>
                             <constraint firstAttribute="centerX" secondItem="Dud-9d-LQj" secondAttribute="centerX" id="gmc-L4-QK0"/>
-                            <constraint firstItem="y5Y-a1-WCO" firstAttribute="top" secondItem="Dud-9d-LQj" secondAttribute="bottom" constant="30" id="hx3-xd-H93"/>
-                            <constraint firstItem="Dud-9d-LQj" firstAttribute="width" secondItem="y5Y-a1-WCO" secondAttribute="width" id="iAX-I7-QEc"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Dud-9d-LQj"/>
-                                <exclude reference="y5Y-a1-WCO"/>
                                 <exclude reference="hOj-Cf-h6b"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="I5K-Aa-1bm"/>
                                 <exclude reference="gmc-L4-QK0"/>
-                                <exclude reference="iAX-I7-QEc"/>
-                                <exclude reference="2T7-Fs-O0W"/>
-                                <exclude reference="hx3-xd-H93"/>
-                                <exclude reference="1Pr-SM-4jr"/>
                                 <exclude reference="6kA-Xn-Nzp"/>
+                                <exclude reference="CAS-1S-0Iu"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Dud-9d-LQj"/>
-                                <include reference="y5Y-a1-WCO"/>
                                 <include reference="hOj-Cf-h6b"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="I5K-Aa-1bm"/>
                                 <include reference="gmc-L4-QK0"/>
-                                <include reference="iAX-I7-QEc"/>
-                                <include reference="2T7-Fs-O0W"/>
-                                <include reference="hx3-xd-H93"/>
-                                <include reference="1Pr-SM-4jr"/>
                                 <include reference="6kA-Xn-Nzp"/>
+                                <include reference="CAS-1S-0Iu"/>
                             </mask>
                         </variation>
                         <connections>
@@ -1783,11 +1763,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reset password" id="nHa-EP-apq"/>
                     <connections>
-                        <outlet property="confirmationField" destination="y5Y-a1-WCO" id="0Ni-oE-L8M"/>
                         <outlet property="passwordField" destination="Dud-9d-LQj" id="QP4-9n-gw4"/>
                         <outlet property="updateButton" destination="hOj-Cf-h6b" id="IWw-8h-suu"/>
                         <outletCollection property="textFields" destination="Dud-9d-LQj" collectionClass="NSMutableArray" id="OFS-Vj-kHc"/>
-                        <outletCollection property="textFields" destination="y5Y-a1-WCO" collectionClass="NSMutableArray" id="qrl-5R-4cJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v7L-kc-j3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2362,7 +2340,7 @@
         <image name="hamburger" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QdC-QQ-cHK"/>
+        <segue reference="eph-rC-yrT"/>
         <segue reference="t9R-Wy-UH5"/>
         <segue reference="6jz-1V-Yxg"/>
     </inferredMetricsTieBreakers>
