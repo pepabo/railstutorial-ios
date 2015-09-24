@@ -3,13 +3,13 @@ import XCTest
 import SwiftyJSON
 
 class MicropostTests: XCTestCase {
-    var managar = MicropostDataManager()
+    var manager = MicropostDataManager()
 
     override func setUp() {
         super.setUp()
         for i in 1...10 {
             let post = createRandomMicropost(randomInt: i)
-            managar.set(post)
+            manager.set(post)
         }
     }
 
@@ -41,11 +41,11 @@ class MicropostTests: XCTestCase {
     }
 
     func testGetUpperId() {
-        XCTAssertEqual(10, managar.upperId()!)
+        XCTAssertEqual(10, manager.upperId()!)
     }
 
     func testGetLowerId() {
-        XCTAssertEqual(1, managar.lowerId()!)
+        XCTAssertEqual(1, manager.lowerId()!)
     }
 
     func testTimeAgoInWords() {
