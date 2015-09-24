@@ -32,4 +32,14 @@ class followButton: UIButton {
     func isFollowing() -> Bool {
         return titleLabel!.text == "Follow"
     }
+
+    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+        var rect: CGRect = self.bounds
+        rect.origin.x -= 10
+        rect.origin.y -= 10
+        rect.size.width += 20
+        rect.size.height += 20
+
+        return CGRectContainsPoint(rect, point)
+    }
 }
