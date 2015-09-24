@@ -12,7 +12,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmationTextField: UITextField!
     @IBOutlet var textFields: [UITextField]!
     private var activeTextField = UITextField()
     private var keyboardLimit: CGFloat?
@@ -47,7 +46,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     }
 
     @IBAction func submitSettingsForm(sender: UIButton) {
-        submit(nameTextField.text, email: emailTextField.text, password: passwordTextField.text, password_confirmation: confirmationTextField.text)
+        submit(nameTextField.text, email: emailTextField.text, password: passwordTextField.text)
     }
 
     @IBAction func editingTextField(sender: AnyObject) {
@@ -71,12 +70,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         }
     }
     
-    func submit(name: String, email: String, password: String, password_confirmation: String) {
+    func submit(name: String, email: String, password: String) {
         let params = [
             "name": name,
             "email": email,
             "password": password,
-            "password_confirmation": password_confirmation
+            "password_confirmation": password
         ]
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
         Alamofire.request(Router.PostProfile(params: params)).responseJSON { (request, response, data, error) -> Void in
@@ -104,7 +103,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField.tag == 4 {
+        if textField.tag == textFields.count {
             textField.resignFirstResponder()
         } else {
             textField.resignFirstResponder()
