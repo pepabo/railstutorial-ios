@@ -8,7 +8,6 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var confirmationField: UITextField!
     @IBOutlet weak var updateButton: UIButton!
 
     // MARK: - View Events
@@ -18,7 +17,7 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Actions
     @IBAction func touchUpdateButton(sender: UIButton) {
-        resetPassword(passwordField.text, password_confirmation: confirmationField.text)
+        resetPassword(passwordField.text)
     }
 
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
@@ -51,13 +50,12 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(feedView, animated: true, completion: nil)
     }
 
-    private func resetPassword(password: String, password_confirmation: String) {
+    private func resetPassword(password: String) {
         hideKeyboard()
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
 
         let params = [
-            "password": password,
-            "password_confirmation": password_confirmation
+            "password": password
         ]
 
         Alamofire.request(Router.UpdatePassword(params: params)).responseJSON { (request, response, data, error) -> Void in
