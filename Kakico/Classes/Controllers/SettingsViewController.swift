@@ -5,9 +5,6 @@ import SwiftyJSON
 import KeychainAccess
 
 class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
-                                                  
-    // MARK: - Properties
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -16,7 +13,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     private var activeTextField = UITextField()
     private var keyboardLimit: CGFloat?
     @IBOutlet weak var submitButton: UIButton!
-    
+
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         initForm()
@@ -31,14 +29,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         removeKeyboardNotifications()
         super.viewWillDisappear(animated)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK: - Actions
-
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
         for textField : UITextField in textFields {
             textField.resignFirstResponder()
@@ -52,46 +44,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     @IBAction func editingTextField(sender: AnyObject) {
         validateSubmitButton()
     }
-
-    // MARK: - helpers
-    
-    func initForm() -> Void {
-        let keychain = Keychain(service: "nehan.Kakico")
-        if let userId = keychain["userId"] {
-            Alamofire.request(Router.GetUser(userId: userId.toInt()!)).responseJSON { (request, response, data, error) -> Void in
-                let json = JSON(data!)
-                println(json)
-                println(json["status"])
-                if json["status"] == 200 {
-                    self.nameTextField.text = json["contents"]["name"].string!
-                    self.emailTextField.text = json["contents"]["email"].string!
-                }
-            }
-        }
-    }
-    
-    func submit(name: String, email: String, password: String) {
-        let params = [
-            "name": name,
-            "email": email,
-            "password": password,
-            "password_confirmation": password
-        ]
-        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
-        Alamofire.request(Router.PostProfile(params: params)).responseJSON { (request, response, data, error) -> Void in
-            let json = JSON(data!)
-            println(json)
-            println(json["status"])
-            if json["status"] == 200 {
-                SVProgressHUD.showSuccessWithStatus("Edit Succeeded!", maskType: .Black)
-            } else{
-                let tmp = json["messages"]["user"]
-                SVProgressHUD.showErrorWithStatus(json["messages"]["user"].dictionary!.values.first?.stringValue)
-            }
-        }
-    }
-
-    // MARK: - UITextFieldDelegate
 
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         activeTextField = textField
@@ -115,13 +67,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         }
         return false
     }
-    
-    func validateSubmitButton() {
-        submitButton.enabled = nameTextField.hasText() && emailTextField.hasText()
-    }
 
-    // MARK: - Keyboard
-
+    // MARK: - Keyboard Notification
     func addKeyboardNotifications() {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
@@ -150,14 +97,45 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         scrollView.contentOffset.y = 0
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - API request methods
+    func initForm() -> Void {
+        let keychain = Keychain(service: "nehan.Kakico")
+        if let userId = keychain["userId"] {
+            Alamofire.request(Router.GetUser(userId: userId.toInt()!)).responseJSON { (request, response, data, error) -> Void in
+                let json = JSON(data!)
+                println(json)
+                println(json["status"])
+                if json["status"] == 200 {
+                    self.nameTextField.text = json["contents"]["name"].string!
+                    self.emailTextField.text = json["contents"]["email"].string!
+                }
+            }
+        }
     }
-    */
 
+    func submit(name: String, email: String, password: String) {
+        let params = [
+            "name": name,
+            "email": email,
+            "password": password,
+            "password_confirmation": password
+        ]
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+        Alamofire.request(Router.PostProfile(params: params)).responseJSON { (request, response, data, error) -> Void in
+            let json = JSON(data!)
+            println(json)
+            println(json["status"])
+            if json["status"] == 200 {
+                SVProgressHUD.showSuccessWithStatus("Edit Succeeded!", maskType: .Black)
+            } else{
+                let tmp = json["messages"]["user"]
+                SVProgressHUD.showErrorWithStatus(json["messages"]["user"].dictionary!.values.first?.stringValue)
+            }
+        }
+    }
+
+    // MARK: - Helpers
+    func validateSubmitButton() {
+        submitButton.enabled = nameTextField.hasText() && emailTextField.hasText()
+    }
 }

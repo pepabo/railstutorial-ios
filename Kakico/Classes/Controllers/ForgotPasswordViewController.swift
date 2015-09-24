@@ -4,10 +4,10 @@ import SwiftyJSON
 import SVProgressHUD
 
 class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
-    // MARK: - Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
 
+    // MARK: - View Events
     override func viewDidLoad() {
         validateSubmitButton()
     }
@@ -26,14 +26,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         validateSubmitButton()
     }
 
-    // MARK: - UITextFieldDelegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        emailTextField.resignFirstResponder()
-        validateSubmitButton()
-        return false
-    }
-
-    // MARK: -
+    // MARK: - Navigation
     func moveToLoginView() {
         let loginView = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
         loginView.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
@@ -41,6 +34,14 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         loginView.checkEmailPlease("Please check your email to reset your password.")
     }
 
+    // MARK: - UITextField Delegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        emailTextField.resignFirstResponder()
+        validateSubmitButton()
+        return false
+    }
+
+    // MARK: - API request methods
     func sendResetEmail(email: String) {
         emailTextField.resignFirstResponder()
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
@@ -61,6 +62,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    // MARK: - Helpers
     private func validateSubmitButton() {
         submitButton.enabled = emailTextField.hasText()
     }

@@ -4,7 +4,6 @@ import SwiftyJSON
 import KeychainAccess
 
 class ProfileHeaderViewController: UIViewController {
-    // MARK: - Properties
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var postCount: UIButton!
@@ -14,12 +13,14 @@ class ProfileHeaderViewController: UIViewController {
 
     var _selectUserId = 0
     var userId = 0
-    
+
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         request(_selectUserId)
     }
 
+    // MARK: - Actions
     @IBAction func toggleFollow(sender: followButton) {
         let state = sender.titleLabel?.text
         switch state as String! {
@@ -34,6 +35,28 @@ class ProfileHeaderViewController: UIViewController {
         }
     }
 
+    // MARK: - Navigation
+    func showEditProfile() {
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsView") as! UIViewController
+        self.showViewController(viewController, sender: nil)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if let userView = segue.destinationViewController as? UserViewController {
+            let type = segue.identifier!
+            switch type {
+            case "Followers":
+                userView._listType = "Followers"
+            case "Following":
+                userView._listType = "Following"
+            default:
+                println("undefined segue.identifier in ConfigViewController")
+            }
+            userView._selectedId = _selectUserId
+        }
+    }
+
+    // MARK: - API request methods
     func request(selectUserId: Int) {
         let keychain = Keychain(service: "nehan.Kakico")
         if let id = keychain["userId"] {
@@ -58,21 +81,6 @@ class ProfileHeaderViewController: UIViewController {
         }
     }
 
-    func showUnfollowingAlert(button: followButton) {
-        let alertController = UIAlertController(title: "Are you sure you want to unfollow?", message: "", preferredStyle: .ActionSheet)
-        let unfollowAction = UIAlertAction(title: "Unfollow", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
-            self.unfollow(button.tag)
-            button.followStyle()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
-            action in println("Unfollow canceled")
-        }
-
-        alertController.addAction(unfollowAction)
-        alertController.addAction(cancelAction)
-        presentViewController(alertController, animated: true, completion: nil)
-    }
-
     func follow(followedId: Int) {
         Alamofire.request(Router.PostRelationships(followedId: followedId))
     }
@@ -81,11 +89,7 @@ class ProfileHeaderViewController: UIViewController {
         Alamofire.request(Router.DeleteRelationships(followedId: followedId))
     }
 
-    func showEditProfile() {
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsView") as! UIViewController
-        self.showViewController(viewController, sender: nil)
-    }
-
+    // MARK: - Helpers
     func initFollowButton(following_status: Bool) {
         followUserButton.hidden = false
         followUserButton.tag = _selectUserId
@@ -105,18 +109,18 @@ class ProfileHeaderViewController: UIViewController {
         }
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if let userView = segue.destinationViewController as? UserViewController {
-            let type = segue.identifier!
-            switch type {
-            case "Followers":
-                userView._listType = "Followers"
-            case "Following":
-                userView._listType = "Following"
-            default:
-                println("undefined segue.identifier in ConfigViewController")
-            }
-            userView._selectedId = _selectUserId
+    func showUnfollowingAlert(button: followButton) {
+        let alertController = UIAlertController(title: "Are you sure you want to unfollow?", message: "", preferredStyle: .ActionSheet)
+        let unfollowAction = UIAlertAction(title: "Unfollow", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
+            self.unfollow(button.tag)
+            button.followStyle()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            action in println("Unfollow canceled")
         }
+
+        alertController.addAction(unfollowAction)
+        alertController.addAction(cancelAction)
+        presentViewController(alertController, animated: true, completion: nil)
     }
 }

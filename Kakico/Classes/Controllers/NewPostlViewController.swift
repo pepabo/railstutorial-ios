@@ -4,8 +4,6 @@ import SwiftyJSON
 import SVProgressHUD
 
 class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    // MARK: - Properties
     @IBOutlet weak var contentField: UITextView!
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -47,22 +45,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func showDeletingAlert() {
-        let alertController = UIAlertController(title: "Are you sure you want to delete the picture?", message: "", preferredStyle: .ActionSheet)
-        let logoutAction = UIAlertAction(title: "Delete", style: .Default) {
-            action in self.pictureImageView.image = nil
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
-            action in println("Delete picture canceled")
-        }
-
-        alertController.addAction(logoutAction)
-        alertController.addAction(cancelAction)
-
-        presentViewController(alertController, animated: true, completion: nil)
-    }
-
-    // MARK: - UITextFieldDelegate
+    // MARK: - UITextField Delegate
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         textView.resignFirstResponder()
         return true
@@ -80,20 +63,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
         setPlaceHolder(textView)
     }
 
-    private func setPlaceHolder(textView: UITextView) {
-        if textView.hasText() {
-            textView.placeholder = ""
-        } else {
-            textView.placeholder = "Compose new micropost..."
-        }                           
-    }
-
-    func checkValidMicropostContent() {
-        let text = contentField.text ?? ""
-        saveButton.enabled = !text.isEmpty
-    }
-
-    // MARK: - UIImagePickerControllerDelegate
+    // MARK: - UIImagePickerController Delegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -104,7 +74,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    // MARK: -
+    // MARK: - API request methods
     func post(content: String, picture: UIImage?) {
         SVProgressHUD.showWithMaskType(.Black)
         contentField.resignFirstResponder()
@@ -139,5 +109,34 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
                     println(encodingError)
                 }
         })
+    }
+
+    // MARK: - Helpers
+    private func setPlaceHolder(textView: UITextView) {
+        if textView.hasText() {
+            textView.placeholder = ""
+        } else {
+            textView.placeholder = "Compose new micropost..."
+        }
+    }
+
+    func checkValidMicropostContent() {
+        let text = contentField.text ?? ""
+        saveButton.enabled = !text.isEmpty
+    }
+
+    func showDeletingAlert() {
+        let alertController = UIAlertController(title: "Are you sure you want to delete the picture?", message: "", preferredStyle: .ActionSheet)
+        let logoutAction = UIAlertAction(title: "Delete", style: .Default) {
+            action in self.pictureImageView.image = nil
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            action in println("Delete picture canceled")
+        }
+
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelAction)
+
+        presentViewController(alertController, animated: true, completion: nil)
     }
 }

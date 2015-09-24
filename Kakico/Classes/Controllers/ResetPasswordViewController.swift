@@ -5,7 +5,6 @@ import KeychainAccess
 import SVProgressHUD
 
 class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
-    // MARK: - Properties
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var updateButton: UIButton!
@@ -28,6 +27,13 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         validateSubmitButton()
     }
 
+    // MARK: - Navigation
+    func moveToFeedView() {
+        let feedView = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
+        feedView.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.presentViewController(feedView, animated: true, completion: nil)
+    }
+
     // MARK: - UITextFieldDelegate
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         validateSubmitButton()
@@ -43,13 +49,7 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         return false
     }
 
-    // MARK: -
-    func moveToFeedView() {
-        let feedView = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
-        feedView.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        self.presentViewController(feedView, animated: true, completion: nil)
-    }
-
+    // MARK: - API request methods
     private func resetPassword(password: String) {
         hideKeyboard()
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
@@ -73,6 +73,7 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    // MARK: - Helpers
     func validateSubmitButton() {
         var result = true
         for textField : UITextField in textFields {

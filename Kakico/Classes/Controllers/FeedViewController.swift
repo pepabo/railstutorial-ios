@@ -10,7 +10,6 @@ class FeedViewController: MicropostViewController {
         super.viewDidLoad()
         request(size: 30)
 
-        // Add infinite scroll handler
         addInfiniteScroll()
 
         self.refreshControl = UIRefreshControl()
@@ -38,7 +37,7 @@ class FeedViewController: MicropostViewController {
         showViewController(viewController, sender: nil)
     }
 
-    // MARK: -
+    // MARK: - API request methods
     func resetFeed() {
         let params = [
             "size": self.microposts.size
@@ -74,6 +73,7 @@ class FeedViewController: MicropostViewController {
         }
     }
 
+    // MARK: - Helpers
     func addInfiniteScroll() {
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView

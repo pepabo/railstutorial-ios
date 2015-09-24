@@ -6,7 +6,6 @@ import UIScrollView_InfiniteScroll
 import KeychainAccess
 
 class MicropostViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
-    // MARK: - Properties
     var microposts = MicropostDataManager()
 
     // MARK: - View Events
@@ -18,6 +17,19 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
+    }
+
+    // MARK: - Actions
+    @IBAction func longPushed(sender: UILongPressGestureRecognizer) {
+        let tappedPoint = sender.locationInView(self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(tappedPoint)
+
+        let keychain = Keychain(service: "nehan.Kakico")
+        let userId = keychain["userId"]
+
+        if self.microposts[indexPath!.row].userId == userId?.toInt() {
+            self.deleteMicropost(indexPath!)
+        }
     }
 
     // MARK: - Table view data source
@@ -62,20 +74,31 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
         return UITableViewAutomaticDimension
     }
 
-    // MARK: - Actions
-    @IBAction func longPushed(sender: UILongPressGestureRecognizer) {
-        let tappedPoint = sender.locationInView(self.tableView)
-        let indexPath = self.tableView.indexPathForRowAtPoint(tappedPoint)
-
-        let keychain = Keychain(service: "nehan.Kakico")
-        let userId = keychain["userId"]
-
-        if self.microposts[indexPath!.row].userId == userId?.toInt() {
-            self.deleteMicropost(indexPath!)
+    // MARK: - API request methods
+    func deleteMicropost(indexPath: NSIndexPath) {
+        let alertController = UIAlertController(title: "Are you sure you want to delete this micropost?", message: "", preferredStyle: .ActionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
+            let micropostId = self.microposts[indexPath.row].id
+            let apiClient = APIClient()
+            apiClient.deleteMicropost(micropostId, onSuccess: { () -> Void in
+                println("Deleted micropost")
+                }, onFailure: { (error, messages) -> Void in
+                    println("We couldn't delete it, something was wrong")
+            })
+            self.microposts.deleteMicropost(indexPath.row)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            action in println("Delete micropost canceled")
         }
+
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+
+        presentViewController(alertController, animated: true, completion: nil)
     }
 
-    // MARK: -
+    // MARK: - Helpers
     func resetData() {
         self.microposts.drop()
     }
@@ -132,28 +155,4 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             self.tableView.separatorStyle = .SingleLine
         }
     }
-
-    func deleteMicropost(indexPath: NSIndexPath) {
-        let alertController = UIAlertController(title: "Are you sure you want to delete this micropost?", message: "", preferredStyle: .ActionSheet)
-        let deleteAction = UIAlertAction(title: "Delete", style: .Default, handler:{ (action:UIAlertAction!) -> Void in
-            let micropostId = self.microposts[indexPath.row].id
-            let apiClient = APIClient()
-            apiClient.deleteMicropost(micropostId, onSuccess: { () -> Void in
-                println("Deleted micropost")
-            }, onFailure: { (error, messages) -> Void in
-                println("We couldn't delete it, something was wrong")
-            })
-            self.microposts.deleteMicropost(indexPath.row)
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
-            action in println("Delete micropost canceled")
-        }
-
-        alertController.addAction(deleteAction)
-        alertController.addAction(cancelAction)
-
-        presentViewController(alertController, animated: true, completion: nil)
-    }
-
 }
