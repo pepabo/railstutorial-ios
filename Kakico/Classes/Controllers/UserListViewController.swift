@@ -4,7 +4,7 @@ import Alamofire
 import SwiftyJSON
 import KeychainAccess
 
-class UserViewController: UITableViewController {
+class UserListViewController: UITableViewController {
     var users = UserDataManager()
     var myId = 0
     var _selectedId = 0
@@ -97,7 +97,7 @@ class UserViewController: UITableViewController {
                 self.setUserList(data)
             }
         default:
-            println("undefined segue.identifier in UserViewController")
+            println("undefined segue.identifier in UserListViewController")
         }
     }
 

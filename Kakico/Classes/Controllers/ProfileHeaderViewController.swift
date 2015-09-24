@@ -42,7 +42,7 @@ class ProfileHeaderViewController: UIViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if let userView = segue.destinationViewController as? UserViewController {
+        if let userView = segue.destinationViewController as? UserListViewController {
             let type = segue.identifier!
             switch type {
             case "Followers":
