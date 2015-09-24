@@ -17,7 +17,6 @@ class UserViewController: UITableViewController {
         super.viewWillAppear(true)
         resetSeparatorStyle()
         SVProgressHUD.showWithMaskType(.Black)
-        users.drop()
         request(_listType)
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: "refreshUsers", forControlEvents: UIControlEvents.ValueChanged)
