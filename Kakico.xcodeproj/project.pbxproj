@@ -15,7 +15,7 @@
 		6B653F3C1BA67339008BAC59 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B653F3B1BA67339008BAC59 /* UserTests.swift */; };
 		6B653F3D1BA69174008BAC59 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C45141BA66FCC006195BF /* APIClient.swift */; };
 		6B8255FD1B8AC8BA005E2397 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8255FC1B8AC8BA005E2397 /* UserTableViewCell.swift */; };
-		6B8256011B8ACB8D005E2397 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8256001B8ACB8D005E2397 /* UserViewController.swift */; };
+		6B8256011B8ACB8D005E2397 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8256001B8ACB8D005E2397 /* UserListViewController.swift */; };
 		6B8256091B8AE755005E2397 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8256081B8AE754005E2397 /* User.swift */; };
 		6B82560A1B8AE755005E2397 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8256081B8AE754005E2397 /* User.swift */; };
 		6B8C45151BA66FCC006195BF /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C45141BA66FCC006195BF /* APIClient.swift */; };
@@ -70,7 +70,7 @@
 		6B449CCB1BA26D1E00D25549 /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadViewController.swift; path = Controllers/LoadViewController.swift; sourceTree = "<group>"; };
 		6B653F3B1BA67339008BAC59 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTests.swift; path = Classes/Models/UserTests.swift; sourceTree = "<group>"; };
 		6B8255FC1B8AC8BA005E2397 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableViewCell.swift; path = Views/Cells/UserTableViewCell.swift; sourceTree = "<group>"; };
-		6B8256001B8ACB8D005E2397 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = Controllers/UserViewController.swift; sourceTree = "<group>"; };
+		6B8256001B8ACB8D005E2397 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListViewController.swift; path = Controllers/UserListViewController.swift; sourceTree = "<group>"; };
 		6B8256081B8AE754005E2397 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6B8C45141BA66FCC006195BF /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		6B8C45181BA67068006195BF /* APIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClientTests.swift; path = Classes/Models/APIClientTests.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 				6B449CCB1BA26D1E00D25549 /* LoadViewController.swift */,
 				89878BB11B844E8C004CCD77 /* FeedViewController.swift */,
 				AB785DDD1B846EED002DA142 /* NewPostlViewController.swift */,
-				6B8256001B8ACB8D005E2397 /* UserViewController.swift */,
+				6B8256001B8ACB8D005E2397 /* UserListViewController.swift */,
 				89A0FFF11B8D7BB000652A4B /* LoginViewController.swift */,
 				6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */,
 				6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */,
@@ -533,7 +533,7 @@
 				8969712F1B93F5C500B0CB4C /* Router.swift in Sources */,
 				89DAD6191B96C74300BB43A6 /* MenuViewController.swift in Sources */,
 				89C956351B9E88DC009C5BA2 /* UIColorExtension.swift in Sources */,
-				6B8256011B8ACB8D005E2397 /* UserViewController.swift in Sources */,
+				6B8256011B8ACB8D005E2397 /* UserListViewController.swift in Sources */,
 				89878BB21B844E8C004CCD77 /* FeedViewController.swift in Sources */,
 				6B8C45151BA66FCC006195BF /* APIClient.swift in Sources */,
 				893C220D1B983F9300C006E4 /* ProfileHeaderViewController.swift in Sources */,
