@@ -69,7 +69,6 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        println(info[UIImagePickerControllerOriginalImage])
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         pictureImageView.image = selectedImage
         dismissViewControllerAnimated(true, completion: nil)
