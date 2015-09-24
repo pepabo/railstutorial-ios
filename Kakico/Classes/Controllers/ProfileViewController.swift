@@ -31,6 +31,9 @@ class ProfileViewController: MicropostViewController {
 
     // MARK: - API request methods
     func refreshProfile() -> Void {
+        var profileHeaderView = self.childViewControllers.first as! ProfileHeaderViewController
+        profileHeaderView.request(_selectUserId)
+
         Alamofire.request(Router.GetLatestMicroposts(userId: self._selectUserId, lastUpdate: self.microposts.lastUpdate())).responseJSON { (request, response, data, error) -> Void in
             self.addData(data, refreshControl: self.refreshControl!)
         }
