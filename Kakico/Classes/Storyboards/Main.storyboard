@@ -68,8 +68,9 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NE1-O0-oeN">
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="hoga" translatesAutoresizingMaskIntoConstraints="NO" id="NE1-O0-oeN">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="57J-8D-zxc"/>
                                                 <constraint firstAttribute="width" constant="50" id="vWD-XP-wyg"/>
@@ -179,6 +180,7 @@
                             <outlet property="dataSource" destination="Lvb-ZI-qJv" id="4Tu-o5-OFd"/>
                             <outlet property="delegate" destination="Lvb-ZI-qJv" id="CZr-qG-oMR"/>
                             <outletCollection property="gestureRecognizers" destination="1qJ-6S-mYF" appends="YES" id="L7h-qg-Uhn"/>
+                            <outletCollection property="gestureRecognizers" destination="Pol-ei-I4Y" appends="YES" id="B9Z-V9-gD3"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Feed" id="Jbw-O7-ucR">
@@ -200,6 +202,11 @@
                         <action selector="longPushed:" destination="Lvb-ZI-qJv" id="hx8-Cr-VoK"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="Pol-ei-I4Y">
+                    <connections>
+                        <action selector="tapIcon:" destination="Lvb-ZI-qJv" id="lIv-Wg-6Yl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-216" y="-484"/>
         </scene>
@@ -2193,7 +2200,7 @@
         <!--Profile-->
         <scene sceneID="cpi-Lj-QyF">
             <objects>
-                <tableViewController id="Y87-VY-49y" customClass="ProfileViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProfileView" id="Y87-VY-49y" customClass="ProfileViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rig-xa-LSt">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="230"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2390,9 +2397,9 @@
         <image name="hamburger" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eph-rC-yrT"/>
-        <segue reference="t9R-Wy-UH5"/>
         <segue reference="6jz-1V-Yxg"/>
+        <segue reference="t9R-Wy-UH5"/>
+        <segue reference="eph-rC-yrT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

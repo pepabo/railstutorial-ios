@@ -23,6 +23,22 @@ class FeedViewController: MicropostViewController {
         resetFeed()
     }
 
+    // MARK: - Actions
+    @IBAction func tapIcon(sender: UITapGestureRecognizer) {
+        let tappedLocation = sender.locationInView(tableView)
+        let tappedPath = tableView.indexPathForRowAtPoint(tappedLocation)
+        let tappedRow = tappedPath?.row
+        showProfileView(microposts[tappedRow!].userId)
+    }
+
+    // MARK: - Navigation
+    private func showProfileView(userId: Int) {
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileView") as! ProfileViewController
+        viewController._selectUserId = userId
+        showViewController(viewController, sender: nil)
+    }
+
+    // MARK: -
     func resetFeed() {
         let params = [
             "size": self.microposts.size
