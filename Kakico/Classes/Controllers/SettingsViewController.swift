@@ -5,9 +5,7 @@ import SwiftyJSON
 import KeychainAccess
 
 class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
-                                                  
     // MARK: - Properties
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -16,7 +14,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     private var activeTextField = UITextField()
     private var keyboardLimit: CGFloat?
     @IBOutlet weak var submitButton: UIButton!
-    
+
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         initForm()
@@ -31,14 +30,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         removeKeyboardNotifications()
         super.viewWillDisappear(animated)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK: - Actions
-
     @IBAction func unFocusTextField(sender: UITapGestureRecognizer) {
         for textField : UITextField in textFields {
             textField.resignFirstResponder()
@@ -54,7 +47,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     }
 
     // MARK: - helpers
-    
     func initForm() -> Void {
         let keychain = Keychain(service: "nehan.Kakico")
         if let userId = keychain["userId"] {
@@ -92,7 +84,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     }
 
     // MARK: - UITextFieldDelegate
-
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         activeTextField = textField
         return true
@@ -121,7 +112,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     }
 
     // MARK: - Keyboard
-
     func addKeyboardNotifications() {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
@@ -149,15 +139,4 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     func handleKeyboardWillHideNotification(notification: NSNotification) {
         scrollView.contentOffset.y = 0
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

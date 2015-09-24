@@ -10,7 +10,6 @@ class FeedViewController: MicropostViewController {
         super.viewDidLoad()
         request(size: 30)
 
-        // Add infinite scroll handler
         addInfiniteScroll()
 
         self.refreshControl = UIRefreshControl()

@@ -8,6 +8,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
 
+    // MARK: - View Events
     override func viewDidLoad() {
         validateSubmitButton()
     }

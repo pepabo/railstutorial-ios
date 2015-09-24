@@ -4,7 +4,6 @@ import SwiftyJSON
 import SVProgressHUD
 
 class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
     // MARK: - Properties
     @IBOutlet weak var contentField: UITextView!
     @IBOutlet weak var pictureImageView: UIImageView!
@@ -47,6 +46,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    // MARK: -
     func showDeletingAlert() {
         let alertController = UIAlertController(title: "Are you sure you want to delete the picture?", message: "", preferredStyle: .ActionSheet)
         let logoutAction = UIAlertAction(title: "Delete", style: .Default) {

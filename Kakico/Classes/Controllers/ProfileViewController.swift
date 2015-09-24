@@ -28,6 +28,7 @@ class ProfileViewController: MicropostViewController {
         self.tableView.addSubview(refreshControl!)
     }
 
+    // MARK: -
     func refreshProfile() -> Void {
         Alamofire.request(Router.GetLatestMicroposts(userId: self._selectUserId, lastUpdate: self.microposts.lastUpdate())).responseJSON { (request, response, data, error) -> Void in
             self.addData(data, refreshControl: self.refreshControl!)

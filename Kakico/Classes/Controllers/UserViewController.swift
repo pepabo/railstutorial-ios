@@ -12,7 +12,6 @@ class UserViewController: UITableViewController {
     var _listType = ""
 
     // MARK: - View Events
-
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         resetSeparatorStyle()
@@ -23,6 +22,7 @@ class UserViewController: UITableViewController {
         self.tableView.addSubview(refreshControl!)
     }
 
+    // MARK: - Actions
     @IBAction func toggleFollow(sender: followButton) {
         if sender.isFollowing() {
             follow(sender.tag)
@@ -32,6 +32,7 @@ class UserViewController: UITableViewController {
         }
     }
 
+    // MARK: -
     func request(listType: String) {
         self.navigationItem.title = listType
 

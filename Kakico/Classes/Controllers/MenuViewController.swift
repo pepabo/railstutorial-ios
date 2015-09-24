@@ -2,11 +2,12 @@ import UIKit
 import KeychainAccess
 
 class MenuViewController: UITableViewController {
-
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    // MARK: -
     func removeKeychain() {
         var keychain = Keychain(service: "nehan.Kakico")
         keychain["authToken"] = nil

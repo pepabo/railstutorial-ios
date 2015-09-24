@@ -14,12 +14,14 @@ class ProfileHeaderViewController: UIViewController {
 
     var _selectUserId = 0
     var userId = 0
-    
+
+    // MARK: - View Events
     override func viewDidLoad() {
         super.viewDidLoad()
         request(_selectUserId)
     }
 
+    // MARK: - Actions
     @IBAction func toggleFollow(sender: followButton) {
         let state = sender.titleLabel?.text
         switch state as String! {
@@ -34,6 +36,7 @@ class ProfileHeaderViewController: UIViewController {
         }
     }
 
+    // MARK: -
     func request(selectUserId: Int) {
         let keychain = Keychain(service: "nehan.Kakico")
         if let id = keychain["userId"] {
