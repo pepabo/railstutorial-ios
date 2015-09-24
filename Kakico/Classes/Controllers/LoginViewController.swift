@@ -5,7 +5,6 @@ import SwiftyJSON
 import KeychainAccess
 
 class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
-    // MARK: - Properties
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -46,7 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
         validateSubmitButton()
     }
 
-    // MARK: - UITextFieldDelegate
+    // MARK: - UITextField Delegate
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         activeTextField = textField
         return true
@@ -64,18 +63,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
         validateSubmitButton()
         return true
     }
-    
-    func validateSubmitButton() {
-        let email = emailField.text ?? ""
-        let password = passwordField.text ?? ""
-        loginButton.enabled = checkPresenceField(email, password: password)
-    }
 
-    func checkPresenceField(email: String, password: String) -> Bool{
-        return !email.isEmpty && !password.isEmpty
-    }
-
-    // MARK: - Keyboard
+    // MARK: - Keyboard Notification
     func addKeyboardNotifications() {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
@@ -104,7 +93,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
         scrollView.contentOffset.y = 0
     }
 
-    // MARK: -
+    // MARK: - API request methods
     func login(email: String, password: String) {
         let params = [
             "email": email,
@@ -127,7 +116,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIScrollViewDe
             }
         }
     }
-    
+
+    // MARK: - Helpers
+    func validateSubmitButton() {
+        let email = emailField.text ?? ""
+        let password = passwordField.text ?? ""
+        loginButton.enabled = checkPresenceField(email, password: password)
+    }
+
+    func checkPresenceField(email: String, password: String) -> Bool{
+        return !email.isEmpty && !password.isEmpty
+    }
+
     func checkEmailPlease(message: String) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in })

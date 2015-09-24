@@ -13,7 +13,7 @@ class LoadViewController: UIViewController {
         }
     }
 
-    // MARK: -
+    // MARK: - Helpers
     private func logined() -> Bool {
         var keychain = Keychain(service: "nehan.Kakico")
         return keychain["authToken"] != nil && keychain["userId"] != nil

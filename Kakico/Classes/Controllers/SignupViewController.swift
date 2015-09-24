@@ -4,7 +4,6 @@ import SVProgressHUD
 import SwiftyJSON
 
 class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
-    // MARK: - Properties
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var nameTextField: UITextField!
@@ -45,7 +44,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         validateSubmitButton()
     }
 
-    // MARK: - UITextFieldDelegate
+    // MARK: - UITextField Delegate
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         activeTextField = textField
         return true
@@ -69,20 +68,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         }
         return false
     }
-    
-    func validateSubmitButton() {
-        signUpButton.enabled = checkPresenceField()
-    }
-    
-    func checkPresenceField() -> Bool{
-        var result = true
-        for textField : UITextField in textFields {
-            result = result && textField.hasText()
-        }
-        return result
-    }
 
-    // MARK: - Keyboard
+    // MARK: - Keyboard Notification
     func addKeyboardNotifications() {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
@@ -111,7 +98,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         scrollView.contentOffset.y = 0
     }
 
-    // MARK: -
+    // MARK: - API request methods
     func create(name: String, email: String, password: String) {
         let params = [
             "name": name,
@@ -134,5 +121,18 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
                 SVProgressHUD.showErrorWithStatus(json["messages"]["user"].dictionary!.values.first?.stringValue)
             }
         }
+    }
+
+    // MARK: - Helpers
+    func validateSubmitButton() {
+        signUpButton.enabled = checkPresenceField()
+    }
+
+    func checkPresenceField() -> Bool{
+        var result = true
+        for textField : UITextField in textFields {
+            result = result && textField.hasText()
+        }
+        return result
     }
 }
