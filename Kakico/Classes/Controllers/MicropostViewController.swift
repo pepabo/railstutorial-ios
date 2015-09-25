@@ -119,7 +119,6 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
-            resetSeparatorStyle()
             SVProgressHUD.dismiss()
         }
     }
@@ -143,16 +142,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
             if let refreshControl = self.refreshControl {
                 refreshControl.endRefreshing()
             }
-            resetSeparatorStyle()
             SVProgressHUD.dismiss()
-        }
-    }
-
-    func resetSeparatorStyle() -> Void {
-        if self.microposts.size == 0 {
-            self.tableView.separatorStyle = .None
-        } else {
-            self.tableView.separatorStyle = .SingleLine
         }
     }
 }
