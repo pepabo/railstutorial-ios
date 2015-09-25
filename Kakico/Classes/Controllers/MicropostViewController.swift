@@ -16,19 +16,19 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 
     // MARK: - Actions
     @IBAction func longPushed(sender: UILongPressGestureRecognizer) {
-        let tappedPoint = sender.locationInView(self.tableView)
-        let indexPath = self.tableView.indexPathForRowAtPoint(tappedPoint)
+        let tappedPoint = sender.locationInView(tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(tappedPoint)
 
         let keychain = Keychain(service: "nehan.Kakico")
         let userId = keychain["userId"]
 
-        if self.microposts[indexPath!.row].userId == userId?.toInt() {
-            self.deleteMicropost(indexPath!)
+        if microposts[indexPath!.row].userId == userId?.toInt() {
+            deleteMicropost(indexPath!)
         }
     }
 
@@ -38,13 +38,13 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.microposts.size
+        return microposts.size
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "Micropost"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MicropostCell
-        let micropost = self.microposts[indexPath.row] as Micropost
+        let micropost = microposts[indexPath.row] as Micropost
 
         cell.userNameLabel.text = micropost.userName
         cell.contentLabel.text = micropost.content
@@ -65,7 +65,7 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
     }
 
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let micropost = self.microposts[indexPath.row] as Micropost
+        let micropost = microposts[indexPath.row] as Micropost
 
         return micropost.havePicture() ? 216 : 66
     }
@@ -111,10 +111,10 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
 
             for (index: String, subJson: JSON) in json["contents"] {
                 let micropost = Micropost(data: subJson)
-                self.microposts.set(micropost)
+                microposts.set(micropost)
             }
 
-            self.microposts.nextPage = json["next_page"].intValue
+            microposts.nextPage = json["next_page"].intValue
 
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
@@ -134,12 +134,12 @@ class MicropostViewController: UITableViewController, UITableViewDataSource, UIT
                 let micropost = Micropost(data: subJson)
                 newMicroposts.append(micropost)
             }
-            self.microposts.add(newMicroposts)
+            microposts.add(newMicroposts)
 
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
-            if let refreshControl = self.refreshControl {
+            if let refreshControl = refreshControl {
                 refreshControl.endRefreshing()
             }
             SVProgressHUD.dismiss()

@@ -44,23 +44,23 @@ class MicropostDataManager: NSObject {
     var nextPage: Int?
 
     override init() {
-        self.microposts = []
+        microposts = []
     }
 
     var size : Int {
-        return self.microposts.count
+        return microposts.count
     }
 
     subscript(index: Int) -> Micropost {
-        return self.microposts[index]
+        return microposts[index]
     }
 
     func set(micropost: Micropost) {
-        self.microposts.append(micropost)
+        microposts.append(micropost)
     }
     
     func add(micropost: Micropost) {
-        self.microposts.insert(micropost, atIndex: 0)
+        microposts.insert(micropost, atIndex: 0)
     }
 
     func add(microposts: [Micropost]) {
@@ -68,11 +68,11 @@ class MicropostDataManager: NSObject {
     }
 
     func deleteMicropost(index: Int) {
-        self.microposts.removeAtIndex(index)
+        microposts.removeAtIndex(index)
     }
 
     func drop() {
-        self.microposts.removeAll()
+        microposts.removeAll()
     }
 
     func lastUpdate() -> Int {

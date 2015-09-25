@@ -28,19 +28,19 @@ class UserDataManager: NSObject {
     var nextPage: Int?
     
     override init() {
-        self.users = []
+        users = []
     }
     
     var size : Int {
-        return self.users.count
+        return users.count
     }
     
     subscript(index: Int) -> User {
-        return self.users[index]
+        return users[index]
     }
     
     func set(user: User) {
-        self.users.append(user)
+        users.append(user)
     }
 
     func set(users: [User]) {
@@ -48,6 +48,6 @@ class UserDataManager: NSObject {
     }
 
     func drop() {
-        self.users.removeAll()
+        users.removeAll()
     }
 }

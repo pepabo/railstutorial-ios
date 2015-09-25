@@ -28,8 +28,8 @@ class LoadViewController: UIViewController {
     }
 
     private func showNextView(view: String) {
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(view) as! UIViewController
+        let viewController = storyboard?.instantiateViewControllerWithIdentifier(view) as! UIViewController
         viewController.modalTransitionStyle = .CrossDissolve
-        self.presentViewController(viewController, animated: true, completion: nil)
+        presentViewController(viewController, animated: true, completion: nil)
     }
 }

@@ -29,9 +29,9 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Navigation
     func moveToFeedView() {
-        let feedView = self.storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
+        let feedView = storyboard!.instantiateViewControllerWithIdentifier("FeedNavigationController") as! UIViewController
         feedView.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        self.presentViewController(feedView, animated: true, completion: nil)
+        presentViewController(feedView, animated: true, completion: nil)
     }
 
     // MARK: - UITextFieldDelegate

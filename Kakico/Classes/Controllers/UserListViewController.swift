@@ -16,9 +16,9 @@ class UserListViewController: UITableViewController {
         resetSeparatorStyle()
         SVProgressHUD.showWithMaskType(.Black)
         request(_listType)
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl!.addTarget(self, action: "refreshUsers", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.addSubview(refreshControl!)
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: "refreshUsers", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl!)
     }
 
     // MARK: - Actions
@@ -37,14 +37,14 @@ class UserListViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.users.size
+        return users.size
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "UserTableViewCell"
 
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UserTableViewCell
-        let user = self.users[indexPath.row] as User
+        let user = users[indexPath.row] as User
         cell.userName.text = user.name
         cell.userIcon.sd_setImageWithURL(user.icon)
         initFollowButton(cell.followUserButton, user: user)
@@ -64,15 +64,15 @@ class UserListViewController: UITableViewController {
         if segue.identifier == "ProfileView" {
             var profileView: ProfileViewController = segue.destinationViewController as! ProfileViewController
 
-            let indexPath : NSIndexPath = self.tableView.indexPathForSelectedRow()!
-            let user = self.users[indexPath.row] as User
+            let indexPath : NSIndexPath = tableView.indexPathForSelectedRow()!
+            let user = users[indexPath.row] as User
             profileView._selectUserId = user.id
         }
     }
 
     // MARK: - API request methods
     func request(listType: String) {
-        self.navigationItem.title = listType
+        navigationItem.title = listType
 
         let keychain = Keychain(service: "nehan.Kakico")
         if let id = keychain["userId"] {
@@ -139,7 +139,7 @@ class UserListViewController: UITableViewController {
                 newUsers.append(user)
             }
 
-            self.users.nextPage = json["next_page"].intValue
+            users.nextPage = json["next_page"].intValue
 
             dispatch_async(dispatch_get_main_queue(), {
                 self.users.drop()
@@ -147,7 +147,7 @@ class UserListViewController: UITableViewController {
                 self.tableView!.reloadData()
                 self.refreshControl!.endRefreshing()
             })
-            self.resetSeparatorStyle()
+            resetSeparatorStyle()
             SVProgressHUD.dismiss()
         }
     }
