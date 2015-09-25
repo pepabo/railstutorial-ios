@@ -34,7 +34,7 @@ class followButton: UIButton {
     }
 
     override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-        var rect: CGRect = self.bounds
+        var rect: CGRect = bounds
         rect.origin.x -= 10
         rect.origin.y -= 10
         rect.size.width += 20

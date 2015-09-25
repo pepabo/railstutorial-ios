@@ -13,9 +13,9 @@ class ProfileViewController: MicropostViewController {
         super.viewDidLoad()
         request(_selectUserId)
 
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl!.addTarget(self, action: "refreshProfile", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.addSubview(refreshControl!)
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: "refreshProfile", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl!)
     }
 
     // MARK: - Navigation
@@ -23,7 +23,7 @@ class ProfileViewController: MicropostViewController {
         if segue.identifier == "ProfileHeaderView" {
             var headerView: ProfileHeaderViewController = segue.destinationViewController as! ProfileHeaderViewController
 
-            headerView._selectUserId = self._selectUserId
+            headerView._selectUserId = _selectUserId
         }
     }
 
@@ -52,10 +52,10 @@ class ProfileViewController: MicropostViewController {
 
     // MARK: - API request methods
     func refreshProfile() -> Void {
-        var profileHeaderView = self.childViewControllers.first as! ProfileHeaderViewController
+        var profileHeaderView = childViewControllers.first as! ProfileHeaderViewController
         profileHeaderView.request(_selectUserId)
 
-        Alamofire.request(Router.GetLatestMicroposts(userId: self._selectUserId, lastUpdate: self.microposts.lastUpdate())).responseJSON { (request, response, data, error) -> Void in
+        Alamofire.request(Router.GetLatestMicroposts(userId: _selectUserId, lastUpdate: microposts.lastUpdate())).responseJSON { (request, response, data, error) -> Void in
             self.addData(data, refreshControl: self.refreshControl!)
         }
     }

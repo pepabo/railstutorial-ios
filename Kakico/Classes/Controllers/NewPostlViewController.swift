@@ -31,7 +31,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UIImagePicker
     }
 
     @IBAction func deletePicture(sender: AnyObject) {
-        if self.pictureImageView.image != nil {
+        if pictureImageView.image != nil {
             showDeletingAlert()
         }
     }

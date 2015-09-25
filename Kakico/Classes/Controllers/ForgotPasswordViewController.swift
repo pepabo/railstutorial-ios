@@ -28,9 +28,9 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Navigation
     func moveToLoginView() {
-        let loginView = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        let loginView = storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
         loginView.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        self.presentViewController(loginView, animated: true, completion: nil)
+        presentViewController(loginView, animated: true, completion: nil)
         loginView.checkEmailPlease("Please check your email to reset your password.")
     }
 

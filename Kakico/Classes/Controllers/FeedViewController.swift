@@ -12,9 +12,9 @@ class FeedViewController: MicropostViewController {
 
         addInfiniteScroll()
 
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl!.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.addSubview(refreshControl!)
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl!)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -32,7 +32,7 @@ class FeedViewController: MicropostViewController {
 
     // MARK: - Navigation
     private func showProfileView(userId: Int) {
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileView") as! ProfileViewController
+        let viewController = storyboard?.instantiateViewControllerWithIdentifier("ProfileView") as! ProfileViewController
         viewController._selectUserId = userId
         showViewController(viewController, sender: nil)
     }
@@ -40,7 +40,7 @@ class FeedViewController: MicropostViewController {
     // MARK: - API request methods
     func resetFeed() {
         let params = [
-            "size": self.microposts.size
+            "size": microposts.size
         ]
 
         Alamofire.request(Router.GetFeed(params: params)).responseJSON { (request, response, data, error) -> Void in
@@ -50,7 +50,7 @@ class FeedViewController: MicropostViewController {
     }
     
     func refreshFeed() -> Void {
-        Alamofire.request(Router.GetLatestFeed(lastUpdate: self.microposts.lastUpdate())).responseJSON { (request, response, data, error) -> Void in
+        Alamofire.request(Router.GetLatestFeed(lastUpdate: microposts.lastUpdate())).responseJSON { (request, response, data, error) -> Void in
             self.addData(data, refreshControl: self.refreshControl!)
         }
     }

@@ -37,8 +37,8 @@ class ProfileHeaderViewController: UIViewController {
 
     // MARK: - Navigation
     func showEditProfile() {
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsView") as! UIViewController
-        self.showViewController(viewController, sender: nil)
+        let viewController = storyboard?.instantiateViewControllerWithIdentifier("SettingsView") as! UIViewController
+        showViewController(viewController, sender: nil)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

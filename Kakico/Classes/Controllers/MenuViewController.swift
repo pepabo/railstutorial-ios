@@ -9,9 +9,9 @@ class MenuViewController: UITableViewController {
 
     // MARK: - Navigation
     func moveToLoginView() {
-        let loginView = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
+        let loginView = storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
         loginView.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        self.presentViewController(loginView, animated: true, completion: nil)
+        presentViewController(loginView, animated: true, completion: nil)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

@@ -85,7 +85,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
-        var navigationBarHeight = self.navigationController!.navigationBar.frame.size.height
+        var navigationBarHeight = navigationController!.navigationBar.frame.size.height
         var txtLimit = activeTextField.frame.origin.y + activeTextField.frame.height + 30.0 + navigationBarHeight
         keyboardLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
         if txtLimit >= keyboardLimit {
