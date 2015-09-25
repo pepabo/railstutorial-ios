@@ -68,7 +68,7 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="hoga" translatesAutoresizingMaskIntoConstraints="NO" id="NE1-O0-oeN">
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="hoga" translatesAutoresizingMaskIntoConstraints="NO" id="NE1-O0-oeN" customClass="RoundRectImageView" customModule="Kakico" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <gestureRecognizers/>
                                             <constraints>
@@ -298,7 +298,7 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="H6q-0W-Q2P"/>
                                         </connections>
                                     </textView>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFx-V5-qcZ">
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFx-V5-qcZ" customClass="RoundRectImageView" customModule="Kakico" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -1133,7 +1133,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MkW-h6-wnG">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MkW-h6-wnG" customClass="RoundRectImageView" customModule="Kakico" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="IdJ-e2-4IQ"/>
@@ -1578,7 +1578,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L3e-Wl-OWc">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L3e-Wl-OWc" customClass="RoundRectImageView" customModule="Kakico" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="fPq-w8-eQA"/>
@@ -2221,7 +2221,7 @@
                                                 <rect key="frame" x="66" y="57" width="326" height="150"/>
                                             </variation>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0jk-Wi-AOg">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0jk-Wi-AOg" customClass="RoundRectImageView" customModule="Kakico" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="Leb-86-xIK"/>
@@ -2373,18 +2373,12 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="doK-bh-FiD" id="Qxg-Pb-62T">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrayIcon" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-AX-J9Z">
+                                        <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrayIcon" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-AX-J9Z" customClass="RoundRectImageView" customModule="Kakico" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="6LQ-M3-VfI"/>
                                                 <constraint firstAttribute="width" constant="28" id="ekP-Kf-ijy"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="6LQ-M3-VfI"/>
@@ -2458,9 +2452,9 @@
         <image name="hamburger" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="eph-rC-yrT"/>
         <segue reference="VpE-PQ-hPy"/>
         <segue reference="0n2-DH-ndl"/>
-        <segue reference="eph-rC-yrT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
