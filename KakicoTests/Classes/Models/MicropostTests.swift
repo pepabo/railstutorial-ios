@@ -54,6 +54,15 @@ class MicropostTests: XCTestCase {
         XCTAssertEqual("Just now", micropost.getTimeAgoInWords())
     }
 
+    func testHasNextPage() {
+        manager.nextPage = nil
+        XCTAssertFalse(manager.hasNextPage())
+        manager.nextPage = 0
+        XCTAssertFalse(manager.hasNextPage())
+        manager.nextPage = 1
+        XCTAssert(manager.hasNextPage())
+    }
+
     func createRandomMicropost(randomInt: Int = Int(arc4random())) -> Micropost {
         let contents: JSON = [
             "id": randomInt,

@@ -13,8 +13,6 @@ class ProfileViewController: MicropostViewController {
         super.viewDidLoad()
         request(_selectUserId)
 
-        addInfiniteScroll()
-
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: "refreshProfile", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
@@ -27,6 +25,29 @@ class ProfileViewController: MicropostViewController {
 
             headerView._selectUserId = self._selectUserId
         }
+    }
+
+    // MARK: - Table view data source
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return microposts.hasNextPage() ? microposts.size : microposts.size + 1
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if isLastMicropost(indexPath) {
+            removeInfiniteScroll()
+            let cellIdentifier = "Infomation"
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+            return cell
+        } else {
+            return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        }
+    }
+
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if isLastMicropost(indexPath) {
+            return UITableViewAutomaticDimension
+        }
+        return super.tableView(tableView, estimatedHeightForRowAtIndexPath: indexPath)
     }
 
     // MARK: - API request methods
@@ -58,5 +79,13 @@ class ProfileViewController: MicropostViewController {
             }
             tableView.finishInfiniteScroll()
         }
+    }
+
+    func removeInfiniteScroll() {
+        tableView.removeInfiniteScroll()
+    }
+
+    func isLastMicropost(indexPath:NSIndexPath) -> Bool {
+        return indexPath.row >= microposts.size
     }
 }

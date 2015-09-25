@@ -95,4 +95,8 @@ class MicropostDataManager: NSObject {
         }
         return microposts.reduce(microposts[0].id, combine: { min($0, $1.id) })
     }
+
+    func hasNextPage() -> Bool {
+        return nextPage != nil && nextPage! > 0
+    }
 }
