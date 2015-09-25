@@ -29,14 +29,11 @@ class ProfileViewController: MicropostViewController {
 
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if microposts.nextPage == nil {
-            return microposts.size
-        }
         return microposts.hasNextPage() ? microposts.size : microposts.size + 1
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row >= microposts.size {
+        if isLastMicropost(indexPath) {
             removeInfiniteScroll()
             let cellIdentifier = "Infomation"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UITableViewCell
@@ -47,7 +44,7 @@ class ProfileViewController: MicropostViewController {
     }
 
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row >= microposts.size {
+        if isLastMicropost(indexPath) {
             return UITableViewAutomaticDimension
         }
         return super.tableView(tableView, estimatedHeightForRowAtIndexPath: indexPath)
@@ -86,5 +83,9 @@ class ProfileViewController: MicropostViewController {
 
     func removeInfiniteScroll() {
         tableView.removeInfiniteScroll()
+    }
+
+    func isLastMicropost(indexPath:NSIndexPath) -> Bool {
+        return indexPath.row >= microposts.size
     }
 }
