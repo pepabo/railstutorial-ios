@@ -620,6 +620,9 @@
                                         <include reference="Zeg-18-il1"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -858,6 +861,9 @@
                                         <include reference="zlo-Jt-HPf"/>
                                         <include reference="EIV-nU-I6g"/>
                                     </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                                 </variation>
                             </scrollView>
                         </subviews>
@@ -2048,6 +2054,9 @@
                                         <include reference="Jj4-Hr-4bK"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="736"/>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2110,11 +2119,11 @@
             <objects>
                 <tableViewController storyboardIdentifier="ProfileView" id="Y87-VY-49y" customClass="ProfileViewController" customModule="Kakico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rig-xa-LSt">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="230"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="waq-l5-QbF">
-                            <rect key="frame" x="0.0" y="0.0" width="400" height="230"/>
+                            <rect key="frame" x="0.0" y="64" width="600" height="230"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <connections>
                                 <segue destination="4rZ-fU-Zsn" kind="embed" identifier="ProfileHeaderView" id="BQD-C8-vJZ"/>
@@ -2278,6 +2287,69 @@
                                     <outlet property="userNameLabel" destination="gYp-cr-wRb" id="MRN-KX-277"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Infomation" rowHeight="44" id="doK-bh-FiD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="doK-bh-FiD" id="Qxg-Pb-62T">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrayIcon" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-AX-J9Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="6LQ-M3-VfI"/>
+                                                <constraint firstAttribute="width" constant="28" id="ekP-Kf-ijy"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="6LQ-M3-VfI"/>
+                                                    <exclude reference="ekP-Kf-ijy"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="6LQ-M3-VfI"/>
+                                                    <include reference="ekP-Kf-ijy"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="lbH-AX-J9Z" secondAttribute="centerX" id="cIE-xI-hnU"/>
+                                        <constraint firstItem="lbH-AX-J9Z" firstAttribute="top" secondItem="Qxg-Pb-62T" secondAttribute="top" constant="8" id="icP-w2-GJF"/>
+                                        <constraint firstAttribute="bottom" secondItem="lbH-AX-J9Z" secondAttribute="bottom" constant="7.5" id="x3B-hT-vOj"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="lbH-AX-J9Z"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="cIE-xI-hnU"/>
+                                            <exclude reference="icP-w2-GJF"/>
+                                            <exclude reference="x3B-hT-vOj"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="lbH-AX-J9Z"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="cIE-xI-hnU"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="constraints">
+                                            <include reference="icP-w2-GJF"/>
+                                            <include reference="x3B-hT-vOj"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Y87-VY-49y" id="qc7-Y1-W0o"/>
@@ -2301,13 +2373,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GrayIcon" width="60" height="60"/>
         <image name="Splash" width="640" height="960"/>
         <image name="hamburger" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="VpE-PQ-hPy"/>
+        <segue reference="0n2-DH-ndl"/>
         <segue reference="eph-rC-yrT"/>
-        <segue reference="t9R-Wy-UH5"/>
-        <segue reference="6jz-1V-Yxg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
