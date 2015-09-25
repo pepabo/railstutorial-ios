@@ -2287,7 +2287,7 @@
                                     <outlet property="userNameLabel" destination="gYp-cr-wRb" id="MRN-KX-277"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Infomation" rowHeight="44" id="doK-bh-FiD">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Infomation" rowHeight="44" id="doK-bh-FiD">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="doK-bh-FiD" id="Qxg-Pb-62T">
