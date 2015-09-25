@@ -24,6 +24,7 @@
 		6BCAE9731BA6ABB300A5C447 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969712E1B93F5C500B0CB4C /* Router.swift */; };
 		6BCAE9761BA804AD00A5C447 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BCAE9751BA804AD00A5C447 /* user.json */; };
 		6BCAE9791BA81B5C00A5C447 /* APIStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE9781BA81B5C00A5C447 /* APIStub.swift */; };
+		6BE4C4251BB516CF00F59578 /* RoundRectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE4C4241BB516CF00F59578 /* RoundRectImageView.swift */; };
 		6BEBBBEA1B8EED81007EEF4A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */; };
 		6BF845CB1B956BE700BDFA11 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */; };
 		893C220B1B9835EE00C006E4 /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C220A1B9835EE00C006E4 /* MicropostViewController.swift */; };
@@ -77,6 +78,7 @@
 		6BB1A5381B9595A200813021 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = Controllers/ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		6BCAE9751BA804AD00A5C447 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = user.json; path = Fixtures/user.json; sourceTree = "<group>"; };
 		6BCAE9781BA81B5C00A5C447 /* APIStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIStub.swift; path = Helpers/APIStub.swift; sourceTree = "<group>"; };
+		6BE4C4241BB516CF00F59578 /* RoundRectImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundRectImageView.swift; path = Views/RoundRectImageView.swift; sourceTree = "<group>"; };
 		6BEBBBE91B8EED81007EEF4A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = Controllers/SignupViewController.swift; sourceTree = "<group>"; };
 		6BF845CA1B956BE700BDFA11 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		893C220A1B9835EE00C006E4 /* MicropostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicropostViewController.swift; path = Controllers/MicropostViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				6BD417081B8C0D500027BC14 /* Cells */,
 				ABB01A0F1BA7C81E004B2486 /* followButton.swift */,
+				6BE4C4241BB516CF00F59578 /* RoundRectImageView.swift */,
 				AB69D0CA1BB3D6CE00037EC7 /* UIImage+Rotation.swift */,
 			);
 			name = Views;
@@ -534,6 +537,7 @@
 				89DAD6191B96C74300BB43A6 /* MenuViewController.swift in Sources */,
 				89C956351B9E88DC009C5BA2 /* UIColorExtension.swift in Sources */,
 				6B8256011B8ACB8D005E2397 /* UserListViewController.swift in Sources */,
+				6BE4C4251BB516CF00F59578 /* RoundRectImageView.swift in Sources */,
 				89878BB21B844E8C004CCD77 /* FeedViewController.swift in Sources */,
 				6B8C45151BA66FCC006195BF /* APIClient.swift in Sources */,
 				893C220D1B983F9300C006E4 /* ProfileHeaderViewController.swift in Sources */,
